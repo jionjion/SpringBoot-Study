@@ -1,1 +1,13 @@
+# 应用名称
+spring:
+  application:
+    name: mvc
 
+    # 地址信息
+server:
+  port: 8080
+  address: 127.0.0.1
+debug: true
+logging:
+  level:
+    root: trace
