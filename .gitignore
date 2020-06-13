@@ -27,11 +27,23 @@ hs_err_pid*
 core/.mvn/
 core/target/
 
-web/.mvn/
-web/target/
+data-jdbc/.mvn/
+data-jdbc/target/
 
 data-jpa/.mvn/
 data-jpa/target/
 
 data-redis/.mvn/
 data-redis/target/
+
+mybatis/.mvn/
+mybatis/target/
+
+quartz/.mvn/
+quartz/target/
+
+thymeleaf/.mvn/
+thymeleaf/target/
+
+web/.mvn/
+web/target/
