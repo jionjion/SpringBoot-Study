@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.jionjion.mapper.StudentMapper">
+    <!-- Bean映射规则 -->
+    <resultMap id="UserResultMap" type="top.jionjion.bean.Student">
+        <id property="id" javaType="java.lang.Integer" column="id" jdbcType="INTEGER"/>
+        <result property="name" javaType="java.lang.String" column="name" jdbcType="VARCHAR"/>
+        <result property="age" javaType="java.lang.Integer" column="age" jdbcType="INTEGER"/>
+        <result property="address" javaType="java.lang.String" column="address" jdbcType="VARCHAR"/>
+        <result property="birthday" javaType="java.time.LocalDate" column="birthday" jdbcType="DATE"/>
+    </resultMap>
+
+    <select id="findByUserId" resultMap="UserResultMap" parameterType="java.lang.Integer">
+        SELECT
+            t.id,
+            t.name,
+            t.age,
+            t.address,
+            t.birthday
+        FROM
+            student t
+        WHERE
+            t.id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+
+spring:
+  mail:
+    host: smtp.aliyun.com
+    username: jionjion@aliyun.com
+    password: XXXXX
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    default-encoding: UTF-8
