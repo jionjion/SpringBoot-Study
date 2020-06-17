@@ -3,7 +3,7 @@
 
 <mapper namespace="top.jionjion.mapper.StudentMapper">
     <!-- Bean映射规则,当Bean属性与数据库表字段类型不同时,需要指定 -->
-    <resultMap id="UserResultMap" type="top.jionjion.bean.Student">
+    <resultMap id="StudentResultMap" type="top.jionjion.bean.Student">
         <id property="id" javaType="java.lang.Integer" column="id" jdbcType="INTEGER"/>
         <result property="name" javaType="java.lang.String" column="name" jdbcType="VARCHAR"/>
         <result property="age" javaType="java.lang.Integer" column="age" jdbcType="INTEGER"/>
@@ -12,19 +12,131 @@
     </resultMap>
 
     <!-- 根据ID查询 -->
-    <select id="findByUserId" resultMap="UserResultMap" parameterType="java.lang.Integer">
+    <select id="findStudentById" resultMap="StudentResultMap" parameterType="java.lang.Integer">
         SELECT
-            t.id,
-            t.name,
-            t.age,
-            t.address,
-            t.birthday
+            s.id,
+            s.name,
+            s.age,
+            s.address,
+            s.birthday
         FROM
-            student t
+            student s
         WHERE
-            t.id = #{id}
+            s.id = #{id,jdbcType=INTEGER}
     </select>
 
-    <!-- 根据日期查询 -->
+    <!-- 查询字段 -->
+    <sql id="student_table_column">
+            s.id,
+            s.name,
+            s.age,
+            s.address,
+            s.birthday
+    </sql>
 
+    <!-- 字符查询 -->
+    <select id="findStudentByName" resultMap="StudentResultMap" parameterType="java.lang.String">
+        select
+            <include refid="student_table_column"/>
+         from student s
+        where s.name = #{name}
+    </select>
+
+    <!-- 模糊条件, parameterType 可以简写类型 -->
+    <select id="findStudentByLikeName" resultMap="StudentResultMap" parameterType="string">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.name like concat('%', #{name}, '%')
+    </select>
+
+
+    <!-- 日期查询,日期类型参数 -->
+    <select id="findStudentByBirthdayDate" resultMap="StudentResultMap" parameterType="java.time.LocalDate">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.birthday = #{birthday}
+    </select>
+
+    <!-- 日期查询,字符类型参数 -->
+    <select id="findStudentByBirthdayStr" resultMap="StudentResultMap" parameterType="string">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.birthday = str_to_date(#{birthday},'%Y-%m-%d')
+    </select>
+
+    <!-- 范围查询 -->
+    <select id="findStudentByBirthdayBetween" resultMap="StudentResultMap" parameterType="string">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.birthday between str_to_date(#{birthdayFrom},'%Y-%m-%d') and str_to_date(#{birthdayTo},'%Y-%m-%d')
+    </select>
+
+    <!-- 范围查询,使用基本类型 -->
+    <select id="findStudentByIdBetween" resultMap="StudentResultMap" parameterType="_int">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.id between #{idFrom} and #{idTo}
+    </select>
+
+    <!-- 总数查询 -->
+    <select id="findCount" resultType="java.lang.Long">
+        select count(*) from student s
+    </select>
+
+    <!-- 伪列 -->
+    <select id="findRow" resultType="java.util.Map" >
+        select
+            row_number() over () as "num",
+            <include refid="student_table_column"/>
+        from student s
+    </select>
+
+    <!-- 范围 -->
+    <select id="findStudentByIdIn" resultMap="StudentResultMap" parameterType="java.util.List">
+        select
+            <include refid="student_table_column"/>
+        from student s
+        where s.id in
+            <foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+              #{id}
+            </foreach>
+    </select>
+
+    <!-- 大小,使用转义字符或者原生字符进行包裹 -->
+    <select id="findStudentByIdLt" resultMap="StudentResultMap" parameterType="int">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.id <![CDATA[ <= ]]> #{id}
+           and s.id &lt;= #{id}
+    </select>
+
+    <!-- 判空 -->
+    <select id="findStudentByAgeNull" resultMap="StudentResultMap">
+        select
+            <include refid="student_table_column"/>
+          from student s
+         where s.age is null
+    </select>
+
+    <!-- 排序 -->
+    <select id="findAllOrderByIdDesc" resultMap="StudentResultMap">
+        select
+            <include refid="student_table_column"/>
+         from student s
+        order by s.id desc
+    </select>
+
+    <!-- 分页 -->
+    <select id="findAllLimit" resultMap="StudentResultMap" parameterType="_int">
+        select
+            <include refid="student_table_column"/>
+         from student s
+        limit  #{index}, #{pageSize}
+    </select>
 </mapper>
