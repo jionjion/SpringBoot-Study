@@ -36,6 +36,9 @@ data-jpa/target/
 data-redis/.mvn/
 data-redis/target/
 
+mail/.mvn/
+mail/target/
+
 mybatis/.mvn/
 mybatis/target/
 
