@@ -7,6 +7,17 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+# Mybatis的配置信息
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: top.jionjion.bean
+  # config-location: # 配置文件的位置
+  # mapper-locations: # mapper文件的位置
+  # type-aliases-package: # 别名类的包扫描的位置;
+  # type-aliases-super-type: # 过滤类,仅对于该子类进行别名包扫描.别名首字母小写,驼峰命名
+  # type-handlers-package: # 类型转换过滤器
+  # check-config-location: # 是否进行检查配置文件信息
+  # executor-type: # 执行器模式
+  # default-scripting-language-driver: # 语言驱动
+  # configuration.*: # 更多扩展配置,参考 org.apache.ibatis.session.Configuration
 

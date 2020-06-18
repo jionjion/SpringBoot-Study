@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotNull;
 public class RedisTemplateTest extends DataRedisApplicationTest {
 
 /*
-接口	                        描述,操作对象
+接口	                    描述,操作对象
 GeoOperations               空间地理
 HashOperations              Hash 操作
 HyperLogLogOperations       HyperLogLog 操作
