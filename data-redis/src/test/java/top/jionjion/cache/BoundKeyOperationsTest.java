@@ -120,6 +120,4 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
     public void testRename(){
          boundKeyOperations.rename("KeyB");
     }
-
-
 }

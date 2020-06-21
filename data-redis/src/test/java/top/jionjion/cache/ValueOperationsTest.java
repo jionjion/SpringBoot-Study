@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 /**
  * @author Jion
  *  测试 Value
- *      ValueOperations 对List的操作
+ *      ValueOperations 对 Values 的操作
  */
 @Slf4j
 public class ValueOperationsTest extends DataRedisApplicationTest {
@@ -115,7 +115,7 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 getset key value
+     *  语法 GETSET key value
      *  将key对应的值替换为value,并将替换之前的value返回.如果是新建,则返回nil
      */
     @Test
@@ -184,6 +184,7 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
 
     /**
      *  语法 INCRBY key increment
+     *  将key对应的值进行自增
      *  其中,key对应的值必须为整数类型,increment为整数,表示将key对应的值其加上increment增量
      */
     @Test
@@ -228,7 +229,7 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法MSET key value [key value ...]
+     *  语法 MSET key value [key value ...]
      *  其中,key为字符类型,value不做限制,表示对一个或者多对键值对进行赋值,如果key重复,则更新对应的value
      */
     @Test
@@ -269,7 +270,4 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
         assertNotNull(results);
         log.info(results.toString());
     }
-
-
-
 }

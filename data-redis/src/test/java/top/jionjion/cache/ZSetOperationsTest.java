@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 /**
  * @author Jion
  * 测试 ZSet类
- * 操作 集合 ZSet
+ *  SetOperations 对 ZSet 的操作
  */
 @Slf4j
 public class ZSetOperationsTest extends DataRedisApplicationTest {
@@ -85,8 +85,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZADD  [NX|XX] [CH] [INCR] score member [score member ...]`
-     *  将成员`member`和指定排序顺序`score`放入有序集合`key`中.其中,`score`必须为数字,精度不限,正负不限,越小,排序越靠前.`score`数字相同,则根据字典字母A-Z顺序排序.
+     *  语法 ZADD  [NX|XX] [CH] [INCR] score member [score member ...]
+     *  将成员member和指定排序顺序score放入有序集合key中.其中,score必须为数字,精度不限,正负不限,越小,排序越靠前.score数字相同,则根据字典字母A-Z顺序排序.
      *  如果成员已经存在,则添加失败
      */
     @Test
@@ -108,8 +108,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZSCORE key member`
-     *  返回成员`member`在有序集合`key`中的顺序.如果`key`不是有序集合,或者`key`不存在,返回`nil`
+     *  语法 ZSCORE key member
+     *  返回成员member在有序集合key中的顺序.如果key不是有序集合,或者key不存在,返回nil
      */
     @Test
     public void testScore(){
@@ -119,8 +119,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZINCRBY key increment member`
-     *  为有序集合`key`中的成员`member`的`order`顺序加上增量`increment`.其中,`key`必须为有序集合,`increment`增量可正可负,精度不限.
+     *  语法 ZINCRBY key increment member
+     *  为有序集合key中的成员member的order顺序加上增量increment.其中,key必须为有序集合,increment增量可正可负,精度不限.
      *  返回,修改后的成员所在集合的位置
      */
     @Test
@@ -131,8 +131,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZCARD key`
-     *  返回有序集合`key`的长度.
+     *  语法 ZCARD key
+     *  返回有序集合key的长度.
      */
     @Test
     public void testZCard(){
@@ -142,8 +142,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZCOUNT key min max`
-     *  获得有序集合`key`中,排序值在`min`和`max`闭区间内的成员数量.`min`和`max`必须为数字,大小不限制.
+     *  语法 ZCOUNT key min max
+     *  获得有序集合key中,排序值在min和max闭区间内的成员数量.min和max必须为数字,大小不限制.
      */
     @Test
     public void testCount(){
@@ -153,8 +153,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZRANGE key start stop [WITHSCORES]`
-     *  获得有序集合`key`的指定索引区间内的成员.索引从0开始,-1表示最后一个.当`start`和`stop`超出索引边界后,只回返回对应边界的极值所在的值.可选参数`withscores`表示返回对应成员的排序大小.
+     *  语法 ZRANGE key start stop [WITHSCORES]
+     *  获得有序集合key的指定索引区间内的成员.索引从0开始,-1表示最后一个.当start和stop超出索引边界后,只回返回对应边界的极值所在的值.可选参数withscores表示返回对应成员的排序大小.
      *  返回值,按照排序值,从小到大排列.相同排序值成员根据字典顺序排序.
      */
     @Test
@@ -175,9 +175,9 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
 
 
     /**
-     *  语法 `ZREVRANGE key start stop [WITHSCORES]`
-     *  获得有序集合`key`的指定索引区间内的成员.索引从0开始,-1表示最后一个.
-     *  当`start`和`stop`超出索引边界后,只回返回对应边界的极值所在的值.可选参数`withscores`表示返回对应成员的排序大小.
+     *  语法 ZREVRANGE key start stop [WITHSCORES]
+     *  获得有序集合key的指定索引区间内的成员.索引从0开始,-1表示最后一个.
+     *  当start和stop超出索引边界后,只回返回对应边界的极值所在的值.可选参数withscores表示返回对应成员的排序大小.
      *  返回值,按照排序值,从大到小排列.相同排序值成员根据字典顺序排序.
      */
     @Test
@@ -197,9 +197,9 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]`
-     *  获得有序集合`key`中,所有的成员的排序值在`min`和`max`闭区间内的成员.
-     *  可以通过`(`,`)`限制区间为开区间.
+     *  语法 ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+     *  获得有序集合key中,所有的成员的排序值在min和max闭区间内的成员.
+     *  可以通过(,)限制区间为开区间.
      *  返回结果根据排序值从小到大排列,相同的成员根据字典顺序排列.
      */
     @Test
@@ -229,9 +229,9 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]`
-     *  获得有序集合`key`中,所有的成员的排序值在`min`和`max`闭区间内的成员.
-     *  可以通过`(`,`)`限制区间为开区间.
+     *  语法 ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]
+     *  获得有序集合key中,所有的成员的排序值在min和max闭区间内的成员.
+     *  可以通过(,)限制区间为开区间.
      *  返回结果根据排序值从大到大小排列,相同的成员根据字典顺序排列.
      */
     @Test
@@ -261,8 +261,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZRANK key member`
-     *  获得有序集合`key`的成员`member`的排名位置.排序规则为排序值从小到大排列.排名从0开始.如果成员`member`不存在,则返回`nil`
+     *  语法 ZRANK key member
+     *  获得有序集合key的成员member的排名位置.排序规则为排序值从小到大排列.排名从0开始.如果成员member不存在,则返回nil
      */
     @Test
     public void testRank(){
@@ -272,8 +272,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZREVRANK key member`
-     *  获得有序集合`key`的成员`member`的排名位置.排序规则为排序值从大到小排列.排名从0开始.如果成员`member`不存在,则返回`nil`
+     *  语法 ZREVRANK key member
+     *  获得有序集合key的成员member的排名位置.排序规则为排序值从大到小排列.排名从0开始.如果成员member不存在,则返回nil
      */
     @Test
     public void testReverseRank(){
@@ -283,8 +283,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZREM key member [member …]`
-     *  移除有序集合`key`中一个或者多个成员`member`,若该成员不存在,则忽略.
+     *  语法 ZREM key member [member …]
+     *  移除有序集合key中一个或者多个成员member,若该成员不存在,则忽略.
      *  返回被移除的成员个数
      */
     @Test
@@ -295,8 +295,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZREMRANGEBYRANK key start stop`
-     *  移除有序集合`key`中指定排名`rank`在`start`和`stop`闭区间内的所有成员.`start`从0开始,表示第一个元素;`-1`表示最后一个元素.
+     *  语法 ZREMRANGEBYRANK key start stop
+     *  移除有序集合key中指定排名rank在start和stop闭区间内的所有成员.start从0开始,表示第一个元素;-1表示最后一个元素.
      *  返回被移除成员的数量
      */
     @Test
@@ -308,8 +308,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZREMRANGEBYSCORE key min max`
-     *  移除有序集合`key`中排序值`score`在`min`和`max`闭区间内的所有成员.
+     *  语法 ZREMRANGEBYSCORE key min max
+     *  移除有序集合key中排序值score在min和max闭区间内的所有成员.
      */
     @Test
     public void testRemoveRangeByScore(){
@@ -319,9 +319,9 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZRANGEBYLEX key min max [LIMIT offset count]`
-     *  当有序集合`key`具有相同的排序值`score`时,根据字母的先后顺序进行排列,命令检索`min`字母到`max`字母之间的成员.
-     *  必须使用区间限定符,`(`和`)`表示开区间;`[`和`]`表示闭区间;`+`和`-`表示极大值和极小值
+     *  语法 ZRANGEBYLEX key min max [LIMIT offset count]
+     *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令检索min字母到max字母之间的成员.
+     *  必须使用区间限定符,(和)表示开区间;[和]表示闭区间;+和-表示极大值和极小值
      */
     @Test
     public void testRangeByLex(){
@@ -341,8 +341,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /*
-     *  语法 `ZLEXCOUNT key min max`
-     *  当有序集合`key`具有相同的排序值`score`时,根据字母的先后顺序进行排列,命令返回在`min`字母和`max`字母之间的成员总数.
+     *  语法 ZLEXCOUNT key min max
+     *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令返回在min字母和max字母之间的成员总数.
      */
 //    @Test
 //    public void testZlexcount(){
@@ -350,8 +350,8 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
 //    }
 
     /*
-     *  语法 `ZREMRANGEBYLEX key min max`
-     *  当有序集合`key`具有相同的排序值`score`时,根据字母的先后顺序进行排列,命令移除在`min`字母和`max`字母之间的成员,并返回被移除的成员数量
+     *  语法 ZREMRANGEBYLEX key min max
+     *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令移除在min字母和max字母之间的成员,并返回被移除的成员数量
      */
 //    @Test
 //    public void testZremrangebylex(){
@@ -364,7 +364,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]`
+     *  语法 ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]
      *  集合并集并保存
      *  返回新集合的长度
      */
@@ -376,7 +376,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]`
+     *  语法 ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]
      *  集合交集并保存
      *  返回新集合的长度
      */

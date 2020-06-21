@@ -66,10 +66,9 @@ public class ListOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `LPUSH key value [value ...]
-     *  将一个或者多个`value`值顺次插入到列表`key`的头前.`key`必须为列表类型,否则报错;如果`key`列表不存在,则自动创建.`key`列表的顺序由插入时的顺序决定,并且允许重复插入.
+     *  语法 LPUSH key value [value ...]
+     *  将一个或者多个value值顺次插入到列表key的头前.key必须为列表类型,否则报错;如果key列表不存在,则自动创建.key列表的顺序由插入时的顺序决定,并且允许重复插入.
      */
-
     @Test
     public void testLeftPush(){
         Long result = listOperations.leftPush("ListA","D");
@@ -78,8 +77,8 @@ public class ListOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  语法 `LPUSH key value [value ...]
-     *  将一个或者多个`value`值顺次插入到列表`key`的头前.`key`必须为列表类型,否则报错;如果`key`列表不存在,则自动创建.`key`列表的顺序由插入时的顺序决定,并且允许重复插入.
+     *  语法 LPUSH key value [value ...]
+     *  将一个或者多个value顺次插入到列表key的头前.key必须为列表类型,否则报错;如果key列表不存在,则自动创建.key列表的顺序由插入时的顺序决定,并且允许重复插入.
      */
     @Test
     public void testLeftPushAll(){
@@ -149,7 +148,7 @@ public class ListOperationsTest extends DataRedisApplicationTest {
      */
     @Test
     public void testRightPushIfPresent(){
-        Long result = listOperations.rightPush("ListA","A");
+        Long result = listOperations.rightPushIfPresent("ListA","A");
         assertNotNull(result);
         log.info(result.toString());
     }

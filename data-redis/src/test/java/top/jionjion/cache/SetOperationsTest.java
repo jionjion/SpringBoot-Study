@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 /**
  * @author Jion
  * 测试Set类
- * 操作 集合 Set
+ *  SetOperations 对 Set 的操作
  */
 @Slf4j
 public class SetOperationsTest extends DataRedisApplicationTest {
@@ -56,8 +56,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
 
 
     /**
+     * 语法 SADD key member [member ...]
      * 添加
-     * SADD key member [member ...]
      */
     @Test
     public void testAdd() {
@@ -70,8 +70,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     * 语法 SISMEMBER key member
      * 判断集合是否存在某元素
-     * SISMEMBER key member
      */
     @Test
     public void testIsMember() {
@@ -81,8 +81,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     * 语法 SPOP key [count]
      * 从集合key中随机移除count个成员,并返回.当集合不存在时,返回nil.
-     * SPOP key [count]
      */
     @Test
     public void testPop() {
@@ -98,8 +98,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SRANDMEMBER key [count]
      *  从集合key中随机获得指定个数的成员.若集合为空,则返回nil
-     *  SRANDMEMBER key [count]
      */
     @Test
     public void testRandomMember() {
@@ -115,8 +115,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SRANDMEMBER key [count]
      *  从集合key中随机获得数量值的成员,如果一个值多次出现则只出现一次,若集合为空,则返回nil
-     *  SRANDMEMBER key [count]
      */
     @Test
     public void testDistinctRandomMembers() {
@@ -128,8 +128,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
 
 
     /**
+     *  语法 SREM key member [member …]
      *  移除集合key中的一个或者多个成员,不存在的member则忽略.
-     *  SREM key member [member …]
      */
     @Test
     public void testRemove() {
@@ -139,8 +139,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SMOVE source destination member
      *  将member成员从source集合删除,并添加到destination集合中.两个集合必须存在.
-     *  SMOVE source destination member
      */
     @Test
     public void testMove() {
@@ -150,8 +150,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SCARD key
      *  获得集合key中的成员数量.如果集合不存在或者为空,返回0
-     *  SCARD key
      */
     @Test
     public void testSize() {
@@ -161,8 +161,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SMEMBERS key
      *  获得集合中的所有成员,key或者为空,返回错误
-     *  SMEMBERS key
      */
     @Test
     public void testMembers() {
@@ -177,8 +177,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SINTERSTORE destination key [key ...]
      *  获得多个key集合之间的交集,并将结果赋值给集合destination.如果集合destination存在,则覆盖.
-     *  SINTERSTORE destination key [key ...]
      */
     @Test
     public void testIntersect() {
@@ -188,8 +188,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SINTERSTORE destination key [key ...]
      *  获得多个key集合之间的交集,并将结果赋值给集合destination.如果集合destination存在,则覆盖.
-     *  SINTERSTORE destination key [key ...]
      */
     @Test
     public void testIntersectAndStore() {
@@ -200,8 +200,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SUNION destination key [key ...]
      *  获得多个key集合共同的并集,并返回集合对象
-     *
      */
     @Test
     public void testUnion() {
@@ -211,8 +211,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SINTERSTORE destination key [key ...]
      *  获得多个key集合之间的交集,并将结果赋值给集合destination.如果集合destination存在,则覆盖.
-     *  SINTERSTORE destination key [key ...]
      */
     @Test
     public void testUnionAndStore() {
@@ -223,7 +223,7 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  SDIFF key [key ...]
+     *  语法 SDIFF key [key ...]
      *  获得key集合之间的差集,根据key的顺序依次相减,并返回差集成员.
      */
     @Test
@@ -234,8 +234,8 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
+     *  语法 SDIFFSTORE destination key [key ...]
      *  获得多个key集合的差集,根据key的顺序相减,并赋值给destination.如果集合destination存在,则覆盖.
-     *  SDIFFSTORE destination key [key ...]
      */
     @Test
     public void testDifferenceAndStore() {
