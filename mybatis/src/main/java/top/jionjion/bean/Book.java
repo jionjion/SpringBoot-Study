@@ -3,6 +3,7 @@ package top.jionjion.bean;
 import lombok.Data;
 
 /**
+ *  图书的数据模型,多对多
  * @author Jion
  */
 @Data

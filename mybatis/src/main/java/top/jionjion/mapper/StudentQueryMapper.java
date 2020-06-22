@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * @author Jion
  */
-public interface StudentMapper {
+public interface StudentQueryMapper {
 
     /**
      *  通过ID查询

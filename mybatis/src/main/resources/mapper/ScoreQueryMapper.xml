@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.jionjion.mapper.ScoreQueryMapper">
+    <!-- 学生类 -->
+    <resultMap id="StudentResultMap" type="top.jionjion.bean.Student">
+        <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
+        <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
+        <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>
+        <result property="address" javaType="java.lang.String" column="ADDRESS" jdbcType="VARCHAR"/>
+        <result property="birthday" javaType="java.time.LocalDate" column="BIRTHDAY" jdbcType="DATE"/>
+    </resultMap>
+
+    <!-- 成绩类 -->
+    <resultMap id="ScoreResultMap" type="top.jionjion.bean.Score">
+        <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
+        <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
+        <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
+        <result property="grade" javaType="java.lang.Float" column="GRADE" jdbcType="FLOAT"/>
+    </resultMap>
+
+    <!-- 通过学生ID查询 -->
+    <select id="findScoreByStudentId" resultMap="ScoreResultMap" parameterType="java.lang.Integer">
+        select s.id,
+               s.s_id,
+               s.course,
+               s.grade
+        from score s
+        where s_id = #{s_id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 联合查询,通过查询子表获得所有信息 -->
+    <resultMap id="ScoreAndStudentResultMap" type="top.jionjion.bean.Score">
+        <!-- 子表字段 -->
+        <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
+        <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
+        <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
+        <result property="grade" javaType="java.lang.Float" column="GRADE" jdbcType="FLOAT"/>
+        <!-- 主表信息,通过子表查询而来,使用 javaType , 指定主表类型 -->
+        <association property="student" javaType="top.jionjion.bean.Student">
+            <id property="id" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
+            <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
+            <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>
+            <result property="address" javaType="java.lang.String" column="ADDRESS" jdbcType="VARCHAR"/>
+            <result property="birthday" javaType="java.time.LocalDate" column="BIRTHDAY" jdbcType="DATE"/>
+        </association>
+    </resultMap>
+    <!-- 联合查询,通过查询子表获得所有信息 -->
+    <select id="findScoreAndStudentByScoreId" resultMap="ScoreAndStudentResultMap" parameterType="java.lang.Integer">
+        select c.id,
+               c.s_id,
+               c.course,
+               c.grade,
+               s.id as s_id,
+               s.age,
+               s.birthday,
+               s.address,
+               s.name
+        from student s,
+             score c
+        where s.id = c.s_id
+          and c.id = #{c_id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 联合查询,通过查询主表获得所有信息 -->
+    <resultMap id="StudentAndScoreResultMap" type="top.jionjion.bean.Student">
+        <!-- 主表字段 -->
+        <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
+        <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
+        <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>
+        <result property="address" javaType="java.lang.String" column="ADDRESS" jdbcType="VARCHAR"/>
+        <result property="birthday" javaType="java.time.LocalDate" column="BIRTHDAY" jdbcType="DATE"/>
+        <!-- 子表信息,通过子表查询而来,使用 javaType , 指定主表类型 -->
+        <collection  property="scores" ofType="top.jionjion.bean.Score">
+            <id property="id" javaType="java.lang.Integer" column="C_ID" jdbcType="INTEGER"/>
+            <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
+            <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
+            <result property="grade" javaType="java.lang.Float" column="GRADE" jdbcType="FLOAT"/>
+        </collection>
+    </resultMap>
+    <!-- 联合查询,通过查询主表获得所有信息 -->
+    <select id="findStudentAndScoreByStudentId" resultMap="StudentAndScoreResultMap" parameterType="java.lang.Integer">
+        select s.id,
+               s.age,
+               s.birthday,
+               s.address,
+               s.name,
+               c.id as c_id,
+               c.s_id,
+               c.course,
+               c.grade
+        from student s,
+             score c
+        where s.id = c.s_id
+          and s.id = #{s_id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 双向绑定,联合查询,通过查询主表获得所有信息 -->
+    <resultMap id="StudentAndScoreResultMapDouble" type="top.jionjion.bean.Student">
+        <!-- 主表字段 -->
+        <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
+        <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
+        <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>
+        <result property="address" javaType="java.lang.String" column="ADDRESS" jdbcType="VARCHAR"/>
+        <result property="birthday" javaType="java.time.LocalDate" column="BIRTHDAY" jdbcType="DATE"/>
+        <!-- 子表信息,通过子表查询而来,使用 javaType , 指定主表类型 -->
+        <collection  property="scores" ofType="top.jionjion.bean.Score">
+            <id property="id" javaType="java.lang.Integer" column="C_ID" jdbcType="INTEGER"/>
+            <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
+            <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
+            <result property="grade" javaType="java.lang.Float" column="GRADE" jdbcType="FLOAT"/>
+            <!-- 子表关联主表,使用自动映射 -->
+            <association property="student" javaType="top.jionjion.bean.Student" autoMapping="true"/>
+        </collection>
+    </resultMap>
+    <!-- 联合查询,通过查询主表获得所有信息 -->
+    <select id="findStudentAndScoreByStudentIdForObject" resultMap="StudentAndScoreResultMapDouble" parameterType="java.lang.Integer">
+        select s.id,
+               s.age,
+               s.birthday,
+               s.address,
+               s.name,
+               c.id as c_id,
+               c.s_id,
+               c.course,
+               c.grade
+        from student s,
+             score c
+        where s.id = c.s_id
+          and s.id = #{s_id,jdbcType=INTEGER}
+    </select>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.jionjion.mapper.CallMapper">
+    <!-- 调用函数 -->
+    <insert id="callFunctionOneAddOne" parameterType="java.util.Map" statementType="CALLABLE">
+        {
+            #{param_c, mode=OUT, jdbcType=INTEGER} = call function_one_add_one(#{param_a, mode=IN, jdbcType=INTEGER},
+                                                                               #{param_b, mode=IN, jdbcType=INTEGER})
+        }
+    </insert>
+
+    <!-- 调用函数 -->
+    <insert id="callProcedureOneAddOne" parameterType="java.util.Map" statementType="CALLABLE">
+        {
+            call procedure_one_add_one(#{param_a, mode=IN, jdbcType=INTEGER},
+                                       #{param_b, mode=IN, jdbcType=INTEGER},
+                                       #{result_sum, mode=OUT, jdbcType=INTEGER})
+        }
+    </insert>
+</mapper>
