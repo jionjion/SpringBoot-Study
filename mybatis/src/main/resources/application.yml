@@ -21,3 +21,9 @@ mybatis:
   # default-scripting-language-driver: # 语言驱动
   # configuration.*: # 更多扩展配置,参考 org.apache.ibatis.session.Configuration
 
+# pagehelper分页插件
+pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    support-methods-arguments: true
+    params: count=countSql
