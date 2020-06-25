@@ -1,26 +1,26 @@
-package top.jionjion.ioc.xml.factory;
+package top.jionjion.ioc.annotation.factory;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- *  测试实例工厂方法获得Bean
+ *  使用 ImportBeanDefinitionRegistrar 注入Bean
  * @author Jion
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
-public class InstanceAnimalFactoryTest {
+@Import(DuckImportBeanDefinitionRegistrar.class)
+public class DuckImportBeanDefinitionRegistrarTest {
 
     @Autowired
-    Cat cat;
+    Duck duck;
 
     @Test
     public void test(){
-        System.out.println("获得Bean:" + cat.toString());
+        System.out.println("获得Bean:" + duck);
     }
 }

@@ -1,4 +1,4 @@
-package top.jionjion.ioc.xml.factory;
+package top.jionjion.ioc.annotation.factory;
 
 /**
  *  抽象父类

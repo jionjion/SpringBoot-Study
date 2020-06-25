@@ -1,26 +1,24 @@
-package top.jionjion.ioc.xml.factory;
+package top.jionjion.ioc.annotation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- *  测试实例工厂方法获得Bean
+ *  测试 @Component 注入Bean
  * @author Jion
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
-public class InstanceAnimalFactoryTest {
+public class DogHouseTest {
 
     @Autowired
-    Cat cat;
+    DogHouse dogHouse;
 
     @Test
     public void test(){
-        System.out.println("获得Bean:" + cat.toString());
+        System.out.println("获得Bean:" + dogHouse);
     }
 }

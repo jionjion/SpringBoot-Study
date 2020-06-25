@@ -1,5 +1,8 @@
 package top.jionjion.ioc.xml;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  *  引用
  * @author Jion
@@ -7,13 +10,8 @@ package top.jionjion.ioc.xml;
 public class DogHouse {
 
     /** 引用 */
+    @Getter
+    @Setter
     private Dog dog;
 
-    public Dog getDog() {
-        return dog;
-    }
-
-    public void setDog(Dog dog) {
-        this.dog = dog;
-    }
 }

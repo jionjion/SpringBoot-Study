@@ -3,10 +3,12 @@ spring:
   application:
     name: mvc
 
-    # 地址信息
+# 地址信息
 server:
   port: 8080
   address: 127.0.0.1
+
+# 日志信息
 debug: true
 logging:
   level:

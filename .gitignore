@@ -23,9 +23,14 @@
 hs_err_pid*
 .idea/
 
+*.iml
+
 # models
 core/.mvn/
 core/target/
+
+core-web/.mvn/
+core-web/target/
 
 data-jdbc/.mvn/
 data-jdbc/target/
