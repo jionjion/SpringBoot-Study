@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 属性构造注入 -->
+<!--    <bean id="dog" class="top.jionjion.ioc.xml.Dog">-->
+<!--        <property name="name" value="大黄"/>-->
+<!--        <property name="age" value="3"/>-->
+<!--    </bean>-->
+
+    <!-- 有参构造器注入 -->
+    <bean id="dog" class="top.jionjion.ioc.xml.Dog">
+        <constructor-arg index="0" value="二黄"/>
+        <constructor-arg index="1" value="1"/>
+    </bean>
+
+    <!-- 使用Bean -->
+    <bean id="dogHouse" class="top.jionjion.ioc.xml.DogHouse">
+        <!-- 引用 -->
+        <property name="dog" ref="dog"/>
+    </bean>
+
+    <!-- 工厂类调用静态工厂方法,创建对应Bean -->
+<!--    <bean id="cat" class="top.jionjion.ioc.xml.factory.StaticAnimalFactory" factory-method="getAnimal">-->
+<!--        <constructor-arg value="cat"/>-->
+<!--    </bean>-->
+
+    <!-- 实例工厂方法 -->
+    <bean id="instanceAnimalFactory" class="top.jionjion.ioc.xml.factory.InstanceAnimalFactory"/>
+    <!-- 工厂类调用静态工厂方法,创建对应Bean  -->
+    <bean id="cat" factory-bean="instanceAnimalFactory" factory-method="getAnimal">
+        <constructor-arg value="cat"/>
+    </bean>
+</beans>
