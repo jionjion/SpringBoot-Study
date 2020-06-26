@@ -1,9 +1,7 @@
 package top.jionjion;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationListener;
 import top.jionjion.initializer.WebAppInitializerSecond;
 import top.jionjion.listener.WebApplicationListenerSecond;
 
@@ -14,7 +12,6 @@ import java.util.Collections;
  *  启动类
  */
 @SpringBootApplication
-@MapperScan(basePackages = "top.jionjion.mapper")
 public class CoreWebApplication
 {
 

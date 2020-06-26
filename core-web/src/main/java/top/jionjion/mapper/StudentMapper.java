@@ -1,11 +1,13 @@
 package top.jionjion.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.jionjion.bean.Student;
 
 /**
  * @author Jion
  */
+@Mapper
 public interface StudentMapper {
 
     /**
