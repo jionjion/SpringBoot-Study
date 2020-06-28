@@ -2,7 +2,7 @@ package top.jionjion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import top.jionjion.initializer.WebAppInitializerSecond;
+import top.jionjion.initializer.WebApplicationInitializerSecond;
 import top.jionjion.listener.WebApplicationListenerSecond;
 
 import java.util.Collections;
@@ -12,8 +12,7 @@ import java.util.Collections;
  *  启动类
  */
 @SpringBootApplication
-public class CoreWebApplication
-{
+public class CoreWebApplication {
 
     public static void main(String[] args) {
         // 正常启动
@@ -22,7 +21,7 @@ public class CoreWebApplication
         // 自定义容器的初始化器,并调用run方法
         SpringApplication springApplication = new SpringApplication(CoreWebApplication.class);
         // 启动器
-        springApplication.setInitializers(Collections.singleton(new WebAppInitializerSecond()));
+        springApplication.setInitializers(Collections.singleton(new WebApplicationInitializerSecond()));
         // 监听器
         springApplication.addListeners(new WebApplicationListenerSecond());
         springApplication.run(args);

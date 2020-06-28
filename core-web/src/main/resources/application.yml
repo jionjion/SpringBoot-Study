@@ -17,7 +17,7 @@ mybatis:
 context:
   # 初始化器
   initializer:
-    classes: top.jionjion.initializer.WebAppInitializerThird
+    classes: top.jionjion.initializer.WebApplicationInitializerThird
   # 监听器
   listener:
     classes: top.jionjion.listener.WebApplicationListenerThird

@@ -1,5 +1,5 @@
 # 注册自定义系统初始化器
-org.springframework.context.ApplicationContextInitializer=top.jionjion.initializer.WebAppInitializerFirst
+org.springframework.context.ApplicationContextInitializer=top.jionjion.initializer.WebApplicationInitializerFirst
 
 # 注册自定义系统监听器
 org.springframework.context.ApplicationListener=top.jionjion.listener.WebApplicationListenerFirst,top.jionjion.listener.WebApplicationListenerFourth
