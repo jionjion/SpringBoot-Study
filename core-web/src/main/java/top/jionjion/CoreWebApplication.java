@@ -6,6 +6,7 @@ import top.jionjion.initializer.WebApplicationInitializerSecond;
 import top.jionjion.listener.WebApplicationListenerSecond;
 
 import java.util.Collections;
+import java.util.Properties;
 
 /**
  * @author Jion
@@ -24,6 +25,10 @@ public class CoreWebApplication {
         springApplication.setInitializers(Collections.singleton(new WebApplicationInitializerSecond()));
         // 监听器
         springApplication.addListeners(new WebApplicationListenerSecond());
+        // 设置默认
+        Properties properties = new Properties();
+        properties.setProperty("author","Jion17");
+        springApplication.setDefaultProperties(properties);
         springApplication.run(args);
     }
 
