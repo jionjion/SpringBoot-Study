@@ -31,5 +31,4 @@ public class CoreWebApplication {
         springApplication.setDefaultProperties(properties);
         springApplication.run(args);
     }
-
 }
