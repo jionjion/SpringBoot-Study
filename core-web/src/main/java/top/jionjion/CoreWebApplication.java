@@ -2,8 +2,12 @@ package top.jionjion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import top.jionjion.initializer.WebApplicationInitializerSecond;
 import top.jionjion.listener.WebApplicationListenerSecond;
+import top.jionjion.selector.WebApplicationDeferredImportSelector;
+import top.jionjion.selector.WebApplicationImportSelector;
 
 import java.util.Collections;
 import java.util.Properties;
@@ -12,6 +16,8 @@ import java.util.Properties;
  * @author Jion
  *  启动类
  */
+@Import({WebApplicationImportSelector.class, WebApplicationDeferredImportSelector.class})
+@ImportResource(locations = "classpath:ioc/xml/bean-config.xml")
 @SpringBootApplication
 public class CoreWebApplication {
 
@@ -29,6 +35,7 @@ public class CoreWebApplication {
         Properties properties = new Properties();
         properties.setProperty("author","Jion17");
         springApplication.setDefaultProperties(properties);
+        // run 方法
         springApplication.run(args);
     }
 }
