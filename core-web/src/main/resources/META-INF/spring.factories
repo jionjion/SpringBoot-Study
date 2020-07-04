@@ -3,3 +3,6 @@ org.springframework.context.ApplicationContextInitializer=top.jionjion.initializ
 
 # 注册自定义系统监听器
 org.springframework.context.ApplicationListener=top.jionjion.listener.WebApplicationListenerFirst,top.jionjion.listener.WebApplicationListenerFourth
+
+# 自定义异常处理报告
+org.springframework.boot.SpringBootExceptionReporter=top.jionjion.except.WebApplicationExceptionReporter
