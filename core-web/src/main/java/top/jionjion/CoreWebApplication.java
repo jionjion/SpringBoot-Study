@@ -16,8 +16,8 @@ import java.util.Properties;
  * @author Jion
  *  启动类
  */
-@Import({WebApplicationImportSelector.class, WebApplicationDeferredImportSelector.class})
-@ImportResource(locations = "classpath:ioc/xml/bean-config.xml")
+//@Import({WebApplicationImportSelector.class, WebApplicationDeferredImportSelector.class})
+//@ImportResource(locations = "classpath:ioc/xml/bean-config.xml")
 @SpringBootApplication
 public class CoreWebApplication {
 
