@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  *      注解二选一均可
  */
 @Configuration
-@Component
 public class AppConfig {
 
     @Bean(name = {"user","USER"}, initMethod = "init", destroyMethod = "destroy")
