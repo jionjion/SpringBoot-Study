@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *  Bean 工厂, 对已经初始化后的Bean进行一些修改
+ *  实例化时调用 BeanFactoryPostProcessor 接口
  * @author Jion
  */
 @Component

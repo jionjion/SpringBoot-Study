@@ -5,7 +5,7 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import org.springframework.stereotype.Component;
 
 /**
- *  在类实例化时,调用
+ *  在类实例化时,调用 BeanPostProcessor 接口
  * @author Jion
  */
 @Component
