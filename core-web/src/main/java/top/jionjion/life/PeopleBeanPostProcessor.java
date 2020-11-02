@@ -1,7 +1,7 @@
 package top.jionjion.life;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,9 +9,8 @@ import org.springframework.stereotype.Component;
  * @author Jion
  */
 @Component
-public class PeopleBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
+public class PeopleBeanPostProcessor implements BeanPostProcessor {
 
-    @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         // 在类初始化前调用, 若有返回值,则将该返回值作为实例化结果
         if ("people".equals(beanName)){
@@ -21,7 +20,6 @@ public class PeopleBeanPostProcessor implements InstantiationAwareBeanPostProces
         return null;
     }
 
-    @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         // 在类实例化后调用.
         if ("people".equals(beanName)){
