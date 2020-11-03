@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *      自带的文档地址
  *          http://127.0.0.1:8080/swagger-ui/index.html
  *      官网
- *          https://springdoc.org/
+ *          http://springfox.github.io/springfox/docs/current/
  *
  * @author Jion
  */
