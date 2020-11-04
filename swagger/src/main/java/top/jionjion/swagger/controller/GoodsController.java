@@ -1,9 +1,6 @@
 package top.jionjion.swagger.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.web.bind.annotation.*;
@@ -40,9 +37,9 @@ public class GoodsController {
 
     /** 使用 2.0 版本的 */
     @ApiOperation(value = "商品详情,通过路径表达式查询")
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long")
+    @ApiResponse(code = 200, message = "操作成功")
     @GetMapping("/{id}/good")
-    public ResultDto<Goods> findById(@Parameter(description = "商品id,正整数") @PathVariable(value="id") Integer goodsid) {
+    public ResultDto<Goods> findById(@ApiParam(value = "商品id,正整数") @PathVariable(value="id") Integer goodsid) {
         Goods good = new Goods();
         good.setGoodsId(Long.valueOf(goodsid));
         good.setGoodsName("教程");
@@ -59,6 +56,10 @@ public class GoodsController {
         @ApiImplicitParam(name="goodsid",value="商品id",dataTypeClass = Integer.class, paramType = "form",example="12345"),
         @ApiImplicitParam(name="mobile",value="手机号",dataTypeClass = String.class, paramType = "form",example="13866668888"),
         @ApiImplicitParam(name="comment",value="发货备注",dataTypeClass = String.class, paramType = "form",example="请在情人节当天送到")
+    })
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "操作成功"),
+        @ApiResponse(code = 500, message = "服务器内部异常"),
     })
     @PostMapping("/order")
     public ResultDto<?> order(@ApiIgnore @RequestParam Map<String,String> params) {
