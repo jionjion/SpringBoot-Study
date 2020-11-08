@@ -1,4 +1,4 @@
-package top.jionjion.rabbit;
+package top.jionjion.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

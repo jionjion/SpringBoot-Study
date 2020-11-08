@@ -1,4 +1,4 @@
-package top.jionjion.rabbit;
+package top.jionjion.boot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
