@@ -1,9 +1,6 @@
 package top.jionjion.boot.peer;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.amqp.rabbit.annotation.Queue;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,18 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-class PeerTest {
+public class PeerTest {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
-
-    /** 接收消息 */
-    @RabbitListener(queuesToDeclare = @Queue(name = "hello", durable = "false", autoDelete = "true"))
-    @RabbitHandler
-    public void reviewMessage(String message){
-        System.out.println("获得消息... " + message);
-    }
-
 
     /** 发送消息 */
     @Test
