@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  *  Mybatis 的配置文件
+ *
  * @author Jion
  */
 @Configuration

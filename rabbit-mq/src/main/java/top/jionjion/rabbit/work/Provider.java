@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ *  工作队列模式
  *  生产者, 产生消息
  * @author Jion
  */

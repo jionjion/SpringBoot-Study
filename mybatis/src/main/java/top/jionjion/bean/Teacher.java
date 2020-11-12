@@ -19,13 +19,18 @@ import java.util.Date;
 @Data
 public class Teacher {
 
+	/** 主键 */
 	private Integer id;
-	
+
+	/** 名字 */
 	private String name;
-	
+
+	/** 工作日 */
 	private Date workday;
-	
+
+	/** 地址 */
 	private String address;
-	
+
+	/** 年龄 */
 	private Integer age;
 }

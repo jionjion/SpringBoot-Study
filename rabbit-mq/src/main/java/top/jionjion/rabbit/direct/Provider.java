@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ *  路由模式
  *  生产者, 产生消息
  * @author Jion
  */

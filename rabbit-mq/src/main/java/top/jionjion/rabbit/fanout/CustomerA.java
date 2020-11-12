@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ *  广播队列模式
  *  消费者A
  * @author Jion
  */

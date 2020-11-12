@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ *  点对点模式
  *  生产者, 产生消息
  * @author Jion
  */
@@ -30,7 +31,7 @@ public class Provider {
 
         // 获取连接
         Connection connection = connectionFactory.newConnection();
-        // 获取通达
+        // 获取通道
         Channel channel = connection.createChannel();
 
         // 通道绑定对应消息队列. 参数:

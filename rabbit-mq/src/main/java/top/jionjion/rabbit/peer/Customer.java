@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ *  点对点模式
  *  消费者
  * @author Jion
  */

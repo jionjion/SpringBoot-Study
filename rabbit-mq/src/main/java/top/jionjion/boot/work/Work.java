@@ -5,6 +5,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
+ * 使用SpringBoot实现工作队列模式
  * @author Jion
  */
 @Component

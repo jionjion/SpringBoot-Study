@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *  消费者A
+ *  工作队列模式
+ *  消费者B
+ *  手动确认消息,并限制流量
  * @author Jion
  */
 public class CustomerB {

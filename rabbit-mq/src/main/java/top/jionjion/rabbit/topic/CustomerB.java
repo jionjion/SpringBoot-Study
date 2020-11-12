@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ *  动态路由模式
  *  消费者B
  * @author Jion
  */

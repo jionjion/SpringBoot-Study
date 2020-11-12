@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Fanout {
 
-
     /** 接收消息, 使用临时队列接受 */
     @RabbitListener(bindings = {
             @QueueBinding(value = @Queue, exchange = @Exchange(value = "fanout", type = ExchangeTypes.FANOUT))})
@@ -27,5 +26,4 @@ public class Fanout {
     public void reviewMessageB(String message){
         System.out.println("消费者B获得消息... " + message);
     }
-
 }
