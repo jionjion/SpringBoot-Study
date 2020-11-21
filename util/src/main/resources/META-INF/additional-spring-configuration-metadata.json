@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "weather.rate",
+      "type": "java.lang.String",
+      "defaultValue": "晴天",
+      "description": "天气情况默认值."
+    },
+    {
+      "name": "weather.rate",
+      "type": "java.lang.String",
+      "description": "严重程度."
+    }
+  ] }

@@ -70,5 +70,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- 使用自定义的 starter -->
+        <dependency>
+            <groupId>top.jionjion</groupId>
+            <artifactId>util-spring-boot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

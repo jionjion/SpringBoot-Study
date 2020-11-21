@@ -31,3 +31,10 @@ debug: true
 logging:
   level:
     root: trace
+
+
+# 使用自定义的 starter
+weather:
+  enable: true
+  type: 下雪
+  rate: 严重
