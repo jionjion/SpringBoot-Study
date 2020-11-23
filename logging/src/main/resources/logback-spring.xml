@@ -1,36 +1,103 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!--
+  logback 配置文件.
+    scan:当设置为true时配置文件若发生改变 将会重新加载;
+    scanPeriod:扫描时间间隔, 若没给出时间单位默认为毫秒;
+    debug:若设置 为true,将打印出logback内部日志信息
+-->
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <contextName>demo</contextName>
+    <!-- 上下文名称, 用来区分不同应用程序的记录默认为 default -->
+    <contextName>Logger Demo</contextName>
+    <!-- 属性配置 -->
     <property resource="application.properties"/>
-    <property name="LOG_PATH" value="${logging.path:-${user.home}/${spring.application.name}/logs}"/>
+    <!-- name:变量名称; value:变量值. 通过 :- 表示默认值 -->
+    <!-- 文件路径 C:\Users\14345\springboot\application\logs -->
+    <property name="LOG_PATH" value="${logging.path:-${user.home}/springboot/${spring.application.name:-application}/logs}"/>
+    <!-- 文件名  C:\Users\14345\springboot\application\logs\application.log -->
     <property name="LOG_FILE" value="${logging.file:-${LOG_PATH}/application.log}"/>
-    <appender name="APPLICATION"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--
+        logger{length}      输出日志的logger名,可有一个整形参数,可能能是缩短logger名
+        contextName|cn      上下文名称
+        date{pattern}       输出日志的打印时间,模式语法与java.text.SimpleDateFormat 兼容
+        p/le/level          日志级别
+        M/method            输出日志的方法名
+        r/relative          从程序启动到创建日志记录的时间
+        m/msg/message       程序提供的信息
+        n                   换行符
+     -->
+    <!-- 格式化日志输出 -->
+    <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 输出文件名 -->
         <file>${LOG_FILE}</file>
+        <!-- 格式 -->
         <encoder>
             <pattern>%date{HH:mm:ss} %contextName [%t] %p %logger{36} - %msg%n</pattern>
         </encoder>
+        <!-- 文件策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 文件名 -->
             <fileNamePattern>${LOG_FILE}.%d{yyy-MM-dd}.%i.log</fileNamePattern>
-            <maxHistory>7</ maxHistory>
+            <!-- 最大文件保存天数 -->
+            <maxHistory>7</maxHistory>
+            <!-- 单个文件最大大小 -->
             <maxFileSize>50MB</maxFileSize>
-            <totaLSizeCap>20GB</totaLSizeCap>
+            <!-- 总使用大小 -->
+            <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
     </appender>
 
+    <!-- 选填: 根据日志级别分发到不同的日志级别目录下 -->
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <!-- 设置分割关键字的默认值,其他日志在其中输出 -->
+            <key>bizType</key>
+            <defaultValue>other</defaultValue>
+        </discriminator>
+        <sift>
+            <!-- 根据不同的日志类型,输出到不同的文件下 -->
+            <property name="BIZ_FILE" value="${logging.file:-${LOG_PATH}/application-${bizType}.log}"/>
+            <!-- 选填的日志输出格式 -->
+            <appender name="APPLICATION-${bizType}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <!-- 输出文件名 -->
+                <file>${BIZ_FILE}</file>
+                <!-- 格式 -->
+                <encoder>
+                    <pattern>%date{HH:mm:ss} %contextName [%t] %p %logger{36} - %msg%n</pattern>
+                </encoder>
+                <!-- 文件策略 -->
+                <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                    <!-- 文件名 -->
+                    <fileNamePattern>${BIZ_FILE}.%d{yyy-MM-dd}.%i.log</fileNamePattern>
+                    <!-- 最大文件保存天数 -->
+                    <maxHistory>7</maxHistory>
+                    <!-- 单个文件最大大小 -->
+                    <maxFileSize>50MB</maxFileSize>
+                    <!-- 总使用大小 -->
+                    <totalSizeCap>10GB</totalSizeCap>
+                </rollingPolicy>
+            </appender>
+        </sift>
+    </appender>
 
+    <!-- 格式化日志输出, 标准输出到控制台 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%date{HH: mm:ss} %contextName [%t] %p %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
+    <!-- root: 全局,日志输出设置 -->
+    <root level="info">
+        <!-- 输出到: 控制台 -->
+        <appender-ref ref="STDOUT"/>
+        <!-- 输出到: 日志文件 -->
+<!--        <appender-ref ref="APPLICATION"/>-->
+        <!-- 输出到: 根据级别不同输出文件 -->
+        <appender-ref ref="SIFT"/>
+    </root>
+
+    <!-- logger 具体包或子类输出设置 -->
     <logger name="top.jionjion.logging.service.SomeService" level="error" additivity="true">
         <appender-ref ref="STDOUT"/>
     </logger>
-
-    <root level="info">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="APPLICATION"/>
-    </root>
 </configuration>

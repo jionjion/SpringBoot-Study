@@ -22,4 +22,21 @@ class SomeServiceTest {
     void anything() {
         someService.anything();
     }
+
+    /**
+     *  抛出自定义异常
+     */
+    @Test
+    void throwException() {
+        someService.throwException();
+    }
+
+    /**
+     *  抛出异常,同时纪录关键字,生成对应日志级别
+     */
+    @Test
+    void throwExceptionForSift() {
+        someService.throwExceptionForSift();
+    }
+
 }
