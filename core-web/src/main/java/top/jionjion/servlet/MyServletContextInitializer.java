@@ -10,7 +10,7 @@ import javax.servlet.ServletContext;
  * servlet3.0规范中,约定,在 META-INF/services 目录下文件 javax.servlet.ServletContainerInitializer 中写入其同名接口具体实现.
  * 以便在Web容器启动时,通过java配置容器对象,实现注入组件.
  * Spring 中默认使用 org.springframework.web.SpringServletContainerInitializer 类来约定容器启动时的加载动作.
- * 在改实现类中, 具体是通过调用 WebApplicationInitializer 接口的具体实现类完成调用.
+ * 在实现类中, 具体是通过调用 WebApplicationInitializer 接口的具体实现类完成调用.
  *
  * 不过现在都是使用内置Tomcat, 则调用
  * org.springframework.boot.web.embedded.tomcat.TomcatStarter#onStartup具体实现.

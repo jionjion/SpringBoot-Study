@@ -1,7 +1,7 @@
 package top.jionjion.repository;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.jionjion.JpaApplicationTest;
 import top.jionjion.bean.Teacher;

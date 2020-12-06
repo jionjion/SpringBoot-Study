@@ -1,16 +1,15 @@
 package top.jionjion.di;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * @author Jion
  */
 
-@RunWith(SpringRunner.class)
+@SpringBootTest
 @SpringBootApplication(scanBasePackages = "top.jionjion.di")
 public class AppControllerTest {
 

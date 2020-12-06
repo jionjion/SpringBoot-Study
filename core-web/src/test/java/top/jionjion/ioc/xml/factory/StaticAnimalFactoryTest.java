@@ -1,7 +1,6 @@
 package top.jionjion.ioc.xml.factory;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
@@ -11,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
  *  测试静态工厂方法获得Bean
  * @author Jion
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
 public class StaticAnimalFactoryTest {

@@ -1,16 +1,16 @@
 package top.jionjion.bean;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  *  @author Jion
  *      测试创建Bean和自定义Bean的生命周期
  */
-@RunWith(SpringRunner.class)
+@SpringBootTest
 @SpringBootApplication(scanBasePackages = "top.jionjion.bean")
 public class AppConfigTest {
 

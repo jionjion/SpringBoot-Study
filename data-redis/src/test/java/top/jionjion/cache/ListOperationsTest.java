@@ -1,8 +1,8 @@
 package top.jionjion.cache;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jion
@@ -28,7 +28,7 @@ public class ListOperationsTest extends DataRedisApplicationTest {
 
     private ListOperations<String,String> listOperations;
 
-    @Before
+    @BeforeEach
     public void initOperations(){
         if (Objects.isNull(listOperations)){
             listOperations = redisTemplate.opsForList();

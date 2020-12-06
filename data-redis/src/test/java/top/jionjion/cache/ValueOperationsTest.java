@@ -1,8 +1,8 @@
 package top.jionjion.cache;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jion
@@ -27,7 +27,7 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
     
     private ValueOperations<String,String> valueOperations;
 
-    @Before
+    @BeforeEach
     public void initOperations(){
         if (Objects.isNull(valueOperations)){
             valueOperations = redisTemplate.opsForValue();

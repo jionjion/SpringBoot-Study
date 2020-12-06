@@ -1,16 +1,15 @@
 package top.jionjion.ioc;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  *  @author Jion
  *      测试SpringBoot的自动注入
  */
-@RunWith(SpringRunner.class)
+@SpringBootTest
 @SpringBootApplication(scanBasePackageClasses = {top.jionjion.ioc.AppConfig.class})
 public class IocTest {
 

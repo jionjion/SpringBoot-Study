@@ -18,7 +18,6 @@ public class MyHttpFilter extends HttpFilter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
         System.out.println("Web容器,自定义过滤器执行..." + request.getRemoteAddr() + "  " + response.getContentType());
         super.doFilter(request, response, chain);
     }

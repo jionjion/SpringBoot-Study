@@ -1,8 +1,8 @@
 package top.jionjion.cache;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.BoundKeyOperations;
@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jion
@@ -38,7 +38,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
 
     private BoundKeyOperations<String> boundKeyOperations;
 
-    @Before
+    @BeforeEach
     public void initOperations(){
         if (Objects.isNull(boundKeyOperations)){
             // 创建Key,不存在则创建

@@ -1,8 +1,8 @@
 package top.jionjion.cache;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jion
@@ -30,7 +30,7 @@ public class SetOperationsTest extends DataRedisApplicationTest {
     /**
      * 初始化数据
      */
-    @Before
+    @BeforeEach
     public void initData() {
         if (Objects.isNull(setOperations)) {
             setOperations = redisTemplate.opsForSet();
