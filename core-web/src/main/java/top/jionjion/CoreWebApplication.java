@@ -29,7 +29,7 @@ public class CoreWebApplication {
         // 自定义容器的初始化器,并调用run方法
         SpringApplication springApplication = new SpringApplication(CoreWebApplication.class);
         // 启动器
-        springApplication.setInitializers(Collections.singleton(new WebApplicationInitializerSecond()));
+        springApplication.addInitializers(new WebApplicationInitializerSecond());
         // 监听器
         springApplication.addListeners(new WebApplicationListenerSecond());
         // 设置默认
