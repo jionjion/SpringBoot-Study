@@ -1,4 +1,4 @@
-package top.jionjion.logging;
+package top.jionjion;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package top.jionjion.logging.service;
+package top.jionjion.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

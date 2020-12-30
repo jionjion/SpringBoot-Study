@@ -1,4 +1,4 @@
-package top.jionjion.logging.exception;
+package top.jionjion.exception;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -27,7 +27,7 @@ public class ExceptionAspect {
         String method = joinPoint.getSignature().getName();
 
         // 异常判断,自定义异常.日志处理...
-        if(ex instanceof  SomeException){
+        if(ex instanceof SomeException){
             logger.warn("class: {}, name:{}", clazz, method, ex);
         }
 
