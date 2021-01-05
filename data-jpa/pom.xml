@@ -10,7 +10,7 @@
 
     <artifactId>jpa</artifactId>
     <version>LATEST</version>
-    <name>jpa</name>
+    <name>data-jpa</name>
     <description>Spring Boot Data JAP</description>
 
     <dependencies>

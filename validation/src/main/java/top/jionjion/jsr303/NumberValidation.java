@@ -1,29 +1,27 @@
-package top.jionjion.bean;
+package top.jionjion.jsr303;
 
-import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 /**
- * 验证类
- * JSR-303 包含的注解.
- * {@code javax.validation.constraints.*}
  *
- * @author Jion
+ * @author jion
  */
-@Data
-public class Student {
+public class NumberValidation {
 
+    /**
+     *  @Min(value) 必须是一个值，并且不能小于指定的值
+     */
+    @Min(value = 0, message = "不能小于0")
+    public Object limitMin;
+
+    /**
+     *   @Max(value) 必须是一个值，并且不能大于指定的值
+     */
+    @Max(value = 100, message = "不能大于100")
+    public Object limitMax;
+
+    
     /*
-     *      @Null 必须为 null
-     *      @NotNull 必须不为 null
-     *      @NotBlank 不能为空串
-     *      @NotEmpty 集合,数组,字符不能为空
-     *      @AssertTrue 必须为 true
-     *      @AssertFalse 必须为 false
-     *      @Min(value) 必须是一个值，并且不能小于指定的值
-     *      @Max(value) 必须是一个值，并且不能大于指定的值
      *      @DecimalMin(value) 必须是一个数字，并且不能小于指定的值
      *      @DecimalMax(value) 必须是一个数字，并且不能大于指定的值
      *      @Digits(integer,fraction) 必须是一个数字，其值必须在指定范围内
@@ -40,15 +38,4 @@ public class Student {
      *      @Pattern(regex=,flag=) 必须符合指定的正则表达式
      */
 
-    /**
-     * id 主键
-     */
-    @NotNull(message = "ID不能为空")
-    private Long id;
-
-    /**
-     * 姓名
-     */
-    @NotBlank(message = "姓名不能为空")
-    private String name;
 }
