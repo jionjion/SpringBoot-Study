@@ -1,0 +1,17 @@
+package top.jionjion.jsr303.asserts;
+
+import javax.validation.constraints.AssertTrue;
+
+/**
+ * 布尔值校验
+ *
+ * @author jion
+ */
+public class AssertTrueValidation {
+
+    /**
+     * .@AssertTrue 必须为 true
+     */
+    @AssertTrue(message = "必须为 true")
+    public Boolean mustTrue;
+}
