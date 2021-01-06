@@ -4,6 +4,7 @@ import javax.validation.constraints.Pattern;
 
 /**
  * 通用对象校验
+ * .@Pattern(regex=,flag=) 必须符合指定的正则表达式
  *
  * @author jion
  */

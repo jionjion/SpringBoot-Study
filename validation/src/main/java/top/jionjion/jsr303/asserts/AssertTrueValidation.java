@@ -4,6 +4,7 @@ import javax.validation.constraints.AssertTrue;
 
 /**
  * 布尔值校验
+ * .@AssertTrue 必须为 true
  *
  * @author jion
  */

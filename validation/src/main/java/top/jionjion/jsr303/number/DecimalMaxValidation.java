@@ -4,6 +4,7 @@ import javax.validation.constraints.DecimalMax;
 
 /**
  * 数字校验
+ * .@DecimalMax 必须是一个值，并且不能大于指定的值. 可以为字符串数值
  *
  * @author jion
  */

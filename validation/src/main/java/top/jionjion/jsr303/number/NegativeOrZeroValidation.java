@@ -4,6 +4,7 @@ import javax.validation.constraints.NegativeOrZero;
 
 /**
  * 数字校验
+ * .@NegativeOrZero 必须为负数或者零
  *
  * @author jion
  */

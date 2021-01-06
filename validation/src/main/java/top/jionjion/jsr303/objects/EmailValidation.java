@@ -4,6 +4,7 @@ import javax.validation.constraints.Email;
 
 /**
  * 通用对象校验
+ * .@Email 必须为邮箱
  *
  * @author jion
  */

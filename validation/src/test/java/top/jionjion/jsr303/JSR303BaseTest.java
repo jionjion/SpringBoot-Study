@@ -28,6 +28,7 @@ public abstract class JSR303BaseTest {
         // 验证错误
         Set<ConstraintViolation<Object>> validateSet = validator.validate(obj);
 
+
         log.info("=========================================");
         // 结果返回
         for (ConstraintViolation<Object> violation : validateSet) {
@@ -35,5 +36,6 @@ public abstract class JSR303BaseTest {
             // 校验结果
             log.info(violation.toString());
         }
+        log.info("=========================================\n");
     }
 }

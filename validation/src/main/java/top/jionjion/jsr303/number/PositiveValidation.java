@@ -4,6 +4,7 @@ import javax.validation.constraints.Positive;
 
 /**
  * 数字校验
+ * .@Positive 必须为正数
  *
  * @author jion
  */

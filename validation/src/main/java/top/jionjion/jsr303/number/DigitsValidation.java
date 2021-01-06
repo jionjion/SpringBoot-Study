@@ -4,6 +4,7 @@ import javax.validation.constraints.*;
 
 /**
  * 数字校验
+ * .@Digits(integer,fraction) 必须是一个数字，其值必须在指定有效位中
  *
  * @author jion
  */

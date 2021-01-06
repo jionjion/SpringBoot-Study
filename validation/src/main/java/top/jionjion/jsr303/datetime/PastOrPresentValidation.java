@@ -4,6 +4,7 @@ import javax.validation.constraints.PastOrPresent;
 
 /**
  * 日期校验
+ *  .@PastOrPresent 必须是当前日期或过去的日期
  *
  * @author JionJion
  */

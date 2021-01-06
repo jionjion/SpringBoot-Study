@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 通用对象校验
+ * .@NotNull 必须不为 null
  *
  * @author jion
  */

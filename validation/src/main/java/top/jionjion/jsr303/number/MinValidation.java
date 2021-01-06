@@ -4,6 +4,7 @@ import javax.validation.constraints.Min;
 
 /**
  * 数字校验
+ * .@Min(value) 必须是数字，并且不能小于指定的值
  *
  * @author jion
  */

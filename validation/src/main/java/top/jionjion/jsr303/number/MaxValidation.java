@@ -4,6 +4,7 @@ import javax.validation.constraints.Max;
 
 /**
  * 数字校验
+ * .@Max(value) 必须是一个数字，并且不能大于指定的值
  *
  * @author jion
  */
