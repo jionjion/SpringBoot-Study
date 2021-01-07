@@ -14,7 +14,7 @@ class NullValidationTest extends JSR303BaseTest {
     public void mustNull1() {
         NullValidation obj = new NullValidation();
         obj.mustNull = new Object();
-        // 对象必须为空
+        // 对象必须为空 fail
         super.validate(obj);
     }
 }

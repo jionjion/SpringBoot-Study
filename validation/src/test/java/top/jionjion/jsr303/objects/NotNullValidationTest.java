@@ -15,7 +15,7 @@ class NotNullValidationTest extends JSR303BaseTest {
     public void mustNotNull1() {
         NotNullValidation obj = new NotNullValidation();
         obj.mustNotNull = null;
-        // 对象必须非空
+        // 对象必须非空 fail
         super.validate(obj);
     }
 }
