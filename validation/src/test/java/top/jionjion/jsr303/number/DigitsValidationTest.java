@@ -14,13 +14,13 @@ class DigitsValidationTest extends JSR303BaseTest {
     @Test
     public void test(){
         DigitsValidation obj = new DigitsValidation();
-        obj.bigDecimalDigits = BigDecimal.ZERO;
-        obj.bigIntegerDigits = BigInteger.ZERO;
+        obj.bigDecimalDigits = BigDecimal.valueOf(123456.789);
+        obj.bigIntegerDigits = BigInteger.valueOf(123456789);
         obj.charSequenceDigits = "0.9999";
-        obj.byteDigits = (byte) 0;
-        obj.shortDigits = (short) 0;
-        obj.intDigits = 0;
-        obj.longDigits = 0L;
+        obj.byteDigits = (byte) 123;  // 防止数字溢出
+        obj.shortDigits = (short) 12345;
+        obj.intDigits = 1234567890;
+        obj.longDigits = 1234567890L;
         super.validate(obj);
     }
 }

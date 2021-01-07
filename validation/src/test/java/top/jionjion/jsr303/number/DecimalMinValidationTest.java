@@ -19,7 +19,7 @@ class DecimalMinValidationTest extends JSR303BaseTest {
         obj.charSequenceLimitDecimalMin = "0";
         obj.byteLimitDecimalMin = (byte) 0;
         obj.shortLimitDecimalMin = (short) 0;
-        obj.intLimitDecimalMin = 0;
+        obj.integerLimitDecimalMin = 0;
         obj.longLimitDecimalMin = 0L;
         // 不能小于1 fail
         super.validate(obj);

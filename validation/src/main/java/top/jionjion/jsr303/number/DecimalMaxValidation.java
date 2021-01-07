@@ -6,14 +6,14 @@ import java.math.BigInteger;
 
 /**
  * 数字校验
- * .@DecimalMax 必须是一个数字，并且不能大于指定的值. 可以为字符串数值
+ * .@DecimalMax 必须是一个数字，并且不能大于指定的值. 不支持浮点字符，可以为字符串数值
  *
  * @author jion
  */
 public class DecimalMaxValidation {
 
     /**
-     * .@DecimalMax 必须是一个值，并且不能大于指定的值. 可以为字符串数值
+     * .@DecimalMax 必须是一个值，并且不能大于指定的值. 不支持浮点字符，可以为字符串数值
      */
     @DecimalMax(value = "1", message = "BigDecimal不能大于1")
     public BigDecimal bigDecimalLimitDecimalMax;
@@ -31,7 +31,7 @@ public class DecimalMaxValidation {
     public Short shortLimitDecimalMax;
 
     @DecimalMax(value = "1", message = "Integer不能大于1")
-    public Integer intLimitDecimalMax;
+    public Integer integerLimitDecimalMax;
 
     @DecimalMax(value = "1", message = "Long不能大于1")
     public Long longLimitDecimalMax;

@@ -19,7 +19,7 @@ class DecimalMaxValidationTest extends JSR303BaseTest {
         obj.charSequenceLimitDecimalMax = "abc123";
         obj.byteLimitDecimalMax = (byte) 10;
         obj.shortLimitDecimalMax = (short) 10;
-        obj.intLimitDecimalMax = 10;
+        obj.integerLimitDecimalMax = 10;
         obj.longLimitDecimalMax = 10L;
         // 不能超过1 fail
         super.validate(obj);
