@@ -1,0 +1,40 @@
+package top.jionjion.json.jackson;
+
+import com.fasterxml.jackson.annotation.JacksonInject;
+
+/**
+ * .@JacksonInject 类的测试
+ *
+ * @author Jion
+ */
+public class JacksonInjectAnnotation {
+
+    @JacksonInject
+    private Integer id;
+
+    private String name;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "JacksonInjectAnnotation{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
