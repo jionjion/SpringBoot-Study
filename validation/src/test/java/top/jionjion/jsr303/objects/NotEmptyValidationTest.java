@@ -1,7 +1,7 @@
 package top.jionjion.jsr303.objects;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
+import top.jionjion.ValidationBaseTest;
 
 import java.util.Collections;
 
@@ -11,7 +11,7 @@ import java.util.Collections;
  *
  * @author jion
  */
-class NotEmptyValidationTest extends JSR303BaseTest {
+class NotEmptyValidationTest extends ValidationBaseTest {
 
     @Test
     public void collectionMustNotEmpty1() {

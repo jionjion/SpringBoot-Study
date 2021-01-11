@@ -1,7 +1,7 @@
 package top.jionjion.jsr303.number;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
+import top.jionjion.ValidationBaseTest;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -9,7 +9,7 @@ import java.math.BigInteger;
 /**
  * @author Jion
  */
-class DecimalMinValidationTest extends JSR303BaseTest {
+class DecimalMinValidationTest extends ValidationBaseTest {
 
     @Test
     public void test() {

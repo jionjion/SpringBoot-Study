@@ -1,12 +1,12 @@
 package top.jionjion.jsr303.number;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
+import top.jionjion.ValidationBaseTest;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-class MinValidationTest extends JSR303BaseTest {
+class MinValidationTest extends ValidationBaseTest {
 
     @Test
     public void test(){

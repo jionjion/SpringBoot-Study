@@ -1,14 +1,14 @@
 package top.jionjion.jsr303.datetime;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
+import top.jionjion.ValidationBaseTest;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
-class FutureOrPresentOrPresentValidationTest extends JSR303BaseTest {
+class FutureOrPresentOrPresentValidationTest extends ValidationBaseTest {
 
     @Test
     public void test() {

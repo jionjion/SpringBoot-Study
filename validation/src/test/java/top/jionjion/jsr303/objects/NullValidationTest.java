@@ -1,14 +1,14 @@
 package top.jionjion.jsr303.objects;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
+import top.jionjion.ValidationBaseTest;
 
 /**
  * .@Null 必须为 null
  *
  * @author Jion
  */
-class NullValidationTest extends JSR303BaseTest {
+class NullValidationTest extends ValidationBaseTest {
 
     @Test
     public void mustNull1() {

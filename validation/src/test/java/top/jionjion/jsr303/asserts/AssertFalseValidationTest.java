@@ -1,15 +1,12 @@
 package top.jionjion.jsr303.asserts;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
-import top.jionjion.jsr303.objects.EmailValidation;
-
-import static org.junit.jupiter.api.Assertions.*;
+import top.jionjion.ValidationBaseTest;
 
 /**
  * @author Jion
  */
-class AssertFalseValidationTest extends JSR303BaseTest {
+class AssertFalseValidationTest extends ValidationBaseTest {
 
     @Test
     public void mustFalse() {

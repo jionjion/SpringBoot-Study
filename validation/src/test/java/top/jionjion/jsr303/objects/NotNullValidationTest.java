@@ -1,7 +1,7 @@
 package top.jionjion.jsr303.objects;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.jsr303.JSR303BaseTest;
+import top.jionjion.ValidationBaseTest;
 
 /**
  * 通用对象校验
@@ -9,7 +9,7 @@ import top.jionjion.jsr303.JSR303BaseTest;
  *
  * @author jion
  */
-class NotNullValidationTest extends JSR303BaseTest {
+class NotNullValidationTest extends ValidationBaseTest {
 
     @Test
     public void mustNotNull1() {
