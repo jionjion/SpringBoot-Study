@@ -12,7 +12,7 @@ import java.lang.annotation.*;
  */
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = NotContainSpaceValidator.class)
+@Constraint(validatedBy = NotContainSpaceValidatorForCharSequence.class)
 public @interface NotContainSpace {
     // 默认错误消息, 消息 key
     String message() default "top.jionjion.validation.NotContainSpace.message";

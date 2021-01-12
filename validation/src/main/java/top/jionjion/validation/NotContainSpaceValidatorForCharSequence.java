@@ -9,8 +9,7 @@ import javax.validation.ConstraintValidatorContext;
  *
  * @author Jion
  */
-public class NotContainSpaceValidator implements ConstraintValidator<NotContainSpace, String> {
-
+public class NotContainSpaceValidatorForCharSequence implements ConstraintValidator<NotContainSpace, CharSequence> {
     private static final String SPACE_STRING = " ";
 
     /**
@@ -31,8 +30,8 @@ public class NotContainSpaceValidator implements ConstraintValidator<NotContainS
      * @return 是否通过验证
      */
     @Override
-    public boolean isValid(String property, ConstraintValidatorContext context) {
-        if (property != null && property.trim().contains(SPACE_STRING)) {
+    public boolean isValid(CharSequence property, ConstraintValidatorContext context) {
+        if (property != null && property.toString().trim().contains(SPACE_STRING)) {
             // 注解中, message 属性约定的字符串...
             String messageTemplate = context.getDefaultConstraintMessageTemplate();
 
