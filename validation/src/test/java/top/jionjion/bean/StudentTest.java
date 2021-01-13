@@ -9,19 +9,19 @@ import top.jionjion.ValidationBaseTest;
 class StudentTest extends ValidationBaseTest {
 
     @Test
-    public void validate(){
+    public void validate() {
         Student student = new Student();
         super.validate(student);
     }
 
     @Test
-    public void validateProperty(){
+    public void validateProperty() {
         Student student = new Student();
         super.validateProperty(student, "name");
     }
 
     @Test
-    public void validatePropertyValues(){
+    public void validatePropertyValues() {
         Student student = new Student();
         student.setName("Jion");
         super.validatePropertyValues(Student.class, "name", "Jion");
