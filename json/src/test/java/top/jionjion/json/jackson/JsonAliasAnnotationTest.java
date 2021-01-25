@@ -31,4 +31,14 @@ public class JsonAliasAnnotationTest {
         assertNotNull(student);
         log.info(student.toString());
     }
+
+    @Test
+    public void test2() throws IOException {
+        JsonAliasAnnotation student = new JsonAliasAnnotation();
+        student.setId(1);
+        student.setName("囧囧");
+        String result = new ObjectMapper().writeValueAsString(student);
+        assertNotNull(result);
+        log.info(result);
+    }
 }
