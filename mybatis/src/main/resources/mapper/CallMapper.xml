@@ -10,7 +10,7 @@
         }
     </insert>
 
-    <!-- 调用函数 -->
+    <!-- 调用存储过程 -->
     <insert id="callProcedureOneAddOne" parameterType="java.util.Map" statementType="CALLABLE">
         {
             call procedure_one_add_one(#{param_a, mode=IN, jdbcType=INTEGER},

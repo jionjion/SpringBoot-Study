@@ -27,11 +27,13 @@
 
     <!-- 查询字段 -->
     <sql id="student_table_column">
+        <!--@sql select -->
             s.id,
             s.name,
             s.age,
             s.address,
             s.birthday
+        <!--@sql from student s -->
     </sql>
 
     <!-- 字符查询 -->
