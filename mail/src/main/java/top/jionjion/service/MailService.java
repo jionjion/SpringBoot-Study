@@ -14,11 +14,12 @@ import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 /**
- *  邮件发送服务
+ * 邮件发送服务
+ *
  * @author Jion
  */
-@Service
 @Slf4j
+@Service
 public class MailService {
 
 
@@ -65,7 +66,7 @@ public class MailService {
         }
     }
 
-    void sendAttachmentMail (Mail mail){
+    void sendAttachmentMail(Mail mail) {
         try {
             MimeMessage mimeMailMessage = javaMailSender.createMimeMessage();
             //true 表示需要创建一个multipart message
