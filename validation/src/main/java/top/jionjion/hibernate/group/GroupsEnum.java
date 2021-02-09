@@ -10,13 +10,13 @@ public class GroupsEnum {
     /**
      * 新增
      */
-    public interface INSERT {
+    public interface Insert {
     }
 
 
     /**
      * 更新
      */
-    public interface UPDATE {
+    public interface Update {
     }
 }

@@ -23,7 +23,7 @@ class GroupsValidationTest extends ValidationBaseTest {
         GroupsValidation obj = new GroupsValidation();
         obj.id = null;
         // 验证条件,只有在更新时校验才.  fail
-        super.validate(obj, GroupsEnum.UPDATE.class);
+        super.validate(obj, GroupsEnum.Update.class);
     }
 
     @Test
@@ -31,6 +31,6 @@ class GroupsValidationTest extends ValidationBaseTest {
         GroupsValidation obj = new GroupsValidation();
         obj.id = null;
         // 验证条件,只有在更新时校验才.  pass
-        super.validate(obj, GroupsEnum.INSERT.class);
+        super.validate(obj, GroupsEnum.Insert.class);
     }
 }

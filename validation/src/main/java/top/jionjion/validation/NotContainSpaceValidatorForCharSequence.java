@@ -42,7 +42,7 @@ public class NotContainSpaceValidatorForCharSequence implements ConstraintValida
             context.buildConstraintViolationWithTemplate(messageTemplate).addConstraintViolation();
             return false;
         }
-        //  ConstraintViolationImpl{interpolatedMessage='不能包含字符串!', propertyPath=name,     rootBeanClass=class top.jionjion.validation.NotContainSpaceValidation, messageTemplate='不能包含字符串!'}
+        //  返回实例 ConstraintViolationImpl{interpolatedMessage='不能包含字符串!', propertyPath=name,     rootBeanClass=class top.jionjion.validation.NotContainSpaceValidation, messageTemplate='不能包含字符串!'}
         return true;
     }
 }

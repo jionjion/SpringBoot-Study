@@ -1,7 +1,6 @@
 package top.jionjion.jsr303.number;
 
 import javax.validation.constraints.NegativeOrZero;
-import javax.validation.constraints.NegativeOrZero;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
