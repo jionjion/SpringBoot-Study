@@ -1,8 +1,8 @@
 package top.jionjion.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import top.jionjion.bean.Score;
-import top.jionjion.bean.Student;
+import top.jionjion.dto.Score;
+import top.jionjion.dto.Student;
 
 import java.util.List;
 

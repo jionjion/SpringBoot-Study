@@ -3,7 +3,7 @@
 
 <mapper namespace="top.jionjion.mapper.ScoreQueryMapper">
     <!-- 学生类 -->
-    <resultMap id="StudentResultMap" type="top.jionjion.bean.Student">
+    <resultMap id="StudentResultMap" type="top.jionjion.dto.Student">
         <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
         <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
         <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>
@@ -12,7 +12,7 @@
     </resultMap>
 
     <!-- 成绩类 -->
-    <resultMap id="ScoreResultMap" type="top.jionjion.bean.Score">
+    <resultMap id="ScoreResultMap" type="top.jionjion.dto.Score">
         <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
         <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
         <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
@@ -30,14 +30,14 @@
     </select>
 
     <!-- 联合查询,通过查询子表获得所有信息 -->
-    <resultMap id="ScoreAndStudentResultMap" type="top.jionjion.bean.Score">
+    <resultMap id="ScoreAndStudentResultMap" type="top.jionjion.dto.Score">
         <!-- 子表字段 -->
         <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
         <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
         <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
         <result property="grade" javaType="java.lang.Float" column="GRADE" jdbcType="FLOAT"/>
         <!-- 主表信息,通过子表查询而来,使用 javaType , 指定主表类型 -->
-        <association property="student" javaType="top.jionjion.bean.Student">
+        <association property="student" javaType="top.jionjion.dto.Student">
             <id property="id" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
             <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
             <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>
@@ -63,7 +63,7 @@
     </select>
 
     <!-- 联合查询,通过查询主表获得所有信息 -->
-    <resultMap id="StudentAndScoreResultMap" type="top.jionjion.bean.Student">
+    <resultMap id="StudentAndScoreResultMap" type="top.jionjion.dto.Student">
         <!-- 主表字段 -->
         <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
         <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
@@ -71,7 +71,7 @@
         <result property="address" javaType="java.lang.String" column="ADDRESS" jdbcType="VARCHAR"/>
         <result property="birthday" javaType="java.time.LocalDate" column="BIRTHDAY" jdbcType="DATE"/>
         <!-- 子表信息,通过子表查询而来,使用 javaType , 指定主表类型 -->
-        <collection  property="scores" ofType="top.jionjion.bean.Score">
+        <collection property="scores" javaType="java.util.List" ofType="top.jionjion.dto.Score">
             <id property="id" javaType="java.lang.Integer" column="C_ID" jdbcType="INTEGER"/>
             <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
             <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
@@ -96,7 +96,7 @@
     </select>
 
     <!-- 双向绑定,联合查询,通过查询主表获得所有信息 -->
-    <resultMap id="StudentAndScoreResultMapDouble" type="top.jionjion.bean.Student">
+    <resultMap id="StudentAndScoreResultMapDouble" type="top.jionjion.dto.Student">
         <!-- 主表字段 -->
         <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
         <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
@@ -104,13 +104,13 @@
         <result property="address" javaType="java.lang.String" column="ADDRESS" jdbcType="VARCHAR"/>
         <result property="birthday" javaType="java.time.LocalDate" column="BIRTHDAY" jdbcType="DATE"/>
         <!-- 子表信息,通过子表查询而来,使用 javaType , 指定主表类型 -->
-        <collection  property="scores" ofType="top.jionjion.bean.Score">
+        <collection  property="scores" javaType="java.util.List" ofType="top.jionjion.dto.Score">
             <id property="id" javaType="java.lang.Integer" column="C_ID" jdbcType="INTEGER"/>
             <result property="sId" javaType="java.lang.Integer" column="S_ID" jdbcType="INTEGER"/>
             <result property="course" javaType="java.lang.String" column="COURSE" jdbcType="VARCHAR"/>
             <result property="grade" javaType="java.lang.Float" column="GRADE" jdbcType="FLOAT"/>
             <!-- 子表关联主表,使用自动映射 -->
-            <association property="student" javaType="top.jionjion.bean.Student" autoMapping="true"/>
+            <association property="student" javaType="top.jionjion.dto.Student" autoMapping="true"/>
         </collection>
     </resultMap>
     <!-- 联合查询,通过查询主表获得所有信息 -->

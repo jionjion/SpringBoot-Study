@@ -1,7 +1,7 @@
 package top.jionjion.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import top.jionjion.bean.Student;
+import top.jionjion.dto.Student;
 
 import java.time.LocalDate;
 import java.util.List;
