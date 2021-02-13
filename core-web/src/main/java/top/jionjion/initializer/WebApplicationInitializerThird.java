@@ -6,8 +6,9 @@ import org.springframework.core.annotation.Order;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- *  自定义容器启动器. 通过属性 context.initializer.classes 指定调用
- *      在容器注入时,进行操作
+ * 自定义容器启动器. 通过属性 context.initializer.classes 指定调用
+ * 在容器注入时,进行操作
+ *
  * @author Jion
  */
 @Order(3)

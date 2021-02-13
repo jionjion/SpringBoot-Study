@@ -6,8 +6,9 @@ import org.springframework.core.annotation.Order;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- *  自定义容器启动器.通过 META-INF/spring.factories 注册
- *      在容器注入时,进行操作
+ * 自定义容器启动器.通过 META-INF/spring.factories 注册
+ * 在容器注入时,进行操作
+ *
  * @author Jion
  */
 @Order(1)
