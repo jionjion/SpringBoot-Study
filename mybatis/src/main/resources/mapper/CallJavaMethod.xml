@@ -5,13 +5,13 @@
     <select id="findStudentByName">
         <bind name="name" value="@top.jionjion.util.MybatisStringUtils@toUpperCase(name)"/>
         <bind name="a" value="@top.jionjion.util.MybatisStringUtils@returnA"/>
-        SELECT s.id,
-        s.name,
-        s.age,
-        s.address,
-        s.birthday
-        FROM student s
-        WHERE s.name = #{name, jdbcType=VARCHAR}
-        or s.name = #{a,jdbcType=VARCHAR}
+        select s.id,
+               s.name,
+               s.age,
+               s.address,
+               s.birthday
+        from student s
+        where s.name = #{name, jdbcType=VARCHAR}
+        or s.name = #{a, jdbcType=VARCHAR}
     </select>
 </mapper>

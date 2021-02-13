@@ -12,14 +12,12 @@ import java.util.List;
  */
 public interface StudentDynamicQueryMapper {
 
-
     /**
      * 测试通过 IF 标签
      * @param id 主键
      * @return 结果
      */
     List<Student> findStudentByIf(Integer id);
-
 
     /**
      *  测试通过 choose, when, otherwise 标签
