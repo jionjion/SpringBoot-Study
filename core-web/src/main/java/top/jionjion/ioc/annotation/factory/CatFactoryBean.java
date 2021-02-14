@@ -4,12 +4,12 @@ import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
- *  使用 FactoryBean<T> 注入Bean
+ * 使用 FactoryBean<T> 注入Bean, 通过实例工厂注入容器
+ *
  * @author Jion
  */
 @Component("cat")
 public class CatFactoryBean implements FactoryBean<Animal> {
-
 
     @Override
     public Animal getObject() throws Exception {

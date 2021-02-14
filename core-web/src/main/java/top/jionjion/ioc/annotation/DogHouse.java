@@ -1,15 +1,18 @@
 package top.jionjion.ioc.annotation;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 /**
- *  引用
+ * 使用 @Component 注解, 将该类注入容器中
+ *
  * @author Jion
  */
 @Component
 public class DogHouse {
 
-    /** 引用 */
+    /**
+     * 引用
+     */
     private Dog dog;
 
     public Dog getDog() {

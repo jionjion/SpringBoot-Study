@@ -3,6 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--
+        使用XML方式,构造容器
+     -->
+
     <!-- 属性构造注入 -->
 <!--    <bean id="dog" class="top.jionjion.ioc.xml.Dog">-->
 <!--        <property name="name" value="大黄"/>-->

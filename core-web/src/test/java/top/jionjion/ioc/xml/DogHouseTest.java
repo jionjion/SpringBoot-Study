@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
+ * 使用XML方式,进行容器配置
+ *
  * @author Jion
  */
 @SpringBootTest
@@ -16,7 +18,7 @@ public class DogHouseTest {
     DogHouse dogHouse;
 
     @Test
-    public void test(){
+    public void test() {
         Dog dog = dogHouse.getDog();
         System.out.println("获得Bean:" + dog.toString());
     }

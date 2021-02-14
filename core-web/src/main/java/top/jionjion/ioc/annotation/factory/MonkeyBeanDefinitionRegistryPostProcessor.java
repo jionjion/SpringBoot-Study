@@ -8,11 +8,17 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.stereotype.Component;
 
 /**
- *  使用 BeanDefinitionRegistryPostProcessor 注入 Bean
+ * 使用 BeanDefinitionRegistryPostProcessor 在实例化前,向容器注入Bean定义,完成注入 Bean
+ *
  * @author Jion
  */
 @Component
 public class MonkeyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
+
+    /**
+     * 向容器注入Bean的定义
+     * RootBeanDefinition为常用的Bean定义
+     */
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         // 注入Bean

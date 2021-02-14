@@ -8,9 +8,11 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
 /**
- *  Bean 工厂, 对已经初始化后的Bean进行一些修改
- *  实例化时调用 BeanFactoryPostProcessor 接口
+ * Bean工厂后置处理器
+ * 对已经加载到容器中的BeanDefinition信息进行修改,从而实现最终实例化时的属性替换
+ *
  * @author Jion
+ * @see People
  */
 @Component
 public class PeopleBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
@@ -21,6 +23,6 @@ public class PeopleBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
         BeanDefinition people = beanFactory.getBeanDefinition("people");
         // 获得属性,并修改
         MutablePropertyValues propertyValues = people.getPropertyValues();
-        propertyValues.addPropertyValue("name","Jion");
+        propertyValues.addPropertyValue("name", "Jion");
     }
 }
