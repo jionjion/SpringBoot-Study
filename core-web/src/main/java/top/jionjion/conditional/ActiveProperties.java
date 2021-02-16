@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 /**
- * 在某个属性下存在时生效
+ * 使用 @ConditionalOnProperty 在某个属性下存在时该类被注入到容器中
  *
  * @author Jion
  */

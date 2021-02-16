@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
  * 常用配置 @Import 注解, 在自定义注解中,将当注解注入.同时携带自定义注解中的元信息, 用来向容器中动态添加Bean
  *
  * @author Jion
- * @see DuckImportBeanDefinitionRegistrarTest
+ * @see org.springframework.context.annotation.ConfigurationClassParser#processImports 处理导入逻辑
+ * @see DuckImportBeanDefinitionRegistrarTest 测试类
  */
 @Component
 public class DuckImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {

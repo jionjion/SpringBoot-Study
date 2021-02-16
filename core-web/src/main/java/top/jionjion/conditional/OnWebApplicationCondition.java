@@ -5,12 +5,12 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * 在 Web 环境下使用
+ * 在 Web 环境下使用,
+ * Condition 具体实现规则
  *
  * @author Jion
  */
 public class OnWebApplicationCondition implements Condition {
-
 
     /**
      * 自定义匹配规则
