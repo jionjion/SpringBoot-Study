@@ -1,5 +1,9 @@
 package top.jionjion.dto;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,16 +14,20 @@ import java.util.Date;
  * @author JionJion
  */
 @Data
+@TableName("teacher")
 public class Teacher {
 
     /**
-     * 主键
+     * 主键, 子增序列
      */
+    @TableId(type = IdType.AUTO)
+    @TableField("id")
     private Integer id;
 
     /**
      * 名字
      */
+    @TableField("name")
     private String name;
 
     /**
@@ -36,4 +44,15 @@ public class Teacher {
      * 年龄
      */
     private Integer age;
+
+    /**
+     * 最后修改日期,默认转托驼峰命名
+     */
+    private Date createDate;
+
+    /**
+     * 最后修改日期,指定字段名
+     */
+    @TableField("modify_date")
+    private Date modifyDate;
 }
