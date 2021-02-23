@@ -14,6 +14,7 @@ import java.util.*;
 
 /**
  * 测试使用 Mybatis-plus 进行Curd操作
+ *
  * @author Jion
  */
 @Slf4j
@@ -121,10 +122,14 @@ class TeacherCurdMapperTest {
 
     /**
      * 查询（根据 columnMap 条件）
+     * 仅作为简单的等值查询
      */
     @Test
     public void selectByMap() {
         Map<String, Object> columnMap = new HashMap<>();
+        // 会拼接为 where name = 'Jetty' and age = 20
+        columnMap.put("name", "Jetty");
+        columnMap.put("age", 20);
         List<Teacher> teachers = teacherCurdMapper.selectByMap(columnMap);
         log.info("执行查询结果, {}", teachers);
     }
@@ -186,10 +191,10 @@ class TeacherCurdMapperTest {
     @Test
     public void selectPage() {
         // 分页, 当前页 ; 每页显示条数，默认 10 ; 总数 ; 是否进行 count 查询
-        IPage<Teacher> page = new Page<>(1, 5, 100, true);
+        IPage<Teacher> page = new Page<>(1, 3, 5, true);
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
-        IPage<Teacher> result = teacherCurdMapper.selectPage(page, queryWrapper);
-        log.info("执行查询结果, {}", result);
+        IPage<Teacher> result = teacherCurdMapper.selectPage(page, null);
+        log.info("执行查询结果, {}", result.getRecords());
     }
 
     /**

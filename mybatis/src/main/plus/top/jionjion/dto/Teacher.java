@@ -1,9 +1,6 @@
 package top.jionjion.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -48,11 +45,18 @@ public class Teacher {
     /**
      * 最后修改日期,默认转托驼峰命名
      */
+    @TableField(fill = FieldFill.INSERT)
     private Date createDate;
 
     /**
      * 最后修改日期,指定字段名
      */
-    @TableField("modify_date")
+    @TableField(value = "modify_date", fill = FieldFill.INSERT_UPDATE)
     private Date modifyDate;
+
+    /**
+     * 乐观锁,在每次更新时执行
+     */
+    @Version
+    private Integer version;
 }
