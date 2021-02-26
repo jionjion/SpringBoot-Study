@@ -9,8 +9,9 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
+ * .@JsonAnySetter 类的测试
+ *
  * @author Jion
- * \@JsonAnySetter 类的测试
  */
 @Slf4j
 public class JsonAnySetterAnnotationTest {

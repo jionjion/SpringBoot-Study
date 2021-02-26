@@ -9,8 +9,9 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
+ * .@JsonDeserialize 注解使用
+ *
  * @author Jion
- * \@JsonDeserialize 注解使用
  */
 @Slf4j
 public class JsonDeserializeAnnotationTest {
