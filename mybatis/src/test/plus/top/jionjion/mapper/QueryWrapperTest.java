@@ -9,10 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import top.jionjion.dto.Teacher;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
- * 测试 Wrapper 类的使用
+ * 测试 QueryWrapper 类的使用
  * <p>
  * 官网  https://mybatis.plus/guide/wrapper.html
  *
@@ -34,8 +35,22 @@ public class QueryWrapperTest {
         String name = "jion";
         // 在 name 不为空串的情况下, 动态SQL成立 SQL => SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ?)
         wrapper.eq(StringUtils.isNotBlank(name), "name", name);
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
+
+    /**
+     * 指定查询字段
+     * SELECT name,age FROM teacher WHERE deleted=0
+     */
+    @Test
+    public void select() {
+        QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
+        wrapper.select("name", "age");
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
+    }
+
 
     /**
      * 测试,指定字段是否全部相等呢
@@ -48,12 +63,14 @@ public class QueryWrapperTest {
         column.put("age", null);
         // 全部相等 SQL => (name = ? AND age IS NULL)
         wrapper.allEq(column);
-        teacherCurdMapper.selectOne(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
 
         // 忽略空,全部相等 SQL => (name = ?)
         wrapper = new QueryWrapper<>();
         wrapper.allEq(column, false);
-        teacherCurdMapper.selectOne(wrapper);
+        result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -69,7 +86,8 @@ public class QueryWrapperTest {
                 .ge("age", 18)
                 .lt("age", 20)
                 .le("age", 20);
-        teacherCurdMapper.selectObjs(wrapper);
+        List<Object> result = teacherCurdMapper.selectObjs(wrapper);
+        log.info("查询结果, {}", result);
     }
 
 
@@ -82,7 +100,8 @@ public class QueryWrapperTest {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.between("age", 10, 20)
                 .notBetween("age", 30, 40);
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -96,7 +115,8 @@ public class QueryWrapperTest {
                 .notLike("name", "arise")
                 .likeLeft("name", "j")
                 .likeRight("name", "n");
-        teacherCurdMapper.selectCount(wrapper);
+        Integer result = teacherCurdMapper.selectCount(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -108,7 +128,8 @@ public class QueryWrapperTest {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.isNotNull("name")
                 .isNull("age");
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -120,7 +141,8 @@ public class QueryWrapperTest {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.in("age", 10, 11, 12)
                 .notIn("age", 20, 21.22);
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -132,9 +154,22 @@ public class QueryWrapperTest {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.inSql("id", "select id from teacher where id <= 2")
                 .notInSql("age", "select age from teacher where id <= 2");
-        teacherCurdMapper.selectObjs(wrapper);
+        List<Object> result = teacherCurdMapper.selectObjs(wrapper);
+        log.info("查询结果, {}", result);
     }
 
+    /**
+     * 存在查询
+     * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (EXISTS (select id from teacher where id = 1) AND NOT EXISTS (select age from teacher where id = 2))
+     */
+    @Test
+    public void exists() {
+        QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
+        wrapper.exists("select id from teacher where id = 1")
+                .notExists("select age from teacher where id = 2");
+        List<Object> result = teacherCurdMapper.selectObjs(wrapper);
+        log.info("查询结果, {}", result);
+    }
 
     /**
      * 排序
@@ -144,7 +179,8 @@ public class QueryWrapperTest {
     public void orderByAsc() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.orderByAsc("id").orderByDesc("age", "name").orderByAsc("workday");
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -155,7 +191,8 @@ public class QueryWrapperTest {
     public void groupBy() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.groupBy("name", "age");
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -167,7 +204,8 @@ public class QueryWrapperTest {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.groupBy("name")
                 .having("sum(age)> {0}", 11);
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -178,7 +216,8 @@ public class QueryWrapperTest {
     public void and() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").and(innerWrapper -> innerWrapper.eq("age", 18));
-        teacherCurdMapper.selectOne(wrapper);
+        Teacher result = teacherCurdMapper.selectOne(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -189,7 +228,8 @@ public class QueryWrapperTest {
     public void or() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").or(innerWrapper -> innerWrapper.eq("age", 18));
-        teacherCurdMapper.selectList(wrapper);
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -200,7 +240,8 @@ public class QueryWrapperTest {
     public void nested() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").nested(innerWrapper -> innerWrapper.eq("age", 18));
-        teacherCurdMapper.selectOne(wrapper);
+        Teacher result = teacherCurdMapper.selectOne(wrapper);
+        log.info("查询结果, {}", result);
     }
 
     /**
@@ -211,8 +252,19 @@ public class QueryWrapperTest {
     public void apply() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.apply("date_format(workday,'%Y-%m-%d') = {0}", "2021-02-01").apply("id = abs({0})", -1);
-        teacherCurdMapper.selectOne(wrapper);
+        Teacher result = teacherCurdMapper.selectOne(wrapper);
+        log.info("查询结果, {}", result);
     }
 
-
+    /**
+     * 将当前SQL放到最后.
+     * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ?) limit 0, 2
+     */
+    @Test
+    public void last() {
+        QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
+        wrapper.eq("name", "jion").last("limit 0, 2");
+        List<Teacher> result = teacherCurdMapper.selectList(wrapper);
+        log.info("查询结果, {}", result);
+    }
 }
