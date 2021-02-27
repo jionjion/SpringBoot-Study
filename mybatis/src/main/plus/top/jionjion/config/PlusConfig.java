@@ -9,13 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 /**
  * 配置类,配置Mybatis-Plus的信息
- * 1.开启配置
- * 2.开启事物管理
- * 3.制定 Mapper 文件的路径
- * 4.注入各种组件拦截器
+ * <li>开启配置</li>
+ * <li>开启事物管理</li>
+ * <li>制定 Mapper 文件的路径</li>
+ * <li>注入各种组件拦截器</li>
  *
  * @author jion
  */

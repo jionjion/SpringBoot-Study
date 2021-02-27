@@ -43,6 +43,18 @@ public class Teacher {
     private Integer age;
 
     /**
+     * 乐观锁,在每次更新时执行
+     */
+    @Version
+    private Integer version;
+
+    /**
+     * 是否逻辑删除
+     */
+    @TableLogic
+    private Integer deleted;
+
+    /**
      * 最后修改日期,默认转托驼峰命名
      */
     @TableField(fill = FieldFill.INSERT)
@@ -54,9 +66,4 @@ public class Teacher {
     @TableField(value = "modify_date", fill = FieldFill.INSERT_UPDATE)
     private Date modifyDate;
 
-    /**
-     * 乐观锁,在每次更新时执行
-     */
-    @Version
-    private Integer version;
 }

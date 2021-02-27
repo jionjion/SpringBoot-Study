@@ -37,6 +37,17 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>RELEASE</version>
 		</dependency>
+		<!-- Mybatis-plus 代码生成器 -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>RELEASE</version>
+		</dependency>
 		<!-- MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>

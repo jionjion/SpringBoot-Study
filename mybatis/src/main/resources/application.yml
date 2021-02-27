@@ -11,24 +11,44 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: top.jionjion.bean
-  # config-location: # 配置文件的位置
-  # mapper-locations: # mapper文件的位置
-  # type-aliases-package: # 别名类的包扫描的位置;
-  # type-aliases-super-type: # 过滤类,仅对于该子类进行别名包扫描.别名首字母小写,驼峰命名
-  # type-handlers-package: # 类型转换过滤器
-  # check-config-location: # 是否进行检查配置文件信息
-  # executor-type: # 执行器模式
-  # default-scripting-language-driver: # 语言驱动
-  # configuration.*: # 更多扩展配置,参考 org.apache.ibatis.session.Configuration
+  # 配置文件的位置
+  # config-location:
+  # mapper文件的位置
+  # mapper-locations:
+  # 别名类的包扫描的位置;
+  # type-aliases-package:
+  # 过滤类,仅对于该子类进行别名包扫描.别名首字母小写,驼峰命名
+  # type-aliases-super-type:
+  # 类型转换过滤器
+  # type-handlers-package:
+  # 是否进行检查配置文件信息
+  # check-config-location:
+  # 执行器模式
+  # executor-type:
+  # 语言驱动
+  # default-scripting-language-driver:
+  # 更多扩展配置,参考 org.apache.ibatis.session.Configuration
+  # configuration.*:
 
-# pagehelper分页插件
+# Page-Helper分页插件
 pagehelper:
-    helper-dialect: mysql
-    reasonable: true
-    support-methods-arguments: true
-    params: count=countSql
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
 
-# Mybatis-plus日志配置
+# Mybatis-plus配置
 mybatis-plus:
+  # 日志
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 全局配置
+  global-config:
+    # 逻辑删除
+    db-config:
+      # 全局逻辑删除的实体字段名
+      logic-delete-field: deleted
+      # 逻辑已删除值，删除默认为 1
+      logic-delete-value: 1
+      # 逻辑未删除值，未删除默认为 0
+      logic-not-delete-value: 0

@@ -51,10 +51,12 @@ class TeacherCurdMapperTest {
 
     /**
      * 根据 columnMap 条件，删除记录
+     * 仅作为简单的等值查询
      */
     @Test
     public void deleteByMap() {
         Map<String, Object> columnMap = new HashMap<>();
+        columnMap.put("name", "Jion");
         int delete = teacherCurdMapper.deleteByMap(columnMap);
         log.info("执行删除结果, {}", delete);
     }
@@ -74,7 +76,7 @@ class TeacherCurdMapperTest {
      */
     @Test
     public void deleteBatchIds() {
-        Collection<Integer> idList = Collections.singletonList(-1);
+        Collection<Integer> idList = Collections.singletonList(3);
         int delete = teacherCurdMapper.deleteBatchIds(idList);
         log.info("执行删除结果, {}", delete);
     }
@@ -106,7 +108,7 @@ class TeacherCurdMapperTest {
      */
     @Test
     public void selectById() {
-        Teacher teacher = teacherCurdMapper.selectById(1);
+        Teacher teacher = teacherCurdMapper.selectById(3);
         log.info("执行查询结果, {}", teacher);
     }
 
@@ -193,7 +195,7 @@ class TeacherCurdMapperTest {
         // 分页, 当前页 ; 每页显示条数，默认 10 ; 总数 ; 是否进行 count 查询
         IPage<Teacher> page = new Page<>(1, 3, 5, true);
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
-        IPage<Teacher> result = teacherCurdMapper.selectPage(page, null);
+        IPage<Teacher> result = teacherCurdMapper.selectPage(page, queryWrapper);
         log.info("执行查询结果, {}", result.getRecords());
     }
 

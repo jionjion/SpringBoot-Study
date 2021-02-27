@@ -1,6 +1,7 @@
 package top.jionjion.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import java.util.Date;
  *
  * @author jion
  */
+@Slf4j
 @Component
 public class DateMetaObjectHandler implements MetaObjectHandler {
 
@@ -21,7 +23,7 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        System.out.println("执行插入逻辑...");
+        log.info("执行插入逻辑...");
         this.setFieldValByName("createDate", new Date(), metaObject);
         this.setFieldValByName("modifyDate", new Date(), metaObject);
     }
@@ -34,6 +36,6 @@ public class DateMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         this.setFieldValByName("modifyDate", new Date(), metaObject);
-        System.out.println("执行更新逻辑...");
+        log.info("执行更新逻辑...");
     }
 }
