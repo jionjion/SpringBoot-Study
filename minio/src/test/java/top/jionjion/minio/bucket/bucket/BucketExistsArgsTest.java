@@ -1,6 +1,5 @@
-package top.jionjion.minio.bucket;
+package top.jionjion.minio.bucket.bucket;
 
-import io.minio.BucketExistsArgs;
 import io.minio.MinioClient;
 import io.minio.errors.*;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +11,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * 测试存储桶是否存在
+ * BucketExistsArgs 测试存储桶是否存在
  *
  * @author Jion
  */

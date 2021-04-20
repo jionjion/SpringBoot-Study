@@ -1,6 +1,6 @@
-package top.jionjion.minio.bucket;
+package top.jionjion.minio.bucket.replication;
 
-import io.minio.DeleteBucketLifecycleArgs;
+import io.minio.DeleteBucketReplicationArgs;
 import io.minio.MinioClient;
 import io.minio.errors.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,11 +11,13 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * DeleteBucketLifecycleArgs 删除桶的生命配置周期
+ * DeleteBucketReplicationArgs 删除存储桶的存储桶复制配置
  *
  * @author Jion
  */
-public class DeleteBucketLifecycleArgsTest {
+public class DeleteBucketReplicationArgsTest {
+
+
     private MinioClient minioClient;
 
     @BeforeEach
@@ -29,8 +31,9 @@ public class DeleteBucketLifecycleArgsTest {
     }
 
     @Test
-    public void deleteBucketLifecycle() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
-        minioClient.deleteBucketLifecycle(
-                DeleteBucketLifecycleArgs.builder().bucket("cache").build());
+    public void deleteBucketReplication() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+        minioClient.deleteBucketReplication(
+                DeleteBucketReplicationArgs.builder().bucket("cache").build());
+
     }
 }

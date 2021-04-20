@@ -1,4 +1,4 @@
-package top.jionjion.minio.bucket;
+package top.jionjion.minio.bucket.tags;
 
 import io.minio.DeleteBucketTagsArgs;
 import io.minio.MinioClient;
@@ -21,7 +21,6 @@ public class DeleteBucketTagsArgsTest {
 
     @BeforeEach
     public void init() {
-        // 创建连接
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")

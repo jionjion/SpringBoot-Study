@@ -1,6 +1,6 @@
-package top.jionjion.minio.bucket;
+package top.jionjion.minio.bucket.encryption;
 
-import io.minio.DeleteBucketNotificationArgs;
+import io.minio.DeleteBucketEncryptionArgs;
 import io.minio.MinioClient;
 import io.minio.errors.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,17 +11,17 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * DeleteBucketNotificationArgs 删除桶的通知配置
+ * DeleteBucketEncryptionArgs 删除存储桶的加密配置
+ * 这样可以直接访问, 无需权限
  *
  * @author Jion
  */
-public class DeleteBucketNotificationArgsTest {
+public class DeleteBucketEncryptionArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
     public void init() {
-        // 创建连接
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -30,8 +30,8 @@ public class DeleteBucketNotificationArgsTest {
     }
 
     @Test
-    public void deleteBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
-        minioClient.deleteBucketNotification(
-                DeleteBucketNotificationArgs.builder().bucket("cache").build());
+    public void deleteBucketEncryption() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+        minioClient.deleteBucketEncryption(
+                DeleteBucketEncryptionArgs.builder().bucket("cache").build());
     }
 }

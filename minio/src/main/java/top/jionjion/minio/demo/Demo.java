@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class FileUploader {
+public class Demo {
     public static void main(String[] args)
             throws IOException, NoSuchAlgorithmException, InvalidKeyException {
         try {

@@ -17,7 +17,7 @@ import java.net.URL;
 public class MinioClientTest {
 
     @Test
-    public void test1() {
+    public void build1() {
         // 通过 url地址 直接创建
         MinioClient minioClient = MinioClient.builder()
                 .endpoint("https://play.min.io").build();
@@ -25,7 +25,7 @@ public class MinioClientTest {
     }
 
     @Test
-    public void test2() throws MalformedURLException {
+    public void build2() throws MalformedURLException {
         // 通过 URL 创建
         MinioClient minioClient = MinioClient.builder()
                 .endpoint(new URL("https://play.min.io")).build();
@@ -33,7 +33,7 @@ public class MinioClientTest {
     }
 
     @Test
-    public void test3() {
+    public void build3() {
         // 指定 地址端口
         MinioClient minioClient =
                 MinioClient.builder().endpoint(HttpUrl.parse("https://play.min.io:9000")).build();
@@ -41,7 +41,7 @@ public class MinioClientTest {
     }
 
     @Test
-    public void test4() {
+    public void build4() {
         // 指定地址端口 认证登录用户名
         MinioClient minioClient =
                 MinioClient.builder()
@@ -52,7 +52,7 @@ public class MinioClientTest {
     }
 
     @Test
-    public void test5() {
+    public void build5() {
         // 指定域名 端口 不启用SSL 安全套接字  用户密码
         MinioClient minioClient =
                 MinioClient.builder()
@@ -63,7 +63,7 @@ public class MinioClientTest {
     }
 
     @Test
-    public void test6() {
+    public void build6() {
         // 指定域名 端口 启用SSL 安全套接字  用户密码
         MinioClient minioClient =
                 MinioClient.builder()
@@ -74,7 +74,7 @@ public class MinioClientTest {
     }
 
     @Test
-    public void test7() throws MalformedURLException {
+    public void build7() throws MalformedURLException {
         // // 指定域名 用户密码 地址
         MinioClient minioClient =
                 MinioClient.builder()
@@ -87,7 +87,7 @@ public class MinioClientTest {
 
 
     @Test
-    public void test8() {
+    public void build8() {
         // okhttp3 包, 自定义
         OkHttpClient customHttpClient = new OkHttpClient();
         MinioClient minioClient =

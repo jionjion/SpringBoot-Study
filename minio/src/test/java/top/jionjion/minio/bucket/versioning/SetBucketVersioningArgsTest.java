@@ -1,7 +1,7 @@
-package top.jionjion.minio.bucket;
+package top.jionjion.minio.bucket.versioning;
 
-import io.minio.DeleteBucketReplicationArgs;
 import io.minio.MinioClient;
+import io.minio.SetBucketVersioningArgs;
 import io.minio.errors.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,12 +11,11 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * DeleteBucketPolicyArgs 删除桶的桶策略配置
- * 这样可以可读或者可写或者可读可写
- *
+ * SetBucketVersioningArgs 设置存储桶的版本控制策略
  * @author Jion
  */
-public class DeleteBucketPolicyArgsTest {
+public class SetBucketVersioningArgsTest {
+
     private MinioClient minioClient;
 
     @BeforeEach
@@ -30,8 +29,8 @@ public class DeleteBucketPolicyArgsTest {
     }
 
     @Test
-    public void deleteBucketReplication() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
-        minioClient.deleteBucketReplication(
-                DeleteBucketReplicationArgs.builder().bucket("cache").build());
+    public void setBucketVersioning() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+        minioClient.setBucketVersioning(
+                SetBucketVersioningArgs.builder().bucket("cache").config(null).build());
     }
 }

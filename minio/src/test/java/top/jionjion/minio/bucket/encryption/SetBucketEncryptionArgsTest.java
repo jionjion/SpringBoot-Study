@@ -1,7 +1,7 @@
-package top.jionjion.minio.bucket;
+package top.jionjion.minio.bucket.encryption;
 
-import io.minio.DeleteBucketEncryptionArgs;
 import io.minio.MinioClient;
+import io.minio.SetBucketEncryptionArgs;
 import io.minio.errors.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,12 +11,11 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * DeleteBucketEncryptionArgs 删除存储桶的加密配置
- * 这样可以直接访问, 无需权限
+ * SetBucketEncryptionArgs 设置存储桶的加密配置
  *
  * @author Jion
  */
-public class DeleteBucketEncryptionArgsTest {
+public class SetBucketEncryptionArgsTest {
 
     private MinioClient minioClient;
 
@@ -31,8 +30,9 @@ public class DeleteBucketEncryptionArgsTest {
     }
 
     @Test
-    public void deleteBucketEncryption() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
-        this.minioClient.deleteBucketEncryption(
-                DeleteBucketEncryptionArgs.builder().bucket("cache").build());
+    public void setBucketEncryption() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+        minioClient.setBucketEncryption(
+                SetBucketEncryptionArgs.builder().bucket("cache").config(null).build());
+
     }
 }
