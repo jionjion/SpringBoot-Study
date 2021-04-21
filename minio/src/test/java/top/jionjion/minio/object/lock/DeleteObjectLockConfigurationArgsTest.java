@@ -1,4 +1,4 @@
-package top.jionjion.minio.object.lock.configuration;
+package top.jionjion.minio.object.lock;
 
 import io.minio.DeleteObjectLockConfigurationArgs;
 import io.minio.MinioClient;
