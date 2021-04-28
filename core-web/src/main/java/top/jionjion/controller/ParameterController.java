@@ -1,11 +1,18 @@
 package top.jionjion.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import top.jionjion.bean.Student;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 框架参数
@@ -115,6 +122,40 @@ public class ParameterController {
     @RequestMapping(value = "/parameter/h", method = RequestMethod.POST)
     public String addParameterH(@RequestBody String[] names) {
         log.info("names is: " + Arrays.toString(names));
+        return "Success";
+    }
+
+    /**
+     * 通过 form-data 表单的形式同时提交参数和文件
+     *
+     * @param request 处理表单请求.包含文件(支持多文件传输)及Form数据
+     * @return 响应字符串
+     * @throws IOException 查看IO附件
+     */
+    @RequestMapping(value = "/parameter/j", method = RequestMethod.POST)
+    public String addParameterJ(MultipartHttpServletRequest request) throws IOException {
+        // 获取数据
+        String requestData = request.getParameter("_request_data");
+        ObjectMapper objectMapper = new ObjectMapper();
+        Student student = objectMapper.readValue(requestData, Student.class);
+        System.out.println(student.toString());
+        // 附件
+        List<MultipartFile> files = request.getFiles("file");
+        for (MultipartFile file : files) {
+            System.out.println("文本框文件属性" + file.getName());
+            System.out.println("文件原始名称" + file.getOriginalFilename());
+            System.out.println("文件长度" + file.getSize());
+            System.out.println("文件类型" + file.getContentType());
+            // 文件读写
+            try (InputStream inputStream = file.getInputStream();
+                 FileOutputStream outputStream = new FileOutputStream("S:\\" + file.getOriginalFilename())) {
+                int len;
+                byte[] buffer = new byte[4096];
+                while ((len = inputStream.read(buffer)) > 0) {
+                    outputStream.write(buffer, 0, len);
+                }
+            }
+        }
         return "Success";
     }
 }
