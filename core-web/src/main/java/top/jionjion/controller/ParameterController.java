@@ -2,6 +2,7 @@ package top.jionjion.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -89,13 +90,36 @@ public class ParameterController {
     }
 
     /**
+     * 使用@ModelAttribute标注在方法上,会在每个controller方法前均执行.
+     * 执行对指定属性或者
+     *
+     * @param 封装Form表单,并将 student 对象存入上下文中
+     */
+    @ModelAttribute("student")
+    public void addParameterF1(HttpServletRequest request, Model model) {
+        String name = request.getParameter("name");
+        String id = request.getParameter("id");
+        Student student = new Student();
+        student.setName(name);
+        student.setId(Integer.parseInt(id));
+        model.addAttribute("student", student);
+    }
+
+    @RequestMapping(value = "/parameter/f", method = RequestMethod.POST)
+    public String addParameterF2(Model model) {
+        Student student = (Student) model.getAttribute("student");
+        log.info("student is: " + student);
+        return "Success";
+    }
+
+    /**
      * 用注解@RequestParam绑定请求URL中的参数,Form表单中的参数
      *
      * @param name 请求参数
      * @return 响应字符串
      */
-    @RequestMapping(value = "/parameter/f")
-    public String addParameterF(@RequestParam("name") String name) {
+    @RequestMapping(value = "/parameter/j")
+    public String addParameterJ(@RequestParam("name") String name) {
         log.info("name is: " + name);
         return "Success";
     }
@@ -106,8 +130,8 @@ public class ParameterController {
      * @param student 请求体
      * @return 响应字符串
      */
-    @RequestMapping(value = "/parameter/g", method = RequestMethod.POST)
-    public String addParameterG(@RequestBody Student student) {
+    @RequestMapping(value = "/parameter/h", method = RequestMethod.POST)
+    public String addParameterH(@RequestBody Student student) {
         log.info("student is: " + student);
         return "Success";
     }
@@ -119,8 +143,8 @@ public class ParameterController {
      * @param names 请求体,数组对象
      * @return 响应字符串
      */
-    @RequestMapping(value = "/parameter/h", method = RequestMethod.POST)
-    public String addParameterH(@RequestBody String[] names) {
+    @RequestMapping(value = "/parameter/i", method = RequestMethod.POST)
+    public String addParameterI(@RequestBody String[] names) {
         log.info("names is: " + Arrays.toString(names));
         return "Success";
     }
