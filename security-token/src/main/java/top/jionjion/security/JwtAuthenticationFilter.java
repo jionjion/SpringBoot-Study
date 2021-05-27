@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 验证jwt信息, 解析 token 并设置在security的上下文中
+ * 验证jwt信息,过滤器
+ * 解析 token 并设置在security的上下文中
  *
  * @author Jion
  */
@@ -29,21 +30,23 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         String tokenHeader = request.getHeader(JwtTokenUtils.TOKEN_HEADER);
-        //如果请求头中没有Authorization信息则直接放行了
+        // 如果请求头中没有Authorization信息则直接放行了
         if (tokenHeader == null || !tokenHeader.startsWith(JwtTokenUtils.TOKEN_PREFIX)) {
             chain.doFilter(request, response);
             return;
         }
-        //如果请求头中有token,则进行解析，并且设置认证信息
+        // 如果请求头中有token,则进行解析，并且设置认证信息
         if (!JwtTokenUtils.isExpiration(tokenHeader.replace(JwtTokenUtils.TOKEN_PREFIX, ""))) {
-            //设置上下文
+            // 设置上下文
             UsernamePasswordAuthenticationToken authentication = getAuthentication(tokenHeader);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         super.doFilterInternal(request, response, chain);
     }
 
-    //获取用户信息
+    /**
+     * 获取用户信息
+     */
     private UsernamePasswordAuthenticationToken getAuthentication(String tokenHeader) {
         String token = tokenHeader.replace(JwtTokenUtils.TOKEN_PREFIX, "");
         String username = JwtTokenUtils.getUserName(token);

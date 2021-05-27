@@ -1,6 +1,5 @@
 package top.jionjion.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,23 +12,31 @@ import org.springframework.web.bind.annotation.RestController;
 import top.jionjion.tools.JwtTokenUtils;
 
 /**
+ * 资源请求,判定是否有权限
+ *
  * @author Jion
  */
 @RestController
-public class IndexController {
+public class HomeController {
 
-    @Autowired
-    AuthenticationManagerBuilder authenticationManagerBuilder;
+    final AuthenticationManagerBuilder authenticationManagerBuilder;
+
+    public HomeController(AuthenticationManagerBuilder authenticationManagerBuilder) {
+        this.authenticationManagerBuilder = authenticationManagerBuilder;
+    }
 
     /**
-     * 请求,放行
-     * GET http://localhost:8080
+     * 请求,放行.不做验证
+     * curl http://localhost:8080/
      */
     @GetMapping("/")
     public String index() {
         return "security jwt";
     }
 
+    /**
+     *
+     */
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password) {
         // 登陆验证

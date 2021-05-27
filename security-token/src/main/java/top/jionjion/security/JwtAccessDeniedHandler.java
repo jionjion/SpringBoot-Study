@@ -18,7 +18,6 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
 
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException exception) throws IOException {
-
         System.out.println("用户访问没有授权资源");
         System.out.println(exception.getMessage());
         httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Token 验证
+ *
  * @author Jion
  */
 @Component
