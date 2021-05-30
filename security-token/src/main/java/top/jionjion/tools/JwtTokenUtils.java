@@ -12,11 +12,25 @@ import java.util.Map;
  * @author Jion
  */
 public class JwtTokenUtils {
-
+    /**
+     * 放入请求头的token的key
+     */
     public static final String TOKEN_HEADER = "Authorization";
+
+    /**
+     * Token的值,前缀
+     */
     public static final String TOKEN_PREFIX = "Bearer ";
-    public static final String SECRET = "jwtsecret";
-    public static final String ISS = "echisan";
+
+    /**
+     * 加密随机字符
+     */
+    public static final String SECRET = "jwtSecret";
+
+    /**
+     * 签发人
+     */
+    public static final String ISS = "jion";
 
     /**
      * 过期时间3小时
@@ -25,16 +39,23 @@ public class JwtTokenUtils {
 
     private static final String ROLE = "role";
 
-    //创建token
+    /**
+     * 创建token
+     */
     public static String createToken(String username, String role, boolean isRememberMe) {
         Map<String, Object> map = new HashMap<>(4);
         map.put(ROLE, role);
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SECRET)
+                // 一些权限信息
                 .setClaims(map)
-                .setIssuer(ISS)
+                // 主题
                 .setSubject(username)
+                // 签发人
+                .setIssuer(ISS)
+                // 签发日期
                 .setIssuedAt(new Date())
+                // 过期时间
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION * 1000))
                 .compact();
     }

@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Security Token 使用
- * 参阅 https://blog.csdn.net/qq_38579100/article/details/108655008
  *
  * @author Jion
  */

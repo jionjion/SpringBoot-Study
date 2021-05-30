@@ -18,7 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        //直接写死数据信息，可以在这里获取数据库的信息并进行验证
+        // 认证信息
         return User.withUsername(s).password(new BCryptPasswordEncoder().encode("123456")).authorities("admin").build();
     }
 }
