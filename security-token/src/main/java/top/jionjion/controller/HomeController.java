@@ -50,7 +50,7 @@ public class HomeController {
     }
 
     /**
-     * curl -X GET --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuIiwic3ViIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MCwiaWF0IjoxNjIyMzYyNjkwfQ.vdY4hkAPaajZsaPujJN_n23kc3_gcnp88flzs-rSuyX9zrp05pQ2jkxdyWSBFmFJ37A0MOWjx-qImjQOstT-Lg" http://localhost:8080/authority
+     * curl -X GET --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuI2iw1ic3ViIj2oiYWRtaW4iLCJyb2xlIj2oiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MC1wi2aWF0Ij1oxNjIyMzYyNj3kwfQ.vdY4hkAPa3ajZsaPujJN_n23kc3_gc3np88f6lzs-rSuyX9zrp05pQ2jk1xdyWSBFmFJ37A0MOWjx-qImjQOstT-Lg" http://localhost:8080/authority
      */
     @GetMapping("/authority")
     @PreAuthorize("hasAnyAuthority('admin_role')")

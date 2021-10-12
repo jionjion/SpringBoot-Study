@@ -24,7 +24,7 @@ public class GoodsController {
     /** 使用 3.0 版本的 */
     @Operation(summary = "商品详情,针对得到单个商品的信息")
     @GetMapping("/one")
-    public ResultDto<Goods> one(@Parameter(description = "商品id,正整数") @RequestParam(value="goodsid",required = false,defaultValue = "0") Integer goodsid) {
+    public ResultDto<Goods> one(@Parameter(description = "商品id,正整数") @RequestParam(value="goodsId",required = false,defaultValue = "0") Integer goodsid) {
         Goods good = new Goods();
         good.setGoodsId(Long.valueOf(goodsid));
         good.setGoodsName("电子书");
@@ -39,9 +39,9 @@ public class GoodsController {
     @ApiOperation(value = "商品详情,通过路径表达式查询")
     @ApiResponse(code = 200, message = "操作成功")
     @GetMapping("/{id}/good")
-    public ResultDto<Goods> findById(@ApiParam(value = "商品id,正整数") @PathVariable(value="id") Integer goodsid) {
+    public ResultDto<Goods> findById(@ApiParam(value = "商品id,正整数") @PathVariable(value="id") Integer goodsId) {
         Goods good = new Goods();
-        good.setGoodsId(Long.valueOf(goodsid));
+        good.setGoodsId(Long.valueOf(goodsId));
         good.setGoodsName("教程");
         good.setSubject("学习Java");
         good.setPrice(new BigDecimal(80));
@@ -53,7 +53,7 @@ public class GoodsController {
     @ApiOperation(value = "提交订单")
     @ApiImplicitParams({
         @ApiImplicitParam(name="userid",value="用户id",dataTypeClass = Long.class, paramType = "form",example="12345"),
-        @ApiImplicitParam(name="goodsid",value="商品id",dataTypeClass = Integer.class, paramType = "form",example="12345"),
+        @ApiImplicitParam(name="goodsId",value="商品id",dataTypeClass = Integer.class, paramType = "form",example="12345"),
         @ApiImplicitParam(name="mobile",value="手机号",dataTypeClass = String.class, paramType = "form",example="13866668888"),
         @ApiImplicitParam(name="comment",value="发货备注",dataTypeClass = String.class, paramType = "form",example="请在情人节当天送到")
     })

@@ -54,7 +54,7 @@ public class Swagger3Config implements WebMvcConfigurer {
         return new ApiInfoBuilder()
                 .title("Swagger3接口文档示例")
                 .description("这是描述...嘤嘤嘤")
-                .contact(new Contact("springfox", "http://springfox.github.io/springfox/", null))
+                .contact(new Contact("springfox", "https://springfox.github.io/springfox/", null))
                 .version("1.0")
                 .build();
     }

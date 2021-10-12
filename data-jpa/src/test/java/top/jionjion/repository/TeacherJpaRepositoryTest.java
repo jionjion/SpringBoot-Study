@@ -22,7 +22,7 @@ public class TeacherJpaRepositoryTest extends JpaApplicationTest {
 	@Test
 	public void testFindAll() {
 		List<Teacher> teachers = teacherJpaRepository.findAll();
-		System.out.println("查询全部:" + teachers.toString());
+		System.out.println("查询全部:" + teachers);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class TeacherJpaRepositoryTest extends JpaApplicationTest {
 	 */
 	@Test
 	public void testSaveAndFlush() {
-		Teacher teacher = new Teacher(6,"Elor",new Date(),"安阳",21);
+		Teacher teacher = new Teacher(6,"Eor",new Date(),"安阳",21);
 		teacherJpaRepository.saveAndFlush(teacher);			//保存并写入数据库
 	}
 

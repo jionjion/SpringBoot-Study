@@ -59,7 +59,7 @@ public class SetBucketReplicationArgsTest {
                 new ReplicationConfiguration("REPLACE-WITH-ACTUAL-ROLE", rules);
 
         minioClient.setBucketReplication(
-                SetBucketReplicationArgs.builder().bucket("my-bucketname").config(config).build());
+                SetBucketReplicationArgs.builder().bucket("my-bucket_name").config(config).build());
 
     }
 }

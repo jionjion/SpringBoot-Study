@@ -42,13 +42,13 @@ public class SetBucketPolicyArgsTest {
                 "                     ],\n" +
                 "                     \"Effect\": \"Allow\",\n" +
                 "                     \"Principal\": \"*\",\n" +
-                "                     \"Resource\": \"arn:aws:s3:::my-bucketname\"\n" +
+                "                     \"Resource\": \"arn:aws:s3:::my-bucket_name\"\n" +
                 "                 },\n" +
                 "                 {\n" +
                 "                     \"Action\": \"s3:GetObject\",\n" +
                 "                     \"Effect\": \"Allow\",\n" +
                 "                     \"Principal\": \"*\",\n" +
-                "                     \"Resource\": \"arn:aws:s3:::my-bucketname/myobject*\"\n" +
+                "                     \"Resource\": \"arn:aws:s3:::my-bucket_name/my_object*\"\n" +
                 "                 }\n" +
                 "             ],\n" +
                 "             \"Version\": \"2012-10-17\"\n" +
