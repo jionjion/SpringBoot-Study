@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  */
 public class JsonViewAnnotation {
 
-    @JsonView(Views.hide.class)
+    @JsonView(Views.Hide.class)
     private Integer id;
 
     public Integer getId() {
@@ -20,7 +20,7 @@ public class JsonViewAnnotation {
         this.id = id;
     }
 
-    @JsonView(Views.show.class)
+    @JsonView(Views.Show.class)
     private String name;
 
     public String getName() {
@@ -37,11 +37,11 @@ public class JsonViewAnnotation {
  * 视图类,是否显示隐藏
  */
 class Views {
-    public class show {
+    public static class Show {
 
     }
 
-    public class hide {
+    public static class Hide {
 
     }
 }

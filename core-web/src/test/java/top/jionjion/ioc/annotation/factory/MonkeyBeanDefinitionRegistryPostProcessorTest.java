@@ -14,7 +14,7 @@ public class MonkeyBeanDefinitionRegistryPostProcessorTest {
 
     @Autowired
     @Qualifier("monkey")
-    private Animal monkey;
+    private AbstractAnimal monkey;
 
     @Test
     public void test(){

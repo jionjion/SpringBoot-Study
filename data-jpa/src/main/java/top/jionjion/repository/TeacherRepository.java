@@ -20,37 +20,57 @@ public interface TeacherRepository extends Repository<Teacher, Integer> {
     /**
      * 根据姓名查询
      * select * from teacher where name = ?
+     *
+     * @param name 姓名
+     * @return 结果
      */
-    public Teacher findByName(String name);
+    Teacher findByName(String name);
 
     /**
      * 姓氏开头,且年龄小于
      * select * from teacher where name like ?% and age < ?
+     *
+     * @param name 姓名
+     * @param age  年龄
+     * @return 结果
      */
-    public List<Teacher> findByNameStartsWithAndAgeLessThan(String name, Integer age);
+    List<Teacher> findByNameStartsWithAndAgeLessThan(String name, Integer age);
 
     /**
      * 名字结尾,年龄大于等于
      * select * from teacher where name like %> and age >= ?
+     *
+     * @param name 姓名
+     * @param age  年龄
+     * @return 结果
      */
-    public List<Teacher> findByNameEndingWithAndAgeGreaterThanEqual(String name, Integer age);
-
+    List<Teacher> findByNameEndingWithAndAgeGreaterThanEqual(String name, Integer age);
 
     /**
      * 在/不在某个枚举中
-     * select * from teacher where name in ( ? , ? ) or address not in (? , ?)
+     * select * from teacher where name in (? , ?) or address not in (? , ?)
+     *
+     * @param names     姓名列表
+     * @param addresses 地址列表
+     * @return 结果
      */
-    public List<Teacher> findByNameInOrAddressNotIn(List<String> names, List<String> addresses);
+    List<Teacher> findByNameInOrAddressNotIn(List<String> names, List<String> addresses);
 
     /**
      * 日期范围
      * select * from teacher where workday between ? and ?
+     *
+     * @param start 起始日期
+     * @param end   结束日期
+     * @return 结果
      */
-    public List<Teacher> findByWorkdayBetween(Date start, Date end);
+    List<Teacher> findByWorkdayBetween(Date start, Date end);
 
     /**
      * 非空查询
      * select * from teacher where id is not null and name is null
+     *
+     * @return 结果
      */
-    public List<Teacher> findByIdNotNullAndNameIsNull();
+    List<Teacher> findByIdNotNullAndNameIsNull();
 }

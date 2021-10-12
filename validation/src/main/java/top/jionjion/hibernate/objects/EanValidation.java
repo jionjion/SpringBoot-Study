@@ -8,11 +8,11 @@ import org.hibernate.validator.constraints.EAN;
  *
  * @author jion
  */
-public class EANValidation {
+public class EanValidation {
 
     /**
      * .@EAN 必须为EAN商品编码,商品后面一维码编号.不能有空格
      */
     @EAN(message = "必须为EAN商品编码")
-    public String mustEAN;
+    public String mustEan;
 }

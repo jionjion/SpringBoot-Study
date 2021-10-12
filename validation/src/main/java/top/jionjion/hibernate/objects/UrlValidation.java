@@ -8,11 +8,11 @@ import org.hibernate.validator.constraints.URL;
  *
  * @author jion
  */
-public class URLValidation {
+public class UrlValidation {
 
     /**
      *  .@URL 必须为URL格式
      */
     @URL(message="必须为地址格式")
-    public String mustURL;
+    public String mustUrl;
 }

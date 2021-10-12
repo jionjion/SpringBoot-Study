@@ -4,7 +4,7 @@ package top.jionjion.ioc.annotation.factory;
  * @author Jion
  * @see DuckImportBeanDefinitionRegistrar
  */
-public class Duck extends Animal {
+public class Duck extends AbstractAnimal {
 
     @Override
     String getName() {

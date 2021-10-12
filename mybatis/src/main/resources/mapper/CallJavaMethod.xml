@@ -4,7 +4,7 @@
     <!-- 调用Java的函数 -->
     <select id="findStudentByName">
         <bind name="name" value="@top.jionjion.util.MybatisStringUtils@toUpperCase(name)"/>
-        <bind name="a" value="@top.jionjion.util.MybatisStringUtils@returnA"/>
+        <bind name="a" value="@top.jionjion.util.MybatisStringUtils@returnA()"/>
         select s.id,
                s.name,
                s.age,

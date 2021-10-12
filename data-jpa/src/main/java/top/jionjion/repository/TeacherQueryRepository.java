@@ -26,28 +26,43 @@ public interface TeacherQueryRepository {
     /**
      * 查询最大值
      * select t from Teacher t where id = (select max(id) from Teacher)
+     *
+     * @return 结果
      */
-    @Query("select t from Teacher t where id = (select max(id) from Teacher)")
-    public Teacher getTeacherByMaxId();
+    @Query("select t from Teacher t where t.id = (select max(id) from Teacher)")
+    Teacher getTeacherByMaxId();
 
     /**
+     * 根据姓名查询
      * select t from Teacher t where t.name = ?
+     *
+     * @param name 姓名
+     * @return 结果
      */
     @Query("select t from Teacher t where t.name = ?1")
-    public Teacher getTeacherByParamName(String name);
-
-    @Query("select t from Teacher t where t.address = :address")
-    public Teacher getTeacherByParamAddress(@Param("address") String address);
-
+    Teacher getTeacherByParamName(String name);
 
     /**
+     * 根据地址查询
+     * select t from Teacher t where t.address = ?
+     *
+     * @param address 地址
+     * @return 结果
+     */
+    @Query("select t from Teacher t where t.address = :address")
+    Teacher getTeacherByParamAddress(@Param("address") String address);
+
+    /**
+     * 修改数据 添加@Modifying注解和事务开启
      * update Teacher t set t.age = :age where t.id = :id
-     * 添加@Modifying注解和事务开启
+     *
+     * @param id  主键
+     * @param age 年龄
      */
     @Modifying
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Query("update Teacher t set t.age = :age where t.id = :id")
-    public void updateSetName(@Param("id") Integer id, @Param("age") Integer age);
+    void updateSetName(@Param("id") Integer id, @Param("age") Integer age);
 
 
     /* ******************************|
@@ -57,7 +72,9 @@ public interface TeacherQueryRepository {
     /**
      * 使用原生的SQL进行查询.需要开启nativeQuery注解属性
      * select count(*) from teacher
+     *
+     * @return 结果
      */
     @Query(value = "select count(*) from teacher", nativeQuery = true)
-    public Long getCount();
+    Long getCount();
 }

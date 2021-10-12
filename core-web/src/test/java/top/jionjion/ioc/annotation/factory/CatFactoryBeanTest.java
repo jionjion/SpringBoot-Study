@@ -14,7 +14,7 @@ public class CatFactoryBeanTest {
 
     @Autowired
     @Qualifier("cat") // 指定具体Bean
-    private Animal cat;
+    private AbstractAnimal cat;
 
     @Test
     public void test(){

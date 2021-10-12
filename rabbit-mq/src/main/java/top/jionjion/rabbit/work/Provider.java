@@ -29,7 +29,8 @@ public class Provider {
         channel.queueDeclare("work", false, false, false, null);
 
         // 循环发送消息
-        for (int i=0; i<=10; i++){
+        int time = 10;
+        for (int i=0; i<=time; i++){
             channel.basicPublish("", "work", null, ("hello rabbit work queue .. " + i).getBytes());
         }
 

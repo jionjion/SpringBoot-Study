@@ -17,7 +17,7 @@ public interface StudentDynamicQueryMapper {
      * @param id 主键
      * @return 结果
      */
-    List<Student> findStudentByIf(Integer id);
+    List<Student> findStudentByIf(@Param("id") Integer id);
 
     /**
      *  测试通过 choose, when, otherwise 标签

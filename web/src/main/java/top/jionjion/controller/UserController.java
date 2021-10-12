@@ -109,12 +109,15 @@ public class UserController {
      *  URL:http://localhost:8080/MicroServices/user/error/2			调用第二种异常,并返回
      */
     @GetMapping(value = "/error/{code}")
-    public void errorCodeHandler(@PathVariable("code") String code) throws Exception {
-        if ("1".equals(code)) {
+    public void errorCodeHandler(@PathVariable("code") String code) {
+        String error1 = "1";
+        String error2 = "2";
+
+        if (error1.equals(code)) {
             //抛出自定义的异常,测试统一异常处理
             throw new UserException(500, "这是一个错误...");
         }
-        if ("2".equals(code)) {
+        if (error2.equals(code)) {
             throw new UserException(500, "这是另一个错误...");
         }
         throw new RuntimeException("其他错误...");

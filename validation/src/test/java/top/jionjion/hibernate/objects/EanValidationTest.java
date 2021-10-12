@@ -9,13 +9,13 @@ import top.jionjion.ValidationBaseTest;
  *
  * @author jion
  */
-class EANValidationTest extends ValidationBaseTest {
+class EanValidationTest extends ValidationBaseTest {
 
     @Test
     public void test(){
-        EANValidation obj = new EANValidation();
+        EanValidation obj = new EanValidation();
         // ENA商品编码 pass
-        obj.mustEAN = "6920203819046";
+        obj.mustEan = "6920203819046";
 
         super.validate(obj);
     }

@@ -13,9 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class PeopleBeanPostProcessor implements BeanPostProcessor {
 
+    private final static String BEAN_NAME_PEOPLE = "people";
+
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         // 在类初始化前调用, 若有返回值,则将该返回值作为实例化结果
-        if ("people".equals(beanName)) {
+        if (BEAN_NAME_PEOPLE.equals(beanName)) {
             return new People();
         }
         // 返回为null, 继续初始化
@@ -24,7 +26,7 @@ public class PeopleBeanPostProcessor implements BeanPostProcessor {
 
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         // 在类实例化后调用.
-        if ("people".equals(beanName)) {
+        if (BEAN_NAME_PEOPLE.equals(beanName)) {
             // 名称一致, 实例化, 修改属性
             People people = (People) bean;
             people.setName("Aires");

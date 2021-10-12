@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  * @author Jion
  */
 @JsonFilter("jsonFilter")
-@JsonView(Views.hide.class)
+@JsonView(Views.Hide.class)
 public class JsonFilterAnnotation {
 
     private Integer id;
@@ -22,7 +22,7 @@ public class JsonFilterAnnotation {
         this.id = id;
     }
 
-    @JsonView(Views.show.class)
+    @JsonView(Views.Show.class)
     private String name;
 
     public String getName() {

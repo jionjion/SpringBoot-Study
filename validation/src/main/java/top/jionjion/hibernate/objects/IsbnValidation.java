@@ -8,8 +8,8 @@ import org.hibernate.validator.constraints.ISBN;
  *
  * @author jion
  */
-public class ISBNValidation {
+public class IsbnValidation {
 
     @ISBN(message = "必须为ISBN图书编码")
-    public String mustISBN;
+    public String mustIsbn;
 }

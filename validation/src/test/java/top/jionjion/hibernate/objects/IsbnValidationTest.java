@@ -9,15 +9,15 @@ import top.jionjion.ValidationBaseTest;
  *
  * @author jion
  */
-class ISBNValidationTest extends ValidationBaseTest {
+class IsbnValidationTest extends ValidationBaseTest {
 
 
     @Test
     public void test(){
-        ISBNValidation obj = new ISBNValidation();
+        IsbnValidation obj = new IsbnValidation();
         // ISBN图书编码 pass
         //obj.isbn = "978-7-5386-8713-2";
-        obj.mustISBN = "9787538687132";
+        obj.mustIsbn = "9787538687132";
         super.validate(obj);
     }
 }

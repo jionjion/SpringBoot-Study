@@ -5,7 +5,7 @@ package top.jionjion.ioc.annotation.factory;
  *
  * @author Jion
  */
-public abstract class Animal {
+public abstract class AbstractAnimal {
 
     /**
      * 获得动物名称

@@ -5,9 +5,12 @@ package top.jionjion.ioc.xml.factory;
  * @author Jion
  */
 public class InstanceAnimalFactory {
-    public Animal getAnimal(String type){
+
+    private final static String BEAN_NAME_CAT = "cat";
+
+    public AbstractAnimal getAnimal(String type){
         // 工厂方法.
-        if("cat".equalsIgnoreCase(type)){
+        if(BEAN_NAME_CAT.equalsIgnoreCase(type)){
             return new Cat();
         }
         return null;

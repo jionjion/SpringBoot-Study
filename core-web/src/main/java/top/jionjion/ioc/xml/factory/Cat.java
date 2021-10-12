@@ -3,7 +3,7 @@ package top.jionjion.ioc.xml.factory;
 /**
  * @author Jion
  */
-public class Cat extends Animal {
+public class Cat extends AbstractAnimal {
 
     @Override
     String getName() {

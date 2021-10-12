@@ -22,9 +22,8 @@ import java.io.File;
 @Service
 public class MailService {
 
-
     @Value("${spring.mail.username}")
-    private String MAIL_SENDER;
+    private String mailSender;
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -38,7 +37,7 @@ public class MailService {
     void sendSimpleMail(Mail mail) {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
-            mailMessage.setFrom(MAIL_SENDER);
+            mailMessage.setFrom(mailSender);
             mailMessage.setTo(mail.getRecipient());
             mailMessage.setSubject(mail.getSubject());
             mailMessage.setText(mail.getContent());
@@ -48,20 +47,18 @@ public class MailService {
         }
     }
 
-    void sendHTMLMail(Mail mail) {
+    void sendHtmlMail(Mail mail) {
         try {
             MimeMessage mimeMailMessage = javaMailSender.createMimeMessage();
             //true 表示需要创建一个multipart message
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMailMessage, true);
-            mimeMessageHelper.setFrom(MAIL_SENDER);
+            mimeMessageHelper.setFrom(mailSender);
             mimeMessageHelper.setTo(mail.getRecipient());
             mimeMessageHelper.setSubject(mail.getSubject());
-            //邮件抄送
-            //mimeMessageHelper.addCc("抄送人");
             mimeMessageHelper.setText(mail.getContent(), true);
             javaMailSender.send(mimeMailMessage);
         } catch (Exception e) {
-            log.error("邮件发送失败", e.getMessage());
+            log.error("邮件发送失败: {}", e.getMessage());
 
         }
     }
@@ -71,7 +68,7 @@ public class MailService {
             MimeMessage mimeMailMessage = javaMailSender.createMimeMessage();
             //true 表示需要创建一个multipart message
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMailMessage, true);
-            mimeMessageHelper.setFrom(MAIL_SENDER);
+            mimeMessageHelper.setFrom(mailSender);
             mimeMessageHelper.setTo(mail.getRecipient());
             mimeMessageHelper.setSubject(mail.getSubject());
             mimeMessageHelper.setText(mail.getContent());
@@ -82,12 +79,9 @@ public class MailService {
             String fileName = absolutePath.substring(absolutePath.lastIndexOf(File.separator));
             //添加附件,第一个参数表示添加到 Email 中附件的名称，第二个参数是图片资源
             mimeMessageHelper.addAttachment(fileName, file);
-            //多个附件
-            //mimeMessageHelper.addAttachment(fileName1, file1);
-
             javaMailSender.send(mimeMailMessage);
         } catch (Exception e) {
-            log.error("邮件发送失败", e.getMessage());
+            log.error("邮件发送失败: {}", e.getMessage());
         }
     }
 }

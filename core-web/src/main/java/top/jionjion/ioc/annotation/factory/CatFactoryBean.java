@@ -9,15 +9,15 @@ import org.springframework.stereotype.Component;
  * @author Jion
  */
 @Component("cat")
-public class CatFactoryBean implements FactoryBean<Animal> {
+public class CatFactoryBean implements FactoryBean<AbstractAnimal> {
 
     @Override
-    public Animal getObject() throws Exception {
+    public AbstractAnimal getObject() throws Exception {
         return new Cat();
     }
 
     @Override
     public Class<?> getObjectType() {
-        return Animal.class;
+        return AbstractAnimal.class;
     }
 }

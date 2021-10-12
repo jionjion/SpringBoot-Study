@@ -22,7 +22,7 @@ public class JsonViewAnnotationTest {
         student.setName("囧囧");
 
         String result = new ObjectMapper()
-                .writerWithView(Views.show.class)
+                .writerWithView(Views.Show.class)
                 .writeValueAsString(student);
         assertNotNull(result);
         log.info(result);

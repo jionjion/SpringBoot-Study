@@ -9,13 +9,13 @@ import top.jionjion.ValidationBaseTest;
  *
  * @author jion
  */
-class URLValidationTest extends ValidationBaseTest {
+class UrlValidationTest extends ValidationBaseTest {
 
     @Test
     public void test(){
-        URLValidation obj = new URLValidation();
+        UrlValidation obj = new UrlValidation();
         // URL格式 fail
-        obj.mustURL = "12345";
+        obj.mustUrl = "12345";
 
         super.validate(obj);
     }

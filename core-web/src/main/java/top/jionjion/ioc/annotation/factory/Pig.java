@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @see PigInstantiationAwareBeanPostProcessor
  */
 @Component
-public class Pig extends Animal {
+public class Pig extends AbstractAnimal {
 
     @Override
     String getName() {

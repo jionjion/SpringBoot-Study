@@ -80,14 +80,14 @@ public interface StudentQueryMapper {
      * @param ids 主键范围
      * @return 结果
      */
-    List<Student> findStudentByIdIn(List<Integer> ids);
+    List<Student> findStudentByIdIn(@Param("ids") List<Integer> ids);
 
     /**
      *  通过ID查询大小于, 数字范围
      * @param id 主键
      * @return 结果
      */
-    List<Student> findStudentByIdLt(Integer id);
+    List<Student> findStudentByIdLt(@Param("id") Integer id);
 
     /**
      *  判空查询

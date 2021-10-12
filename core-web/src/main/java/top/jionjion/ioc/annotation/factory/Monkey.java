@@ -4,7 +4,7 @@ package top.jionjion.ioc.annotation.factory;
  * @author Jion
  * @see MonkeyBeanDefinitionRegistryPostProcessor
  */
-public class Monkey extends Animal {
+public class Monkey extends AbstractAnimal {
 
     @Override
     String getName() {

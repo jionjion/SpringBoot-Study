@@ -37,7 +37,7 @@ class MailServiceTest {
                 LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE) +
                 "</p>";
         mail.setContent(sb);
-        mailService.sendHTMLMail(mail);
+        mailService.sendHtmlMail(mail);
     }
 
     @Test
