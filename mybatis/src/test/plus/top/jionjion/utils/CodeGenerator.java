@@ -1,6 +1,5 @@
 package top.jionjion.utils;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
@@ -10,12 +9,12 @@ import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.po.TableFill;
+import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
+import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
+import com.baomidou.mybatisplus.generator.fill.Column;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -47,102 +46,96 @@ public class CodeGenerator {
      * 生成代码主函数
      */
     public static void main(String[] args) {
-        // 代码生成器
-        AutoGenerator mpg = new AutoGenerator();
-
+        // 连接信息
+        String url = "jdbc:mysql://127.0.0.1:3306/springboot_study?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8";
+        String username = "root";
+        String password = "123456";
 
         // 数据源配置
-        DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setDbType(DbType.MYSQL);
-        dataSourceConfig.setUrl("jdbc:mysql://127.0.0.1:3306/springboot_study?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8");
-        // dataSourceConfig.setSchemaName("public");
-        dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
-        dataSourceConfig.setUsername("root");
-        dataSourceConfig.setPassword("123456");
-        mpg.setDataSource(dataSourceConfig);
-
+        DataSourceConfig dataSourceConfig = new DataSourceConfig.Builder(url, username, password)
+                .schema("public").dbQuery(new MySqlQuery()).typeConvert(MySqlTypeConvert.INSTANCE).build();
 
         // 全局配置
-        GlobalConfig gc = new GlobalConfig();
-        // 获取项目目录
-        String projectPath = System.getProperty("user.dir");
-        // 设置生成目录, 取代 /src/main/java 目录
-        gc.setOutputDir(projectPath + "/src/main/auto");
-        // 设置
-        gc.setAuthor("Jion");
-        // 生成完成后是否自动打开文件夹窗口
-        gc.setOpen(true);
-        // 生成 service 层的文件名.
-        gc.setServiceName("I%sService");
-        // 实体属性 Swagger2 注解
-        gc.setSwagger2(true);
-        // 设置主键生成策略
-        gc.setIdType(IdType.AUTO);
-        // 设置日期类型 java.util.date
-        gc.setDateType(DateType.ONLY_DATE);
-        mpg.setGlobalConfig(gc);
-
+        GlobalConfig globalConfig = new GlobalConfig.Builder()
+                //设置生成目录, 获取项目目录文件夹 + /src/main/java 目录
+                .outputDir(System.getProperty("user.dir") + "/src/main/auto")
+                // 设置
+                .author("Jion")
+                // 生成完成后是否自动打开文件夹窗口
+                .openDir(true)
+                // 实体属性 Swagger2 注解
+                .enableSwagger()
+                // 设置日期类型 java.util.date
+                .dateType(DateType.ONLY_DATE)
+                .build();
 
         // 包配置
-        PackageConfig packageConfig = new PackageConfig();
-        // 模块名 test
-        packageConfig.setModuleName(scanner("模块名"));
-        // 包名
-        packageConfig.setParent("top.jionjion.ant");
-        // 数据库表对象所在包名
-        packageConfig.setEntity("dto");
-        // mapper 接口所在包名
-        packageConfig.setMapper("mapper");
-        // service 层所在包名
-        packageConfig.setService("service");
-        // service 实现类所在包名
-        packageConfig.setServiceImpl("service.impl");
-        // controller 层所在包名
-        packageConfig.setController("controller");
-        // xml 文件命名
-        packageConfig.setXml("mapper.xml");
-        mpg.setPackageInfo(packageConfig);
-
+        PackageConfig packageConfig = new PackageConfig.Builder()
+                // 模块名 test
+                .moduleName(scanner("test"))
+                // 包名
+                .parent("top.jionjion.ant")
+                // 数据库表对象所在包名
+                .entity("dto")
+                // mapper 接口所在包名
+                .mapper("mapper")
+                // service 层所在包名
+                .service("service")
+                // service 实现类所在包名
+                .serviceImpl("service.impl")
+                // controller 层所在包名
+                .controller("controller")
+                // xml 文件命名
+                .xml("mapper.xml")
+                .build();
 
         // 生成策略配置
-        StrategyConfig strategy = new StrategyConfig();
-        // 表名映射到类名 => 下划线转驼峰
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        // 字段名映射到属性名 => 下划线转驼峰
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        // 设置所有实体类的公共父类
-        strategy.setSuperEntityClass(Object.class);
-        // 是否支持 Lombok
-        strategy.setEntityLombokModel(true);
-        // 控制器是否为添加 @RestController
-        strategy.setRestControllerStyle(true);
-        // 控制器中 @RequestMapping 路径属性 => 驼峰转连字符
-        strategy.setControllerMappingHyphenStyle(true);
-        // 设置所有控制器类的公共父类
-        strategy.setSuperControllerClass("java.lang.Object");
-        // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
-        // 设置逻辑删除字段 @TableLogic
-        strategy.setLogicDeleteFieldName("deleted");
-        // 设置乐观锁字段 @Version
-        strategy.setVersionFieldName("version");
-        // 自动填充设置, 添加 @TableField 注解
-        TableFill createDate = new TableFill("create_date", FieldFill.INSERT);
-        TableFill modifyDate = new TableFill("create_date", FieldFill.INSERT_UPDATE);
-        strategy.setTableFillList(Arrays.asList(createDate, modifyDate));
-        // 设置扫描生成代码的表名
-        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-        // 设置表的前缀
-        strategy.setTablePrefix("");
-        mpg.setStrategy(strategy);
+        StrategyConfig strategyConfig = new StrategyConfig.Builder()
+                // 设置扫描生成代码的表名
+                .addInclude(scanner("表名，多个英文逗号分割").split(","))
+                // 设置表的前缀
+                .addTablePrefix("")
+                // 实体类配置
+                .entityBuilder()
+                // 表名映射到类名 => 下划线转驼峰
+                .naming(NamingStrategy.underline_to_camel)
+                // 字段名映射到属性名 => 下划线转驼峰
+                .columnNaming(NamingStrategy.underline_to_camel)
+                // 设置主键生成策略
+                .idType(IdType.AUTO)
+                // 是否支持 Lombok
+                .enableLombok()
+                // 设置所有实体类的公共父类
+                .superClass(Object.class)
+                // 写于父类中的公共字段
+                .addSuperEntityColumns("id")
+                // 自动填充设置, 添加 @TableField 注解
+                .addTableFills(new Column("create_date", FieldFill.INSERT),
+                        new Column("create_date", FieldFill.INSERT_UPDATE))
+                // 设置逻辑删除字段 @TableLogic
+                .logicDeletePropertyName("deleted")
+                .logicDeleteColumnName("deleted")
+                // 设置乐观锁字段 @Version
+                .versionPropertyName("version")
+                .versionColumnName("version")
+                // 前端控制器
+                .controllerBuilder()
+                // 设置所有控制器类的公共父类
+                .superClass("java.lang.Object")
+                // 控制器是否为添加 @RestController
+                .enableRestStyle()
+                // 控制器中 @RequestMapping 路径属性 => 驼峰转连字符
+                .enableHyphenStyle()
+                .build();
 
-
-        // 模板引擎选择,默认
-        mpg.setTemplateEngine(new VelocityTemplateEngine());
-
+        // 代码生成器配置
+        AutoGenerator autoGenerator = new AutoGenerator(dataSourceConfig)
+                .global(globalConfig)
+                .packageInfo(packageConfig)
+                .strategy(strategyConfig);
 
         // 自动生成代码执行..
-        mpg.execute();
+        autoGenerator.execute();
     }
 
 }

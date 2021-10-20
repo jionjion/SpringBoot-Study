@@ -152,7 +152,7 @@ class TeacherCurdMapperTest {
     @Test
     public void selectCount() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
-        Integer count = teacherCurdMapper.selectCount(queryWrapper);
+        Long count = teacherCurdMapper.selectCount(queryWrapper);
         log.info("执行查询结果, {}", count);
     }
 

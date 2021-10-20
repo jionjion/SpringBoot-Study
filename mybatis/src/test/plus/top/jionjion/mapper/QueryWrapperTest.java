@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.jionjion.dto.Teacher;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -115,7 +116,7 @@ public class QueryWrapperTest {
                 .notLike("name", "arise")
                 .likeLeft("name", "j")
                 .likeRight("name", "n");
-        Integer result = teacherCurdMapper.selectCount(wrapper);
+        Long result = teacherCurdMapper.selectCount(wrapper);
         log.info("查询结果, {}", result);
     }
 
@@ -178,7 +179,7 @@ public class QueryWrapperTest {
     @Test
     public void orderByAsc() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
-        wrapper.orderByAsc("id").orderByDesc("age", "name").orderByAsc("workday");
+        wrapper.orderByAsc("id").orderByDesc(Arrays.asList("age", "name")).orderByAsc("workday");
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);
         log.info("查询结果, {}", result);
     }
@@ -190,7 +191,7 @@ public class QueryWrapperTest {
     @Test
     public void groupBy() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
-        wrapper.groupBy("name", "age");
+        wrapper.groupBy(Arrays.asList("name", "age"));
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);
         log.info("查询结果, {}", result);
     }
@@ -209,7 +210,7 @@ public class QueryWrapperTest {
     }
 
     /**
-     * 同时, 将条件拼接到当前查询语句中..意义不大
+     * 同时, 将条件拼接到当前查询语句中.意义不大
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ? AND (age = ?))
      */
     @Test
