@@ -35,7 +35,7 @@ public class Swagger3Config implements WebMvcConfigurer {
                 .apiInfo(apiInfo())
                 // 生成文档的入口
                 .select()
-                // 通过注解方式检索..指定方法注解, 类注解, 基础扫描包.. 最新的注解版本包 io.swagger.core.v3.*
+                // 通过注解方式检索.指定方法注解, 类注解, 基础扫描包. 最新的注解版本包 io.swagger.core.v3.*
 //                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)) // 2.0
 //                .apis(RequestHandlerSelectors.withMethodAnnotation(Operation.class)) // 3.0
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))

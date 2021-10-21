@@ -27,7 +27,7 @@ mybatis:
   # executor-type:
   # 语言驱动
   # default-scripting-language-driver:
-  # 更多扩展配置,参考 org.apache.ibatis.session.Configuration
+  # 更多扩展配置,参考 org.apache.ibatis.session.Configuration.java
   # configuration.*:
 
 # Page-Helper分页插件

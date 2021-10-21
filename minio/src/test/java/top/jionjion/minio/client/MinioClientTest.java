@@ -35,8 +35,10 @@ public class MinioClientTest {
     @Test
     public void build3() {
         // 指定 地址端口
+        HttpUrl httpUrl = HttpUrl.parse("https://play.min.io:9000");
+        assert httpUrl != null;
         MinioClient minioClient =
-                MinioClient.builder().endpoint(HttpUrl.parse("https://play.min.io:9000")).build();
+                MinioClient.builder().endpoint(httpUrl).build();
         Assertions.assertNotNull(minioClient);
     }
 
@@ -46,7 +48,7 @@ public class MinioClientTest {
         MinioClient minioClient =
                 MinioClient.builder()
                         .endpoint("https://play.min.io")
-                        .credentials("Q3AM3UQ867SPQQA43P2F", "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG")
+                        .credentials("Q3AM3UQ867SPQ3QA43P2F", "zuf+tft2eS1lswRu7BJ86wek3itn4ifILbZam1KYY3TG")
                         .build();
         Assertions.assertNotNull(minioClient);
     }
@@ -57,7 +59,7 @@ public class MinioClientTest {
         MinioClient minioClient =
                 MinioClient.builder()
                         .endpoint("play.min.io", 9000, false)
-                        .credentials("Q3AM3UQ867SPQQA43P2F", "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG")
+                        .credentials("Q3AM3UQ867SPQ1QA43P2F", "zuf+tft2eSl5swRu7BJ86we4kit3nifILbZam1KYY3TG")
                         .build();
         Assertions.assertNotNull(minioClient);
     }
@@ -68,7 +70,7 @@ public class MinioClientTest {
         MinioClient minioClient =
                 MinioClient.builder()
                         .endpoint("play.min.io", 9000, true)
-                        .credentials("Q3AM3UQ867SPQQA43P2F", "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG")
+                        .credentials("Q3AM3UQ867SPQ7QA43P2F", "zuf+tft3eSl4swRu7BJ86w6eki8t5nifILbZam1KYY3TG")
                         .build();
         Assertions.assertNotNull(minioClient);
     }
@@ -79,7 +81,7 @@ public class MinioClientTest {
         MinioClient minioClient =
                 MinioClient.builder()
                         .endpoint(new URL("https://play.min.io"))
-                        .credentials("Q3AM3UQ867SPQQA43P2F", "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG")
+                        .credentials("Q3AM3UQ867SPQ3QA43P2F", "zuf+tft9eSl0swRu7BJ86wek4it1nifILbZam1KYY3TG")
                         .region("us-west-1")
                         .build();
         Assertions.assertNotNull(minioClient);
@@ -93,9 +95,10 @@ public class MinioClientTest {
         MinioClient minioClient =
                 MinioClient.builder()
                         .endpoint("https://play.min.io:9000")
-                        .credentials("Q3AM3UQ867SPQQA43P2F", "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG")
+                        .credentials("Q3AM3UQ867SPQ4QA43P2F", "zuf+tft5eSl6swRu7BJ86wek7itn8ifILbZam1KYY3TG")
                         .region("eu-east-1")
                         .httpClient(customHttpClient)
                         .build();
+        Assertions.assertNotNull(minioClient);
     }
 }

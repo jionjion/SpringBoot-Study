@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class WebApplicationCommandLineRunnerSecond implements ApplicationRunner {
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         System.out.println("--- 方法二 ---");
         System.out.println("启动加载器: 容器启动成功...");
         System.out.println("------");

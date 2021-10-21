@@ -39,19 +39,6 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
         valueOperations.set("KeyA","Aa");
         valueOperations.set("KeyZero","0");
         redisTemplate.exec();
-
-//        valueOperations.set();
-//        valueOperations.setIfAbsent();
-//        valueOperations.setIfPresent();
-//        valueOperations.get();
-//        valueOperations.getAndSet();
-//        valueOperations.size();
-//        valueOperations.append();
-//        valueOperations.increment();
-//        valueOperations.decrement();
-//        valueOperations.multiSet();
-//        valueOperations.multiSetIfAbsent();
-//        valueOperations.multiGet();
     }
 
     /**

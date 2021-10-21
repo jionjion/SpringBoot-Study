@@ -50,30 +50,6 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
         redisTemplate.delete("ZSetZero");
         zSetOperations.add("ZSetZero","0",1D);
         redisTemplate.exec();
-
-//        zSetOperations.add();
-//        zSetOperations.score();
-//        zSetOperations.incrementScore();
-//        zSetOperations.zCard();
-//        zSetOperations.count();
-//        zSetOperations.range();
-//        zSetOperations.rangeWithScores();
-//        zSetOperations.reverseRange();
-//        zSetOperations.reverseRangeWithScores();
-//        zSetOperations.rangeByScore();
-//        zSetOperations.rangeByScoreWithScores();
-//        zSetOperations.reverseRangeByScore();
-//        zSetOperations.reverseRangeByScoreWithScores
-//        zSetOperations.rank();
-//        zSetOperations.reverseRank();
-//        zSetOperations.remove();
-//        zSetOperations.removeRange();
-//        zSetOperations.removeRangeByScore();
-//        zSetOperations.rangeByLex();
-//        zSetOperations.scan();
-//        zSetOperations.unionAndStore();
-//        zSetOperations.incrementScore();
-
     }
 
     /**

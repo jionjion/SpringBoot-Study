@@ -35,7 +35,7 @@ public class CustomerA {
         // 消费
         channel.basicConsume(queueName, true, new DefaultConsumer(channel){
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) {
                 System.out.println("消费者A获得消息... " + new String(body));
             }
         });

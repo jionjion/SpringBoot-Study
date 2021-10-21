@@ -13,7 +13,8 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 /**
- *  商品
+ * 商品
+ *
  * @author Jion
  */
 @Api(tags = "商品信息管理接口")
@@ -21,12 +22,14 @@ import java.util.Map;
 @RequestMapping("/goods")
 public class GoodsController {
 
-    /** 使用 3.0 版本的 */
+    /**
+     * 使用 3.0 版本的
+     */
     @Operation(summary = "商品详情,针对得到单个商品的信息")
     @GetMapping("/one")
-    public ResultDto<Goods> one(@Parameter(description = "商品id,正整数") @RequestParam(value="goodsId",required = false,defaultValue = "0") Integer goodsid) {
+    public ResultDto<Goods> one(@Parameter(description = "商品id,正整数") @RequestParam(value = "goodsId", required = false, defaultValue = "0") Integer goodsId) {
         Goods good = new Goods();
-        good.setGoodsId(Long.valueOf(goodsid));
+        good.setGoodsId(Long.valueOf(goodsId));
         good.setGoodsName("电子书");
         good.setSubject("学python,学ai");
         good.setPrice(new BigDecimal(60));
@@ -35,11 +38,13 @@ public class GoodsController {
         return result.success(good);
     }
 
-    /** 使用 2.0 版本的 */
+    /**
+     * 使用 2.0 版本的
+     */
     @ApiOperation(value = "商品详情,通过路径表达式查询")
     @ApiResponse(code = 200, message = "操作成功")
     @GetMapping("/{id}/good")
-    public ResultDto<Goods> findById(@ApiParam(value = "商品id,正整数") @PathVariable(value="id") Integer goodsId) {
+    public ResultDto<Goods> findById(@ApiParam(value = "商品id,正整数") @PathVariable(value = "id") Integer goodsId) {
         Goods good = new Goods();
         good.setGoodsId(Long.valueOf(goodsId));
         good.setGoodsName("教程");
@@ -52,17 +57,17 @@ public class GoodsController {
 
     @ApiOperation(value = "提交订单")
     @ApiImplicitParams({
-        @ApiImplicitParam(name="userid",value="用户id",dataTypeClass = Long.class, paramType = "form",example="12345"),
-        @ApiImplicitParam(name="goodsId",value="商品id",dataTypeClass = Integer.class, paramType = "form",example="12345"),
-        @ApiImplicitParam(name="mobile",value="手机号",dataTypeClass = String.class, paramType = "form",example="13866668888"),
-        @ApiImplicitParam(name="comment",value="发货备注",dataTypeClass = String.class, paramType = "form",example="请在情人节当天送到")
+            @ApiImplicitParam(name = "userid", value = "用户id", dataTypeClass = Long.class, paramType = "form", example = "12345"),
+            @ApiImplicitParam(name = "goodsId", value = "商品id", dataTypeClass = Integer.class, paramType = "form", example = "12345"),
+            @ApiImplicitParam(name = "mobile", value = "手机号", dataTypeClass = String.class, paramType = "form", example = "13866668888"),
+            @ApiImplicitParam(name = "comment", value = "发货备注", dataTypeClass = String.class, paramType = "form", example = "请在情人节当天送到")
     })
     @ApiResponses({
-        @ApiResponse(code = 200, message = "操作成功"),
-        @ApiResponse(code = 500, message = "服务器内部异常"),
+            @ApiResponse(code = 200, message = "操作成功"),
+            @ApiResponse(code = 500, message = "服务器内部异常"),
     })
     @PostMapping("/order")
-    public ResultDto<?> order(@ApiIgnore @RequestParam Map<String,String> params) {
+    public ResultDto<?> order(@ApiIgnore @RequestParam Map<String, String> params) {
         System.out.println(params);
         return ResultDto.success(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg());
     }

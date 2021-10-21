@@ -1,9 +1,10 @@
 package top.jionjion.ioc.xml.factory;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
+
+import javax.annotation.Resource;
 
 /**
  * 测试实例工厂方法获得Bean
@@ -14,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
 public class InstanceAnimalFactoryTest {
 
-    @Autowired
+    @Resource
     Cat cat;
 
     @Test

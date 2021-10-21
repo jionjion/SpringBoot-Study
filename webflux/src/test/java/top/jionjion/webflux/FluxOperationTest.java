@@ -68,9 +68,7 @@ class FluxOperationTest {
             System.out.println(Thread.currentThread().getName() + "map2...");
             return i / 3;
         }).subscribeOn(Schedulers.parallel()
-        ).subscribe(i -> {
-            System.out.println(Thread.currentThread().getName() + "end...");
-        });
+        ).subscribe(i -> System.out.println(Thread.currentThread().getName() + "end..."));
 
         // 避免因为线程切换, 而无法看到输出
         while(true){

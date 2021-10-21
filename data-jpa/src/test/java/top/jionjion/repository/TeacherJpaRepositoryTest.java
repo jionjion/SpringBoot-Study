@@ -69,7 +69,8 @@ public class TeacherJpaRepositoryTest extends JpaApplicationTest {
 	 */
 	@Test
 	public void testGetOne() {
-	//	Teacher teacher = teacherJpaRepository.getOne(1);	//懒加载,测试时异常
+		// 懒加载,测试时异常
+		// Teacher one = teacherJpaRepository.getOne(1);
 		Optional<Teacher> teacher = teacherJpaRepository.findById(1);
 		System.out.println(teacher);
 	}

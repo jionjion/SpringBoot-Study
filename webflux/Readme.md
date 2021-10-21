@@ -8,7 +8,7 @@ steam: pull模式, 客户端主动调用服务端数据, 同步
 Schedulers.immediate():当前线程
 Schedulers.single():可重用的单线程
 Schedulers.elastic():弹性线程池
-Schedulers.parallel):固定大小线程池
+Schedulers.parallel():固定大小线程池
 Schedulers.fromExecutorService():自定义线程池
 
 ### 源数据流

@@ -4,13 +4,16 @@ import org.springframework.boot.SpringBootExceptionReporter;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
- *  自定异常处理
+ * 自定异常处理
+ *
  * @author Jion
  */
 public class WebApplicationExceptionReporter implements SpringBootExceptionReporter {
 
-
-    private ConfigurableApplicationContext context;
+    /**
+     * Spring 上下文
+     */
+    private final ConfigurableApplicationContext context;
 
     WebApplicationExceptionReporter(ConfigurableApplicationContext context) {
         // 有参构造器,必须有.在容器启动时反射创建实例
@@ -19,7 +22,7 @@ public class WebApplicationExceptionReporter implements SpringBootExceptionRepor
 
     @Override
     public boolean reportException(Throwable failure) {
-        if(failure instanceof RuntimeException){
+        if (failure instanceof RuntimeException) {
             System.out.println("容器启动失败...");
             System.out.println(context.toString());
         }

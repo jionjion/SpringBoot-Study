@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class CatFactoryBean implements FactoryBean<AbstractAnimal> {
 
     @Override
-    public AbstractAnimal getObject() throws Exception {
+    public AbstractAnimal getObject() {
         return new Cat();
     }
 

@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+      "name": "context.initializer.classes",
+      "type": "java.lang.String",
+      "description": "初始化器类."
+    },
+    {
+      "name": "context.listener.classes",
+      "type": "java.lang.String",
+      "description": "监听器类."
+    },
+    {
+      "name": "weather.enable",
+      "type": "java.lang.String",
+      "description": "自定义场景启动器-是否启用."
+    },
+    {
+      "name": "weather.type",
+      "type": "java.lang.String",
+      "description": "自定义场景启动器-天气类型."
+    },
+    {
+      "name": "weather.rate",
+      "type": "java.lang.String",
+      "description": "自定义场景启动器-天气气温."
+    }
+  ]
+}

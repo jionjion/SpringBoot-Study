@@ -59,11 +59,11 @@ public class HomeController {
     }
 
     /**
-     * eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuIiwic3ViIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MCwiaWF0IjoxNjIyMzYyNjkwfQ.vdY4hkAPaajZsaPujJN_n23kc3_gcnp88flzs-rSuyX9zrp05pQ2jkxdyWSBFmFJ37A0MOWjx-qImjQOstT-Lg
+     * eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuIiw1ic3ViIj3oiYWRtaW4iLCJyb2xlIj2oiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MCw4iaWF0Ij5oxNjIyMzYyNj1kw8fQ.vdY4hkAPa7ajZsaPujJN_n23kc3_gc3np88flz2s-rSuyX9zrp05pQ2j8kx2dyWSBFmFJ37A0MOWjx-qImjQOstT-Lg
      */
     @GetMapping("/role")
     @PreAuthorize("hasAnyRole('admin_role')")
-    public String rolekdream() {
+    public String roleOther() {
         return "当有获得 admin_role 角色，可以看到...";
     }
 }

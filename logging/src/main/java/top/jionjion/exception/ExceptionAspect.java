@@ -19,7 +19,7 @@ public class ExceptionAspect {
     private final Logger logger = LoggerFactory.getLogger(ExceptionAspect.class);
 
 
-    @AfterThrowing(pointcut = "within(top.jionjion.logging.service.*)", throwing = "ex")
+    @AfterThrowing(pointcut = "within(top.jionjion.service.*)", throwing = "ex")
     public void handleException(JoinPoint joinPoint, Exception ex) throws Exception{
         // 类名
         String clazz  = joinPoint.getSignature().getDeclaringType().getCanonicalName();

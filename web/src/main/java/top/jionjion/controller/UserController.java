@@ -9,6 +9,7 @@ import top.jionjion.exception.UserException;
 import top.jionjion.service.UserService;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Jion
@@ -44,7 +45,7 @@ public class UserController {
 
         if (result.hasErrors()) {
             //如果有错误,则返回bean中的定义
-            String message = result.getFieldError().getDefaultMessage();
+            String message = Objects.requireNonNull(result.getFieldError()).getDefaultMessage();
 
             return new ResultMessage<>(400, message);
         }
@@ -56,8 +57,8 @@ public class UserController {
     }
 
     /**
-     *  查询一个
-     *  URL: http://localhost:8080/MicroServices/user/users/1
+     * 查询一个
+     * URL: http://localhost:8080/MicroServices/user/users/1
      */
     @GetMapping(value = "/users/{id}")
     public User userGet(@PathVariable("id") Integer id) {
@@ -66,8 +67,8 @@ public class UserController {
     }
 
     /**
-     *  更新一个
-     *  URL: http://localhost:8080/MicroServices/user/users/3
+     * 更新一个
+     * URL: http://localhost:8080/MicroServices/user/users/3
      */
     @PutMapping(value = "/users/{id}")
     public User userUpdate(@PathVariable("id") Integer id,
@@ -84,8 +85,8 @@ public class UserController {
     }
 
     /**
-     *  删除一个
-     *  URL: http://localhost:8080/MicroServices/user/users/3
+     * 删除一个
+     * URL: http://localhost:8080/MicroServices/user/users/3
      */
     @DeleteMapping(value = "/users/{id}")
     public void userDelete(@PathVariable("id") Integer id) {
@@ -94,8 +95,8 @@ public class UserController {
 
 
     /**
-     *  自定义查询,通过姓名查询用户
-     *  URL: http://localhost:8080/MicroServices/user/users/username/Jion
+     * 自定义查询,通过姓名查询用户
+     * URL: http://localhost:8080/MicroServices/user/users/username/Jion
      */
     @GetMapping(value = "/users/username/{username}")
     public List<User> userGetByUsername(@PathVariable("username") String username) {
@@ -103,10 +104,10 @@ public class UserController {
     }
 
     /**
-     *  统一异常捕获.
-     *  将service层抛出的异常,dao层抛出的异常进行统一向外抛出,交由ExceptionHandle类进行包装向前台传递
-     *  这里模拟包含的类进行的异常抛出
-     *  URL:http://localhost:8080/MicroServices/user/error/2			调用第二种异常,并返回
+     * 统一异常捕获.
+     * 将service层抛出的异常,dao层抛出的异常进行统一向外抛出,交由ExceptionHandle类进行包装向前台传递
+     * 这里模拟包含的类进行的异常抛出
+     * URL:http://localhost:8080/MicroServices/user/error/2			调用第二种异常,并返回
      */
     @GetMapping(value = "/error/{code}")
     public void errorCodeHandler(@PathVariable("code") String code) {

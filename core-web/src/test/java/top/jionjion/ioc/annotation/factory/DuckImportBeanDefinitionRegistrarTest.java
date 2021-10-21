@@ -1,9 +1,10 @@
 package top.jionjion.ioc.annotation.factory;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
+
+import javax.annotation.Resource;
 
 /**
  *  使用 ImportBeanDefinitionRegistrar 注入Bean
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.Import;
 @Import(DuckImportBeanDefinitionRegistrar.class)
 public class DuckImportBeanDefinitionRegistrarTest {
 
-    @Autowired
+    @Resource
     Duck duck;
 
     @Test

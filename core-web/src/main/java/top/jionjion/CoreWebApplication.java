@@ -11,7 +11,7 @@ import java.util.Properties;
  * 启动类
  * <p>
  * 使用 @ImportResource(locations = "classpath:ioc/xml/bean-config.xml")  引入xml配置文件
- * 使用 @Import({WebApplicationImportSelector.class, WebApplicationDeferredImportSelector.class}) 引入配置类.查询注入类
+ * 使用 @Import({WebApplicationImportSelector.class, WebApplicationDeferredImportSelector.java}) 引入配置类.查询注入类
  *
  * @author Jion
  */

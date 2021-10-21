@@ -25,7 +25,7 @@ class StudentDynamicQueryMapperTest {
     void findStudentById(){
         List<Student> students = mapper.findStudentByIf(1);
         Assert.notNull(students,"失败!");
-        log.info("查询成功" + students.toString());
+        log.info("查询成功" + students);
     }
 
     @Test
@@ -35,7 +35,7 @@ class StudentDynamicQueryMapperTest {
         student.setName("i");
         List<Student> students = mapper.findStudentByExampleChoose(student);
         Assert.notNull(students,"失败!");
-        log.info("查询成功" + students.toString());
+        log.info("查询成功" + students);
     }
 
     @Test
@@ -45,7 +45,7 @@ class StudentDynamicQueryMapperTest {
         student.setName("i");
         List<Student> students = mapper.findStudentByExampleWhere(student);
         Assert.notNull(students,"失败!");
-        log.info("查询成功" + students.toString());
+        log.info("查询成功" + students);
     }
 
     @Test
@@ -55,7 +55,7 @@ class StudentDynamicQueryMapperTest {
         ids.add(2);
         List<Student> students = mapper.findStudentByForeach(ids);
         Assert.notNull(students,"失败!");
-        log.info("查询成功" + students.toString());
+        log.info("查询成功" + students);
     }
 
 }

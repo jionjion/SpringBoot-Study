@@ -45,24 +45,6 @@ public class ListOperationsTest extends DataRedisApplicationTest {
         listOperations.rightPush ("ListB","E");
         listOperations.rightPush ("ListB","F");
         redisTemplate.exec();
-
-
-//        listOperations.leftPush();
-//        listOperations.leftPushAll();
-//        listOperations.leftPushIfPresent()
-//        listOperations.rightPush();
-//        listOperations.rightPushAll();
-//        listOperations.rightPushIfPresent();
-//        listOperations.leftPop();
-//        listOperations.rightPop();
-//        listOperations.rightPopAndLeftPush();
-//        listOperations.remove();
-//        listOperations.size();
-//        listOperations.index();
-//        listOperations.set();
-//        listOperations.range();
-//        listOperations.trim();
-
     }
 
     /**

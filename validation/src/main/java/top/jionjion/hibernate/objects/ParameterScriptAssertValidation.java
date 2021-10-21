@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Deprecated
 public class ParameterScriptAssertValidation {
-    Logger logger = LoggerFactory.getLogger(getClass());
+    final Logger logger = LoggerFactory.getLogger(getClass());
 
     @ParameterScriptAssert(script = "start.before(end)", lang = "javascript", message = "开始日必须早于结束日")
     public void validationDate(Date start, Date end) {

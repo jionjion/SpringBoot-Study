@@ -40,7 +40,7 @@
                 FROM
                     student s
                 WHERE
-                    1 = 1
+                    s.id >= 0
         <choose>
             <when test="student != null and student.name != null ">
                 AND

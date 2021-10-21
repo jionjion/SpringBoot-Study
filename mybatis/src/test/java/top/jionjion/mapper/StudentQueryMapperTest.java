@@ -26,97 +26,97 @@ class StudentQueryMapperTest {
     void findStudentById(){
         Student student = mapper.findStudentById(1);
         Assert.notNull(student,"失败!");
-        log.info("查询成功" + student.toString());
+        log.info("查询成功" + student);
     }
 
     @Test
     void findStudentByName(){
         List<Student> studentList = mapper.findStudentByName("Jion");
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findByLikeStudentName(){
         List<Student> studentList = mapper.findStudentByLikeName("J");
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findStudentByBirthdayDate(){
         List<Student> studentList = mapper.findStudentByBirthdayDate(LocalDate.of(1994, 4, 12));
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findStudentByBirthdayStr(){
         List<Student> studentList = mapper.findStudentByBirthdayStr("1994-04-12");
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findStudentByBirthdayBetween(){
         List<Student> studentList = mapper.findStudentByBirthdayBetween("1990-01-01", "2000-01-01");
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findStudentByIdBetween(){
         List<Student> studentList = mapper.findStudentByIdBetween(1, 10);
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findCount(){
         Long count = mapper.findCount();
         Assert.notNull(count, "失败!");
-        log.info("查询成功" + count.toString());
+        log.info("查询成功" + count);
     }
 
     @Test
     void findRow(){
         List<Map> map = mapper.findRow();
         Assert.notNull(map, "失败!");
-        log.info("查询成功" + map.toString());
+        log.info("查询成功" + map);
     }
 
     @Test
     void findStudentByIdIn(){
         List<Student> studentList = mapper.findStudentByIdIn(Arrays.asList(1, 2, 3));
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findStudentByIdLt(){
         List<Student> studentList = mapper.findStudentByIdLt(5);
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findStudentByAgeNull(){
         List<Student> studentList = mapper.findStudentByAgeNull();
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findAllOrderByIdDesc(){
         List<Student> studentList = mapper.findAllOrderByIdDesc();
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 
     @Test
     void findAllLimit(){
         List<Student> studentList = mapper.findAllLimit(0, 5);
         Assert.notNull(studentList, "失败!");
-        log.info("查询成功" + studentList.toString());
+        log.info("查询成功" + studentList);
     }
 }

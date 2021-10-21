@@ -3,10 +3,8 @@ package top.jionjion.webflux;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 /**
  * 基础的使用 Flux
@@ -22,9 +20,9 @@ class FluxTest {
         Flux<Integer> flux = Flux.just(1, 2, 3, 4, 5, 6);
         Flux<Integer> arrayFlux = Flux.fromArray(new Integer[]{1, 2, 3, 4, 5});
         Flux<Integer> listFlux = Flux.fromIterable(Arrays.asList(1, 2, 3, 4, 5));
-        Flux<Integer> streamFlux = Flux.fromStream(Stream.of(1, 2, 3, 4, 5));
+        // Flux<Integer> streamFlux = Flux.fromStream(Stream.of(1, 2, 3, 4, 5));
         // 单通道
-        Mono<Integer> mono = Mono.just(1);
+        // Mono<Integer> mono = Mono.just(1);
 
         // 订阅
         flux.subscribe();

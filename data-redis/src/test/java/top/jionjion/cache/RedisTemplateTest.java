@@ -55,61 +55,61 @@ BoundZSetOperations         Zset 绑定操作
     @Test
     public void testRedisTemplateOpsX(){
         //空间地理
-        GeoOperations  geoOperations = redisTemplate.opsForGeo();
+        GeoOperations<String, String> geoOperations = redisTemplate.opsForGeo();
         assertNotNull(geoOperations);
 
         //Hash 操作
-        HashOperations hashOperations = redisTemplate.opsForHash();
+        HashOperations<String, Object, Object> hashOperations = redisTemplate.opsForHash();
         assertNotNull(hashOperations);
 
         //HyperLogLog 操作
-        HyperLogLogOperations hyperLogLogOperations = redisTemplate.opsForHyperLogLog();
+        HyperLogLogOperations<String, String> hyperLogLogOperations = redisTemplate.opsForHyperLogLog();
         assertNotNull(hyperLogLogOperations);
 
         //List 操作
-        ListOperations listOperations = redisTemplate.opsForList();
+        ListOperations<String, String> listOperations = redisTemplate.opsForList();
         assertNotNull(listOperations);
 
         //Set 操作
-        SetOperations setOperations = redisTemplate.opsForSet();
+        SetOperations<String, String> setOperations = redisTemplate.opsForSet();
         assertNotNull(setOperations);
 
         //Value 操作
-        ValueOperations valueOperations = redisTemplate.opsForValue();
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
         assertNotNull(valueOperations);
 
         //Zset 操作
-        ZSetOperations zSetOperations = redisTemplate.opsForZSet();
+        ZSetOperations<String, String> zSetOperations = redisTemplate.opsForZSet();
         assertNotNull(zSetOperations);
 
         // 绑定已有的key进行操作
 
         //空间地理
-        BoundGeoOperations boundGeoOperations = redisTemplate.boundGeoOps("key");
+        BoundGeoOperations<String, String> boundGeoOperations = redisTemplate.boundGeoOps("key");
         assertNotNull(boundGeoOperations);
 
         //Hash 绑定操作
-        BoundHashOperations boundHashOperations = redisTemplate.boundHashOps("key");
+        BoundHashOperations<String, Object, Object> boundHashOperations = redisTemplate.boundHashOps("key");
         assertNotNull(boundHashOperations);
 
         //Key 绑定操作
-        BoundKeyOperations boundKeyOperations = redisTemplate.boundValueOps("key");
+        BoundKeyOperations<String> boundKeyOperations = redisTemplate.boundValueOps("key");
         assertNotNull(boundKeyOperations);
 
         //List 绑定操作
-        BoundListOperations boundListOperations = redisTemplate.boundListOps("key");
+        BoundListOperations<String, String> boundListOperations = redisTemplate.boundListOps("key");
         assertNotNull(boundListOperations);
 
         //Set 绑定操作
-        BoundSetOperations boundSetOperations = redisTemplate.boundSetOps("key");
+        BoundSetOperations<String, String> boundSetOperations = redisTemplate.boundSetOps("key");
         assertNotNull(boundSetOperations);
 
         //Value 绑定操作
-        BoundValueOperations boundValueOperations = redisTemplate.boundValueOps("key");
+        BoundValueOperations<String, String> boundValueOperations = redisTemplate.boundValueOps("key");
         assertNotNull(boundValueOperations);
 
         //Zset 绑定操作
-        BoundZSetOperations boundZSetOperations = redisTemplate.boundZSetOps("key");
+        BoundZSetOperations<String, String> boundZSetOperations = redisTemplate.boundZSetOps("key");
         assertNotNull(boundZSetOperations);
     }
 

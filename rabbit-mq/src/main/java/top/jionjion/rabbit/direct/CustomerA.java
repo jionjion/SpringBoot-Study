@@ -6,13 +6,16 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *  路由模式
- *  消费者A
+ * 路由模式
+ * 消费者A
+ *
  * @author Jion
  */
 public class CustomerA {
 
-    /** 接受队列消息 */
+    /**
+     * 接受队列消息
+     */
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("127.0.0.1");
@@ -33,15 +36,11 @@ public class CustomerA {
         channel.queueBind(queueName, "direct", "error");
 
         // 消费
-        channel.basicConsume(queueName, true, new DefaultConsumer(channel){
+        channel.basicConsume(queueName, true, new DefaultConsumer(channel) {
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) {
                 System.out.println("消费者A获得消息... " + new String(body));
             }
         });
-
-        // 关闭连接, 建议不关闭, 持续监听消息.
-        // channel.close();
-        // connection.close();
     }
 }
