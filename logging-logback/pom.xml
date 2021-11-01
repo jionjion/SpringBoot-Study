@@ -10,7 +10,7 @@
 
     <artifactId>logging</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>logging</name>
+    <name>logging-logback</name>
     <description>Demo project for Spring Boot Logger</description>
 
     <dependencies>
