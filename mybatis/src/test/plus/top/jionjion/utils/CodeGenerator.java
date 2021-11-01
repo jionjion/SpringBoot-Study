@@ -62,7 +62,7 @@ public class CodeGenerator {
                 // 设置
                 .author("Jion")
                 // 生成完成后是否自动打开文件夹窗口
-                .openDir(true)
+                .disableOpenDir()
                 // 实体属性 Swagger2 注解
                 .enableSwagger()
                 // 设置日期类型 java.util.date
