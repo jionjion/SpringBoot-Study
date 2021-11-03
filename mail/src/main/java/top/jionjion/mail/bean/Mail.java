@@ -1,4 +1,4 @@
-package top.jionjion.bean;
+package top.jionjion.mail.bean;
 
 import lombok.Data;
 

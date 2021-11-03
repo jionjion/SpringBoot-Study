@@ -1,4 +1,4 @@
-package top.jionjion.service;
+package top.jionjion.mail.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import top.jionjion.bean.Mail;
+import top.jionjion.mail.bean.Mail;
 
 import javax.mail.internet.MimeMessage;
 import java.io.File;

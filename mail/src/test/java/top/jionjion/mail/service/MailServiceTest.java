@@ -1,9 +1,9 @@
-package top.jionjion.service;
+package top.jionjion.mail.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.jionjion.bean.Mail;
+import top.jionjion.mail.bean.Mail;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
