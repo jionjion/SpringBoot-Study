@@ -1,4 +1,4 @@
-package top.jionjion.service;
+package top.jionjion.logback.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ class SomeServiceTest {
     }
 
     /**
-     *  抛出自定义异常
+     * 抛出自定义异常
      */
     @Test
     void throwException() {
@@ -32,7 +32,7 @@ class SomeServiceTest {
     }
 
     /**
-     *  抛出异常,同时纪录关键字,生成对应日志级别
+     * 抛出异常,同时纪录关键字,生成对应日志级别
      */
     @Test
     void throwExceptionForSift() {

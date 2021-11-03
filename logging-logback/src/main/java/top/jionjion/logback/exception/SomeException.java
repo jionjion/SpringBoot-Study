@@ -1,4 +1,4 @@
-package top.jionjion.exception;
+package top.jionjion.logback.exception;
 
 /**
  * 自定义运行时异常

@@ -1,4 +1,4 @@
-package top.jionjion.exception;
+package top.jionjion.logback.exception;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -19,15 +19,15 @@ public class ExceptionAspect {
     private final Logger logger = LoggerFactory.getLogger(ExceptionAspect.class);
 
 
-    @AfterThrowing(pointcut = "within(top.jionjion.service.*)", throwing = "ex")
-    public void handleException(JoinPoint joinPoint, Exception ex) throws Exception{
+    @AfterThrowing(pointcut = "within(top.jionjion.logback.service.*)", throwing = "ex")
+    public void handleException(JoinPoint joinPoint, Exception ex) throws Exception {
         // 类名
-        String clazz  = joinPoint.getSignature().getDeclaringType().getCanonicalName();
+        String clazz = joinPoint.getSignature().getDeclaringType().getCanonicalName();
         // 方法名
         String method = joinPoint.getSignature().getName();
 
         // 异常判断,自定义异常.日志处理...
-        if(ex instanceof SomeException){
+        if (ex instanceof SomeException) {
             logger.warn("class: {}, name:{}", clazz, method, ex);
         }
 
