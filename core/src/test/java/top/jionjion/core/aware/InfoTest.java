@@ -1,4 +1,4 @@
-package top.jionjion.aware;
+package top.jionjion.core.aware;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

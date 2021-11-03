@@ -1,4 +1,4 @@
-package top.jionjion.ioc;
+package top.jionjion.core.ioc;
 
 import org.springframework.stereotype.Controller;
 

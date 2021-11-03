@@ -1,8 +1,7 @@
-package top.jionjion.bean;
+package top.jionjion.core.bean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 /**
  *  @author Jion

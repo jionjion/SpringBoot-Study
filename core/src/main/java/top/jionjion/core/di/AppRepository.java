@@ -1,4 +1,4 @@
-package top.jionjion.di;
+package top.jionjion.core.di;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,6 @@
-package top.jionjion.aware;
+package top.jionjion.core.aware;
 
 import lombok.Data;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;

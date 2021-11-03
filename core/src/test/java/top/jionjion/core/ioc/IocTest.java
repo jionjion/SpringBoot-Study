@@ -1,4 +1,4 @@
-package top.jionjion.ioc;
+package top.jionjion.core.ioc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  *      测试SpringBoot的自动注入
  */
 @SpringBootTest
-@SpringBootApplication(scanBasePackageClasses = {top.jionjion.ioc.AppConfig.class})
+@SpringBootApplication(scanBasePackageClasses = {AppConfig.class})
 public class IocTest {
 
     @Autowired

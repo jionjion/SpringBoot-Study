@@ -1,4 +1,4 @@
-package top.jionjion;
+package top.jionjion.core;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
