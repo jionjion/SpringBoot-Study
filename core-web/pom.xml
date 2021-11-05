@@ -54,6 +54,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 自定义 spring.factories 文件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- 使用自定义的 starter -->
         <dependency>
             <groupId>top.jionjion</groupId>

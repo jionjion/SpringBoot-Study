@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="top.jionjion.mapper.StudentMapper">
+<mapper namespace="top.jionjion.web.mapper.StudentMapper">
     <!-- Bean映射规则,当Bean属性与数据库表字段类型不同时,需要指定 -->
-    <resultMap id="StudentResultMap" type="top.jionjion.bean.Student">
+    <resultMap id="StudentResultMap" type="top.jionjion.web.bean.Student">
         <id property="id" javaType="java.lang.Integer" column="ID" jdbcType="INTEGER"/>
         <result property="name" javaType="java.lang.String" column="NAME" jdbcType="VARCHAR"/>
         <result property="age" javaType="java.lang.Integer" column="AGE" jdbcType="INTEGER"/>

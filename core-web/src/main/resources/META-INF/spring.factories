@@ -1,8 +1,8 @@
 # 注册自定义系统初始化器
-org.springframework.context.ApplicationContextInitializer=top.jionjion.initializer.WebApplicationInitializerFirst
+org.springframework.context.ApplicationContextInitializer=top.jionjion.web.initializer.WebApplicationInitializerFirst
 
 # 注册自定义系统监听器
-org.springframework.context.ApplicationListener=top.jionjion.listener.WebApplicationListenerFirst,top.jionjion.listener.WebApplicationListenerFourth
+org.springframework.context.ApplicationListener=top.jionjion.web.listener.WebApplicationListenerFirst,top.jionjion.web.listener.WebApplicationListenerFourth
 
 # 自定义异常处理报告
-org.springframework.boot.SpringBootExceptionReporter=top.jionjion.except.WebApplicationExceptionReporter
+org.springframework.boot.SpringBootExceptionReporter=top.jionjion.web.except.WebApplicationExceptionReporter

@@ -14,17 +14,17 @@ spring:
 # Mybatis的配置信息
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: top.jionjion.bean
+  type-aliases-package: top.jionjion.web.bean
 
 
 # 容器配置信息
 context:
   # 初始化器
   initializer:
-    classes: top.jionjion.initializer.WebApplicationInitializerThird
+    classes: top.jionjion.web.initializer.WebApplicationInitializerThird
   # 监听器
   listener:
-    classes: top.jionjion.listener.WebApplicationListenerThird
+    classes: top.jionjion.web.listener.WebApplicationListenerThird
 
 # 日志配置
 debug: true
