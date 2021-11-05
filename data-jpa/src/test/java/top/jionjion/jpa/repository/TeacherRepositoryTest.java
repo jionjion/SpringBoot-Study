@@ -1,9 +1,9 @@
-package top.jionjion.repository;
+package top.jionjion.jpa.repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import top.jionjion.JpaApplicationTest;
-import top.jionjion.bean.Teacher;
+import top.jionjion.jpa.JpaApplicationTest;
+import top.jionjion.jpa.bean.Teacher;
 
 import java.util.*;
 
@@ -14,7 +14,7 @@ import java.util.*;
 public class TeacherRepositoryTest extends JpaApplicationTest {
 	
 	@Autowired
-    TeacherRepository teacherRepository;
+	TeacherRepository teacherRepository;
 	
 
 	@Test

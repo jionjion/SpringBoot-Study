@@ -1,7 +1,7 @@
-package top.jionjion.repository;
+package top.jionjion.jpa.repository;
 
 import org.springframework.data.repository.Repository;
-import top.jionjion.bean.Teacher;
+import top.jionjion.jpa.bean.Teacher;
 
 import java.util.Date;
 import java.util.List;

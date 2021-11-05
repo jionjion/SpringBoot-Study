@@ -1,8 +1,8 @@
-package top.jionjion.repository;
+package top.jionjion.jpa.repository;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.RepositoryDefinition;
-import top.jionjion.bean.Teacher;
+import top.jionjion.jpa.bean.Teacher;
 
 /**
  * 使用JPARepository访问数据库

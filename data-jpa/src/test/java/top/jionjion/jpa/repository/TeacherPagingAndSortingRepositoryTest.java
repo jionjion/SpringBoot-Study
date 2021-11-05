@@ -1,4 +1,4 @@
-package top.jionjion.repository;
+package top.jionjion.jpa.repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import top.jionjion.JpaApplicationTest;
-import top.jionjion.bean.Teacher;
+import top.jionjion.jpa.JpaApplicationTest;
+import top.jionjion.jpa.bean.Teacher;
 
 public class TeacherPagingAndSortingRepositoryTest extends JpaApplicationTest {
 

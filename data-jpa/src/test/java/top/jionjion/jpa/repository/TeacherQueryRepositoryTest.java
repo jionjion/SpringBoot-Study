@@ -1,10 +1,10 @@
-package top.jionjion.repository;
+package top.jionjion.jpa.repository;
 
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import top.jionjion.JpaApplicationTest;
-import top.jionjion.bean.Teacher;
+import top.jionjion.jpa.JpaApplicationTest;
+import top.jionjion.jpa.bean.Teacher;
 
 /**
  *	使用SpringTemplate模板方法访问数据库

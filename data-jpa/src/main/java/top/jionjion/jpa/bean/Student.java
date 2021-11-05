@@ -1,4 +1,4 @@
-package top.jionjion.bean;
+package top.jionjion.jpa.bean;
 
 import lombok.Data;
 
