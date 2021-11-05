@@ -1,13 +1,11 @@
-package top.jionjion.dao;
+package top.jionjion.jdbc.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import top.jionjion.bean.Student;
+import top.jionjion.jdbc.bean.Student;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**

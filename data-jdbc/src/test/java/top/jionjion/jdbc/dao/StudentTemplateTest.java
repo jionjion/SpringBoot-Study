@@ -1,10 +1,10 @@
-package top.jionjion.dao;
+package top.jionjion.jdbc.dao;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import top.jionjion.DataJdbcApplicationTest;
-import top.jionjion.bean.Student;
+import top.jionjion.jdbc.DataJdbcApplicationTest;
+import top.jionjion.jdbc.bean.Student;
 
 import java.time.LocalDate;
 import java.util.List;

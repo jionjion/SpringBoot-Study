@@ -1,4 +1,4 @@
-package top.jionjion.bean;
+package top.jionjion.jdbc.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
