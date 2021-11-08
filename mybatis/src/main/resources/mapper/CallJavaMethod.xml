@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.jionjion.mapper.CallJavaStaticMethod">
+<mapper namespace="top.jionjion.mybatis.mapper.CallJavaStaticMethod">
     <!-- 调用Java的函数 -->
     <select id="findStudentByName">
         <bind name="name" value="@top.jionjion.util.MybatisStringUtils@toUpperCase(name)"/>
