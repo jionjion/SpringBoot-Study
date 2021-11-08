@@ -14,13 +14,13 @@
 <!--    </bean>-->
 
     <!-- 有参构造器注入 -->
-    <bean id="dog" class="top.jionjion.web.ioc.xml.Dog">
+    <bean id="dog" class="top.jionjion.core.ioc.xml.Dog">
         <constructor-arg index="0" value="二黄"/>
         <constructor-arg index="1" value="1"/>
     </bean>
 
     <!-- 使用Bean -->
-    <bean id="dogHouse" class="top.jionjion.web.ioc.xml.DogHouse">
+    <bean id="dogHouse" class="top.jionjion.core.ioc.xml.DogHouse">
         <!-- 引用 -->
         <property name="dog" ref="dog"/>
     </bean>
@@ -31,7 +31,7 @@
 <!--    </bean>-->
 
     <!-- 实例工厂方法 -->
-    <bean id="instanceAnimalFactory" class="top.jionjion.web.ioc.xml.factory.InstanceAnimalFactory"/>
+    <bean id="instanceAnimalFactory" class="top.jionjion.core.ioc.xml.factory.InstanceAnimalFactory"/>
     <!-- 工厂类调用实例工厂方法,创建对应Bean  -->
     <bean id="cat" factory-bean="instanceAnimalFactory" factory-method="getAnimal">
         <constructor-arg value="cat"/>
