@@ -1,12 +1,12 @@
-package top.jionjion.controller;
+package top.jionjion.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import top.jionjion.bean.User;
-import top.jionjion.dto.ResultMessage;
-import top.jionjion.exception.UserException;
-import top.jionjion.service.UserService;
+import top.jionjion.web.bean.User;
+import top.jionjion.web.dto.ResultMessage;
+import top.jionjion.web.exception.UserException;
+import top.jionjion.web.service.UserService;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package top.jionjion.exception;
+package top.jionjion.web.exception;
 
 /**
  *  @author Jion

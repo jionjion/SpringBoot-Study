@@ -1,10 +1,10 @@
-package top.jionjion.handle;
+package top.jionjion.web.handle;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import top.jionjion.dto.ResultMessage;
-import top.jionjion.exception.UserException;
+import top.jionjion.web.dto.ResultMessage;
+import top.jionjion.web.exception.UserException;
 
 /**
  * @author Jion

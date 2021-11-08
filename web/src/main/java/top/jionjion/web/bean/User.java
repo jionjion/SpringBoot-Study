@@ -1,4 +1,4 @@
-package top.jionjion.bean;
+package top.jionjion.web.bean;
 
 import java.util.Date;
 

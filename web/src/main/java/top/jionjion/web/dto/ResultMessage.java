@@ -1,4 +1,4 @@
-package top.jionjion.dto;
+package top.jionjion.web.dto;
 
 /**
  *  @author Jion
