@@ -1,11 +1,11 @@
-package top.jionjion.plus.mapper;
+package top.jionjion.mybatis.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import top.jionjion.plus.dto.Teacher;
+import top.jionjion.mybatis.dto.Teacher;
 
 import java.util.List;
 

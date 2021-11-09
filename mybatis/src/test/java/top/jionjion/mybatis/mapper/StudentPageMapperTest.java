@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 import top.jionjion.mybatis.dto.Student;
-import top.jionjion.mybatis.mapper.StudentQueryMapper;
 
 import java.util.List;
 
@@ -18,10 +17,8 @@ import java.util.List;
 @SpringBootTest
 class StudentPageMapperTest {
 
-
     @Autowired
     StudentQueryMapper mapper;
-
 
     @Test
     void testPage(){

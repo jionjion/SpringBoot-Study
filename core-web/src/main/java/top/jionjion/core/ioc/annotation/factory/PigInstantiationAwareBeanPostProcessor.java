@@ -56,11 +56,8 @@ public class PigInstantiationAwareBeanPostProcessor implements InstantiationAwar
      */
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        if (BEAN_NAME_PIG.equals(beanName)) {
-            // 该类进行自定义依赖管理
-            return false;
-        }
-        return true;
+        // 该类进行自定义依赖管理
+        return !BEAN_NAME_PIG.equals(beanName);
     }
 
     /**

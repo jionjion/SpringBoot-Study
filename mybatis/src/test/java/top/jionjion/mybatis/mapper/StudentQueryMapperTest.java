@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 import top.jionjion.mybatis.dto.Student;
-import top.jionjion.mybatis.mapper.StudentQueryMapper;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -81,7 +80,7 @@ class StudentQueryMapperTest {
 
     @Test
     void findRow(){
-        List<Map> map = mapper.findRow();
+        List<Map<String, Integer>> map = mapper.findRow();
         Assert.notNull(map, "失败!");
         log.info("查询成功" + map);
     }

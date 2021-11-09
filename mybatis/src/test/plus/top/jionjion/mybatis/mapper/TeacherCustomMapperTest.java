@@ -1,12 +1,11 @@
-package top.jionjion.plus.mapper;
+package top.jionjion.mybatis.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.jionjion.plus.dto.Teacher;
-import top.jionjion.plus.mapper.TeacherCurdMapper;
+import top.jionjion.mybatis.dto.Teacher;
 
 import java.util.List;
 

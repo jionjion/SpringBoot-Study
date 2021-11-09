@@ -32,9 +32,5 @@ public class CustomerA {
                 System.out.println("消费者A获得消息... " + new String(body));
             }
         });
-
-        // 关闭连接, 建议不关闭, 持续监听消息.
-        // channel.close();
-        // connection.close();
     }
 }

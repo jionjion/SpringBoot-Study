@@ -39,23 +39,6 @@ public class HashOperationsTest extends DataRedisApplicationTest {
         hashOperations.put("HashA", "b", "Bb");
         hashOperations.put("HashA", "c", "Cc");
         redisTemplate.exec();
-
-//        BoundHashOperations 类方法与其一致.
-//        hashOperations.put();
-//        hashOperations.putAll();
-//        hashOperations.putIfAbsent();
-//        hashOperations.get();
-//        hashOperations.hasKey();
-//        hashOperations.delete();
-//        hashOperations.size();
-//        hashOperations.lengthOfValue();
-//        hashOperations.increment();
-//        hashOperations.increment();
-//        hashOperations.multiGet();
-//        hashOperations.keys();
-//        hashOperations.values();
-//        hashOperations.entries();
-//        hashOperations.scan();
     }
 
     /**

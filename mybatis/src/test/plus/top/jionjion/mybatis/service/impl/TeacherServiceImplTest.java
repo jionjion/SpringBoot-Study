@@ -1,11 +1,11 @@
-package top.jionjion.plus.service.impl;
+package top.jionjion.mybatis.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.jionjion.plus.dto.Teacher;
-import top.jionjion.plus.service.ITeacherService;
+import top.jionjion.mybatis.dto.Teacher;
+import top.jionjion.mybatis.service.ITeacherService;
 
 /**
  * 测试封装的Service类的接口

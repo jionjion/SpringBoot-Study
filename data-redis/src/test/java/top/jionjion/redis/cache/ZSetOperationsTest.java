@@ -320,19 +320,19 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  语法 ZLEXCOUNT key min max
      *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令返回在min字母和max字母之间的成员总数.
      */
-//    @Test
-//    public void testZlexcount(){
-//        //fail("未提供");
-//    }
+    @Test
+    public void testZlexcount(){
+        fail("未提供");
+    }
 
     /*
      *  语法 ZREMRANGEBYLEX key min max
      *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令移除在min字母和max字母之间的成员,并返回被移除的成员数量
      */
-//    @Test
-//    public void testZremrangebylex(){
-//        //fail("未提供");
-//    }
+    @Test
+    public void testZremrangebylex(){
+        fail("未提供");
+    }
 
     @Test
     public void testScan(){

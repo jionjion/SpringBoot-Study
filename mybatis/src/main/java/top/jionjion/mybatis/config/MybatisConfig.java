@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Jion
  */
 @Configuration
-@MapperScan(basePackages = "top.jionjion.mapper")
+@MapperScan(basePackages = "top.jionjion.mybatis.mapper")
 public class MybatisConfig {
 
 }

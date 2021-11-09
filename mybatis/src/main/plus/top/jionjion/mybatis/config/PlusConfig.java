@@ -1,4 +1,4 @@
-package top.jionjion.plus.config;
+package top.jionjion.mybatis.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan("top.jionjion.mapper")
+@MapperScan("top.jionjion.mybatis.mapper")
 public class PlusConfig {
 
     /**

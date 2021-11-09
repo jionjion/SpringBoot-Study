@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
-import top.jionjion.mybatis.mapper.CallMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +16,6 @@ import java.util.Map;
 @Slf4j
 @SpringBootTest
 class CallMapperTest {
-
 
     @Autowired
     CallMapper mapper;

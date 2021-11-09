@@ -1,4 +1,4 @@
-package top.jionjion.plus.dto;
+package top.jionjion.mybatis.dto;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

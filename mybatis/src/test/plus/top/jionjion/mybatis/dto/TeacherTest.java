@@ -1,7 +1,6 @@
-package top.jionjion.plus.dto;
+package top.jionjion.mybatis.dto;
 
 import org.junit.jupiter.api.Test;
-import top.jionjion.plus.dto.Teacher;
 
 /**
  * @author Jion

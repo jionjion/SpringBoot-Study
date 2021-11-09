@@ -42,9 +42,5 @@ public class CustomerB {
                 channel.basicAck(envelope.getDeliveryTag(), false);
             }
         });
-
-        // 关闭连接, 建议不关闭, 持续监听消息.
-        // channel.close();
-        // connection.close();
     }
 }

@@ -8,7 +8,6 @@ import java.util.Map;
  */
 public interface CallMapper {
 
-
     /**
      * 调用函数,具有返回值. 需要将参数和结果进行封装
      *

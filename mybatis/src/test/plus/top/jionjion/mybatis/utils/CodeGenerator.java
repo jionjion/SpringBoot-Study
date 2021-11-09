@@ -1,4 +1,4 @@
-package top.jionjion.plus.utils;
+package top.jionjion.mybatis.utils;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;

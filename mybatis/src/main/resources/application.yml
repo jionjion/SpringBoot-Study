@@ -10,7 +10,7 @@ spring:
 # Mybatis的配置信息
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: top.jionjion.bean
+  type-aliases-package: top.jionjion.mybatis.bean
   # 配置文件的位置
   # config-location:
   # mapper文件的位置

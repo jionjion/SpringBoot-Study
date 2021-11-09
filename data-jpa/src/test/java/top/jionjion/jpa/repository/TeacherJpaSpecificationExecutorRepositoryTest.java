@@ -31,7 +31,7 @@ public class TeacherJpaSpecificationExecutorRepositoryTest extends JpaApplicatio
 	 */
 	@Test
 	public void testFindOne() {
-		Specification<Teacher> specification = (Specification<Teacher>) (root, query, cb) -> {
+		Specification<Teacher> specification = (root, query, cb) -> {
 			//泛型指定为字段类型
 			Path<Integer> path = root.get("id");
 			//主键小于等于1
@@ -60,7 +60,7 @@ public class TeacherJpaSpecificationExecutorRepositoryTest extends JpaApplicatio
 		Pageable pageable = PageRequest.of(0, 3,sort);
 		
 		//排序规则
-		Specification<Teacher> specification = (Specification<Teacher>) (root, query, cb) -> {
+		Specification<Teacher> specification = (root, query, cb) -> {
 			//泛型指定为字段类型
 			Path<Integer> path = root.get("age");
 			//年龄大于23
