@@ -34,5 +34,4 @@ public class ExceptionAspect {
         // 结束抛出,交给下文处理
         throw ex;
     }
-
 }

@@ -70,5 +70,4 @@ public class LogbackHolder {
         logger.addAppender(rollingFileAppender);
         return logger;
     }
-
 }
