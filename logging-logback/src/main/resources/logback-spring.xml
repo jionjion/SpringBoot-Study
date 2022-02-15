@@ -82,7 +82,8 @@
     <!-- 格式化日志输出, 标准输出到控制台 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%date{HH: mm:ss} %contextName [%t] %p %logger{36} - %msg%n</pattern>
+            <!-- REQUEST_ID 为 MDC注入 -->
+            <pattern>[%X{REQUEST_ID}] %date{HH: mm:ss} %contextName [%t] %p %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 

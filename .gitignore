@@ -32,3 +32,6 @@ hs_err_pid*
 **/mvnw
 **/mvnw.cmd
 **/HELP.md
+
+temp/
+logs/
