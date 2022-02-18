@@ -1,0 +1,14 @@
+package top.jionjion.core.utils.service;
+
+/**
+ * 接口
+ *
+ * @author Jion
+ */
+public interface HomeService {
+
+    /**
+     * Hello 方法
+     */
+    void hello();
+}
