@@ -9,6 +9,8 @@ public interface HomeService {
 
     /**
      * Hello 方法
+     *
+     * @param name 姓名
      */
-    void hello();
+    void hello(String name);
 }

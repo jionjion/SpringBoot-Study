@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.jionjion.core.bean.Student;
-import top.jionjion.core.service.StudentService;
+import top.jionjion.core.utils.service.StudentService;
 
 /**
  * @author Jion

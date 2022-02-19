@@ -1,4 +1,4 @@
-package top.jionjion.core.service;
+package top.jionjion.core.utils.service;
 
 import org.springframework.stereotype.Service;
 import top.jionjion.core.bean.Student;

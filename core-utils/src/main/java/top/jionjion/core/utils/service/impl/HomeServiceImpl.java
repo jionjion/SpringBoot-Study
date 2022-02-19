@@ -12,7 +12,7 @@ import top.jionjion.core.utils.service.HomeService;
 public class HomeServiceImpl implements HomeService {
 
     @Override
-    public void hello(){
-        System.out.println("Hello ... 你好");
+    public void hello(String name){
+        System.out.println("Hello ..." + name);
     }
 }
