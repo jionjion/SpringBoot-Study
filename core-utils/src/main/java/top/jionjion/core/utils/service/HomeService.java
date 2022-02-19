@@ -13,4 +13,9 @@ public interface HomeService {
      * @param name 姓名
      */
     void hello(String name);
+
+    /**
+     *  say 方法
+     */
+    void say();
 }

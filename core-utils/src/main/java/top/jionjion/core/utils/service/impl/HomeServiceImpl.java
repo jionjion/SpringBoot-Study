@@ -11,8 +11,23 @@ import top.jionjion.core.utils.service.HomeService;
 @Service
 public class HomeServiceImpl implements HomeService {
 
+    private String page = "Home.html";
+
     @Override
-    public void hello(String name){
+    public void hello(String name) {
         System.out.println("Hello ..." + name);
+    }
+
+    @Override
+    public void say() {
+        System.out.println("say ...");
+    }
+
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
     }
 }

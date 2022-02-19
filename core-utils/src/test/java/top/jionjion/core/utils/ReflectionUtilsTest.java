@@ -39,52 +39,81 @@ public class ReflectionUtilsTest {
         ReflectionUtils.getAllDeclaredMethods(HomeService.class);
 
         // 在类中查找指定构造方法
-        Constructor constructor = ReflectionUtils.accessibleConstructor(HomeServiceImpl.class);
+        ReflectionUtils.accessibleConstructor(HomeServiceImpl.class);
+    }
 
+    @Test
+    public void testB() {
+        Method helloMethod = ReflectionUtils.findMethod(HomeService.class, "hello", String.class);
+        assert helloMethod != null;
+
+        // 检查一个方法是否声明抛出指定异常
+        log.info("是否声明抛出指定异常: {}", ReflectionUtils.declaresException(helloMethod, Exception.class));
 
         // 是否是 equals() 方法
-        boolean isEqualsMethod (Method method)
+        log.info("是否是 equals() 方法: {}", ReflectionUtils.isEqualsMethod(helloMethod));
+
         // 是否是 hashCode() 方法
-        boolean isHashCodeMethod (Method method)
+        log.info("是否是 hashCode() 方法: {}", ReflectionUtils.isHashCodeMethod(helloMethod));
+
         // 是否是 toString() 方法
-        boolean isToStringMethod (Method method)
+        log.info("是否是 toString() 方法: {}", ReflectionUtils.isToStringMethod(helloMethod));
+
         // 是否是从 Object 类继承而来的方法
-        boolean isObjectMethod (Method method)
-        // 检查一个方法是否声明抛出指定异常
-        boolean declaresException (Method method, Class < ?>exceptionType)
+        log.info("是否是 Object 类继承而来的方法 方法: {}", ReflectionUtils.isObjectMethod(helloMethod));
     }
 
     /**
      * 执行方法
      */
-    public void testB() {
+    @Test
+    public void testC() throws NoSuchMethodException {
+        Constructor<HomeServiceImpl> homeServiceConstructor = ReflectionUtils.accessibleConstructor(HomeServiceImpl.class);
+        Method sayMethod = ReflectionUtils.findMethod(HomeService.class, "say");
+        assert sayMethod != null;
+        Method helloMethod = ReflectionUtils.findMethod(HomeService.class, "hello", String.class);
+        assert helloMethod != null;
+
         // 执行方法
-        Object invokeMethod (Method method, Object target)
-        // 同上  提供方法参数
-        Object invokeMethod (Method method, Object target, Object...args)
+        ReflectionUtils.invokeMethod(sayMethod, homeService);
+
+        // 执行方法,提供方法参数
+        ReflectionUtils.invokeMethod(helloMethod, homeService, "姓名");
+
         // 取消 Java 权限检查。以便后续执行该私有方法
-        void makeAccessible (Method method)
+        ReflectionUtils.makeAccessible(helloMethod);
+
         // 取消 Java 权限检查。以便后续执行私有构造方法
-        void makeAccessible (Constructor < ? > ctor)
+        ReflectionUtils.makeAccessible(homeServiceConstructor);
     }
 
     /**
      * 获取字段
      */
-    public void testC() {
-
+    @Test
+    public void testD() {
         // 在类查找指定属性
-        Field findField (Class < ? > clazz, String name)
+        Field pageField = ReflectionUtils.findField(HomeServiceImpl.class, "page");
+        log.info("获得属性: {}", pageField);
+
         // 同上  多提供了属性的类型
-        Field findField (Class < ? > clazz, String name, Class < ?>type)
-        // 是否为一个 "public static final" 属性
-        boolean isPublicStaticFinal (Field field)
+        Field pageField2 = ReflectionUtils.findField(HomeServiceImpl.class, "page", String.class);
+        assert pageField2 != null;
+
+        // 是否为一个 public static final 属性
+        log.info("是否为一个 public static final 属性: {}", ReflectionUtils.isPublicStaticFinal(pageField2));
     }
 
     /**
      * 设置字段
      */
-    public void testD() {
-
+    @Test
+    public void testE() {
+        Field pageField = ReflectionUtils.findField(HomeServiceImpl.class, "page");
+        assert pageField != null;
+        // 修改为非 private 属性
+        ReflectionUtils.makeAccessible(pageField);
+        // 修改属性值
+        ReflectionUtils.setField(pageField, homeService, "page_new.html");
     }
 }
