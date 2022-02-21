@@ -11,7 +11,7 @@
     <artifactId>core-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>core-utils</name>
-    <description>core-utils</description>
+    <description>spring-utils</description>
 
     <dependencies>
         <dependency>
