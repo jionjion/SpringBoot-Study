@@ -28,7 +28,6 @@ public class StringUtilsTest {
         // 是否包含空白符
         log.info("是否包含空白符: {}", StringUtils.containsWhitespace("AB "));
 
-
         // 判断字符串非空且长度不为 0,即,Not Empty
         log.info("判断字符串非空且长度不为0: {}", StringUtils.hasLength(" "));
 
@@ -52,7 +51,6 @@ public class StringUtilsTest {
 
         // 去除尾部的特定字符
         log.info("去除尾部的特定字符: {}", StringUtils.trimTrailingCharacter("ABB", 'B'));
-
 
         // 去除头部的空白符
         log.info("去除头部的空白符: {}", StringUtils.trimLeadingWhitespace("  ABC"));
