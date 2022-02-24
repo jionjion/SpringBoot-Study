@@ -1,4 +1,4 @@
-package top.jionjion;
+package top.jionjion.quartz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
