@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 参考 https://blog.csdn.net/promsing/article/details/122876032?
+ * 设置密码  ./bin/elasticsearch-setup-passwords interactive
  *
  * @author JionJion
  */
