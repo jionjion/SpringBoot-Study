@@ -76,7 +76,9 @@ class StudentCursorQueryTest {
     @Test
     public void findAll() {
         Cursor<Student> cursor = cursorQuery.findAll();
-        cursor.forEach(student -> log.info("流查询: {}", student));
+        for (Student student : cursor) {
+            log.info("流查询: {}", student);
+        }
         // 抛出 java.lang.IllegalStateException: A Cursor is already closed.
         Assertions.fail("未手动执行事物...");
     }
