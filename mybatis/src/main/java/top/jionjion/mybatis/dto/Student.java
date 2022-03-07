@@ -17,22 +17,27 @@ public class Student {
      * 主键
      */
     private int id;
+
     /**
      * 姓名
      */
     private String name;
+
     /**
      * 年龄
      */
     private int age;
+
     /**
      * 地址
      */
     private String address;
+
     /**
      * 生日
      */
     private LocalDate birthday;
+
     /**
      * 成绩
      */

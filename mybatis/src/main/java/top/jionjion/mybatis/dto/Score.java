@@ -14,18 +14,22 @@ public class Score {
      * ID
      */
     Integer id;
+
     /**
      * 学生ID
      */
     Integer sId;
+
     /**
      * 科目
      */
     String course;
+
     /**
      * 分数
      */
     Float grade;
+
     /**
      * 学生,主表信息
      */
