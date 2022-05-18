@@ -3,15 +3,18 @@ package top.jionjion.core.property;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 属性配置类.
+ *
  * @author Jion
  */
-@PropertySource(value = "classpath:properties/config.properties",encoding = "UTF-8")
+@PropertySources({@PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8")})
 @Component
 @Data
 public class ConfigInfoProperty {

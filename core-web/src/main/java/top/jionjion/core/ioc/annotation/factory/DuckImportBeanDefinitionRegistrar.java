@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * 使用 ImportBeanDefinitionRegistrar 注入Bean.
  * 常用配置 @Import 注解, 在自定义注解中,将当注解注入.同时携带自定义注解中的元信息, 用来向容器中动态添加Bean
+ * {@code E:/Maven/Repository/org/springframework/spring-context/5.3.1/spring-context-5.3.1-sources.jar!/org/springframework/context/annotation/ConfigurationClassParser.java:586}
  *
  * @author Jion
  * @see org.springframework.context.annotation.ConfigurationClassParser#processImports 处理导入逻辑
