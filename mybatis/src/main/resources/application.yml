@@ -1,4 +1,7 @@
 debug: true
+logging:
+  level:
+    root: trace
 
 spring:
   datasource:
