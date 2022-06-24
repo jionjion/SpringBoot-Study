@@ -27,7 +27,11 @@ hs_err_pid*
 
 # models
 **/.mvn/**
+**/.gradle/**
+**/wrapper/**
+**/grale/**
 **/target/**
+**/build/**
 **/**.iml
 **/mvnw
 **/mvnw.cmd
