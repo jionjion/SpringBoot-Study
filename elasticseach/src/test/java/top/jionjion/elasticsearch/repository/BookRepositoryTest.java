@@ -1,18 +1,18 @@
 package top.jionjion.elasticsearch.repository;
 
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.IndexOperations;
+import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import top.jionjion.elasticsearch.pojo.Food;
 
@@ -89,11 +89,11 @@ class BookRepositoryTest {
     public void testFind() {
         System.out.println("-----主键查询------");
         Optional<Food> byId = this.foodRepository.findById(1L);
-        System.out.println(byId.get());
+        System.out.println(byId);
 
         System.out.println("-----查询全部------");
         Iterable<Food> all = this.foodRepository.findAll();
-        all.forEach(i -> System.out.println(i));
+        all.forEach(System.out::println);
 
         System.out.println("-----排序查询(升序降序)------");
         Iterable<Food> price = this.foodRepository.findAll(Sort.by("price").descending());
@@ -106,12 +106,10 @@ class BookRepositoryTest {
     @Test
     public void testFindByU() {
         List<Food> phone = this.foodRepository.findByTitle("食品");
-        phone.forEach(i -> {
-            System.out.println(i);
-        });
+        phone.forEach(System.out::println);
 
         List<Food> byPriceBetween = this.foodRepository.findByPriceBetween(100.0, 300.0);
-        byPriceBetween.forEach(i -> System.out.println(i));
+        byPriceBetween.forEach(System.out::println);
     }
 
     /**
@@ -134,9 +132,10 @@ class BookRepositoryTest {
     @Test
     public void testSearch() {
         //通过查询构建器工具构建--重点：QueryBuilders：词条、模糊、范围
-        MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("title", "手机");
+        NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder().withQuery(QueryBuilders.matchQuery("title", "手机")).build();
+
         //获取结果集
-        Iterable<Food> Foods = this.foodRepository.search(queryBuilder);
+        SearchHits<Food> Foods = elasticsearchTemplate.search(nativeSearchQuery, Food.class);
 
         Foods.forEach(System.out::println);
 
@@ -148,14 +147,12 @@ class BookRepositoryTest {
     @Test
     public void testNative() {
         // 构建自定义查询构建器
-        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+        NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder().withQuery(QueryBuilders.matchQuery("title", "手机")).build();
         // 添加基本查询条件
-        queryBuilder.withQuery(QueryBuilders.matchQuery("title", "手机"));
         // 查询分页结果集
-        Page<Food> FoodPage = this.foodRepository.search(queryBuilder.build());
-        System.out.println(FoodPage.getTotalPages());
-        System.out.println(FoodPage.getTotalElements());
-        FoodPage.forEach(i -> System.out.println(i));
+        SearchHits<Food> foodSearchHits = elasticsearchTemplate.search(nativeSearchQuery, Food.class);
+        System.out.println(foodSearchHits.getTotalHits());
+        foodSearchHits.forEach(System.out::println);
 
     }
 
@@ -170,10 +167,9 @@ class BookRepositoryTest {
         queryBuilder.withQuery(QueryBuilders.matchQuery("category", "手机"));
         queryBuilder.withPageable(PageRequest.of(1, 2));
         // 查询分页结果集
-        Page<Food> FoodPage = this.foodRepository.search(queryBuilder.build());
-        System.out.println(FoodPage.getTotalPages());
-        System.out.println(FoodPage.getTotalElements());
-        FoodPage.forEach(i -> System.out.println(i));
+        SearchHits<Food> foodSearchHits = this.elasticsearchTemplate.search(queryBuilder.build(), Food.class);
+        System.out.println(foodSearchHits.getTotalHits());
+        foodSearchHits.forEach(System.out::println);
 
     }
 
@@ -186,12 +182,10 @@ class BookRepositoryTest {
         NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
         // 添加基本查询条件
         queryBuilder.withQuery(QueryBuilders.matchQuery("category", "手机"));
-        queryBuilder.withSort(SortBuilders.fieldSort("price").order(SortOrder.DESC));
+        queryBuilder.withSorts(SortBuilders.fieldSort("price").order(SortOrder.DESC));
         // 查询分页结果集
-        Page<Food> FoodPage = this.foodRepository.search(queryBuilder.build());
-        System.out.println(FoodPage.getTotalPages());
-        System.out.println(FoodPage.getTotalElements());
-        FoodPage.forEach(i -> System.out.println(i));
-
+        SearchHits<Food> foodSearchHits = this.elasticsearchTemplate.search(queryBuilder.build(), Food.class);
+        System.out.println(foodSearchHits.getTotalHits());
+        foodSearchHits.forEach(System.out::println);
     }
 }
