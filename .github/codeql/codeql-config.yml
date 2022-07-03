@@ -13,6 +13,3 @@ packs:
 paths:
   - caching/src
   - core-web/src
-paths-ignore:
-  - src/node_modules
-
