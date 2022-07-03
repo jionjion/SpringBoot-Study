@@ -21,9 +21,6 @@ on:
   # 主分支拉取请求
   pull_request:
     branches: [ "master" ]
-  # 定时调度
-  schedule:
-    - cron: '0 3 * * 1-7'
 
 # 任务列表
 jobs:
