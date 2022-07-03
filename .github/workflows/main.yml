@@ -32,8 +32,9 @@ jobs:
         run: mvn -B package -DskipTests -s ./.github/settings/settings.xml --file caching/pom.xml
 
       - name: Build with Maven [top.jionjion]
-        shell: bash
-        run: ./.github/scripts/build.sh
+        run: |
+          chmod +x .github/scripts/build.sh &&
+          ./.github/scripts/build.sh
 
       # 2. 初始化 CodeQL
       - name: Initialize CodeQL
