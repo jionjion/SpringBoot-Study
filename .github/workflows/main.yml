@@ -30,8 +30,8 @@ jobs:
 
       - name: Build with Maven [top.jionjion]
         run: |
-          chmod +x ./.github/scripts/maven-build.sh 
-          && ./.github/scripts/maven-build.sh
+          chmod +x ./.github/scripts/maven-build.sh && 
+          ./.github/scripts/maven-build.sh
 
       # 2. 初始化 CodeQL
       - name: Initialize CodeQL
