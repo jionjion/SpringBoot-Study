@@ -26,7 +26,7 @@ jobs:
           cache: maven
       # 3. 批次构建
       - name: Build with Maven [top.jionjion:version]
-        run: mvn -B install -DskipTests -s ./github/configs/settings.xml --file version/pom.xml
+        run: mvn -B install -DskipTests -s ./.github/configs/settings.xml --file version/pom.xml
       - name: Build with Maven [top.jionjion:caching]
         run: mvn -B package -DskipTests -s ./github/configs/settings.xml --file caching/pom.xml
 
