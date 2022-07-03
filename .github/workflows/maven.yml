@@ -26,5 +26,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     # 3. 批次构建
-    - name: Build with Maven
+    - name: Build with Maven [top.jionjion:version]
+      run: mvn -B package --file version/pom.xml
+    - name: Build with Maven [top.jionjion:caching]
       run: mvn -B package --file caching/pom.xml
