@@ -57,12 +57,12 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    # 3. 自定义步骤
-
-    # 4. 自动构建
+    # 3. 自动构建
     - name: Auto build
       uses: github/codeql-action/autobuild@v2
-      # 自定义命令行
+
+    # 4.自定义命令行
+    - name: Echo message
       run: |
         echo "Run, Build Application using script"
         ./location_of_script_within_repo/buildscript.sh
