@@ -1,7 +1,7 @@
 name: "My CodeQL config"
 
 # 禁用默认查询
-disable-default-queries: true
+disable-default-queries: false
 
 # 指定范围
 paths:
