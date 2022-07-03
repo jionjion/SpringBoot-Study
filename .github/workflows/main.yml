@@ -28,9 +28,6 @@ jobs:
       - name: Build with Maven [top.jionjion:version]
         run: mvn -B install -DskipTests -s ./.github/settings/settings.xml --file version/pom.xml
 
-      - name: Build with Maven [top.jionjion:caching]
-        run: mvn -B package -DskipTests -s ./.github/settings/settings.xml --file caching/pom.xml
-
       - name: Build with Maven [top.jionjion]
         run: |
           chmod +x .github/scripts/build.sh &&
