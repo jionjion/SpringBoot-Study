@@ -21,6 +21,9 @@ on:
   # 主分支拉取请求
   pull_request:
     branches: [ "master" ]
+  # 定时调度
+  schedule:
+  - cron: '0 3 * * 6'
 
 # 任务列表
 jobs:
@@ -44,26 +47,26 @@ jobs:
 
     # 步骤
     steps:
-      # 1. 检出代码
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    # 1. 检出代码
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      # 2. 初始化 CodeQL
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: ${{ matrix.language }}
+    # 2. 初始化 CodeQL
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
 
-      # 3. 自定义步骤
+    # 3. 自定义步骤
 
-      # 4. 自动构建
-      - name: Auto build
-        uses: github/codeql-action/autobuild@v2
-        # 自定义命令行
-        run: |
-          echo "Run, Build Application using script"
-          ./location_of_script_within_repo/buildscript.sh
+    # 4. 自动构建
+    - name: Auto build
+      uses: github/codeql-action/autobuild@v2
+      # 自定义命令行
+      run: |
+        echo "Run, Build Application using script"
+        ./location_of_script_within_repo/buildscript.sh
 
-      # 5. 语法分析
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+    # 5. 语法分析
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
