@@ -28,17 +28,15 @@ jobs:
       - name: Build with Maven [top.jionjion:version]
         run: mvn -B install -DskipTests -s ./.github/settings/settings.xml --file version/pom.xml
 
-      - name: Build with Maven [top.jionjion]
-        run: |
-          chmod +x ./.github/scripts/maven-build.sh && 
-          ./.github/scripts/maven-build.sh
+#      - name: Build with Maven [top.jionjion]
+#        run: |
+#          chmod +x ./.github/scripts/maven-build.sh &&
+#          ./.github/scripts/maven-build.sh
 
-      # 2. 初始化 CodeQL
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: 'java'
+          languages: java
 
-      # 5. 语法分析
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
