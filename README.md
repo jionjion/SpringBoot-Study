@@ -1,4 +1,5 @@
-<div style="text-align:center">
+<html lang="zh-CN">
+<div align="center">
   <br>
 
   <a href="https://github.com/jionjion/EasyZD">
@@ -8,7 +9,7 @@
   <p>🖥️ SpringBoot 微服务集成学习...️ </p>
 </div>
 
-<div style="text-align:center">
+<div align="center">
   <a href="https://github.com/jionjion/SpringBoot-Study/actions/workflows/maven.yml">
     <img src="https://github.com/jionjion/SpringBoot-Study/actions/workflows/maven.yml/badge.svg" alt="Maven Build" />
   </a>
@@ -17,10 +18,11 @@
     <img src="https://img.shields.io/github/license/jionjion/SpringBoot-Study" alt="License: MIT" />
   </a>
 </div>
+</html>
 
 ## 🎯 目标
 
-尽可能的学习..
+学习笔记小本本...
 
 ## 💻 扩展
 
