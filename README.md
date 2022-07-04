@@ -1,4 +1,4 @@
-<div align="center">
+<div style="text-align:center">
   <br>
 
   <a href="https://github.com/jionjion/EasyZD">
@@ -8,7 +8,7 @@
   <p>🖥️ SpringBoot 微服务集成学习...️ </p>
 </div>
 
-<div align="center">
+<div style="text-align:center">
   <a href="https://github.com/jionjion/SpringBoot-Study/actions/workflows/maven.yml">
     <img src="https://github.com/jionjion/SpringBoot-Study/actions/workflows/maven.yml/badge.svg" alt="Maven Build" />
   </a>
