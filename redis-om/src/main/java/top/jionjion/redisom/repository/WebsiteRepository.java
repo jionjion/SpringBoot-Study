@@ -1,14 +1,16 @@
 package top.jionjion.redisom.repository;
 
 import com.redis.om.spring.repository.RedisDocumentRepository;
-import top.jionjion.redisom.po.Book;
+import org.springframework.stereotype.Component;
+import top.jionjion.redisom.po.Website;
+
 
 /**
  * 简化 Redis 操作, 继承自 RedisDocumentRepository 并指明主键
  *
  * @author Jion
  */
-public interface BookRepository extends RedisDocumentRepository<Book, String> {
-
+@Component
+public interface WebsiteRepository extends RedisDocumentRepository<Website, String> {
 
 }
