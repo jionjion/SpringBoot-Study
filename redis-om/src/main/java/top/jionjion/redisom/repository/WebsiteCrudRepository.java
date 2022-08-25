@@ -11,6 +11,6 @@ import top.jionjion.redisom.po.Website;
  * @author Jion
  */
 @Component
-public interface WebsiteRepository extends RedisDocumentRepository<Website, String> {
+public interface WebsiteCrudRepository extends RedisDocumentRepository<Website, String> {
 
 }

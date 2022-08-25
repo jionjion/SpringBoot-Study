@@ -23,10 +23,10 @@ import java.util.*;
 @Slf4j
 @SpringBootTest
 @SuppressWarnings({"unused", "OptionalGetWithoutIsPresent"})
-class WebsiteRepositoryTest {
+class WebsiteCrudRepositoryTest {
 
     @Autowired
-    WebsiteRepository repository;
+    WebsiteCrudRepository repository;
 
 
     /**
