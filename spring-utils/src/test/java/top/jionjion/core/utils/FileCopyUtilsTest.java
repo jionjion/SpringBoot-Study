@@ -12,7 +12,7 @@ import java.io.*;
  * @author Jion
  */
 @Slf4j
-public class FileCopyUtilsTest {
+class FileCopyUtilsTest {
 
     private final File in = new File("W:\\SpringBoot-Study\\core-utils\\src\\main\\resources\\application.properties");
     private final File out = new File("W:\\SpringBoot-Study\\core-utils\\test\\main\\resources\\application.properties");
@@ -22,7 +22,7 @@ public class FileCopyUtilsTest {
      * 输入
      */
     @Test
-    public void testA() throws IOException {
+    void testA() throws IOException {
         // 从文件中读入到字节数组中
         byte[] bytes = FileCopyUtils.copyToByteArray(in);
         log.info("内容: {}", new String(bytes));
@@ -41,7 +41,7 @@ public class FileCopyUtilsTest {
      * 输出
      */
     @Test
-    public void testB() throws IOException {
+    void testB() throws IOException {
         // 从字节数组到文件
         FileCopyUtils.copy("这是内容".getBytes(), new File("输出内容.txt"));
 

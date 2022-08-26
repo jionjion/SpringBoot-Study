@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
  * @author Jion
  */
 @Slf4j
-public class StreamUtilsTest {
+class StreamUtilsTest {
 
     private final File in = new File("W:\\SpringBoot-Study\\core-utils\\src\\main\\resources\\application.properties");
 
@@ -23,7 +23,7 @@ public class StreamUtilsTest {
      * 输入
      */
     @Test
-    public void testA() throws IOException {
+    void testA() throws IOException {
 
         // 从输入流中读入到字节数组中
         byte[] bytes = StreamUtils.copyToByteArray(new FileInputStream(in));
@@ -41,7 +41,7 @@ public class StreamUtilsTest {
      * 输出
      */
     @Test
-    public void testB() throws IOException {
+    void testB() throws IOException {
         // 从字节到输出流
         StreamUtils.copy("这是内容...".getBytes(), System.out);
 

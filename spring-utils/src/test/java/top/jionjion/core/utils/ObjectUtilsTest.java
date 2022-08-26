@@ -14,13 +14,13 @@ import java.util.Optional;
  * @author Jion
  */
 @Slf4j
-public class ObjectUtilsTest {
+class ObjectUtilsTest {
 
     /**
      * 获取对象的基本信息
      */
     @Test
-    public void testObjectA() {
+    void testObjectA() {
 
         CoreUtilsApplication application = new CoreUtilsApplication();
 
@@ -47,7 +47,7 @@ public class ObjectUtilsTest {
      * 判断工具
      */
     @Test
-    public void testObjectB() {
+    void testObjectB() {
         String[] arrayA = new String[]{"A", "B", "C"};
         // 判断参数对象是否是数组
         log.info("判断对象是否为数组: {}", ObjectUtils.isArray(arrayA));
@@ -64,7 +64,7 @@ public class ObjectUtilsTest {
     }
 
     @Test
-    public void testObjectC() {
+    void testObjectC() {
         // 相等，或同为 null时，返回 true
         log.info("判断对象是否相同: {}", ObjectUtils.nullSafeEquals("  ", "")); 
         

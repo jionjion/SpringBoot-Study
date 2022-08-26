@@ -10,13 +10,13 @@ import org.springframework.aop.framework.AopContext;
  * @author Jion
  */
 @Slf4j
-public class AopContextTest {
+class AopContextTest {
 
     /**
      * 获取当前对象的代理对象
      */
     @Test
-    public void test() {
+    void test() {
         Object obj = AopContext.currentProxy();
         log.info("获得代理对象: {}", obj);
     }

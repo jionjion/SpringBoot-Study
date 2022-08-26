@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
  */
 @Slf4j
 @SpringBootTest
-public class ReflectionUtilsTest {
+class ReflectionUtilsTest {
 
     @Autowired
     HomeService homeService;
@@ -28,7 +28,7 @@ public class ReflectionUtilsTest {
      * 获取方法
      */
     @Test
-    public void testA() throws NoSuchMethodException {
+    void testA() throws NoSuchMethodException {
         // 在类中查找指定方法
         ReflectionUtils.findMethod(HomeService.class, "hello");
 
@@ -43,7 +43,7 @@ public class ReflectionUtilsTest {
     }
 
     @Test
-    public void testB() {
+    void testB() {
         Method helloMethod = ReflectionUtils.findMethod(HomeService.class, "hello", String.class);
         assert helloMethod != null;
 
@@ -67,7 +67,7 @@ public class ReflectionUtilsTest {
      * 执行方法
      */
     @Test
-    public void testC() throws NoSuchMethodException {
+    void testC() throws NoSuchMethodException {
         Constructor<HomeServiceImpl> homeServiceConstructor = ReflectionUtils.accessibleConstructor(HomeServiceImpl.class);
         Method sayMethod = ReflectionUtils.findMethod(HomeService.class, "say");
         assert sayMethod != null;
@@ -91,7 +91,7 @@ public class ReflectionUtilsTest {
      * 获取字段
      */
     @Test
-    public void testD() {
+    void testD() {
         // 在类查找指定属性
         Field pageField = ReflectionUtils.findField(HomeServiceImpl.class, "page");
         log.info("获得属性: {}", pageField);
@@ -108,7 +108,7 @@ public class ReflectionUtilsTest {
      * 设置字段
      */
     @Test
-    public void testE() {
+    void testE() {
         Field pageField = ReflectionUtils.findField(HomeServiceImpl.class, "page");
         assert pageField != null;
         // 修改为非 private 属性

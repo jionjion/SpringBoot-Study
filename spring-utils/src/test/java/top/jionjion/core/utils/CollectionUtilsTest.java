@@ -13,13 +13,13 @@ import java.util.*;
  * @author Jion
  */
 @Slf4j
-public class CollectionUtilsTest {
+class CollectionUtilsTest {
 
     /**
      * 集合判断工具
      */
     @Test
-    public void testA() {
+    void testA() {
         Collection<String> list = new ArrayList<>();
         Map<String, String> map = new HashMap<>();
 
@@ -48,7 +48,7 @@ public class CollectionUtilsTest {
      * 集合操作工具
      */
     @Test
-    public void testB() {
+    void testB() {
         // 将 Array 中的元素都添加到 List/Set 中
         String[] array = new String[]{"A", "B", "C"};
         List<String> list = new ArrayList<>();

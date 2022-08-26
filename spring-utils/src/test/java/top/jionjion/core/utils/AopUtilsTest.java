@@ -14,7 +14,7 @@ import top.jionjion.core.utils.service.HomeService;
  */
 @Slf4j
 @SpringBootTest
-public class AopUtilsTest {
+class AopUtilsTest {
 
     @Autowired
     HomeService homeService;
@@ -23,7 +23,7 @@ public class AopUtilsTest {
      * 判断代理类型
      */
     @Test
-    public void testA() {
+    void testA() {
         // 判断是不是 Spring 代理对象
         log.info("判断是不是 Spring 代理对象: {}", AopUtils.isAopProxy(homeService));
         // 判断是不是 jdk 动态代理对象
@@ -36,7 +36,7 @@ public class AopUtilsTest {
      * 获取被代理对象的 class
      */
     @Test
-    public void testB() {
+    void testB() {
         // 获取被代理的目标 class
         log.info("获取被代理的目标的类类型: {}", AopUtils.getTargetClass(homeService));
     }

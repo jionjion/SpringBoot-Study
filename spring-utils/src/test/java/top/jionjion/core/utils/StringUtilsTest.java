@@ -13,10 +13,10 @@ import java.util.Arrays;
  * @author Jion
  */
 @Slf4j
-public class StringUtilsTest {
+class StringUtilsTest {
 
     @Test
-    public void test() {
+    void test() {
         // 判断字符串是否已指定内容开头。忽略大小写
         log.info("是否以指定开头: {}", StringUtils.startsWithIgnoreCase("ABC", "A"));
         log.info("是否以指定开头: {}", StringUtils.startsWithIgnoreCase("ABC", "a"));
@@ -42,7 +42,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testB() {
+    void testB() {
         // 查找并替换指定子串
         log.info("查找并替换指定子串: {}", StringUtils.replace("ABC", "ABC", "abc"));
 
@@ -81,7 +81,7 @@ public class StringUtilsTest {
      * 路径相关工具方法
      */
     @Test
-    public void testC() {
+    void testC() {
         String filePath = "src/main/resources/application.properties";
         // 解析路径字符串,优化其中的 .=> StringUtilsTest.java
         log.info("优化文件路径: {}", StringUtils.cleanPath("./StringUtilsTest.java"));
