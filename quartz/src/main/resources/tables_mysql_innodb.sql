@@ -1,3 +1,5 @@
+# noinspection SpellCheckingInspectionForFile
+
 #
 # 在你的Quartz属性文件中，你需要设置
 # org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDelegate
