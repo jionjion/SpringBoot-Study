@@ -1,10 +1,10 @@
 #
-# In your Quartz properties file, you'll need to set
+# 在你的Quartz属性文件中，你需要设置
 # org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDelegate
 #
 #
-# By: Ron Cordell - roncordell
-#  I didn't see this anywhere, so I thought I'd post it here. This is the script from Quartz to create the tables in a MySQL database, modified to use INNODB instead of MYISAM.
+# By: Ron Cordell
+# 没有在任何地方看到这个，所以我想我应该把它贴在这里。这是来自Quartz的脚本，用于在MySQL数据库中创建表，修改为使用INNODB而不是MYISAM。
 
 DROP TABLE IF EXISTS QRTZ_FIRED_TRIGGERS;
 DROP TABLE IF EXISTS QRTZ_PAUSED_TRIGGER_GRPS;

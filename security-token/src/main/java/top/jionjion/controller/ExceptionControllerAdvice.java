@@ -16,6 +16,5 @@ public class ExceptionControllerAdvice {
     public void badCredentialsException(BadCredentialsException e) {
         //用户名或密码错误
         System.out.println(e.getMessage());
-        // throw new  BadCredentialsException(e.getMessage());
     }
 }

@@ -11,6 +11,7 @@ import java.util.concurrent.TimeoutException;
  *  手动确认消息,并限制流量
  * @author Jion
  */
+@SuppressWarnings("ALL")
 public class CustomerB {
 
     /** 接受队列消息 */

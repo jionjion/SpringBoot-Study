@@ -11,6 +11,7 @@ import java.util.concurrent.TimeoutException;
  *
  * @author Jion
  */
+@SuppressWarnings("ALL")
 public class CustomerA {
 
     /**

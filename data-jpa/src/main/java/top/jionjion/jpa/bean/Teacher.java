@@ -1,8 +1,6 @@
 package top.jionjion.jpa.bean;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +19,10 @@ import java.util.Date;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Teacher {
 
     /**
@@ -42,7 +43,7 @@ public class Teacher {
     /**
      * 字段名
      */
-    @Column(name = "WORKDAY")
+    @Column(name = "workday")
     private Date workday;
 
     /**

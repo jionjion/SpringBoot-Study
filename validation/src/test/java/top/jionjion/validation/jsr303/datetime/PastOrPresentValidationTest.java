@@ -11,6 +11,7 @@ import java.util.Date;
 class PastOrPresentOrPresentValidationTest extends ValidationBaseTest {
 
     @Test
+    @SuppressWarnings("MagicConstant")
     public void test() {
         PastOrPresentValidation obj = new PastOrPresentValidation();
         // java.util.Date 日期 + 时间 + 时区

@@ -13,7 +13,6 @@ import java.util.Map;
 @Service
 public class DomeService {
 
-
     public String findById (String id) throws JsonProcessingException {
         Map<String, String> map = new HashMap<>(4);
         map.put("id", id);

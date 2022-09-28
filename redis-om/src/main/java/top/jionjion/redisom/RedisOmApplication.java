@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Redis 官方提供的 OM 映射
- *
+ * <p>
  * 使用 @EnableRedisDocumentRepositories 开启 Redis-OM 映射, 完成检索
  * basePackages 指向项目根路径, 将 po 和 repository 都包围
  *

@@ -3,7 +3,7 @@ spring:
   mail:
     host: smtp.aliyun.com
     username: jionjion@aliyun.com
-    password: XXXXX
+    password: XXX
     properties.mail.smtp.auth: true
     properties.mail.smtp.starttls.enable: true
     properties.mail.smtp.starttls.required: true

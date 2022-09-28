@@ -10,6 +10,7 @@ import java.util.concurrent.TimeoutException;
  *  消费者
  * @author Jion
  */
+@SuppressWarnings("ALL")
 public class Customer {
 
     /** 接受队列消息 */

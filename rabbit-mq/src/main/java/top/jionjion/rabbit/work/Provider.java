@@ -12,6 +12,7 @@ import java.util.concurrent.TimeoutException;
  *  生产者, 产生消息
  * @author Jion
  */
+@SuppressWarnings("ALL")
 public class Provider {
 
     /** 发送队列消息 */

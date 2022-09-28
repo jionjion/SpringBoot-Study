@@ -44,7 +44,7 @@ public class ValueOperationsTest extends DataRedisApplicationTest {
     /**
      *  语法 SET key value [EX seconds] [PX milliseconds] [NX|XX]
      *  将数据以键值对的形式存入
-     *
+     * <p>
      *  key为字符型,value格式不限制
      *  例如:set name "jionjion" 将jionjion存入,key为name
      *  [EX seconds]过期时间,单位秒
