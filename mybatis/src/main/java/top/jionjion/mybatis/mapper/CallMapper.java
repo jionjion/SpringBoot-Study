@@ -12,7 +12,6 @@ public interface CallMapper {
      * 调用函数,具有返回值. 需要将参数和结果进行封装
      *
      * @param param 参数
-     * @return 结果,两参数求和
      */
     void callFunctionOneAddOne(Map<String, Integer> param);
 
@@ -20,7 +19,6 @@ public interface CallMapper {
      * 调用存储过程. 需要将参数和结果进行封装
      *
      * @param param 参数
-     * @return 结果,两参数求和
      */
     void callProcedureOneAddOne(Map<String, Integer> param);
 }

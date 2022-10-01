@@ -11,6 +11,7 @@ import top.jionjion.core.utils.service.StudentService;
  * @author Jion
  */
 @Controller
+@SuppressWarnings("JavadocLinkAsPlainText")
 public class StudentController {
 
     private final StudentService service;
@@ -21,18 +22,19 @@ public class StudentController {
 
     @RequestMapping("/")
     @ResponseBody
-    public String findStudentById(){
+    public String findStudentById() {
         return "Hello Spring Boot";
     }
 
     /**
-     *  http://localhost:8080/student/1/
+     * http://localhost:8080/student/1/
+     *
      * @param id 学生ID
      * @return 结果
      */
     @RequestMapping("/student/{id}/")
     @ResponseBody
-    public Student findStudentById(@PathVariable("id") Integer id){
+    public Student findStudentById(@PathVariable("id") Integer id) {
         return service.findStudentById(id);
     }
 }

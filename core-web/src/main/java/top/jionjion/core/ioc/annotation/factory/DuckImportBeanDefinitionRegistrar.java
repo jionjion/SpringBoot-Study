@@ -4,6 +4,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,7 +24,7 @@ public class DuckImportBeanDefinitionRegistrar implements ImportBeanDefinitionRe
      * GenericBeanDefinition为常用的Bean定义
      */
     @Override
-    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+    public void registerBeanDefinitions(@NonNull AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         // importingClassMetadata 在 @Import 注解上的类的注解信息.
 
         // 注入Bean

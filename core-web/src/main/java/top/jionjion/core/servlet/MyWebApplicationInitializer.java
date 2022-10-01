@@ -1,5 +1,6 @@
 package top.jionjion.core.servlet;
 
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.WebApplicationInitializer;
 
@@ -28,7 +29,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
      * @param servletContext Web 容器
      */
     @Override
-    public void onStartup(ServletContext servletContext) {
+    public void onStartup(@NonNull ServletContext servletContext) {
         System.out.println("不依赖世面上的Web容器,自行创建..." + servletContext);
     }
 }

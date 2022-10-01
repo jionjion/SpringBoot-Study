@@ -3,6 +3,7 @@ package top.jionjion.core.conditional;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
+import org.springframework.lang.NonNull;
 
 /**
  * 在 Web 环境下使用,
@@ -20,7 +21,7 @@ public class OnWebApplicationCondition implements Condition {
      * @return 是否生效
      */
     @Override
-    public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+    public boolean matches(@NonNull ConditionContext context, @NonNull AnnotatedTypeMetadata metadata) {
         System.out.println(getClass() + " 注解信息" + metadata);
         System.out.println(getClass() + "上下文信息" + context);
         return true;

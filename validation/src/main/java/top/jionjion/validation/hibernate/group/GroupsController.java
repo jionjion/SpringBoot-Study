@@ -10,6 +10,7 @@ import top.jionjion.validation.bean.Student;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
 import java.util.Set;
 
 /**
@@ -59,19 +60,20 @@ public class GroupsController {
      * 手动校验
      */
     private void validateWhenUpdate(@Valid Student student) {
-        // 不符合要求的项目
-        Set<ConstraintViolation<@Valid Student>> validateSet = Validation.buildDefaultValidatorFactory()
-                .getValidator()
-                // 分组
-                .validate(student, GroupsEnum.Update.class);
+        try (ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory()) {
+            // 不符合要求的项目
+            Set<ConstraintViolation<@Valid Student>> validateSet = validatorFactory.getValidator()
+                    // 分组
+                    .validate(student, GroupsEnum.Update.class);
 
-        // 处理并返回
-        if (!CollectionUtils.isEmpty(validateSet)) {
-            String messages = validateSet.stream()
-                    .map(ConstraintViolation::getMessage)
-                    .reduce((m1, m2) -> m1 + "；" + m2)
-                    .orElse("参数输入有误！");
-            throw new RuntimeException(messages);
+            // 处理并返回
+            if (!CollectionUtils.isEmpty(validateSet)) {
+                String messages = validateSet.stream()
+                        .map(ConstraintViolation::getMessage)
+                        .reduce((m1, m2) -> m1 + "；" + m2)
+                        .orElse("参数输入有误！");
+                throw new IllegalArgumentException(messages);
+            }
         }
     }
 }

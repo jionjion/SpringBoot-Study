@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.lang.NonNull;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -17,13 +18,15 @@ class WebApplicationPropertiesTest implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
 
-    /** 测试, 是否条件注入 */
+    /**
+     * 测试, 是否条件注入
+     */
     @Test
-    public void test(){
+    public void test() {
         WebApplicationProperties bean = applicationContext.getBean(WebApplicationProperties.class);
         System.out.println(bean);
         assertNotNull(bean);

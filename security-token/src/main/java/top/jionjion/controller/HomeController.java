@@ -17,6 +17,7 @@ import top.jionjion.tools.JwtTokenUtils;
  * @author Jion
  */
 @RestController
+@SuppressWarnings("JavadocLinkAsPlainText")
 public class HomeController {
 
     final AuthenticationManagerBuilder authenticationManagerBuilder;

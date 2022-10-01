@@ -12,6 +12,7 @@ import top.jionjion.validation.bean.Student;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
 import java.util.Set;
 
 /**
@@ -20,6 +21,7 @@ import java.util.Set;
  * @author Jion
  */
 @RestController
+@SuppressWarnings("JavadocLinkAsPlainText")
 public class StudentController {
 
     /**
@@ -50,7 +52,7 @@ public class StudentController {
                     .map(ObjectError::getDefaultMessage)
                     .reduce((m1, m2) -> m1 + "；" + m2)
                     .orElse("参数输入有误！");
-            throw new RuntimeException(messages);
+            throw new IllegalArgumentException(messages);
         }
         return student;
     }
@@ -83,18 +85,18 @@ public class StudentController {
      * 手动校验
      */
     private void validate(@Valid Student student) {
-        // 不符合要求的项目
-        Set<ConstraintViolation<@Valid Student>> validateSet = Validation.buildDefaultValidatorFactory()
-                .getValidator()
-                .validate(student);
+        try (ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory()) {
+            // 不符合要求的项目
+            Set<ConstraintViolation<@Valid Student>> validateSet = validatorFactory.getValidator().validate(student);
 
-        // 处理并返回
-        if (!CollectionUtils.isEmpty(validateSet)) {
-            String messages = validateSet.stream()
-                    .map(ConstraintViolation::getMessage)
-                    .reduce((m1, m2) -> m1 + "；" + m2)
-                    .orElse("参数输入有误！");
-            throw new RuntimeException(messages);
+            // 处理并返回
+            if (!CollectionUtils.isEmpty(validateSet)) {
+                String messages = validateSet.stream()
+                        .map(ConstraintViolation::getMessage)
+                        .reduce((m1, m2) -> m1 + "；" + m2)
+                        .orElse("参数输入有误！");
+                throw new IllegalArgumentException(messages);
+            }
         }
     }
 }

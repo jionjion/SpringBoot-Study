@@ -4,6 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,7 +25,7 @@ public class PigInstantiationAwareBeanPostProcessor implements InstantiationAwar
      * @see AbstractAutowireCapableBeanFactory#resolveBeforeInstantiation
      */
     @Override
-    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+    public Object postProcessBeforeInstantiation(@NonNull Class<?> beanClass, @NonNull String beanName) throws BeansException {
         if (BEAN_NAME_PIG.equals(beanName)) {
             try {
                 // 返回代理类实例
