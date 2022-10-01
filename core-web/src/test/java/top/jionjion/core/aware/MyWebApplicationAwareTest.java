@@ -7,14 +7,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 /**
  * @author Jion
  */
-@SpringBootTest(properties = {"web-application:true"})
-public class MyWebApplicationAwareTest{
+@SpringBootTest(properties = {"web-application=true"})
+class MyWebApplicationAwareTest {
 
     @Autowired
     MyWebApplicationAware myWebApplicationAware;
 
     @Test
-    public void getFlag() {
+    void getFlag() {
         Boolean flag = myWebApplicationAware.getFlag();
         System.out.println("通过Aware接口获得:" + flag);
     }

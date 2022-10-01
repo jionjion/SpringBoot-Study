@@ -75,11 +75,12 @@ public class PostPolicyTest {
 
         // 执行请求
         OkHttpClient httpClient = new OkHttpClient().newBuilder().build();
-        Response response = httpClient.newCall(request).execute();
-        if (response.isSuccessful()) {
-            log.error("文件上传成功!");
-        } else {
-            log.error("文件上传失败!");
+        try (Response response = httpClient.newCall(request).execute()) {
+            if (response.isSuccessful()) {
+                log.error("文件上传成功!");
+            } else {
+                log.error("文件上传失败!");
+            }
         }
     }
 }

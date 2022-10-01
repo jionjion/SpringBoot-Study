@@ -25,7 +25,7 @@ public class UserController {
 
     /**
      * 查询全部
-     * URL: http://localhost:8080/MicroServices/user/users
+     * URL: <a href="http://localhost:8080/MicroServices/user/users">...</a>
      */
     @GetMapping(value = "/users")
     public List<User> userList() {
@@ -34,14 +34,11 @@ public class UserController {
 
     /**
      * 新增一个
-     * URL: http://localhost:8080/MicroServices/user/user
+     * URL: <a href="http://localhost:8080/MicroServices/user/user">...</a>
      */
     @PostMapping(value = "/user")
     public ResultMessage<User> userSave(User user, BindingResult result) {
         // @Valid表示进行对象参数验证	BindingResult:为参数的验证结果
-
-        // 封装的结果对象
-        ResultMessage<User> resultMessage = new ResultMessage<>();
 
         if (result.hasErrors()) {
             //如果有错误,则返回bean中的定义
@@ -53,12 +50,13 @@ public class UserController {
         user.setUsername(user.getUsername());
         user.setPassword(user.getPassword());
         User userReturn = userService.save(user);
+        // 封装的结果对象
         return new ResultMessage<>(200, "成功", userReturn);
     }
 
     /**
      * 查询一个
-     * URL: http://localhost:8080/MicroServices/user/users/1
+     * URL: <a href="http://localhost:8080/MicroServices/user/users/1">...</a>
      */
     @GetMapping(value = "/users/{id}")
     public User userGet(@PathVariable("id") Integer id) {
@@ -68,7 +66,7 @@ public class UserController {
 
     /**
      * 更新一个
-     * URL: http://localhost:8080/MicroServices/user/users/3
+     * URL: <a href="http://localhost:8080/MicroServices/user/users/3">...</a>
      */
     @PutMapping(value = "/users/{id}")
     public User userUpdate(@PathVariable("id") Integer id,
@@ -86,7 +84,7 @@ public class UserController {
 
     /**
      * 删除一个
-     * URL: http://localhost:8080/MicroServices/user/users/3
+     * URL: <a href="http://localhost:8080/MicroServices/user/users/3">...</a>
      */
     @DeleteMapping(value = "/users/{id}")
     public void userDelete(@PathVariable("id") Integer id) {
@@ -96,7 +94,7 @@ public class UserController {
 
     /**
      * 自定义查询,通过姓名查询用户
-     * URL: http://localhost:8080/MicroServices/user/users/username/Jion
+     * URL: <a href="http://localhost:8080/MicroServices/user/users/username/Jion">...</a>
      */
     @GetMapping(value = "/users/username/{username}")
     public List<User> userGetByUsername(@PathVariable("username") String username) {
@@ -107,7 +105,7 @@ public class UserController {
      * 统一异常捕获.
      * 将service层抛出的异常,dao层抛出的异常进行统一向外抛出,交由ExceptionHandle类进行包装向前台传递
      * 这里模拟包含的类进行的异常抛出
-     * URL:http://localhost:8080/MicroServices/user/error/2			调用第二种异常,并返回
+     * URL:<a href="http://localhost:8080/MicroServices/user/error/2">...</a>			调用第二种异常,并返回
      */
     @GetMapping(value = "/error/{code}")
     public void errorCodeHandler(@PathVariable("code") String code) {

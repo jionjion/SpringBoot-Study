@@ -13,7 +13,8 @@ import reactor.core.publisher.Mono;
 public class DemoController {
 
     /**
-     * 返回一个字符串. http://127.0.0.1:8080/string
+     * 返回一个字符串.
+     * <a href="http://127.0.0.1:8080/string">...</a>
      *
      * @return 字符串流
      */

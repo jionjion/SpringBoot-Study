@@ -14,7 +14,7 @@ public interface CallMapper {
      * @param param 参数
      * @return 结果,两参数求和
      */
-    Integer callFunctionOneAddOne(Map<String, Integer> param);
+    void callFunctionOneAddOne(Map<String, Integer> param);
 
     /**
      * 调用存储过程. 需要将参数和结果进行封装
@@ -22,5 +22,5 @@ public interface CallMapper {
      * @param param 参数
      * @return 结果,两参数求和
      */
-    Integer callProcedureOneAddOne(Map<String, Integer> param);
+    void callProcedureOneAddOne(Map<String, Integer> param);
 }

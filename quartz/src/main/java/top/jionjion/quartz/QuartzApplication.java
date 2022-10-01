@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *  定时调度任务
- *  参阅 https://www.jianshu.com/p/06c4307214b7
+ *  参阅 <a href="https://www.jianshu.com/p/06c4307214b7">...</a>
  *
  * @author Jion
  */

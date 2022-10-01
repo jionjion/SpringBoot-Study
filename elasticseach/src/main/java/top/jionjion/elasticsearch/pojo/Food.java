@@ -15,7 +15,7 @@ import org.springframework.data.elasticsearch.annotations.Setting;
  * @author JionJion
  */
 @Data
-@Setting(shards = 1, replicas = 0)
+@Setting(shards = 2, replicas = 0)
 @Document(indexName = "food")
 @NoArgsConstructor
 @AllArgsConstructor

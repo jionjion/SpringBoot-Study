@@ -24,6 +24,11 @@
       "name": "weather.rate",
       "type": "java.lang.String",
       "description": "自定义场景启动器-天气气温."
+    },
+    {
+      "name": "web-application",
+      "type": "java.lang.String",
+      "description": "自定义属性,当前是否为Web项目."
     }
   ]
 }
