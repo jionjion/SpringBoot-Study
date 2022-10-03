@@ -24,6 +24,8 @@ import java.util.List;
 @RestController
 public class ParameterController {
 
+    private static final String SUCCESS = "Success";
+
 
     /**
      * 直接在URL后跟参数,或通过Params进行查询
@@ -33,8 +35,8 @@ public class ParameterController {
      */
     @GetMapping("/parameter/a")
     public String addParameterA(String name) {
-        log.info("name is: " + name);
-        return "Success";
+        log.info("name is: {}", name);
+        return SUCCESS;
     }
 
     /**
@@ -48,8 +50,8 @@ public class ParameterController {
     public String addParameterB(HttpServletRequest request) {
         // 获得表单或者查询参数
         String name = request.getParameter("name");
-        log.info("name is: " + name);
-        return "Success";
+        log.info("name is: {}", name);
+        return SUCCESS;
     }
 
     /**
@@ -61,8 +63,8 @@ public class ParameterController {
      */
     @PostMapping("/parameter/c")
     public String addParameterC(Student student) {
-        log.info("student is: " + student);
-        return "Success";
+        log.info("student is: {}", student);
+        return SUCCESS;
     }
 
     /**
@@ -72,8 +74,8 @@ public class ParameterController {
      */
     @RequestMapping(value = "/parameter/d/{id}")
     public String addParameterD(@PathVariable String id) {
-        log.info("id is: " + id);
-        return "Success";
+        log.info("id is: {}", id);
+        return SUCCESS;
     }
 
 
@@ -85,8 +87,8 @@ public class ParameterController {
      */
     @RequestMapping(value = "/parameter/e", method = RequestMethod.POST)
     public String addParameterE(@ModelAttribute("student") Student student) {
-        log.info("student is: " + student);
-        return "Success";
+        log.info("student is: {}", student);
+        return SUCCESS;
     }
 
     /**
@@ -108,8 +110,8 @@ public class ParameterController {
     @RequestMapping(value = "/parameter/f", method = RequestMethod.POST)
     public String addParameterF2(Model model) {
         Student student = (Student) model.getAttribute("student");
-        log.info("student is: " + student);
-        return "Success";
+        log.info("student is: {}", student);
+        return SUCCESS;
     }
 
     /**
@@ -120,8 +122,8 @@ public class ParameterController {
      */
     @RequestMapping(value = "/parameter/j")
     public String addParameterJ(@RequestParam("name") String name) {
-        log.info("name is: " + name);
-        return "Success";
+        log.info("name is: {}", name);
+        return SUCCESS;
     }
 
     /**
@@ -132,8 +134,8 @@ public class ParameterController {
      */
     @RequestMapping(value = "/parameter/h", method = RequestMethod.POST)
     public String addParameterH(@RequestBody Student student) {
-        log.info("student is: " + student);
-        return "Success";
+        log.info("student is: {}", student);
+        return SUCCESS;
     }
 
     /**
@@ -145,8 +147,8 @@ public class ParameterController {
      */
     @RequestMapping(value = "/parameter/i", method = RequestMethod.POST)
     public String addParameterI(@RequestBody String[] names) {
-        log.info("names is: " + Arrays.toString(names));
-        return "Success";
+        log.info("names is: {}", Arrays.toString(names));
+        return SUCCESS;
     }
 
     /**
@@ -171,8 +173,7 @@ public class ParameterController {
             System.out.println("文件长度" + file.getSize());
             System.out.println("文件类型" + file.getContentType());
             // 文件读写
-            try (InputStream inputStream = file.getInputStream();
-                 FileOutputStream outputStream = new FileOutputStream("S:\\" + file.getOriginalFilename())) {
+            try (InputStream inputStream = file.getInputStream(); FileOutputStream outputStream = new FileOutputStream("S:\\" + file.getOriginalFilename())) {
                 int len;
                 byte[] buffer = new byte[4096];
                 while ((len = inputStream.read(buffer)) > 0) {
@@ -180,6 +181,6 @@ public class ParameterController {
                 }
             }
         }
-        return "Success";
+        return SUCCESS;
     }
 }

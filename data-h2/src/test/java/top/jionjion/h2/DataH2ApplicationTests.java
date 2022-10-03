@@ -1,13 +1,12 @@
 package top.jionjion.h2;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class DataH2ApplicationTests {
 
     @Test
     void contextLoads() {
-
+        Assertions.assertDoesNotThrow(() -> DataH2Application.main(new String[]{""}));
     }
 }

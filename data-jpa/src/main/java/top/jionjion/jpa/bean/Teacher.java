@@ -17,11 +17,10 @@ import java.util.Date;
  * @author JionJion
  */
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Teacher {
 

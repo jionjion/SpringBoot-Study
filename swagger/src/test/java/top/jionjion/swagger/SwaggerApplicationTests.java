@@ -1,13 +1,13 @@
 package top.jionjion.swagger;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class SwaggerApplicationTests {
 
     @Test
     void contextLoads() {
+        Assertions.assertDoesNotThrow(() -> SwaggerApplication.main(new String[]{""}));
     }
 
 }

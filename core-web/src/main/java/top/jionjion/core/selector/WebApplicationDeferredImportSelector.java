@@ -14,7 +14,7 @@ public class WebApplicationDeferredImportSelector implements DeferredImportSelec
 
 
     @Override
-    public String[] selectImports(@NonNull AnnotationMetadata importingClassMetadata) {
+    public @NonNull String[] selectImports(@NonNull AnnotationMetadata importingClassMetadata) {
         System.out.println("DeferredImportSelector: 自定义导入类...");
         return new String[]{"top.jionjion.bean.Student"};
     }

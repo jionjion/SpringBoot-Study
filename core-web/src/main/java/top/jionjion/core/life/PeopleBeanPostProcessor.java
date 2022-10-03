@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PeopleBeanPostProcessor implements BeanPostProcessor {
 
-    private final static String BEAN_NAME_PEOPLE = "people";
+    private static final String BEAN_NAME_PEOPLE = "people";
 
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         // 在类初始化前调用, 若有返回值,则将该返回值作为实例化结果
@@ -32,6 +32,6 @@ public class PeopleBeanPostProcessor implements BeanPostProcessor {
             people.setName("Aires");
         }
         // 返回 true 继续执行
-        return true;
+        return Boolean.TRUE;
     }
 }

@@ -1,13 +1,16 @@
 package top.jionjion.mail;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+/**
+ * Spring 邮件发送测试
+ */
 class MailApplicationTests {
 
     @Test
     void contextLoads() {
+        Assertions.assertDoesNotThrow(() -> MailApplication.main(new String[]{""}));
     }
 
 }

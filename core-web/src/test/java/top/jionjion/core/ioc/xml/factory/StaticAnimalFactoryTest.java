@@ -12,13 +12,13 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @SpringBootTest
 @ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
-public class StaticAnimalFactoryTest {
+class StaticAnimalFactoryTest {
 
-    @Autowired
+    @Autowired(required = false)
     Cat cat;
 
     @Test
-    public void test() {
+    void test() {
         System.out.println("获得Bean:" + cat.toString());
     }
 }

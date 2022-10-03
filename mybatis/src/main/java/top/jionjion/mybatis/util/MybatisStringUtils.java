@@ -24,6 +24,7 @@ public class MybatisStringUtils {
      *
      * @return A
      */
+    @SuppressWarnings("SameReturnValue")
     public static String returnA() {
         return "A";
     }

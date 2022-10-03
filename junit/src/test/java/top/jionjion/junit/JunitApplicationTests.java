@@ -1,13 +1,16 @@
 package top.jionjion.junit;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+/**
+ * 单元测试
+ */
 class JunitApplicationTests {
 
     @Test
     void contextLoads() {
+        Assertions.assertDoesNotThrow(() -> JunitApplication.main(new String[]{""}));
     }
 
 }

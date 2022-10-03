@@ -5,8 +5,15 @@ package top.jionjion.swagger.dto;
  */
 public enum ResponseCode {
 
-    /** 成功消息 */
-    SUCCESS(0, "成功");
+    /**
+     * 成功消息
+     */
+    SUCCESS(0, "成功"),
+
+    /**
+     * 失败
+     */
+    ERROR(-1, "失败");
 
     private final Integer code;
 

@@ -7,8 +7,7 @@ package top.jionjion.version;
  */
 public class VersionApplication {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws NoSuchMethodException {
+        throw new NoSuchMethodException("Not implemented");
     }
-
 }

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PigInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
-    private final static String BEAN_NAME_PIG = "pig";
+    private static final String BEAN_NAME_PIG = "pig";
 
     /**
      * InstantiationAwareBeanPostProcessor 子接口方法
@@ -42,7 +42,7 @@ public class PigInstantiationAwareBeanPostProcessor implements InstantiationAwar
      * 在 Bean 由 postProcessBeforeInstantiation 返回不为空,代理实例化后,执行后续逻辑
      */
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessAfterInitialization(@NonNull Object bean, @NonNull String beanName) throws BeansException {
         if (BEAN_NAME_PIG.equals(beanName)) {
             System.out.println(((Pig) bean).getName());
         }
@@ -56,7 +56,7 @@ public class PigInstantiationAwareBeanPostProcessor implements InstantiationAwar
      * @see AbstractAutowireCapableBeanFactory.populateBean()
      */
     @Override
-    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+    public boolean postProcessAfterInstantiation(@NonNull Object bean, @NonNull String beanName) throws BeansException {
         // 该类进行自定义依赖管理
         return !BEAN_NAME_PIG.equals(beanName);
     }
@@ -68,7 +68,7 @@ public class PigInstantiationAwareBeanPostProcessor implements InstantiationAwar
      * @see AbstractAutowireCapableBeanFactory.populateBean()
      */
     @Override
-    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+    public PropertyValues postProcessProperties(@NonNull PropertyValues pvs, @NonNull Object bean, @NonNull String beanName) throws BeansException {
         return null;
     }
 }

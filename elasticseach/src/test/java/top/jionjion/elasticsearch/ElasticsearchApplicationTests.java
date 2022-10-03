@@ -1,14 +1,17 @@
 package top.jionjion.elasticsearch;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+/**
+ *
+ * @author Jion
+ */
 class ElasticsearchApplicationTests {
 
     @Test
     void contextLoads() {
-
+        Assertions.assertDoesNotThrow(() -> ElasticsearchApplication.main(new String[]{""}));
     }
 
 }

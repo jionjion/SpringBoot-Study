@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
  * @author Jion
  */
 @Component
+@SuppressWarnings("EmptyMethod")
 public class CacheConfig extends CachingConfigurerSupport {
 
 

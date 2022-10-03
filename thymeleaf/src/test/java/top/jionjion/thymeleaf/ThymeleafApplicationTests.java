@@ -1,13 +1,13 @@
 package top.jionjion.thymeleaf;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class ThymeleafApplicationTests {
 
     @Test
     void contextLoads() {
+        Assertions.assertDoesNotThrow(() -> ThymeleafApplication.main(new String[]{""}));
     }
 
 }

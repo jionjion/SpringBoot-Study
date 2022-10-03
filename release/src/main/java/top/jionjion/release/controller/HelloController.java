@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @RequestMapping("/home")
+    @SuppressWarnings("SameReturnValue")
     String home() {
         return "Hello World!";
     }
