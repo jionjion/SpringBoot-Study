@@ -1,6 +1,7 @@
 package top.jionjion.jpa.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import top.jionjion.jpa.bean.Teacher;
 
 /**
@@ -10,6 +11,7 @@ import top.jionjion.jpa.bean.Teacher;
  *
  * @author 14345
  */
+@Repository
 public interface TeacherCrudRepository extends CrudRepository<Teacher,Integer>{
 
 	

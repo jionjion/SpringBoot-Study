@@ -21,7 +21,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetObjectArgsTest {
+class GetObjectArgsTest {
 
     private MinioClient minioClient;
 
@@ -36,7 +36,7 @@ public class GetObjectArgsTest {
 
 
     @Test
-    public void getObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 返回对应桶的对象的输入流
         try (InputStream stream = minioClient.getObject(
                 GetObjectArgs.builder()
@@ -49,7 +49,7 @@ public class GetObjectArgsTest {
     }
 
     @Test
-    public void getObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 读取IO流, 并设置偏移量与读取量, 服务端密码
         try (InputStream stream = minioClient.getObject(
                 GetObjectArgs.builder()

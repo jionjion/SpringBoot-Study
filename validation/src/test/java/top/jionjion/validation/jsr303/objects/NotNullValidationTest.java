@@ -12,7 +12,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class NotNullValidationTest extends ValidationBaseTest {
 
     @Test
-    public void mustNotNull1() {
+    void mustNotNull1() {
         NotNullValidation obj = new NotNullValidation();
         obj.mustNotNull = null;
         // 对象必须非空 fail

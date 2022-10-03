@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetObjectLockConfigurationArgsTest {
+class GetObjectLockConfigurationArgsTest {
 
     private MinioClient minioClient;
 
@@ -33,7 +33,7 @@ public class GetObjectLockConfigurationArgsTest {
     }
 
     @Test
-    public void getObjectLockConfiguration() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getObjectLockConfiguration() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         ObjectLockConfiguration config =
                 minioClient.getObjectLockConfiguration(
                         GetObjectLockConfigurationArgs.builder().bucket("cache").build());

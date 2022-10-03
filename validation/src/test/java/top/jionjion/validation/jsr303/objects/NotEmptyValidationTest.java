@@ -14,7 +14,7 @@ import java.util.Collections;
 class NotEmptyValidationTest extends ValidationBaseTest {
 
     @Test
-    public void collectionMustNotEmpty1() {
+    void collectionMustNotEmpty1() {
         NotEmptyValidation obj = new NotEmptyValidation();
         obj.collectionMustNotEmpty = Collections.singleton(null);
         // 只有一个空成员的集合 pass
@@ -22,7 +22,7 @@ class NotEmptyValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void collectionMustNotEmpty2() {
+    void collectionMustNotEmpty2() {
         NotEmptyValidation obj = new NotEmptyValidation();
         // 空集合 fail
         obj.collectionMustNotEmpty = Collections.EMPTY_SET;
@@ -32,7 +32,7 @@ class NotEmptyValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void collectionMustNotEmpty3() {
+    void collectionMustNotEmpty3() {
         NotEmptyValidation obj = new NotEmptyValidation();
         obj.collectionMustNotEmpty = null;
         // 空对象 fail
@@ -40,7 +40,7 @@ class NotEmptyValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void arrayMustNotEmpty1() {
+    void arrayMustNotEmpty1() {
         NotEmptyValidation obj = new NotEmptyValidation();
         obj.arrayMustNotEmpty = new Object[] {};
         //  fail
@@ -48,7 +48,7 @@ class NotEmptyValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void mustStringNotEmpty1() {
+    void mustStringNotEmpty1() {
         NotEmptyValidation obj = new NotEmptyValidation();
         //  空串 fail
         obj.mustStringNotEmpty = "";
@@ -56,7 +56,7 @@ class NotEmptyValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void mustStringNotEmpty2() {
+    void mustStringNotEmpty2() {
         NotEmptyValidation obj = new NotEmptyValidation();
         //  空串 pass
         obj.mustStringNotEmpty = "  ";

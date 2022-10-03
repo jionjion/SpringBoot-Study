@@ -9,7 +9,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class AssertTrueValidationTest extends ValidationBaseTest {
 
     @Test
-    public void mustFalse() {
+    void mustFalse() {
         AssertTrueValidation obj = new AssertTrueValidation();
         obj.mustTrue = Boolean.FALSE;
         // 必须为true fail

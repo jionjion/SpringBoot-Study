@@ -7,7 +7,7 @@ class PatternValidationTest extends ValidationBaseTest {
 
 
     @Test
-    public void mustEmail1() {
+    void mustEmail1() {
         PatternValidation obj = new PatternValidation();
         obj.mustPattern = "abc";
         // 非数字 fail

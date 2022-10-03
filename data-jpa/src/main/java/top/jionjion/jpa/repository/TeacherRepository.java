@@ -15,6 +15,7 @@ import java.util.List;
  *
  * @author JionJion
  */
+@org.springframework.stereotype.Repository
 public interface TeacherRepository extends Repository<Teacher, Integer> {
 
     /**

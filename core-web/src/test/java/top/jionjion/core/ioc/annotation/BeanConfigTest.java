@@ -10,13 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class BeanConfigTest {
+class BeanConfigTest {
 
     @Autowired
     Dog dog;
 
     @Test
-    public void test() {
+    void test() {
         System.out.println("获得Bean:" + dog);
     }
 }

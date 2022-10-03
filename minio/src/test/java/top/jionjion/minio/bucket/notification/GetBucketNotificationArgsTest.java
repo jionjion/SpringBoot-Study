@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetBucketNotificationArgsTest {
+class GetBucketNotificationArgsTest {
 
     private MinioClient minioClient;
 
@@ -33,7 +33,7 @@ public class GetBucketNotificationArgsTest {
     }
 
     @Test
-    public void getBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         NotificationConfiguration config =
                 minioClient.getBucketNotification(
                         GetBucketNotificationArgs.builder().bucket("cache").build());

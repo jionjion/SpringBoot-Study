@@ -11,7 +11,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class GroupsValidationTest extends ValidationBaseTest {
 
     @Test
-    public void testNoGroups() {
+    void testNoGroups() {
         GroupsValidation obj = new GroupsValidation();
         obj.id = null;
         // 触发注解,不指定分组条件,一定不会被校验.. 除非被重复标注,且不指定分组.
@@ -19,7 +19,7 @@ class GroupsValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void testUpdateGroups() {
+    void testUpdateGroups() {
         GroupsValidation obj = new GroupsValidation();
         obj.id = null;
         // 验证条件,只有在更新时校验才.  fail
@@ -27,7 +27,7 @@ class GroupsValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void testInsertGroups() {
+    void testInsertGroups() {
         GroupsValidation obj = new GroupsValidation();
         obj.id = null;
         // 验证条件,只有在更新时校验才.  pass

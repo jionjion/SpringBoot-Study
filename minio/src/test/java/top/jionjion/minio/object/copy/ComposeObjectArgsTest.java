@@ -22,7 +22,7 @@ import java.util.Map;
  *
  * @author Jion
  */
-public class ComposeObjectArgsTest {
+class ComposeObjectArgsTest {
 
     private MinioClient minioClient;
 
@@ -47,7 +47,7 @@ public class ComposeObjectArgsTest {
     }
 
     @Test
-    public void composeObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void composeObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 创建 my-bucket / my-object 通过聚合文件
         minioClient.composeObject(
                 ComposeObjectArgs.builder()
@@ -58,7 +58,7 @@ public class ComposeObjectArgsTest {
     }
 
     @Test
-    public void composeObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void composeObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 创建 my-bucket / my-object 通过聚合文件, 自定义元信息
         Map<String, String> userMetadata = new HashMap<>();
         userMetadata.put("My-Project", "Project One");
@@ -72,7 +72,7 @@ public class ComposeObjectArgsTest {
     }
 
     @Test
-    public void composeObject3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void composeObject3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 创建 my-bucket / my-object 通过聚合文件, 指定元信息, 并进行服务器端加密
         Map<String, String> userMetadata = new HashMap<>();
         userMetadata.put("My-Project", "Project Two");

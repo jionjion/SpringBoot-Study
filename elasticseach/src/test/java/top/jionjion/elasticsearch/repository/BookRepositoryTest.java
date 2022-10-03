@@ -46,7 +46,7 @@ class BookRepositoryTest {
      * 索引操作
      */
     @Test
-    public void testIndex() {
+    void testIndex() {
         IndexOperations indexOperations = elasticsearchTemplate.indexOps(Food.class);
         indexOperations.create();
         indexOperations.putMapping();
@@ -57,7 +57,7 @@ class BookRepositoryTest {
      * 插入与更新
      */
     @Test
-    public void testCreate() {
+    void testCreate() {
         Food food1 = new Food(1, "大米", "食品", 100D);
         Object save = this.foodRepository.save(food1);
         log.info("保存一个: {}", save);
@@ -75,7 +75,7 @@ class BookRepositoryTest {
      * 删除
      */
     @Test
-    public void testDelete() {
+    void testDelete() {
         Food food = new Food(1, "大米", "食品", 100D);
         this.foodRepository.delete(food);
 
@@ -86,7 +86,7 @@ class BookRepositoryTest {
      * 查询
      */
     @Test
-    public void testFind() {
+    void testFind() {
         System.out.println("-----主键查询------");
         Optional<Food> byId = this.foodRepository.findById(1L);
         System.out.println(byId);
@@ -104,7 +104,7 @@ class BookRepositoryTest {
      * 调用自定义方法
      */
     @Test
-    public void testFindByU() {
+    void testFindByU() {
         List<Food> phone = this.foodRepository.findByTitle("食品");
         phone.forEach(System.out::println);
 
@@ -116,7 +116,7 @@ class BookRepositoryTest {
      * 批量插入
      */
     @Test
-    public void indexList() {
+    void indexList() {
         List<Food> list = new ArrayList<>();
 
         list.add(new Food(1, "大米", "食品", 100D));
@@ -130,7 +130,7 @@ class BookRepositoryTest {
      * 高级查询
      */
     @Test
-    public void testSearch() {
+    void testSearch() {
         //通过查询构建器工具构建--重点：QueryBuilders：词条、模糊、范围
         NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder().withQuery(QueryBuilders.matchQuery("title", "手机")).build();
 
@@ -145,7 +145,7 @@ class BookRepositoryTest {
      * 重点--自定义查询
      */
     @Test
-    public void testNative() {
+    void testNative() {
         // 构建自定义查询构建器
         NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder().withQuery(QueryBuilders.matchQuery("title", "手机")).build();
         // 添加基本查询条件
@@ -160,7 +160,7 @@ class BookRepositoryTest {
      * 重点--分页查询
      */
     @Test
-    public void testPage() {
+    void testPage() {
         // 构建自定义查询构建器
         NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
         // 添加基本查询条件
@@ -177,7 +177,7 @@ class BookRepositoryTest {
      * 重点--排序
      */
     @Test
-    public void testSort() {
+    void testSort() {
         // 构建自定义查询构建器
         NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
         // 添加基本查询条件

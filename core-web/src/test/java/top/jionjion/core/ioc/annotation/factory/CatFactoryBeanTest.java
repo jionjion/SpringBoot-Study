@@ -10,14 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class CatFactoryBeanTest {
+class CatFactoryBeanTest {
 
     @Autowired
     @Qualifier("cat") // 指定具体Bean
     private AbstractAnimal cat;
 
     @Test
-    public void test(){
+    void test(){
         System.out.println("获得Bean:" + cat);
     }
 }

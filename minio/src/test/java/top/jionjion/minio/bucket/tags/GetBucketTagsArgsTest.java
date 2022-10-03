@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetBucketTagsArgsTest {
+class GetBucketTagsArgsTest {
 
     private MinioClient minioClient;
 
@@ -33,7 +33,7 @@ public class GetBucketTagsArgsTest {
     }
 
     @Test
-    public void getBucketTags() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getBucketTags() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         Tags tags = minioClient.getBucketTags(GetBucketTagsArgs.builder().bucket("cache").build());
         log.info("标签: {}", tags);
         Assertions.assertNotNull(tags);

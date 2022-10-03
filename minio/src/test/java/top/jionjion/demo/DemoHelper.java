@@ -1,10 +1,11 @@
-package top.jionjion.minio.demo;
+package top.jionjion.demo;
 
 import io.minio.BucketExistsArgs;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
 import io.minio.UploadObjectArgs;
 import io.minio.errors.MinioException;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -15,9 +16,10 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class Demo {
-    public static void main(String[] args)
-            throws IOException, NoSuchAlgorithmException, InvalidKeyException {
+class DemoTest {
+
+    @Test
+    void demo() throws IOException, NoSuchAlgorithmException, InvalidKeyException {
         try {
             // 创建连接
             MinioClient minioClient =

@@ -16,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class CopyObjectArgsTest {
+class CopyObjectArgsTest {
 
     private MinioClient minioClient;
 
@@ -30,7 +30,7 @@ public class CopyObjectArgsTest {
     }
 
     @Test
-    public void copyObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void copyObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 拷贝不同桶下的同名文件
         minioClient.copyObject(
                 CopyObjectArgs.builder()
@@ -43,7 +43,7 @@ public class CopyObjectArgsTest {
     }
 
     @Test
-    public void copyObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void copyObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 拷贝不同桶下的不同文件
         minioClient.copyObject(
                 CopyObjectArgs.builder()

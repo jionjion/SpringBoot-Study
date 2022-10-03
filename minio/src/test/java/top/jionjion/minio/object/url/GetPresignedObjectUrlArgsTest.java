@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  * @author Jion
  */
 @Slf4j
-public class GetPresignedObjectUrlArgsTest {
+class GetPresignedObjectUrlArgsTest {
 
     private MinioClient minioClient;
 
@@ -36,7 +36,7 @@ public class GetPresignedObjectUrlArgsTest {
 
 
     @Test
-    public void getPresignedObjectUrl1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getPresignedObjectUrl1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 获取删除对象的URL，使用Post请求, 设置到期时间和自定义请求参数。
         String url =
                 minioClient.getPresignedObjectUrl(
@@ -50,7 +50,7 @@ public class GetPresignedObjectUrlArgsTest {
     }
 
     @Test
-    public void getPresignedObjectUrl2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getPresignedObjectUrl2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 获得更新对象的URL, 使用PUT请求, 设置到期时间与自定义响应头信息
         Map<String, String> reqParams = new HashMap<>();
         reqParams.put("response-content-type", "application/json");
@@ -67,7 +67,7 @@ public class GetPresignedObjectUrlArgsTest {
     }
 
     @Test
-    public void getPresignedObjectUrl3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getPresignedObjectUrl3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 获得下载对象的URL, 使用GET请求, 设置到期时间
         String url =
                 minioClient.getPresignedObjectUrl(

@@ -6,7 +6,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class NotBlankValidationTest extends ValidationBaseTest {
 
     @Test
-    public void mustNotBlank1() {
+    void mustNotBlank1() {
         NotBlankValidation obj = new NotBlankValidation();
         obj.mustNotBlank = "";
         // 非空串 fail
@@ -14,7 +14,7 @@ class NotBlankValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void mustNotBlank2() {
+    void mustNotBlank2() {
         NotBlankValidation obj = new NotBlankValidation();
         obj.mustNotBlank = "  ";
         // 空格的空串 fail
@@ -22,7 +22,7 @@ class NotBlankValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void mustNotBlank3() {
+    void mustNotBlank3() {
         NotBlankValidation obj = new NotBlankValidation();
         obj.mustNotBlank = null;
         // 空 fail

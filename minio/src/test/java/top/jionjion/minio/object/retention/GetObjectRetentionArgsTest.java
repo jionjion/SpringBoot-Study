@@ -18,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetObjectRetentionArgsTest {
+class GetObjectRetentionArgsTest {
 
     private MinioClient minioClient;
 
@@ -32,7 +32,7 @@ public class GetObjectRetentionArgsTest {
     }
 
     @Test
-    public void getObjectRetention() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getObjectRetention() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 指定桶的文件和其版本ID
         Retention retention =
                 minioClient.getObjectRetention(

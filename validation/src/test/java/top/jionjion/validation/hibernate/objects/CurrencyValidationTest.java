@@ -9,7 +9,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class CurrencyValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         CurrencyValidation obj = new CurrencyValidation();
         // 币种检测 fail
         obj.mustCurrency = "USD";

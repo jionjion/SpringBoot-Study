@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @author Jion
  */
 @SpringBootTest
-public class ConnectionTest {
+class ConnectionTest {
 
     // JDBC 文件方式连接 单独
     private final static String FILE_URL ="jdbc:h2:W:/SpringBoot-Study/data-h2/src/main/resources/h2_datafile";

@@ -18,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetBucketPolicyArgsTest {
+class GetBucketPolicyArgsTest {
 
     private MinioClient minioClient;
 
@@ -32,7 +32,7 @@ public class GetBucketPolicyArgsTest {
     }
 
     @Test
-    public void getBucketPolicy() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException, BucketPolicyTooLargeException {
+    void getBucketPolicy() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException, BucketPolicyTooLargeException {
         String config =
                 minioClient.getBucketPolicy(GetBucketPolicyArgs.builder().bucket("cache").build());
         log.info("配置策略: {}", config);

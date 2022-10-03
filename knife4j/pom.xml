@@ -27,6 +27,7 @@
         </dependency>
 
         <!-- knife4j 自带 springfox 依赖 -->
+        <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>

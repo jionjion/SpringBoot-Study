@@ -15,7 +15,7 @@ import java.util.Arrays;
 class FluxTest {
 
     @Test
-    public void test() {
+    void test() {
         // 多通道
         Flux<Integer> flux = Flux.just(1, 2, 3, 4, 5, 6);
         Flux<Integer> arrayFlux = Flux.fromArray(new Integer[]{1, 2, 3, 4, 5});

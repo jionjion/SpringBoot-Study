@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class DeleteBucketTagsArgsTest {
+class DeleteBucketTagsArgsTest {
 
     private MinioClient minioClient;
 
@@ -29,7 +29,7 @@ public class DeleteBucketTagsArgsTest {
     }
 
     @Test
-    public void deleteBucketTags() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void deleteBucketTags() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient.deleteBucketTags(
                 DeleteBucketTagsArgs.builder().bucket("cache").build());
     }

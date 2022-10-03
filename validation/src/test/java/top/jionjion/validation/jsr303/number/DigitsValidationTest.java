@@ -12,7 +12,7 @@ import java.math.BigInteger;
 class DigitsValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         DigitsValidation obj = new DigitsValidation();
         obj.bigDecimalDigits = BigDecimal.valueOf(123456.789);
         obj.bigIntegerDigits = BigInteger.valueOf(123456789);

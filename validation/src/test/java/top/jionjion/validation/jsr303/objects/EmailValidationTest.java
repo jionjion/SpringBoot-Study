@@ -6,7 +6,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class EmailValidationTest extends ValidationBaseTest {
 
     @Test
-    public void mustEmail1() {
+    void mustEmail1() {
         EmailValidation obj = new EmailValidation();
         obj.mustEmail = "12345678";
         // 非邮箱 fail
@@ -14,7 +14,7 @@ class EmailValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void mustEmail2() {
+    void mustEmail2() {
         EmailValidation obj = new EmailValidation();
         obj.mustEmail = "123@qq.com";
         // 邮箱 pass

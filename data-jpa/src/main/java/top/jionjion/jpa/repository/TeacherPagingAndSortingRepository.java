@@ -1,6 +1,7 @@
 package top.jionjion.jpa.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 import top.jionjion.jpa.bean.Teacher;
 
 /**
@@ -10,6 +11,7 @@ import top.jionjion.jpa.bean.Teacher;
  *
  * @author JionJion
  */
+@Repository
 public interface TeacherPagingAndSortingRepository extends PagingAndSortingRepository<Teacher, Integer> {
 
 

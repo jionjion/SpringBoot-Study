@@ -9,6 +9,10 @@ import org.slf4j.LoggerFactory;
  * @author Jion
  */
 public class LoggerUtil {
-    Logger logger = LoggerFactory.getLogger(LoggerUtil.class);
-}
 
+    final Logger logger = LoggerFactory.getLogger(LoggerUtil.class);
+
+    public void logMessage(String message) {
+        logger.debug(message);
+    }
+}

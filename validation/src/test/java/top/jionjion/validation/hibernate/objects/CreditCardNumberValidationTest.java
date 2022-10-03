@@ -12,7 +12,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class CreditCardNumberValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         CreditCardNumberValidation obj = new CreditCardNumberValidation();
         // 信用卡编码 fail
         obj.mustCreditCardNumber = "12345678908765432";

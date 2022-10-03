@@ -20,8 +20,9 @@ public class StudentController {
         this.service = service;
     }
 
-    @RequestMapping("/")
     @ResponseBody
+    @RequestMapping("/")
+    @SuppressWarnings("SameReturnValue")
     public String findStudentById() {
         return "Hello Spring Boot";
     }
@@ -32,8 +33,8 @@ public class StudentController {
      * @param id 学生ID
      * @return 结果
      */
-    @RequestMapping("/student/{id}/")
     @ResponseBody
+    @RequestMapping("/student/{id}/")
     public Student findStudentById(@PathVariable("id") Integer id) {
         return service.findStudentById(id);
     }

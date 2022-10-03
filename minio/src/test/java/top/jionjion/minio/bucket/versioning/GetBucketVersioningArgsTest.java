@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetBucketVersioningArgsTest {
+class GetBucketVersioningArgsTest {
 
     private MinioClient minioClient;
 
@@ -33,7 +33,7 @@ public class GetBucketVersioningArgsTest {
     }
 
     @Test
-    public void getBucketVersioning() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getBucketVersioning() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         VersioningConfiguration config =
                 minioClient.getBucketVersioning(
                         GetBucketVersioningArgs.builder().bucket("cache").build());

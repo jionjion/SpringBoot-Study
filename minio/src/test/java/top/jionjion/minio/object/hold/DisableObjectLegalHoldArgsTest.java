@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class DisableObjectLegalHoldArgsTest {
+class DisableObjectLegalHoldArgsTest {
 
     private MinioClient minioClient;
 
@@ -29,7 +29,7 @@ public class DisableObjectLegalHoldArgsTest {
     }
 
     @Test
-    public void deleteObjectTags() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void deleteObjectTags() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient.disableObjectLegalHold(
                 DisableObjectLegalHoldArgs.builder()
                         .bucket("my-bucket")

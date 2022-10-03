@@ -10,14 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class DirectTest {
+class DirectTest {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
     /** 发送消息 */
     @Test
-    public void sendMessage(){
+    void sendMessage(){
         // 将对象转为底层的字节. 路由, 路由关键字, 内容对象
         rabbitTemplate.convertAndSend("direct", "error", "这是路由规则 .. error");
         rabbitTemplate.convertAndSend("direct", "warning", "这是路由规则 .. warning");

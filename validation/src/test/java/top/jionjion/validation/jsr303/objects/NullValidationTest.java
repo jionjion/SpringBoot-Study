@@ -11,7 +11,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class NullValidationTest extends ValidationBaseTest {
 
     @Test
-    public void mustNull1() {
+    void mustNull1() {
         NullValidation obj = new NullValidation();
         obj.mustNull = new Object();
         // 对象必须为空 fail

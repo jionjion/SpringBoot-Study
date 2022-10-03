@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetBucketLifecycleArgsTest {
+class GetBucketLifecycleArgsTest {
 
     private MinioClient minioClient;
 
@@ -33,7 +33,7 @@ public class GetBucketLifecycleArgsTest {
     }
 
     @Test
-    public void getBucketLifecycle() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getBucketLifecycle() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         LifecycleConfiguration config =
                 minioClient.getBucketLifecycle(
                         GetBucketLifecycleArgs.builder().bucket("cache").build());

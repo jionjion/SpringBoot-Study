@@ -9,7 +9,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class AssertFalseValidationTest extends ValidationBaseTest {
 
     @Test
-    public void mustFalse() {
+    void mustFalse() {
         AssertFalseValidation obj = new AssertFalseValidation();
         obj.mustFalse = Boolean.TRUE;
         // 必须为false fail

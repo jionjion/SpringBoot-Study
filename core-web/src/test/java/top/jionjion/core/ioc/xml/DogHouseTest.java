@@ -12,13 +12,13 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @SpringBootTest
 @ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
-public class DogHouseTest {
+class DogHouseTest {
 
     @Autowired
     DogHouse dogHouse;
 
     @Test
-    public void test() {
+    void test() {
         Dog dog = dogHouse.getDog();
         System.out.println("获得Bean:" + dog.toString());
     }

@@ -12,13 +12,13 @@ import javax.annotation.Resource;
  */
 @SpringBootTest
 @Import(DuckImportBeanDefinitionRegistrar.class)
-public class DuckImportBeanDefinitionRegistrarTest {
+class DuckImportBeanDefinitionRegistrarTest {
 
     @Resource
     Duck duck;
 
     @Test
-    public void test(){
+    void test(){
         System.out.println("获得Bean:" + duck);
     }
 }

@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  */
 @Slf4j
-public class BoundKeyOperationsTest extends DataRedisApplicationTest {
+class BoundKeyOperationsTest extends DataRedisApplicationTest {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -51,7 +51,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  获得 Key
      */
     @Test
-    public void testGetKey(){
+    void testGetKey(){
         String result = boundKeyOperations.getKey();
         log.info(result);
         assertNotNull(result);
@@ -61,9 +61,9 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  获得对应的数据类型
      */
     @Test
-    public void testGetType(){
+    void testGetType(){
         DataType dataType = boundKeyOperations.getType();
-        assertEquals(dataType,DataType.SET);
+        assertEquals(DataType.SET, dataType);
 
         String code = dataType != null ? dataType.code() : null;
         log.info(code);
@@ -79,7 +79,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  如果为 -1,表示永久不过期
      */
     @Test
-    public void testGetExpire(){
+    void testGetExpire(){
         Long result = boundKeyOperations.getExpire();
         assertNotNull(result);
         log.info(result.toString());
@@ -89,7 +89,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  设置过期时间,指定时间和单位
      */
     @Test
-    public void testExpire(){
+    void testExpire(){
         Boolean result = boundKeyOperations.expire(1000, TimeUnit.HOURS);
         assertEquals(true, result);
     }
@@ -98,7 +98,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  设定在什么时候过期
      */
     @Test
-    public void testExpireAt(){
+    void testExpireAt(){
         Date date = new GregorianCalendar(2020, Calendar.JULY, 11).getTime();
         Boolean result = boundKeyOperations.expireAt(date);
         assertEquals(true, result);
@@ -108,7 +108,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  清除过期时间,永久保存
      */
     @Test
-    public void testPersist(){
+    void testPersist(){
         Boolean result = boundKeyOperations.persist();
         assertEquals(true, result);
     }
@@ -117,7 +117,7 @@ public class BoundKeyOperationsTest extends DataRedisApplicationTest {
      *  重命名Key,如果之前存在则覆盖
      */
     @Test
-    public void testRename(){
+    void testRename(){
          boundKeyOperations.rename("KeyB");
     }
 }

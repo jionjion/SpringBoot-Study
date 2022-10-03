@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class EnableObjectLegalHoldArgsTest {
+class EnableObjectLegalHoldArgsTest {
 
     private MinioClient minioClient;
 
@@ -29,7 +29,7 @@ public class EnableObjectLegalHoldArgsTest {
     }
 
     @Test
-    public void enableObjectLegalHold() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void enableObjectLegalHold() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient.enableObjectLegalHold(
                 EnableObjectLegalHoldArgs.builder()
                         .bucket("my-bucket")

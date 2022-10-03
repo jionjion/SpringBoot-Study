@@ -9,6 +9,7 @@ import java.math.BigDecimal;
  * @author Jion
  */
 @ApiModel("商品模型")
+@SuppressWarnings("unused")
 public class Goods {
     /** 商品id */
     @ApiModelProperty("商品id")
@@ -61,6 +62,7 @@ public class Goods {
     public int getStock() {
         return this.stock;
     }
+
     public void setStock(int stock) {
         this.stock = stock;
     }

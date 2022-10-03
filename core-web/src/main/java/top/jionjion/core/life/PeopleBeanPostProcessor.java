@@ -24,6 +24,7 @@ public class PeopleBeanPostProcessor implements BeanPostProcessor {
         return null;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         // 在类实例化后调用.
         if (BEAN_NAME_PEOPLE.equals(beanName)) {

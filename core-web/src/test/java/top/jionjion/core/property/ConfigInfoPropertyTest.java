@@ -16,7 +16,7 @@ class ConfigInfoPropertyTest {
     ConfigInfoProperty property;
 
     @Test
-    public void testInfo(){
+    void testInfo(){
         // 字符串
         System.out.println(property.getAuthor());
 

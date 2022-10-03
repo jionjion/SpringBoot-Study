@@ -12,7 +12,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class EanValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         EanValidation obj = new EanValidation();
         // ENA商品编码 pass
         obj.mustEan = "6920203819046";

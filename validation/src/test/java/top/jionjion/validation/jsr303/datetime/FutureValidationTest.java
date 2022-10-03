@@ -13,7 +13,7 @@ class FutureValidationTest extends ValidationBaseTest {
 
     @Test
     @SuppressWarnings("MagicConstant")
-    public void test() {
+    void test() {
         FutureValidation obj = new FutureValidation();
         // java.util.Date 日期 + 时间 + 时区
         obj.dateMustFuture = new Date(System.currentTimeMillis() - 10000);

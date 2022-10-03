@@ -9,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class DogHouseTest {
+class DogHouseTest {
 
     @Autowired
     DogHouse dogHouse;
 
     @Test
-    public void test(){
+    void test(){
         System.out.println("获得Bean:" + dogHouse);
     }
 }

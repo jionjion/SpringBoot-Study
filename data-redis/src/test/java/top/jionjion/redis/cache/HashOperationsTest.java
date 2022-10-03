@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * HashOperations 对Hash的操作
  */
 @Slf4j
-public class HashOperationsTest extends DataRedisApplicationTest {
+class HashOperationsTest extends DataRedisApplicationTest {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -47,7 +47,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 当不存这个hash或者field时,则自动创建;field重复时,则更新value.
      */
     @Test
-    public void testPut() {
+    void testPut() {
         hashOperations.put("HashA", "d", "Dd");
     }
 
@@ -56,7 +56,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 为key哈希表中,创建多个field域并赋值.如果field域已经存在,则覆盖值;如果field域不存在,则创建并赋值
      */
     @Test
-    public void testPutAll() {
+    void testPutAll() {
         Map<String, String> map = new HashMap<>();
         map.put("d", "Dd");
         map.put("e", "Ee");
@@ -68,7 +68,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 其中,hash为字符类型,为已存在的哈希表,field字符类型,哈希表对应的域.命令为获得指定哈希表中的字段的值.
      */
     @Test
-    public void testGet() {
+    void testGet() {
         String result = hashOperations.get("HashA", "a");
         assertNotNull(result);
         log.info(result);
@@ -79,7 +79,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 检查hash哈希表中是否含有field域.其中,hash字符类型,哈希表的名字.field字符类型.
      */
     @Test
-    public void testHasKey() {
+    void testHasKey() {
         Boolean result = hashOperations.hasKey("HashA", "a");
         assertTrue(result);
         log.info(result.toString());
@@ -91,7 +91,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 如果field域不存在,不影响
      */
     @Test
-    public void testDelete() {
+    void testDelete() {
         Long result = hashOperations.delete("HashA", "a", "b");
         assertNotNull(result);
         log.info(result.toString());
@@ -102,7 +102,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 获得当前哈希表中的域值数量.
      */
     @Test
-    public void testSize() {
+    void testSize() {
         Long result = hashOperations.size("HashA");
         assertNotNull(result);
         log.info(result.toString());
@@ -113,7 +113,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 获得key哈希表中field域的字符串的值的长度.
      */
     @Test
-    public void testLengthOfValue() {
+    void testLengthOfValue() {
         Long result = hashOperations.lengthOfValue("HashA", "a");
         assertNotNull(result);
         log.info(result.toString());
@@ -124,7 +124,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 为key哈希表中的field域的值加上增量increment,其中field对应的值必须为整数,不限正负,若不存在则创建,increment也必须为整数,正数为加上增量,负数为减去增量
      */
     @Test
-    public void testIncrementLong() {
+    void testIncrementLong() {
         Long result = hashOperations.increment("HashA", "zero", 100L);
         assertNotNull(result);
         log.info(result.toString());
@@ -135,7 +135,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 为key哈希表中的field域加上增量increment,其中field对应的值必须为数字,不限制正负数.increment也必须为数字.程序会为运算后的结果自动抹去尾零,并以数字字符串的形式存入.
      */
     @Test
-    public void testIncrementDouble() {
+    void testIncrementDouble() {
         Double result = hashOperations.increment("HashA", "zero", 3.1415926D);
         assertNotNull(result);
         log.info(result.toString());
@@ -146,7 +146,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 为key哈希表中,创建多个field域并赋值.如果field域已经存在,则覆盖值;如果field域不存在,则创建并赋值
      */
     @Test
-    public void testPutIfAbsent() {
+    void testPutIfAbsent() {
         Boolean result = hashOperations.putIfAbsent("HashA", "d", "Dd");
         log.info(result.toString());
         assertTrue(result);
@@ -157,7 +157,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 获得key哈希表中的多个field的值.如果field值不存在,则返回nil.
      */
     @Test
-    public void testMultiGet() {
+    void testMultiGet() {
         Set<String> hashKeys = new HashSet<>();
         hashKeys.add("a");
         hashKeys.add("b");
@@ -171,7 +171,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 获得key哈希表中所有的field的信息.key不存在时,返回空集合.
      */
     @Test
-    public void testKeys() {
+    void testKeys() {
         Set<String> hashKeys = hashOperations.keys("HashA");
         assertNotNull(hashKeys);
         log.info(hashKeys.toString());
@@ -182,7 +182,7 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 获得key哈希表中的所有域的值.key不存在时,返回空集合.
      */
     @Test
-    public void testValues() {
+    void testValues() {
         List<String> hashValues = hashOperations.values("HashA");
         assertNotNull(hashValues);
         log.info(hashValues.toString());
@@ -193,14 +193,14 @@ public class HashOperationsTest extends DataRedisApplicationTest {
      * 获得key哈希表中的所有域的值.key不存在时,返回空集合.
      */
     @Test
-    public void testEntries() {
+    void testEntries() {
         Map<String, String> entries = hashOperations.entries("HashA");
         assertNotNull(entries);
         log.info(entries.toString());
     }
 
     @Test
-    public void testScan() {
+    void testScan() {
         fail("暂未处理...");
     }
 }

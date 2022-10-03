@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class GetBucketReplicationArgsTest {
+class GetBucketReplicationArgsTest {
 
     private MinioClient minioClient;
 
@@ -33,7 +33,7 @@ public class GetBucketReplicationArgsTest {
     }
 
     @Test
-    public void getBucketReplication() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getBucketReplication() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         ReplicationConfiguration config =
                 minioClient.getBucketReplication(
                         GetBucketReplicationArgs.builder().bucket("cache").build());

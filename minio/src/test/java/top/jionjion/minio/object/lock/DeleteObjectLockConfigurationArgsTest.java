@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class DeleteObjectLockConfigurationArgsTest {
+class DeleteObjectLockConfigurationArgsTest {
 
     private MinioClient minioClient;
 
@@ -29,7 +29,7 @@ public class DeleteObjectLockConfigurationArgsTest {
     }
 
     @Test
-    public void deleteObjectLockConfiguration() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void deleteObjectLockConfiguration() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient.deleteObjectLockConfiguration(
                 DeleteObjectLockConfigurationArgs.builder().bucket("cache").build());
 
