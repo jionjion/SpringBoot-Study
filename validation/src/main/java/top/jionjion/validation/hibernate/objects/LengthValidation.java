@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Length;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class LengthValidation {
 
     /**

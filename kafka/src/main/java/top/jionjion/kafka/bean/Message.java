@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class Message {
 
     /** id */

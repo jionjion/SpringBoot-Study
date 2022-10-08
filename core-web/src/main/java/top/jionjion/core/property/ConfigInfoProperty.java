@@ -16,8 +16,7 @@ import java.util.Map;
  */
 @Data
 @Component
-@PropertySources({@PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8"),
-        @PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8")})
+@PropertySources({@PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8")})
 public class ConfigInfoProperty {
 
     @Value("${info.version}")

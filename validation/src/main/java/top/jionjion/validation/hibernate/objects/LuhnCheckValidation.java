@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.LuhnCheck;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class LuhnCheckValidation {
 
     /**
