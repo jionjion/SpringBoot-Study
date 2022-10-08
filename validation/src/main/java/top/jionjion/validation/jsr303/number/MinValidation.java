@@ -10,6 +10,7 @@ import java.math.BigInteger;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class MinValidation {
 
     /**

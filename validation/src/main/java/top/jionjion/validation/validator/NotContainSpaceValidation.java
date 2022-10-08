@@ -6,6 +6,7 @@ package top.jionjion.validation.validator;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class NotContainSpaceValidation {
 
     @NotContainSpace(message = "不能包含字符串!")

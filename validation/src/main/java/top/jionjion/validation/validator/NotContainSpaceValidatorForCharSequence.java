@@ -10,6 +10,7 @@ import javax.validation.ConstraintValidatorContext;
  * @author Jion
  */
 public class NotContainSpaceValidatorForCharSequence implements ConstraintValidator<NotContainSpace, CharSequence> {
+    
     private static final String SPACE_STRING = " ";
 
     /**
@@ -24,6 +25,7 @@ public class NotContainSpaceValidatorForCharSequence implements ConstraintValida
 
     /**
      * 验证方法, 不能含有空格字符串
+     * <pre>返回示例 ConstraintViolationImpl{interpolatedMessage='不能包含字符串!', propertyPath=name,     rootBeanClass=class top.jionjion.validation.NotContainSpaceValidation, messageTemplate='不能包含字符串!'}</pre>
      *
      * @param property 注解标识的属性
      * @param context  验证器上下文对象
@@ -42,7 +44,6 @@ public class NotContainSpaceValidatorForCharSequence implements ConstraintValida
             context.buildConstraintViolationWithTemplate(messageTemplate).addConstraintViolation();
             return false;
         }
-        //  返回实例 ConstraintViolationImpl{interpolatedMessage='不能包含字符串!', propertyPath=name,     rootBeanClass=class top.jionjion.validation.NotContainSpaceValidation, messageTemplate='不能包含字符串!'}
         return true;
     }
 }

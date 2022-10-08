@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JacksonInject;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JacksonInjectAnnotation {
 
     @JacksonInject

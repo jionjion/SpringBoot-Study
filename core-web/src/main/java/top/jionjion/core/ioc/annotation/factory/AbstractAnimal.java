@@ -5,6 +5,7 @@ package top.jionjion.core.ioc.annotation.factory;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public abstract class AbstractAnimal {
 
     /**

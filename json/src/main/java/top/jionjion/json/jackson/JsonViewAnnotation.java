@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonViewAnnotation {
 
     @JsonView(Views.Hide.class)

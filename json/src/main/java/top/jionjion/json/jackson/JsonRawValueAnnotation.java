@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonRawValue;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonRawValueAnnotation {
 
     private String name;

@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonManagedReferenceAndJsonBackReferenceAnnotation {
 
     /**

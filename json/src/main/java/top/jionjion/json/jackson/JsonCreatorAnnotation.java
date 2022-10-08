@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonCreatorAnnotation {
 
     private Integer id;

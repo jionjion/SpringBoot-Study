@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonIgnoreAnnotation {
 
     @JsonIgnore

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonPropertyAnnotation {
 
     @JsonProperty("id")

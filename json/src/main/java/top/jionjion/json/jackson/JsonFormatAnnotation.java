@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Jion
  */
 @Slf4j
+@SuppressWarnings("unused")
 public class JsonFormatAnnotation {
 
     private String name;

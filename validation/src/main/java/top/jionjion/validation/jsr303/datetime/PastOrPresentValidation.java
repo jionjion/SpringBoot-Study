@@ -11,6 +11,7 @@ import java.util.Date;
  *
  * @author JionJion
  */
+@SuppressWarnings("unused")
 public class PastOrPresentValidation {
 
     /**

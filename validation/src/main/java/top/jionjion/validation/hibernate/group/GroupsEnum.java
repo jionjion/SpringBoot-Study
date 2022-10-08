@@ -5,18 +5,18 @@ package top.jionjion.validation.hibernate.group;
  *
  * @author Jion
  */
-public class GroupsEnum {
+public interface GroupsEnum {
 
     /**
      * 新增
      */
-    public interface Insert {
+    interface Insert {
     }
 
 
     /**
      * 更新
      */
-    public interface Update {
+    interface Update {
     }
 }

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  * @author Jion
  */
 @JsonFilter("jsonFilter")
+@SuppressWarnings("unused")
 @JsonView(Views.Hide.class)
 public class JsonFilterAnnotation {
 

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonGetterAnnotation {
 
     private Integer id;

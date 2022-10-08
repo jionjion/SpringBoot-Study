@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonSetterAnnotation {
 
     private Integer id;

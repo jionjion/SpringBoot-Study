@@ -8,6 +8,7 @@ import javax.validation.constraints.Null;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class NullValidation {
 
     /**

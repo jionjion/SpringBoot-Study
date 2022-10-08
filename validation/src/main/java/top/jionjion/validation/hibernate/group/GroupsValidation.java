@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class GroupsValidation {
 
     /**

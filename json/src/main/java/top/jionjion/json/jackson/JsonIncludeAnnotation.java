@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JsonIncludeAnnotation {
 

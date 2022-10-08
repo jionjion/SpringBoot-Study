@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.Currency;
  *
  * @author jion
  */
-@Deprecated
+@SuppressWarnings("unused")
 public class CurrencyValidation {
 
     /**

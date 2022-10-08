@@ -10,6 +10,7 @@ import java.util.Map;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonAnySetterAnnotation {
 
     private String name;

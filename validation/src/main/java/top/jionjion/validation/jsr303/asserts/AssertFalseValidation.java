@@ -8,6 +8,7 @@ import javax.validation.constraints.AssertFalse;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class AssertFalseValidation {
 
     /**

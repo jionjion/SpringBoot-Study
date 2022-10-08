@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 @JsonIgnoreProperties(value = {"id", "address"})
 public class JsonIgnorePropertiesAnnotation {
 

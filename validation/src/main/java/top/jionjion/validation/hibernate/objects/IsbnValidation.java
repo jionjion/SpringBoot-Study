@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.ISBN;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class IsbnValidation {
 
     @ISBN(message = "必须为ISBN图书编码")

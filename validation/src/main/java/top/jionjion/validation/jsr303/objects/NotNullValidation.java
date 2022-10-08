@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class NotNullValidation {
 
     /**

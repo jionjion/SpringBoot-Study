@@ -1,6 +1,5 @@
 package top.jionjion.webflux.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RequestPredicates;
@@ -16,17 +15,13 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 @Configuration
 public class RouterConfig {
 
-
-    @Autowired
-    DemoHandler demoHandler;
-
     /**
      * 自定义配置路由.
      *
      * @return 路由
      */
     @Bean
-    public RouterFunction<ServerResponse> demoRouter() {
+    public RouterFunction<ServerResponse> demoRouter(DemoHandler demoHandler) {
         /*
             http://127.0.0.1:8080/hello
             http://127.0.0.1:8080/world

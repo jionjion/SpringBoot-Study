@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonUnwrappedAnnotation {
 
     /**

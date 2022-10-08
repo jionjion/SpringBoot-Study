@@ -27,7 +27,7 @@ class IndexOperationTest {
      * 索引操作
      */
     @Test
-    public void testIndex() {
+    void testIndex() {
         IndexOperations indexOperations = elasticsearchTemplate.indexOps(Food.class);
         indexOperations.create();
         indexOperations.putMapping();

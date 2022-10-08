@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class PatternValidation {
 
     /**

@@ -10,6 +10,7 @@ import java.util.Collection;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class SizeValidation {
 
     /**

@@ -8,6 +8,7 @@ import javax.validation.constraints.AssertTrue;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class AssertTrueValidation {
 
     /**

@@ -11,6 +11,7 @@ import java.util.Map;
  * @author Jion
  */
 @Service
+@SuppressWarnings("unused")
 public class DomeService {
 
     public String findById (String id) throws JsonProcessingException {

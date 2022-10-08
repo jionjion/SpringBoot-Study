@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class JsonValueAnnotation {
 
     private Integer id;

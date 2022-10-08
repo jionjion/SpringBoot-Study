@@ -8,6 +8,7 @@ import javax.validation.constraints.Email;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class EmailValidation {
 
     /**

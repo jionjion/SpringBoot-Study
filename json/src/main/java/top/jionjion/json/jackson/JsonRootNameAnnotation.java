@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 @JsonRootName(value = "student")
 public class JsonRootNameAnnotation {
 

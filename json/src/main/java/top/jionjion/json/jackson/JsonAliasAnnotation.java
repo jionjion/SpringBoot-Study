@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author Jion
  */
 @Slf4j
+@SuppressWarnings("unused")
 public class JsonAliasAnnotation {
 
     private Integer id;

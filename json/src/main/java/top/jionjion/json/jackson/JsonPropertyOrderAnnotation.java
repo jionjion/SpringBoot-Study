@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 @JsonPropertyOrder({"id", "name"})
 public class JsonPropertyOrderAnnotation {
 

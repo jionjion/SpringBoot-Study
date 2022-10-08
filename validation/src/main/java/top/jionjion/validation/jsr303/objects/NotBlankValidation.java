@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class NotBlankValidation {
 
     /**

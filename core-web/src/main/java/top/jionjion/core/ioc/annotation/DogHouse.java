@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
  * @author Jion
  */
 @Component
+@SuppressWarnings("unused")
 public class DogHouse {
 
     /**
