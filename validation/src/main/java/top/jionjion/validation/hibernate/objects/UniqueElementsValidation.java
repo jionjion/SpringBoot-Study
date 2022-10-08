@@ -12,6 +12,7 @@ import java.util.Set;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class UniqueElementsValidation {
 
     /**

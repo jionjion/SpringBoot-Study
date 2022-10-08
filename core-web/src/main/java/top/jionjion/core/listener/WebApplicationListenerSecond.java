@@ -6,8 +6,9 @@ import org.springframework.core.annotation.Order;
 import org.springframework.lang.NonNull;
 
 /**
- *  自定义实现监听器, 通过启动类注册
- *      泛型指定其感兴趣的事件
+ * 自定义实现监听器, 通过启动类注册
+ * 泛型指定其感兴趣的事件
+ *
  * @author Jion
  */
 @Order(2)

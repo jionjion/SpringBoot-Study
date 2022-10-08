@@ -12,6 +12,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  * @author Jion
  */
 @Order(3)
+@SuppressWarnings("unused")
 public class WebApplicationInitializerThird implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     @Override

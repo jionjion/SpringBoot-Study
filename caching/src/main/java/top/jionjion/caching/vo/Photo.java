@@ -22,15 +22,6 @@ public class Photo {
      */
     private String base64Date;
 
-    public Photo() {
-    }
-
-    public Photo(Long id, String title, String base64Date) {
-        this.id = id;
-        this.title = title;
-        this.base64Date = base64Date;
-    }
-
     public Long getId() {
         return id;
     }

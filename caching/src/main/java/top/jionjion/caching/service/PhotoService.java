@@ -18,7 +18,7 @@ import top.jionjion.caching.vo.Photo;
 @CacheConfig(cacheNames = "photos")
 public class PhotoService extends AbstractPhotoService {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(PhotoService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PhotoService.class);
 
     @Autowired
     PhotoRepository photoRepository;
@@ -38,8 +38,11 @@ public class PhotoService extends AbstractPhotoService {
      */
     @Caching(put = {@CachePut(cacheNames = "photos", key = "'photo:' + #id")})
     public Photo insert(Long id, String title) {
-        Photo photo = new Photo(id, title, "JPEG:data//" + super.getRandomString());
-        LOGGER.info("保存...{}", photo.getTitle());
+        Photo photo = new Photo();
+        photo.setId(id);
+        photo.setTitle(title);
+        photo.setBase64Date("JPEG:data//" + super.getRandomString());
+        LOGGER.info("保存...{}..{}", photo.getTitle(), photo.getBase64Date());
         photoRepository.insert(photo);
         return photo;
     }

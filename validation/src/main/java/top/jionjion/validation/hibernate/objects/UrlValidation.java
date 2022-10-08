@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.URL;
  *
  * @author jion
  */
+@SuppressWarnings("unused")
 public class UrlValidation {
 
     /**

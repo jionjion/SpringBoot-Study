@@ -10,6 +10,7 @@ import org.springframework.lang.NonNull;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class WebApplicationDeferredImportSelector implements DeferredImportSelector {
 
     @Override
