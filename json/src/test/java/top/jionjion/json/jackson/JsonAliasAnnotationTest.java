@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonAliasAnnotationTest {
+class JsonAliasAnnotationTest {
 
     @Test
-    public void test() throws IOException {
+    void test() throws IOException {
         String json = "{\n" +
                 "  \"id\":\"1\",\n" +
                 "  \"name\": \"囧囧1\",\n" +
@@ -33,7 +33,7 @@ public class JsonAliasAnnotationTest {
     }
 
     @Test
-    public void test2() throws IOException {
+    void test2() throws IOException {
         JsonAliasAnnotation student = new JsonAliasAnnotation();
         student.setId(1);
         student.setName("囧囧");

@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonCreatorAnnotationTest {
+class JsonCreatorAnnotationTest {
 
     @Test
-    public void test() throws IOException {
+    void test() throws IOException {
         String json = "{\n" +
                 "  \"id\":\"1\",\n" +
                 "  \"name\": \"囧囧\"\n" +

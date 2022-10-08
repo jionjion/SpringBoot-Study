@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonPropertyAnnotationTest {
+class JsonPropertyAnnotationTest {
 
     @Test
-    public void test() throws JsonProcessingException {
+    void test() throws JsonProcessingException {
         JsonPropertyAnnotation student = new JsonPropertyAnnotation();
         student.setId(1);
         student.setName("囧囧");

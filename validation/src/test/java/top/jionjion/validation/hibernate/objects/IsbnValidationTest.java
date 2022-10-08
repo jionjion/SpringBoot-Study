@@ -13,7 +13,7 @@ class IsbnValidationTest extends ValidationBaseTest {
 
 
     @Test
-    public void test(){
+    void test(){
         IsbnValidation obj = new IsbnValidation();
         // ISBN图书编码 pass
         //obj.isbn = "978-7-5386-8713-2";

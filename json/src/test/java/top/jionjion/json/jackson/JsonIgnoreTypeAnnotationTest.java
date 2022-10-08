@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonIgnoreTypeAnnotationTest {
+class JsonIgnoreTypeAnnotationTest {
 
     @Test
-    public void test() throws JsonProcessingException {
+    void test() throws JsonProcessingException {
         JsonIgnoreTypeAnnotation.Student student = new JsonIgnoreTypeAnnotation.Student();
         student.setId(1);
         student.setName("囧囧");

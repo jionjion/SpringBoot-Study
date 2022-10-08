@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonSerializeAnnotationTest {
+class JsonSerializeAnnotationTest {
 
     @Test
-    public void test() throws JsonProcessingException {
+    void test() throws JsonProcessingException {
         JsonSerializeAnnotation student = new JsonSerializeAnnotation();
         student.setName("囧囧");
         student.setBirthday(new Date());

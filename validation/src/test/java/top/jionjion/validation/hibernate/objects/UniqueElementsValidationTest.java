@@ -16,7 +16,7 @@ import java.util.Set;
 class UniqueElementsValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test() {
+    void test() {
         UniqueElementsValidation obj = new UniqueElementsValidation();
         obj.mustCollectionUniqueElements = Collections.singletonList("A");
         obj.mustListUniqueElements = List.of("A", "B", "C", "C");

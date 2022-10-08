@@ -9,7 +9,7 @@ import java.math.BigInteger;
 class MinValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         MinValidation obj = new MinValidation();
         obj.bigDecimalMin = BigDecimal.valueOf(-110);
         obj.bigIntegerMin = BigInteger.valueOf(-110);

@@ -12,7 +12,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class LengthValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         LengthValidation obj = new LengthValidation();
         // 字符串长度在[0,10]之间 pass
         obj.mustLength = "12345678901";

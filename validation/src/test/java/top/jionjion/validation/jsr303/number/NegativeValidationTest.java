@@ -9,7 +9,7 @@ import java.math.BigInteger;
 class NegativeValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test() {
+    void test() {
         NegativeValidation obj = new NegativeValidation();
         obj.bigDecimalNegative = BigDecimal.valueOf(0);
         obj.bigIntegerNegative = BigInteger.valueOf(1);

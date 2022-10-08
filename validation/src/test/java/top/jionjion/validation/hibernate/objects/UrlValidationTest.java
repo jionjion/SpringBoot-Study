@@ -12,7 +12,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class UrlValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         UrlValidation obj = new UrlValidation();
         // URL格式 fail
         obj.mustUrl = "12345";

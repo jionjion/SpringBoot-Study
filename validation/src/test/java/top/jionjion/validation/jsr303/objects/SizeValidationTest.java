@@ -8,7 +8,7 @@ import java.util.Collections;
 class SizeValidationTest extends ValidationBaseTest {
 
     @Test
-    public void note() {
+    void note() {
         SizeValidation obj = new SizeValidation();
         obj.collectionLimitSize = null;
         obj.arrayLimitSize = null;
@@ -18,7 +18,7 @@ class SizeValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void mustEmail1() {
+    void mustEmail1() {
         SizeValidation obj = new SizeValidation();
         obj.collectionLimitSize = Collections.singleton(null);
         // 成员数量为1 pass
@@ -26,7 +26,7 @@ class SizeValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void arrayLimitSize1() {
+    void arrayLimitSize1() {
         SizeValidation obj = new SizeValidation();
         obj.arrayLimitSize = new Object[] {};
         // 成员数量为0 pass
@@ -34,7 +34,7 @@ class SizeValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void stringLimitSize1() {
+    void stringLimitSize1() {
         SizeValidation obj = new SizeValidation();
         obj.stringLimitSize = "";
         // 空串 false
@@ -42,7 +42,7 @@ class SizeValidationTest extends ValidationBaseTest {
     }
 
     @Test
-    public void stringLimitSize2() {
+    void stringLimitSize2() {
         SizeValidation obj = new SizeValidation();
         obj.stringLimitSize = "    ";
         // 空格串 pass

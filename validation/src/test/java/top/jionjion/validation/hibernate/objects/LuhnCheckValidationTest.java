@@ -9,7 +9,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class LuhnCheckValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         LuhnCheckValidation obj = new LuhnCheckValidation();
         // 假身份证 fail
         obj.mustLuhnCheck = "410603180004123533";

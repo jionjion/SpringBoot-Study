@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 @Slf4j
 @JsonPropertyOrder({"id", "name"})
-public class JsonPropertyOrderAnnotationTest {
+class JsonPropertyOrderAnnotationTest {
 
     @Test
-    public void test() throws JsonProcessingException {
+    void test() throws JsonProcessingException {
         JsonPropertyOrderAnnotation student = new JsonPropertyOrderAnnotation();
         student.setId(1);
         student.setName("囧囧");

@@ -12,7 +12,6 @@ import org.springframework.lang.NonNull;
  */
 public class WebApplicationDeferredImportSelector implements DeferredImportSelector {
 
-
     @Override
     public @NonNull String[] selectImports(@NonNull AnnotationMetadata importingClassMetadata) {
         System.out.println("DeferredImportSelector: 自定义导入类...");

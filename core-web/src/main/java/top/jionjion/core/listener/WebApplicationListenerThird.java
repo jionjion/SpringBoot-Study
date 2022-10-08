@@ -16,7 +16,7 @@ public class WebApplicationListenerThird implements ApplicationListener<Applicat
     @Override
     public void onApplicationEvent(@NonNull ApplicationStartedEvent event) {
         System.out.println("--- 方法三 ---");
-        System.out.println("监听器: Spring 准备启动..");
+        System.out.println("监听器: Spring 准备启动.." + event.hashCode());
         System.out.println("------");
     }
 }

@@ -15,7 +15,7 @@ import java.math.BigInteger;
 class RangeValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         RangeValidation obj = new RangeValidation();
         obj.mustStringRange = "10";
         obj.mustBigDecimalRange = BigDecimal.TEN;

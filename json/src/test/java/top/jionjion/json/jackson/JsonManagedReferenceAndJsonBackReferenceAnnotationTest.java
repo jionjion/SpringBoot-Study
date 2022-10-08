@@ -16,10 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonManagedReferenceAndJsonBackReferenceAnnotationTest {
+class JsonManagedReferenceAndJsonBackReferenceAnnotationTest {
 
     @Test
-    public void test() throws JsonProcessingException {
+    void test() throws JsonProcessingException {
         // 一方
         JsonManagedReferenceAndJsonBackReferenceAnnotation.Student student = new JsonManagedReferenceAndJsonBackReferenceAnnotation.Student();
         student.setId(1);

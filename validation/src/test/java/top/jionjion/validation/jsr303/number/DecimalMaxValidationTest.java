@@ -12,7 +12,7 @@ import java.math.BigInteger;
 class DecimalMaxValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test() {
+    void test() {
         DecimalMaxValidation obj = new DecimalMaxValidation();
         obj.bigDecimalLimitDecimalMax = BigDecimal.TEN;
         obj.bigIntegerLimitDecimalMax = BigInteger.TEN;

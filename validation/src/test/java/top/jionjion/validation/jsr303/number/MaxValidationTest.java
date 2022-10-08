@@ -9,7 +9,7 @@ import java.math.BigInteger;
 class MaxValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test(){
+    void test(){
         MaxValidation obj = new MaxValidation();
         obj.bigDecimalMax = BigDecimal.valueOf(110);
         obj.bigIntegerMax = BigInteger.valueOf(110);

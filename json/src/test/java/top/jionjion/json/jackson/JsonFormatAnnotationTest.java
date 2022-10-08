@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Jion
  */
 @Slf4j
-public class JsonFormatAnnotationTest {
+class JsonFormatAnnotationTest {
 
     @Test
-    public void test() throws JsonProcessingException {
+    void test() throws JsonProcessingException {
         JsonFormatAnnotation student = new JsonFormatAnnotation();
         student.setName("囧囧");
         student.setBirthday(new Date());

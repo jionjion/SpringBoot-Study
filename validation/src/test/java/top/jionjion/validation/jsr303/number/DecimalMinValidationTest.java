@@ -12,7 +12,7 @@ import java.math.BigInteger;
 class DecimalMinValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test() {
+    void test() {
         DecimalMinValidation obj = new DecimalMinValidation();
         obj.bigDecimalLimitDecimalMin = BigDecimal.ZERO;
         obj.bigIntegerLimitDecimalMin = BigInteger.ZERO;

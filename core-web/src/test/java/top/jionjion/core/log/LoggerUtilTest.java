@@ -9,12 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class LoggerUtilTest {
+class LoggerUtilTest {
 
     final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Test
-    public void test(){
+    void test(){
         logger.info("日志框架...");
     }
 }

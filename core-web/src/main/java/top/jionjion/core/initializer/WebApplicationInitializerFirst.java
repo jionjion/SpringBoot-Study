@@ -19,7 +19,7 @@ public class WebApplicationInitializerFirst implements ApplicationContextInitial
         // 获得容器中环境变量
         ConfigurableEnvironment environment = applicationContext.getEnvironment();
         System.out.println("--- 方法一 ---");
-        System.out.println("监听器: 容器初始化器启动...");
+        System.out.println("监听器: 容器初始化器启动..." + environment.hashCode());
         System.out.println("------");
     }
 }
