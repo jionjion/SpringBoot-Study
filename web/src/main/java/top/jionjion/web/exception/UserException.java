@@ -10,7 +10,7 @@ public class UserException extends RuntimeException{
     private static final long serialVersionUID = 2L;
 
     /**自定义异常代码*/
-    private Integer code;
+    private final Integer code;
 
     public UserException(Integer code, String message) {
         super(message);
@@ -19,8 +19,5 @@ public class UserException extends RuntimeException{
 
     public Integer getCode() {
         return code;
-    }
-    public void setCode(Integer code) {
-        this.code = code;
     }
 }

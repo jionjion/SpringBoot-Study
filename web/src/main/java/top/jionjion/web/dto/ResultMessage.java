@@ -5,6 +5,7 @@ package top.jionjion.web.dto;
  *      包装返回前台的结果
  *      T, 数据体的泛型检测
  */
+@SuppressWarnings("unused")
 public class ResultMessage<T> {
 
     /** 代表消息状态 */

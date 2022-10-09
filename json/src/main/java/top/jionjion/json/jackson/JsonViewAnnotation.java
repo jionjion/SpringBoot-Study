@@ -37,12 +37,12 @@ public class JsonViewAnnotation {
 /**
  * 视图类,是否显示隐藏
  */
-class Views {
-    public static class Show {
+interface Views {
+    interface Show {
 
     }
 
-    public static class Hide {
+    interface Hide {
 
     }
 }

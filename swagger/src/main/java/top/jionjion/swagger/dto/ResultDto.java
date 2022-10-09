@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author Jion
  */
 @ApiModel("api通用返回数据")
+@SuppressWarnings("unused")
 public class ResultDto<T> {
 
     /**

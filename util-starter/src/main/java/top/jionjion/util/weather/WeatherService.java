@@ -19,12 +19,4 @@ public class WeatherService {
     public String getType() {
         return weatherProperty.getType();
     }
-
-    /**
-     * 获得严重情况
-     */
-    public String getRate() {
-        return weatherProperty.getRate();
-    }
-
 }

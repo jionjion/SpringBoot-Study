@@ -25,7 +25,7 @@ public class ExceptionHandle {
             UserException e = (UserException) exception;
 
             // 将抛出的异常捕获后包装
-            return new ResultMessage<>(500, e.getMessage());
+            return new ResultMessage<>(e.getCode(), e.getMessage());
         }
 
         //如果不是自动返回系统的异常

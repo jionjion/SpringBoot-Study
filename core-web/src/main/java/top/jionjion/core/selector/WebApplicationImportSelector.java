@@ -9,8 +9,8 @@ import org.springframework.lang.NonNull;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class WebApplicationImportSelector implements ImportSelector {
-
 
     @Override
     public @NonNull String[] selectImports(@NonNull AnnotationMetadata importingClassMetadata) {

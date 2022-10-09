@@ -13,9 +13,9 @@ import java.time.LocalDate;
  *
  * 	@author JionJion
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class Teacher {
 
 	private Integer id;

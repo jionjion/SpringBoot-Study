@@ -5,6 +5,7 @@ package top.jionjion.validation.hibernate.group;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public interface GroupsEnum {
 
     /**

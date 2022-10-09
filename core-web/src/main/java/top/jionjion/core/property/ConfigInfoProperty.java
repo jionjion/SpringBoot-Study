@@ -3,7 +3,6 @@ package top.jionjion.core.property;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.Map;
  */
 @Data
 @Component
-@PropertySources({@PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8")})
+@PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8")
 public class ConfigInfoProperty {
 
     @Value("${info.version}")
