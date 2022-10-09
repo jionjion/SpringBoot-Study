@@ -7,6 +7,7 @@ package top.jionjion.core.ioc.annotation.factory;
 public class Monkey extends AbstractAnimal {
 
     @Override
+    @SuppressWarnings("unused")
     String getName() {
         return "我是猴子... ";
     }

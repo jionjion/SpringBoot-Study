@@ -17,4 +17,10 @@ class LoggerUtilTest {
     void test(){
         logger.info("日志框架...");
     }
+
+    @Test
+    void logMessage() {
+        LoggerUtil logger = new LoggerUtil();
+        logger.logMessage("Hello world!");
+    }
 }

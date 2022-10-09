@@ -11,6 +11,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public class SendEmailJob extends QuartzJobBean {
 
     @Override

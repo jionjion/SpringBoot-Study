@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
+@SuppressWarnings("unused")
 public class People {
 
     private String name;

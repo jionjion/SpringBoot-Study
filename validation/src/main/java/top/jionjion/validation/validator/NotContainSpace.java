@@ -28,6 +28,8 @@ public @interface NotContainSpace {
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
     @interface List {
+
+        @SuppressWarnings("unused")
         NotContainSpace[] value();
     }
 }
