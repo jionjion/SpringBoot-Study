@@ -9,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class WebApplicationEnvironmentAwareTest {
+class WebApplicationEnvironmentAwareTest {
 
     @Autowired
     WebApplicationEnvironmentAware webApplicationEnvironmentAware;
 
     @Test
-    public void getOne() {
+    void getOne() {
         webApplicationEnvironmentAware.getOne();
     }
 }

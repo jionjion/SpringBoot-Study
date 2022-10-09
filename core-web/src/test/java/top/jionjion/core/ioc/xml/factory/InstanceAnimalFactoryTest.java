@@ -13,13 +13,13 @@ import javax.annotation.Resource;
  */
 @SpringBootTest
 @ContextConfiguration(locations = "classpath:ioc/xml/bean-config.xml")
-public class InstanceAnimalFactoryTest {
+class InstanceAnimalFactoryTest {
 
     @Resource
     Cat cat;
 
     @Test
-    public void test() {
+    void test() {
         System.out.println("获得Bean:" + cat.toString());
     }
 }

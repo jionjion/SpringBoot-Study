@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 @Component
 public class DemoHandler {
 
-    Logger logger = Logger.getLogger(DemoHandler.class.getName());
+    private final Logger logger = Logger.getLogger(DemoHandler.class.getName());
 
     @Autowired
     DomeService domeService;

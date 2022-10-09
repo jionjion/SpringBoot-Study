@@ -26,7 +26,7 @@ class WebApplicationPropertiesTest implements ApplicationContextAware {
      * 测试, 是否条件注入
      */
     @Test
-    public void test() {
+    void test() {
         WebApplicationProperties bean = applicationContext.getBean(WebApplicationProperties.class);
         System.out.println(bean);
         assertNotNull(bean);

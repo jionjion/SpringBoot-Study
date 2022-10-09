@@ -8,13 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class UseWeatherServiceTest {
+class UseWeatherServiceTest {
 
     @Autowired
     UseWeatherService useWeatherService;
 
     @Test
-    public void getType(){
+    void getType(){
         String type = useWeatherService.getType();
         System.out.println("天气状态>> " + type);
     }

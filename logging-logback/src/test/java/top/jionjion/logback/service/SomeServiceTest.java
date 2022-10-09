@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SomeServiceTest {
 
     @Autowired
-    SomeService someService;
+    private SomeService someService;
 
     /**
      * 日志

@@ -9,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class PeopleBeanPostProcessorTest {
+class PeopleBeanPostProcessorTest {
 
     @Autowired
     People people;
 
     @Test
-    public void test(){
+    void test(){
         System.out.println("获得Bean: " + people);
     }
 }
