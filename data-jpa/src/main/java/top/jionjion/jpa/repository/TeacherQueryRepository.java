@@ -15,6 +15,7 @@ import top.jionjion.jpa.bean.Teacher;
  *
  * @author JionJion
  */
+@SuppressWarnings("unused")
 @RepositoryDefinition(domainClass = Teacher.class, idClass = Integer.class)
 public interface TeacherQueryRepository {
 

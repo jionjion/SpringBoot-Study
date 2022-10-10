@@ -17,6 +17,10 @@ import java.nio.charset.StandardCharsets;
  */
 public class LogbackHolder {
 
+    private LogbackHolder() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * @param name logger的名字, 作为日志前缀
      * @return logger实例

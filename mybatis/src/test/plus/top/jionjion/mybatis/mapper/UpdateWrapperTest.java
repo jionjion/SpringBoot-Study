@@ -10,13 +10,13 @@ import top.jionjion.mybatis.dto.Teacher;
 /**
  * 测试 UpdateWrapper 类的使用.
  * <p>
- * 官网  https://mybatis.plus/guide/wrapper.html
+ * 官网  <a href="https://mybatis.plus/guide/wrapper.html">...</a>
  *
  * @author Jion
  */
 @Slf4j
 @SpringBootTest
-public class UpdateWrapperTest {
+class UpdateWrapperTest {
 
     @Autowired
     TeacherCurdMapper teacherCurdMapper;
@@ -26,7 +26,7 @@ public class UpdateWrapperTest {
      * UPDATE teacher SET name=?, age=?, version=?, modify_date=?, name=?,address=? WHERE deleted=0 AND (id = ? AND version = ?)
      */
     @Test
-    public void set() {
+    void set() {
         Teacher teacher = teacherCurdMapper.selectById(4);
         UpdateWrapper<Teacher> wrapper = new UpdateWrapper<>();
         wrapper.set("name", "jion");
@@ -41,12 +41,13 @@ public class UpdateWrapperTest {
      * UPDATE teacher SET name=?, age=?, version=?, modify_date=?, name = 'jion',address = null WHERE deleted=0 AND (id = ? AND version = ?)
      */
     @Test
-    public void setSql() {
+    void setSql() {
         Teacher teacher = teacherCurdMapper.selectById(4);
         UpdateWrapper<Teacher> wrapper = new UpdateWrapper<>();
         wrapper.setSql("name = 'jion'");
         wrapper.setSql("address = null");
         wrapper.eq("id", 4);
         int result = teacherCurdMapper.update(teacher, wrapper);
+        System.out.println(result);
     }
 }

@@ -12,6 +12,7 @@ import top.jionjion.logback.exception.SomeException;
  * @author Jion
  */
 @Service
+@SuppressWarnings("unused")
 public class SomeService {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

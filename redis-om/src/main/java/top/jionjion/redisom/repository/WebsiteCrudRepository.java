@@ -10,6 +10,7 @@ import top.jionjion.redisom.po.Website;
  * @author Jion
  */
 @Component
+@SuppressWarnings("unused")
 public interface WebsiteCrudRepository extends RedisDocumentRepository<Website, String> {
 
 }

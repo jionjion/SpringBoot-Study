@@ -42,7 +42,7 @@ public class JwtTokenUtils {
     /**
      * 创建token
      */
-    public static String createToken(String username, String role, boolean isRememberMe) {
+    public static String createToken(String username, String role) {
         Map<String, Object> map = new HashMap<>(4);
         map.put(ROLE, role);
         return Jwts.builder()

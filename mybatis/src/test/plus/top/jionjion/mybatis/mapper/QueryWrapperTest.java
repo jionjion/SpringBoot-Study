@@ -16,13 +16,13 @@ import java.util.Map;
 /**
  * 测试 QueryWrapper 类的使用
  * <p>
- * 官网  https://mybatis.plus/guide/wrapper.html
+ * 官网  <a href="https://mybatis.plus/guide/wrapper.html">...</a>
  *
  * @author Jion
  */
 @Slf4j
 @SpringBootTest
-public class QueryWrapperTest {
+class QueryWrapperTest {
 
     @Autowired
     TeacherCurdMapper teacherCurdMapper;
@@ -31,7 +31,7 @@ public class QueryWrapperTest {
      * 根据判断表达式是否成立, 进而生成动态SQL
      */
     @Test
-    public void condition() {
+    void condition() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         String name = "jion";
         // 在 name 不为空串的情况下, 动态SQL成立 SQL => SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ?)
@@ -45,7 +45,7 @@ public class QueryWrapperTest {
      * SELECT name,age FROM teacher WHERE deleted=0
      */
     @Test
-    public void select() {
+    void select() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.select("name", "age");
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);
@@ -57,7 +57,7 @@ public class QueryWrapperTest {
      * 测试,指定字段是否全部相等呢
      */
     @Test
-    public void allEq() {
+    void allEq() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         Map<String, String> column = new HashMap<>();
         column.put("name", "Jion");
@@ -79,7 +79,7 @@ public class QueryWrapperTest {
      * (name = ? AND name <> ? AND age > ? AND age >= ? AND age < ? AND age <= ?)
      */
     @Test
-    public void eq() {
+    void eq() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion")
                 .ne("name", "jion")
@@ -97,7 +97,7 @@ public class QueryWrapperTest {
      * (age BETWEEN ? AND ? AND age NOT BETWEEN ? AND ?)
      */
     @Test
-    public void betweent() {
+    void betweent() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.between("age", 10, 20)
                 .notBetween("age", 30, 40);
@@ -110,7 +110,7 @@ public class QueryWrapperTest {
      * (name LIKE ? AND name NOT LIKE ? AND name LIKE ? AND name LIKE ?)
      */
     @Test
-    public void like() {
+    void like() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.like("name", "jion")
                 .notLike("name", "arise")
@@ -125,7 +125,7 @@ public class QueryWrapperTest {
      * (name IS NOT NULL AND age IS NULL)
      */
     @Test
-    public void isNull() {
+    void isNull() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.isNotNull("name")
                 .isNull("age");
@@ -138,7 +138,7 @@ public class QueryWrapperTest {
      * (age IN (?,?,?) AND age NOT IN (?,?))
      */
     @Test
-    public void in() {
+    void in() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.in("age", 10, 11, 12)
                 .notIn("age", 20, 21.22);
@@ -151,7 +151,7 @@ public class QueryWrapperTest {
      * (id IN (select id from teacher where id <= 2) AND age NOT IN (select age from teacher where id <= 2))
      */
     @Test
-    public void inSql() {
+    void inSql() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.inSql("id", "select id from teacher where id <= 2")
                 .notInSql("age", "select age from teacher where id <= 2");
@@ -164,7 +164,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (EXISTS (select id from teacher where id = 1) AND NOT EXISTS (select age from teacher where id = 2))
      */
     @Test
-    public void exists() {
+    void exists() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.exists("select id from teacher where id = 1")
                 .notExists("select age from teacher where id = 2");
@@ -177,7 +177,7 @@ public class QueryWrapperTest {
      * ORDER BY id ASC,age DESC,name DESC,workday ASC
      */
     @Test
-    public void orderByAsc() {
+    void orderByAsc() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.orderByAsc("id").orderByDesc(Arrays.asList("age", "name")).orderByAsc("workday");
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);
@@ -189,7 +189,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 GROUP BY name,age
      */
     @Test
-    public void groupBy() {
+    void groupBy() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.groupBy(Arrays.asList("name", "age"));
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);
@@ -201,7 +201,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 GROUP BY name HAVING sum(age)> ?
      */
     @Test
-    public void having() {
+    void having() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.groupBy("name")
                 .having("sum(age)> {0}", 11);
@@ -214,7 +214,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ? AND (age = ?))
      */
     @Test
-    public void and() {
+    void and() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").and(innerWrapper -> innerWrapper.eq("age", 18));
         Teacher result = teacherCurdMapper.selectOne(wrapper);
@@ -226,7 +226,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ? OR (age = ?))
      */
     @Test
-    public void or() {
+    void or() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").or(innerWrapper -> innerWrapper.eq("age", 18));
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);
@@ -238,7 +238,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ? AND (age = ?))
      */
     @Test
-    public void nested() {
+    void nested() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").nested(innerWrapper -> innerWrapper.eq("age", 18));
         Teacher result = teacherCurdMapper.selectOne(wrapper);
@@ -250,7 +250,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (date_format(workday,'%Y-%m-%d') = ? AND id = abs(?))
      */
     @Test
-    public void apply() {
+    void apply() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.apply("date_format(workday,'%Y-%m-%d') = {0}", "2021-02-01").apply("id = abs({0})", -1);
         Teacher result = teacherCurdMapper.selectOne(wrapper);
@@ -262,7 +262,7 @@ public class QueryWrapperTest {
      * SELECT id,name,workday,address,age,version,deleted,create_date,modify_date FROM teacher WHERE deleted=0 AND (name = ?) limit 0, 2
      */
     @Test
-    public void last() {
+    void last() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("name", "jion").last("limit 0, 2");
         List<Teacher> result = teacherCurdMapper.selectList(wrapper);

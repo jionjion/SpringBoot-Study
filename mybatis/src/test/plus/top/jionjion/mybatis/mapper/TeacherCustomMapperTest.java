@@ -25,7 +25,7 @@ class TeacherCustomMapperTest {
      * 通过注解自定义SQL
      */
     @Test
-    public void findListByAnnotation() {
+    void findListByAnnotation() {
         // select * from teacher WHERE (id = ?)
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("id", 1);
@@ -37,7 +37,7 @@ class TeacherCustomMapperTest {
      * 通过配置文件自定义SQL
      */
     @Test
-    public void findListByXml() {
+    void findListByXml() {
         // select * from teacher WHERE (id = ?)
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.eq("id", 1);

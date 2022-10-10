@@ -15,6 +15,7 @@ import java.util.List;
  *
  * @author JionJion
  */
+@SuppressWarnings("unused")
 @org.springframework.stereotype.Repository
 public interface TeacherRepository extends Repository<Teacher, Integer> {
 

@@ -12,6 +12,7 @@ import top.jionjion.jpa.bean.Teacher;
  * @author JionJion
  */
 @Repository
+@SuppressWarnings("unused")
 public interface TeacherJpaRepository extends JpaRepository<Teacher, Integer> {
 
 }

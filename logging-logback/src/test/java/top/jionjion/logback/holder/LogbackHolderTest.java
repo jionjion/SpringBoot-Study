@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class LogbackHolderTest {
 
     @Test
-    public void test(){
+    void test(){
         Logger logger = LogbackHolder.getLogger("jion");
         logger.error("这是错误消息....");
     }

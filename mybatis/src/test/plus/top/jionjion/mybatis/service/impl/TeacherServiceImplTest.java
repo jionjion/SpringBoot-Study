@@ -20,7 +20,7 @@ class TeacherServiceImplTest {
     ITeacherService teacherService;
 
     @Test
-    public void test() {
+    void test() {
         Teacher teacher = teacherService.getById(1);
         log.info("执行查询, {}", teacher);
     }

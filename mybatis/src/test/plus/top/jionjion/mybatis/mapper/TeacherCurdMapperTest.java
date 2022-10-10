@@ -28,7 +28,7 @@ class TeacherCurdMapperTest {
      * 插入一条记录
      */
     @Test
-    public void insert() {
+    void insert() {
         Teacher teacher = new Teacher();
         teacher.setId(-1);
         teacher.setName("Jetty");
@@ -44,7 +44,7 @@ class TeacherCurdMapperTest {
      * 根据 ID 删除
      */
     @Test
-    public void deleteById() {
+    void deleteById() {
         int delete = teacherCurdMapper.deleteById(-1);
         log.info("执行删除结果, {}", delete);
     }
@@ -54,7 +54,7 @@ class TeacherCurdMapperTest {
      * 仅作为简单的等值查询
      */
     @Test
-    public void deleteByMap() {
+    void deleteByMap() {
         Map<String, Object> columnMap = new HashMap<>();
         columnMap.put("name", "Jion");
         int delete = teacherCurdMapper.deleteByMap(columnMap);
@@ -65,7 +65,7 @@ class TeacherCurdMapperTest {
      * 根据 entity 条件，删除记录
      */
     @Test
-    public void delete() {
+    void delete() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
         int delete = teacherCurdMapper.delete(queryWrapper);
         log.info("执行删除结果, {}", delete);
@@ -75,7 +75,7 @@ class TeacherCurdMapperTest {
      * 删除（根据ID 批量删除）
      */
     @Test
-    public void deleteBatchIds() {
+    void deleteBatchIds() {
         Collection<Integer> idList = Collections.singletonList(3);
         int delete = teacherCurdMapper.deleteBatchIds(idList);
         log.info("执行删除结果, {}", delete);
@@ -85,7 +85,7 @@ class TeacherCurdMapperTest {
      * 根据 ID 修改
      */
     @Test
-    public void updateById() {
+    void updateById() {
         Teacher teacher = teacherCurdMapper.selectById(1);
         teacher.setAge(teacher.getAge() + 1);
         int update = teacherCurdMapper.updateById(teacher);
@@ -96,7 +96,7 @@ class TeacherCurdMapperTest {
      * 根据 whereEntity 条件，更新记录
      */
     @Test
-    public void update() {
+    void update() {
         Teacher teacher = teacherCurdMapper.selectById(1);
         Wrapper<Teacher> updateWrapper = new QueryWrapper<>();
         int update = teacherCurdMapper.update(teacher, updateWrapper);
@@ -107,7 +107,7 @@ class TeacherCurdMapperTest {
      * 根据 ID 查询
      */
     @Test
-    public void selectById() {
+    void selectById() {
         Teacher teacher = teacherCurdMapper.selectById(3);
         log.info("执行查询结果, {}", teacher);
     }
@@ -116,7 +116,7 @@ class TeacherCurdMapperTest {
      * 查询（根据ID 批量查询）
      */
     @Test
-    public void selectBatchIds() {
+    void selectBatchIds() {
         Collection<Integer> idList = Collections.singletonList(1);
         List<Teacher> teachers = teacherCurdMapper.selectBatchIds(idList);
         log.info("执行查询结果, {}", teachers);
@@ -127,7 +127,7 @@ class TeacherCurdMapperTest {
      * 仅作为简单的等值查询
      */
     @Test
-    public void selectByMap() {
+    void selectByMap() {
         Map<String, Object> columnMap = new HashMap<>();
         // 会拼接为 where name = 'Jetty' and age = 20
         columnMap.put("name", "Jetty");
@@ -140,7 +140,7 @@ class TeacherCurdMapperTest {
      * 根据 entity 条件，查询一条记录
      */
     @Test
-    public void selectOne() {
+    void selectOne() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
         Teacher teacher = teacherCurdMapper.selectOne(queryWrapper);
         log.info("执行查询结果, {}", teacher);
@@ -150,7 +150,7 @@ class TeacherCurdMapperTest {
      * 根据 Wrapper 条件，查询总记录数
      */
     @Test
-    public void selectCount() {
+    void selectCount() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
         Long count = teacherCurdMapper.selectCount(queryWrapper);
         log.info("执行查询结果, {}", count);
@@ -160,7 +160,7 @@ class TeacherCurdMapperTest {
      * 根据 entity 条件，查询全部记录
      */
     @Test
-    public void selectList() {
+    void selectList() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
         List<Teacher> teachers = teacherCurdMapper.selectList(queryWrapper);
         log.info("执行查询结果, {}", teachers);
@@ -170,7 +170,7 @@ class TeacherCurdMapperTest {
      * 根据 Wrapper 条件，查询全部记录
      */
     @Test
-    public void selectMaps() {
+    void selectMaps() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
         List<Map<String, Object>> result = teacherCurdMapper.selectMaps(queryWrapper);
         log.info("执行查询结果, {}", result);
@@ -181,7 +181,7 @@ class TeacherCurdMapperTest {
      * 注意： 只返回第一个字段的值
      */
     @Test
-    public void selectObjs() {
+    void selectObjs() {
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
         List<Object> result = teacherCurdMapper.selectObjs(queryWrapper);
         log.info("执行查询结果, {}", result);
@@ -191,7 +191,7 @@ class TeacherCurdMapperTest {
      * 根据 entity 条件，查询全部记录（并翻页）
      */
     @Test
-    public void selectPage() {
+    void selectPage() {
         // 分页, 当前页 ; 每页显示条数，默认 10 ; 总数 ; 是否进行 count 查询
         IPage<Teacher> page = new Page<>(1, 3, 5, true);
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();
@@ -203,7 +203,7 @@ class TeacherCurdMapperTest {
      * 根据 Wrapper 条件，查询全部记录（并翻页）
      */
     @Test
-    public void selectMapsPage() {
+    void selectMapsPage() {
         // 分页, 当前页 ; 每页显示条数，默认 10 ; 总数 ; 是否进行 count 查询
         IPage<Map<String, Object>> page = new Page<>(1, 5, 100, true);
         Wrapper<Teacher> queryWrapper = new QueryWrapper<>();

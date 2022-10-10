@@ -10,6 +10,7 @@ import top.jionjion.util.weather.WeatherService;
  * @author Jion
  */
 @Component
+@SuppressWarnings("unused")
 public class UseWeatherService {
 
     @Autowired

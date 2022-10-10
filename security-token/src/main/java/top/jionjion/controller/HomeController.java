@@ -48,7 +48,7 @@ public class HomeController {
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         //创建jwt信息, 分配权限, 但是没有角色
-        return JwtTokenUtils.createToken(username, "admin_role", true);
+        return JwtTokenUtils.createToken(username, "admin_role");
     }
 
     /**

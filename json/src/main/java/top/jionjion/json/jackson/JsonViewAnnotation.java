@@ -37,6 +37,7 @@ public class JsonViewAnnotation {
 /**
  * 视图类,是否显示隐藏
  */
+@SuppressWarnings("unused")
 interface Views {
     interface Show {
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class TeacherTest {
 
     @Test
-    public void test(){
+    void test(){
         Teacher teacher = new Teacher();
         teacher.setId(1);
         System.out.println(teacher);

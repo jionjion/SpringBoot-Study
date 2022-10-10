@@ -13,7 +13,6 @@ import java.util.Date;
  *
  * @author Jion
  */
-@Deprecated
 public class ParameterScriptAssertValidation {
     final Logger logger = LoggerFactory.getLogger(getClass());
 

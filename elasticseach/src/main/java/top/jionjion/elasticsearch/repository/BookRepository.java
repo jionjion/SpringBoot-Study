@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author Jion
  */
+@SuppressWarnings("unused")
 public interface BookRepository extends ElasticsearchRepository<Food, Long> {
 
     /**
