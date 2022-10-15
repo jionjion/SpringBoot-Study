@@ -18,7 +18,7 @@ public class ExceptionHandle {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public ResultMessage<?> handle(Exception exception) {
+    public ResultMessage<Object> handle(Exception exception) {
         // 如果属于自定义的异常
         if (exception instanceof UserException) {
             // 强制类型转换
