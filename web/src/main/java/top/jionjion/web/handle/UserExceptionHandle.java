@@ -11,13 +11,13 @@ import top.jionjion.web.exception.UserException;
  * 全局异常通知
  */
 @ControllerAdvice
-public class ExceptionHandle {
+public class UserExceptionHandle {
 
     /**
      * 处理异常的类,这里将异常统一捕获,完成分类处理
      */
-    @ExceptionHandler(value = Exception.class)
     @ResponseBody
+    @ExceptionHandler(value = Exception.class)
     public ResultMessage<Object> handle(Exception exception) {
         // 如果属于自定义的异常
         if (exception instanceof UserException) {

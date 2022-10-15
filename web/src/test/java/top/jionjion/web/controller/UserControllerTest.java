@@ -1,7 +1,6 @@
 package top.jionjion.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import top.jionjion.web.bean.User;
+import top.jionjion.web.handle.UserExceptionHandle;
 
 import java.util.Collections;
 import java.util.Date;
@@ -85,13 +85,5 @@ class UserControllerTest {
     void userGetByUsername() throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/user/users/username/{username}", "jion").contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
-    }
-
-    @Test
-    void errorCodeHandler() throws Exception {
-        //noinspection TestFailedLine
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/user/error/{code}", "1").contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().is5xxServerError()).andDo(MockMvcResultHandlers.print());
-        Assertions.fail("发生异常..");
     }
 }
