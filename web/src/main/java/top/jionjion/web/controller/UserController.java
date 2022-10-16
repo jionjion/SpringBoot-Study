@@ -37,7 +37,7 @@ public class UserController {
      * URL: <a href="http://localhost:8080/user/user">...</a>
      */
     @PostMapping(value = "/user")
-    public ResultMessage<User> userSave(User user, BindingResult result) {
+    public ResultMessage<User> userSave(@RequestBody User user, BindingResult result) {
         // @Valid表示进行对象参数验证	BindingResult:为参数的验证结果
 
         if (result.hasErrors()) {

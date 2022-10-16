@@ -1,4 +1,4 @@
-package top.jionjion.web.handle;
+package top.jionjion.web.advice;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,7 +11,7 @@ import top.jionjion.web.exception.UserException;
  * 全局异常通知
  */
 @ControllerAdvice
-public class UserExceptionHandle {
+public class UserExceptionHandler {
 
     /**
      * 处理异常的类,这里将异常统一捕获,完成分类处理

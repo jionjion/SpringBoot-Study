@@ -1,4 +1,4 @@
-package top.jionjion.web.handle;
+package top.jionjion.web.advice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,18 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import top.jionjion.web.controller.UserController;
 
 /**
+ * SpringMVC 统一异常处理单元测试
+ *
  * @author Jion
  */
 @SpringBootTest
-class UserExceptionHandleTest {
+class UserExceptionHandlerTest {
 
     @Autowired
     private UserController userController;
 
     @Autowired
-    private UserExceptionHandle userExceptionHandler;
+    private UserExceptionHandler userExceptionHandler;
 
 
     @Test

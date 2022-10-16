@@ -23,11 +23,11 @@ public class UserService {
         super();
         usersList.add(new User(1, "Jion", "123456", "HeNan",
                 new GregorianCalendar(2019, Calendar.JANUARY, 1).getTime()));
-        usersList.add(new User(2, "Ber", "123456", "ShangHai",
+        usersList.add(new User(2, "Ber", "123457", "ShangHai",
                 new GregorianCalendar(2018, Calendar.FEBRUARY, 2).getTime()));
-        usersList.add(new User(3, "Cher", "123456", "BeiJin",
+        usersList.add(new User(3, "Cher", "123458", "BeiJin",
                 new GregorianCalendar(2019, Calendar.MARCH, 3).getTime()));
-        usersList.add(new User(4, "Eor", "123456", "HeNan",
+        usersList.add(new User(4, "Eor", "123459", "HeNan",
                 new GregorianCalendar(2019, Calendar.APRIL, 4).getTime()));
     }
 

@@ -14,12 +14,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import top.jionjion.web.bean.User;
-import top.jionjion.web.handle.UserExceptionHandle;
 
 import java.util.Collections;
 import java.util.Date;
 
 /**
+ * SpringMVC 单元测试
+ *
  * @author Jion
  */
 @SpringBootTest
