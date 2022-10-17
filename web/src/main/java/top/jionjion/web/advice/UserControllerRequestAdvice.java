@@ -13,6 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
@@ -35,10 +36,10 @@ public class UserControllerRequestAdvice extends RequestBodyAdviceAdapter {
      * @return 返回true 则会执行beforeBodyRead
      */
     @Override
-    public boolean supports(MethodParameter methodParameter, Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
-        logger.info("当前被拦截的方法: " + methodParameter.getMethod());
-        logger.info("输出响应的类型为: " + targetType.getTypeName());
-        logger.info("使用的响应转换器为: " + converterType.getName());
+    public boolean supports(@NonNull MethodParameter methodParameter, @NonNull Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
+        logger.info(() -> "被拦截的方法: " + methodParameter.getMethod());
+        logger.info(() -> "输出响应的Java类型为: " + targetType.getTypeName());
+        logger.info(() -> "使用的响应转换器为: " + converterType.getName());
         return true;
     }
 
@@ -55,31 +56,36 @@ public class UserControllerRequestAdvice extends RequestBodyAdviceAdapter {
     @Override
     @NonNull
     public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, @NonNull MethodParameter parameter, @NonNull Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-        logger.info("当前输入内容长度: " + inputMessage.getBody().available());
+        try (InputStream inputStream = inputMessage.getBody()) {
+            logger.info(() -> "转化前, 当前输入内容: " + inputStream);
+            logger.info(() -> "转化前, 当前参数类型: " + parameter.getParameterType());
+            logger.info(() -> "转化前, 输出响应的Java类型为: " + targetType.getTypeName());
+            logger.info(() -> "转化前, 使用的响应转换器为: " + converterType.getName());
 
-        // 读取加密的请求体
-        byte[] body = inputMessage.getBody().readAllBytes();
+            // 读取请求体
+            byte[] body = inputMessage.getBody().readAllBytes();
 
-        logger.info("读取到内容: " + new String(body));
+            logger.info(() -> "读取到内容: " + new String(body));
 
-        // 构造新的读取流, 替换原有请求流
-        return new HttpInputMessage() {
-            @Override
-            @NonNull
-            public HttpHeaders getHeaders() {
-                return inputMessage.getHeaders();
-            }
+            // 构造新的读取流, 替换原有请求流
+            return new HttpInputMessage() {
+                @Override
+                @NonNull
+                public HttpHeaders getHeaders() {
+                    return inputMessage.getHeaders();
+                }
 
-            @Override
-            @NonNull
-            public InputStream getBody() {
-                return new ByteArrayInputStream(body);
-            }
-        };
+                @Override
+                @NonNull
+                public InputStream getBody() {
+                    return new ByteArrayInputStream(body);
+                }
+            };
+        }
     }
 
     /**
-     * 在Http消息转换器执转换, 之后执行
+     * 在Http消息转换器执转换, 之后执行.一般是转换后的Java类, 用来封装参数
      *
      * @param body          转换后的对象
      * @param inputMessage  客户端的请求数据
@@ -89,10 +95,13 @@ public class UserControllerRequestAdvice extends RequestBodyAdviceAdapter {
      * @return 返回一个新的对象
      */
     @Override
-    public Object afterBodyRead(@NonNull Object body, @NonNull HttpInputMessage inputMessage, @NonNull MethodParameter parameter, @NonNull Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
+    public @NonNull Object afterBodyRead(@NonNull Object body, @NonNull HttpInputMessage inputMessage, @NonNull MethodParameter parameter, @NonNull Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
 
-        logger.info("afterBodyRead " + body);
-
+        logger.info(() -> "转化后, 生成的封装类: " + body.getClass().getName());
+        logger.info(() -> "转化后, 消息HttpInputMessage封装类: " + inputMessage.hashCode());
+        logger.info(() -> "转化后, 当前参数类型: " + parameter.getParameterType());
+        logger.info(() -> "转化后, 输出响应的Java类型为: " + targetType.getTypeName());
+        logger.info(() -> "转化后, 使用的响应转换器为: " + converterType.getName());
 
         return super.afterBodyRead(body, inputMessage, parameter, targetType, converterType);
     }
@@ -111,7 +120,14 @@ public class UserControllerRequestAdvice extends RequestBodyAdviceAdapter {
     @Override
     @Nullable
     public Object handleEmptyBody(@Nullable Object body, @NonNull HttpInputMessage inputMessage, @NonNull MethodParameter parameter, @NonNull Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
-        logger.info("handleEmptyBody " + body);
+        logger.info(() -> "转化后且为空, " + Objects.isNull(body));
+        logger.info(() -> "转化后且为空, 内容" + body);
+        logger.info(() -> "转化后且为空, 消息HttpInputMessage封装类: " + inputMessage.hashCode());
+        logger.info(() -> "转化后且为空, 当前参数类型: " + parameter.getParameterType());
+        logger.info(() -> "转化后且为空, 输出响应的Java类型为: " + targetType.getTypeName());
+        logger.info(() -> "转化后且为空, 使用的响应转换器为: " + converterType.getName());
+
+        logger.info(() -> "handleEmptyBody " + body);
         return super.handleEmptyBody(body, inputMessage, parameter, targetType, converterType);
     }
 }
