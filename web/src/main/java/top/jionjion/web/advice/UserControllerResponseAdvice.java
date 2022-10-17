@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * @author Jion
  */
-@ControllerAdvice()
+@ControllerAdvice
 public class UserControllerResponseAdvice implements ResponseBodyAdvice<Object> {
 
     final Logger logger = Logger.getLogger(UserControllerResponseAdvice.class.getName());

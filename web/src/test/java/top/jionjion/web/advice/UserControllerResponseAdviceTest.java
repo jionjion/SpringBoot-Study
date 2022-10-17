@@ -42,5 +42,4 @@ class UserControllerResponseAdviceTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/user/users/1").accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-
 }
