@@ -13,11 +13,13 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Jion
  * 测试 Hash
  * HashOperations 对Hash的操作
+ *
+ * @author Jion
  */
 @Slf4j
+@SuppressWarnings("SpellCheckingInspection")
 class HashOperationsTest extends DataRedisApplicationTest {
 
     @Autowired

@@ -49,13 +49,13 @@ public class Teacher {
     private Integer version;
 
     /**
-     * 是否逻辑删除
+     * 是否逻辑删除, 1 删除; 0 未删除
      */
     @TableLogic
     private Integer deleted;
 
     /**
-     * 最后修改日期,默认转托驼峰命名
+     * 创建日期,默认转托驼峰命名
      */
     @TableField(fill = FieldFill.INSERT)
     private Date createDate;

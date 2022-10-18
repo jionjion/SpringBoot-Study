@@ -97,7 +97,7 @@ class QueryWrapperTest {
      * (age BETWEEN ? AND ? AND age NOT BETWEEN ? AND ?)
      */
     @Test
-    void betweent() {
+    void between() {
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         wrapper.between("age", 10, 20)
                 .notBetween("age", 30, 40);

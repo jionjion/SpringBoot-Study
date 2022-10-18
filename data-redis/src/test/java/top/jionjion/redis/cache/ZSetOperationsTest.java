@@ -21,7 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
  *  SetOperations 对 ZSet 的操作
  */
 @Slf4j
-public class ZSetOperationsTest extends DataRedisApplicationTest {
+@SuppressWarnings("SpellCheckingInspection")
+class ZSetOperationsTest extends DataRedisApplicationTest {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -32,7 +33,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      * 初始化数据
      */
     @BeforeEach
-    public void initData() {
+    void initData() {
         if (Objects.isNull(zSetOperations)) {
             zSetOperations = redisTemplate.opsForZSet();
         }
@@ -56,7 +57,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      * 测试SetOperations是否存在
      */
     @Test
-    public void testAutowired() {
+    void testAutowired() {
         assertNotNull(zSetOperations);
     }
 
@@ -66,7 +67,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  如果成员已经存在,则添加失败
      */
     @Test
-    public void testAdd(){
+    void testAdd(){
         // 添加一个
         Boolean result1 = zSetOperations.add("ZSetA","D",4D);
         assertEquals(true, result1);
@@ -88,7 +89,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回成员member在有序集合key中的顺序.如果key不是有序集合,或者key不存在,返回nil
      */
     @Test
-    public void testScore(){
+    void testScore(){
         Double result = zSetOperations.score("ZSetA","A");
         assertNotNull(result);
         log.info(result.toString());
@@ -100,7 +101,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回,修改后的成员所在集合的位置
      */
     @Test
-    public void testIncrementScore(){
+    void testIncrementScore(){
         Double result = zSetOperations.incrementScore("ZSetA","A",1D);
         assertNotNull(result);
         log.info(result.toString());
@@ -111,7 +112,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回有序集合key的长度.
      */
     @Test
-    public void testZCard(){
+    void testZCard(){
         Long result = zSetOperations.zCard("ZSetA");
         assertNotNull(result);
         log.info(result.toString());
@@ -122,7 +123,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  获得有序集合key中,排序值在min和max闭区间内的成员数量.min和max必须为数字,大小不限制.
      */
     @Test
-    public void testCount(){
+    void testCount(){
         Long result = zSetOperations.count("ZSetA",0D,10D);
         assertNotNull(result);
         log.info(result.toString());
@@ -134,7 +135,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回值,按照排序值,从小到大排列.相同排序值成员根据字典顺序排序.
      */
     @Test
-    public void testRange(){
+    void testRange(){
         // 全部
         Set<String> result = zSetOperations.range("ZSetA",0,-1);
         assertNotNull(result);
@@ -142,7 +143,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     @Test
-    public void testRangesWithScore(){
+    void testRangesWithScore(){
         // 将结果和排序一并返回
         Set<ZSetOperations.TypedTuple<String>> result = zSetOperations.rangeWithScores("ZSetA",0,-1);
         assertNotNull(result);
@@ -157,7 +158,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回值,按照排序值,从大到小排列.相同排序值成员根据字典顺序排序.
      */
     @Test
-    public void testReverseRange(){
+    void testReverseRange(){
         // 全部
         Set<String> result = zSetOperations.reverseRange("ZSetA",0,-1);
         assertNotNull(result);
@@ -165,7 +166,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     @Test
-    public void testReverseRangeWithScores(){
+    void testReverseRangeWithScores(){
         // 将结果和排序一并返回
         Set<ZSetOperations.TypedTuple<String>> result = zSetOperations.reverseRangeWithScores("ZSetA",0,-1);
         assertNotNull(result);
@@ -179,7 +180,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回结果根据排序值从小到大排列,相同的成员根据字典顺序排列.
      */
     @Test
-    public void testRangeByScore(){
+    void testRangeByScore(){
         // 排序值在[0,2]之间的
         Set<String> result1 = zSetOperations.rangeByScore("ZSetA",0,2);
         assertNotNull(result1);
@@ -192,7 +193,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     @Test
-    public void testRangeByScoreWithScores(){
+    void testRangeByScoreWithScores(){
         // 排序值在[0,2]之间的
         Set<ZSetOperations.TypedTuple<String>> result1 = zSetOperations.rangeByScoreWithScores("ZSetA",0,2);
         assertNotNull(result1);
@@ -211,7 +212,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回结果根据排序值从大到大小排列,相同的成员根据字典顺序排列.
      */
     @Test
-    public void testReverseRangeByScore(){
+    void testReverseRangeByScore(){
         // 排序值在[0,2]之间的
         Set<String> result1 = zSetOperations.reverseRangeByScore("ZSetA",0,2);
         assertNotNull(result1);
@@ -224,7 +225,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
     }
 
     @Test
-    public void testReverseRangeByScoreWithScores(){
+    void testReverseRangeByScoreWithScores(){
         // 排序值在[0,2]之间的
         Set<ZSetOperations.TypedTuple<String>> result1 = zSetOperations.reverseRangeByScoreWithScores("ZSetA",0,2);
         assertNotNull(result1);
@@ -241,7 +242,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  获得有序集合key的成员member的排名位置.排序规则为排序值从小到大排列.排名从0开始.如果成员member不存在,则返回nil
      */
     @Test
-    public void testRank(){
+    void testRank(){
         Long result = zSetOperations.rank("ZSetA","A");
         assertNotNull(result);
         log.info(result.toString());
@@ -252,7 +253,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  获得有序集合key的成员member的排名位置.排序规则为排序值从大到小排列.排名从0开始.如果成员member不存在,则返回nil
      */
     @Test
-    public void testReverseRank(){
+    void testReverseRank(){
         Long result = zSetOperations.reverseRank("ZSetA","A");
         assertNotNull(result);
         log.info(result.toString());
@@ -264,7 +265,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回被移除的成员个数
      */
     @Test
-    public void testRemove(){
+    void testRemove(){
         Long result = zSetOperations.remove("ZSetA","A","B");
         assertNotNull(result);
         log.info(result.toString());
@@ -276,7 +277,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回被移除成员的数量
      */
     @Test
-    public void testRemoveRange(){
+    void testRemoveRange(){
         // 删除全部
         Long result = zSetOperations.removeRange("ZSetA",0,-1);
         assertNotNull(result);
@@ -288,7 +289,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  移除有序集合key中排序值score在min和max闭区间内的所有成员.
      */
     @Test
-    public void testRemoveRangeByScore(){
+    void testRemoveRangeByScore(){
         Long result = zSetOperations.removeRangeByScore("ZSetA",0D,10D);
         assertNotNull(result);
         log.info(result.toString());
@@ -300,7 +301,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  必须使用区间限定符,(和)表示开区间;[和]表示闭区间;+和-表示极大值和极小值
      */
     @Test
-    public void testRangeByLex(){
+    void testRangeByLex(){
         // 实例化对象,并获得限制范围, 比A大的
         Range range = new Range().gt("A");
         Set<String> result1 = zSetOperations.rangeByLex("ZSetA", range);
@@ -321,7 +322,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令返回在min字母和max字母之间的成员总数.
      */
     @Test
-    public void testZlexcount(){
+    void testZlexcount(){
         fail("未提供");
     }
 
@@ -330,12 +331,12 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  当有序集合key具有相同的排序值score时,根据字母的先后顺序进行排列,命令移除在min字母和max字母之间的成员,并返回被移除的成员数量
      */
     @Test
-    public void testZremrangebylex(){
+    void testZremrangebylex(){
         fail("未提供");
     }
 
     @Test
-    public void testScan(){
+    void testScan(){
         fail("未验证");
     }
 
@@ -345,7 +346,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回新集合的长度
      */
     @Test
-    public void testUnionAndStore(){
+    void testUnionAndStore(){
         Long result = zSetOperations.unionAndStore("ZSetA","ZSetB","ZsetC");
         assertNotNull(result);
         log.info(result.toString());
@@ -357,7 +358,7 @@ public class ZSetOperationsTest extends DataRedisApplicationTest {
      *  返回新集合的长度
      */
     @Test
-    public void testIntersectAndStore(){
+    void testIntersectAndStore(){
         Long result = zSetOperations.intersectAndStore("ZSetA","ZSetB","ZsetC");
         assertNotNull(result);
         log.info(result.toString());

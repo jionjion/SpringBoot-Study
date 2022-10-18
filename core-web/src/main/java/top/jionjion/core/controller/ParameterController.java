@@ -95,7 +95,7 @@ public class ParameterController {
      * 使用@ModelAttribute标注在方法上,会在每个controller方法前均执行.
      * 执行对指定属性或者
      *
-     * @param 封装Form表单,并将 student 对象存入上下文中
+     * @param model 封装Form表单,并将 student 对象存入上下文中
      */
     @ModelAttribute("student")
     public void addParameterF1(HttpServletRequest request, Model model) {

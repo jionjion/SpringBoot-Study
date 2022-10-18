@@ -20,8 +20,12 @@ public class PhotoService extends AbstractPhotoService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PhotoService.class);
 
+    final PhotoRepository photoRepository;
+
     @Autowired
-    PhotoRepository photoRepository;
+    public PhotoService(PhotoRepository photoRepository) {
+        this.photoRepository = photoRepository;
+    }
 
 
     /**

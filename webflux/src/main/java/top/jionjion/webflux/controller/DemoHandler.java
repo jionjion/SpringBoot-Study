@@ -26,8 +26,12 @@ public class DemoHandler {
 
     private final Logger logger = Logger.getLogger(DemoHandler.class.getName());
 
+    final DomeService domeService;
+
     @Autowired
-    DomeService domeService;
+    public DemoHandler(DomeService domeService) {
+        this.domeService = domeService;
+    }
 
     /**
      * 处理并响应

@@ -18,17 +18,17 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Jion
- *  测试 BoundKeyOperations 接口
- *      实现类
- *          BoundGeoOperations          空间地理
- *          BoundHashOperations         Hash 绑定操作
- *          BoundKeyOperations          Key 绑定操作
- *          BoundListOperations         List 绑定操作
- *          BoundSetOperations          Set 绑定操作
- *          BoundValueOperations        Value 绑定操作
- *          BoundZSetOperations         Zset 绑定操作
+ * 测试 BoundKeyOperations 接口
+ * 实现类
+ * BoundGeoOperations          空间地理
+ * BoundHashOperations         Hash 绑定操作
+ * BoundKeyOperations          Key 绑定操作
+ * BoundListOperations         List 绑定操作
+ * BoundSetOperations          Set 绑定操作
+ * BoundValueOperations        Value 绑定操作
+ * BoundZSetOperations         Zset 绑定操作
  *
+ * @author Jion
  */
 @Slf4j
 class BoundKeyOperationsTest extends DataRedisApplicationTest {
@@ -39,8 +39,8 @@ class BoundKeyOperationsTest extends DataRedisApplicationTest {
     private BoundKeyOperations<String> boundKeyOperations;
 
     @BeforeEach
-    public void initOperations(){
-        if (Objects.isNull(boundKeyOperations)){
+    public void initOperations() {
+        if (Objects.isNull(boundKeyOperations)) {
             // 创建Key,不存在则创建
             boundKeyOperations = redisTemplate.boundSetOps("KeyA");
         }
@@ -48,20 +48,20 @@ class BoundKeyOperationsTest extends DataRedisApplicationTest {
 
 
     /**
-     *  获得 Key
+     * 获得 Key
      */
     @Test
-    void testGetKey(){
+    void testGetKey() {
         String result = boundKeyOperations.getKey();
         log.info(result);
         assertNotNull(result);
     }
 
     /**
-     *  获得对应的数据类型
+     * 获得对应的数据类型
      */
     @Test
-    void testGetType(){
+    void testGetType() {
         DataType dataType = boundKeyOperations.getType();
         assertEquals(DataType.SET, dataType);
 
@@ -75,49 +75,49 @@ class BoundKeyOperationsTest extends DataRedisApplicationTest {
     }
 
     /**
-     *  获得过期时间,单位 S 秒
-     *  如果为 -1,表示永久不过期
+     * 获得过期时间,单位 S 秒
+     * 如果为 -1,表示永久不过期
      */
     @Test
-    void testGetExpire(){
+    void testGetExpire() {
         Long result = boundKeyOperations.getExpire();
         assertNotNull(result);
         log.info(result.toString());
     }
 
     /**
-     *  设置过期时间,指定时间和单位
+     * 设置过期时间,指定时间和单位
      */
     @Test
-    void testExpire(){
+    void testExpire() {
         Boolean result = boundKeyOperations.expire(1000, TimeUnit.HOURS);
         assertEquals(true, result);
     }
 
     /**
-     *  设定在什么时候过期
+     * 设定在什么时候过期
      */
     @Test
-    void testExpireAt(){
+    void testExpireAt() {
         Date date = new GregorianCalendar(2020, Calendar.JULY, 11).getTime();
         Boolean result = boundKeyOperations.expireAt(date);
         assertEquals(true, result);
     }
 
     /**
-     *  清除过期时间,永久保存
+     * 清除过期时间,永久保存
      */
     @Test
-    void testPersist(){
+    void testPersist() {
         Boolean result = boundKeyOperations.persist();
         assertEquals(true, result);
     }
 
     /**
-     *  重命名Key,如果之前存在则覆盖
+     * 重命名Key,如果之前存在则覆盖
      */
     @Test
-    void testRename(){
-         boundKeyOperations.rename("KeyB");
+    void testRename() {
+        boundKeyOperations.rename("KeyB");
     }
 }

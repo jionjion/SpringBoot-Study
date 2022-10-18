@@ -12,6 +12,7 @@ import top.jionjion.jpa.bean.Teacher;
  * @author 14345
  */
 @Repository
+@SuppressWarnings("unused")
 public interface TeacherCrudRepository extends CrudRepository<Teacher,Integer>{
 
 	

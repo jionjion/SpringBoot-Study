@@ -18,8 +18,12 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(name = "weather.enable", havingValue = "true")
 public class WeatherAutoConfiguration {
 
+    private final WeatherProperty weatherProperty;
+
     @Autowired
-    private WeatherProperty weatherProperty;
+    public WeatherAutoConfiguration(WeatherProperty weatherProperty) {
+        this.weatherProperty = weatherProperty;
+    }
 
     /**
      * 没有自定义服务时, 自动创建

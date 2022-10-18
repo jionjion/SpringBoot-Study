@@ -10,11 +10,12 @@ import top.jionjion.redis.DataRedisApplicationTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * RedisTemplate的测试
+ *
  * @author Jion
- *  RedisTemplate的测试
  */
 @Slf4j
-public class RedisTemplateTest extends DataRedisApplicationTest {
+class RedisTemplateTest extends DataRedisApplicationTest {
 
 /*
 接口	                    描述,操作对象
@@ -37,23 +38,29 @@ BoundZSetOperations         Zset 绑定操作
 
  */
 
-    /** Redis操作模板,框架提供 */
+    /**
+     * Redis操作模板,框架提供
+     */
     @Autowired
     RedisTemplate<String, String> redisTemplate;
 
-    /** 字符串操作模板,框架提供 */
+    /**
+     * 字符串操作模板,框架提供
+     */
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
-    /** 测试注入 */
+    /**
+     * 测试注入
+     */
     @Test
-    public void testAutowiredBean(){
+    void testAutowiredBean() {
         assertNotNull(redisTemplate);
         assertNotNull(stringRedisTemplate);
     }
 
     @Test
-    public void testRedisTemplateOpsX(){
+    void testRedisTemplateOpsX() {
         //空间地理
         GeoOperations<String, String> geoOperations = redisTemplate.opsForGeo();
         assertNotNull(geoOperations);
@@ -113,9 +120,11 @@ BoundZSetOperations         Zset 绑定操作
         assertNotNull(boundZSetOperations);
     }
 
-    /** 开启事物 */
+    /**
+     * 开启事物
+     */
     @Test
-    public void testTransactional(){
+    void testTransactional() {
         redisTemplate.setEnableTransactionSupport(true);
         // 开始事物
         redisTemplate.multi();
@@ -126,9 +135,11 @@ BoundZSetOperations         Zset 绑定操作
     }
 
 
-    /** 使用回调进行事物 */
+    /**
+     * 使用回调进行事物
+     */
     @Test
-    public void testTransactionalWithCallBack() {
+    void testTransactionalWithCallBack() {
         SessionCallback<Object> callback = new SessionCallback<>() {
             @Override
             public Object execute(RedisOperations operations) throws DataAccessException {

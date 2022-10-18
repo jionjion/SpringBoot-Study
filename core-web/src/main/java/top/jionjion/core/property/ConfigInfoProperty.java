@@ -15,6 +15,7 @@ import java.util.Map;
  */
 @Data
 @Component
+@SuppressWarnings("unused")
 @PropertySource(value = "classpath:properties/config.properties", encoding = "UTF-8")
 public class ConfigInfoProperty {
 

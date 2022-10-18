@@ -13,8 +13,12 @@ import top.jionjion.util.weather.WeatherService;
 @SuppressWarnings("unused")
 public class UseWeatherService {
 
+    final WeatherService weatherService;
+
     @Autowired
-    WeatherService weatherService;
+    public UseWeatherService(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
 
     /**
      * 获得天气状态
