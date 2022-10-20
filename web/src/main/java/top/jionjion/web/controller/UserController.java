@@ -3,6 +3,7 @@ package top.jionjion.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import top.jionjion.web.advice.UserControllerRequestAdvice;
 import top.jionjion.web.bean.User;
 import top.jionjion.web.dto.ResultMessage;
 import top.jionjion.web.exception.UserException;
@@ -10,6 +11,7 @@ import top.jionjion.web.service.UserService;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  * @author Jion
@@ -18,6 +20,8 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    final Logger logger = Logger.getLogger(UserControllerRequestAdvice.class.getName());
 
     private final UserService userService;
 
@@ -33,7 +37,9 @@ public class UserController {
      */
     @GetMapping(value = "/users")
     public List<User> userList() {
-        return userService.findAll();
+        List<User> users = userService.findAll();
+        logger.info(() -> "userList: " + users.toString());
+        return users;
     }
 
     /**
@@ -64,8 +70,9 @@ public class UserController {
      */
     @GetMapping(value = "/users/{id}")
     public User userGet(@PathVariable("id") Integer id) {
-
-        return userService.findOne(id);
+        User user = userService.findOne(id);
+        logger.info(() -> "userGet: " + user.toString());
+        return user;
     }
 
     /**
@@ -102,7 +109,9 @@ public class UserController {
      */
     @GetMapping(value = "/users/username/{username}")
     public List<User> userGetByUsername(@PathVariable("username") String username) {
-        return userService.findByUsername(username);
+        List<User> users = userService.findByUsername(username);
+        logger.info(() -> "userGetByUsername: " + users.toString());
+        return users;
     }
 
     /**
