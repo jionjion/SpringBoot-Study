@@ -3,7 +3,6 @@ package top.jionjion.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import top.jionjion.web.advice.UserControllerRequestAdvice;
 import top.jionjion.web.bean.User;
 import top.jionjion.web.dto.ResultMessage;
 import top.jionjion.web.exception.UserException;
@@ -21,7 +20,7 @@ import java.util.logging.Logger;
 @RequestMapping("/user")
 public class UserController {
 
-    final Logger logger = Logger.getLogger(UserControllerRequestAdvice.class.getName());
+    final Logger logger = Logger.getLogger(UserController.class.getName());
 
     private final UserService userService;
 
