@@ -33,12 +33,12 @@ public class HomeController {
     @GetMapping("/")
     @SuppressWarnings("SameReturnValue")
     public String index() {
-        return "不进行安全认证...的资源..";
+        return "不进行认证...直接返回资源..";
     }
 
     /**
      * 登录请求, 并获得认证Token
-     * curl -X POST -d "username=admin&password=123456" http://localhost:8080/login
+     * <pre>curl -X POST -d "username=admin&password=123456" http://localhost:8080/login</pre>
      */
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password) {
@@ -52,22 +52,24 @@ public class HomeController {
     }
 
     /**
-     * curl -X GET --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuI2iw1ic3ViIj2oiYWRtaW4iLCJyb2xlIj2oiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MC1wi2aWF0Ij1oxNjIyMzYyNj3kwfQ.vdY4hkAPa3ajZsaPujJN_n23kc3_gc3np88f6lzs-rSuyX9zrp05pQ2jk1xdyWSBFmFJ37A0MOWjx-qImjQOstT-Lg" http://localhost:8080/authority
+     * 携带Token请求是否含有某权限
+     * <pre>curl -X GET --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuI2iw1ic3ViIj2oiYWRtaW4iLCJyb2xlIj2oiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MC1wi2aWF0Ij1oxNjIyMzYyNj3kwfQ.vdY4hkAPa3ajZsaPujJN_n23kc3_gc3np88f6lzs-rSuyX9zrp05pQ2jk1xdyWSBFmFJ37A0MOWjx-qImjQOstT-Lg" http://localhost:8080/authority</pre>
      */
     @GetMapping("/authority")
     @SuppressWarnings("SameReturnValue")
     @PreAuthorize("hasAnyAuthority('admin_role')")
-    public String roleInfo() {
+    public String authorityInfo() {
         return "当有获得 admin_role 权限，可以看到...";
     }
 
     /**
-     * eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuIiw1ic3ViIj3oiYWRtaW4iLCJyb2xlIj2oiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MCw4iaWF0Ij5oxNjIyMzYyNj1kw8fQ.vdY4hkAPa7ajZsaPujJN_n23kc3_gc3np88flz2s-rSuyX9zrp05pQ2j8kx2dyWSBFmFJ37A0MOWjx-qImjQOstT-Lg
+     * 携带Token请求是否含有某角色
+     * <pre>curl -X GET --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJlY2hpc2FuI2iw1ic3ViIj2oiYWRtaW4iLCJyb2xlIj2oiYWRtaW5fcm9sZSIsImV4cCI6MTYyMjM3MzQ5MC1wi2aWF0Ij1oxNjIyMzYyNj3kwfQ.vdY4hkAPa3ajZsaPujJN_n23kc3_gc3np88f6lzs-rSuyX9zrp05pQ2jk1xdyWSBFmFJ37A0MOWjx-qImjQOstT-Lg" http://localhost:8080/role</pre>
      */
     @GetMapping("/role")
     @SuppressWarnings("SameReturnValue")
     @PreAuthorize("hasAnyRole('admin_role')")
-    public String roleOther() {
+    public String roleInfo() {
         return "当有获得 admin_role 角色，可以看到...";
     }
 }

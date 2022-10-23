@@ -12,6 +12,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import java.util.logging.Logger;
 
 /**
+ * 自定义响应内容通知, 在反射调用Controller的方法并获得返回值和确定具体的响应格式及内容这的过程前执行
+ * 即, 在User类序列化为json响应这个过程前执行
+ *
  * @author Jion
  */
 @ControllerAdvice

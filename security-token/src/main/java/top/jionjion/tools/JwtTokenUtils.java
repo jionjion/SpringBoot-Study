@@ -1,10 +1,13 @@
 package top.jionjion.tools;
 
 import io.jsonwebtoken.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * 工具类,通过 jsonwebtoken 类库 生成对应的 Token 字符
@@ -12,6 +15,16 @@ import java.util.Map;
  * @author Jion
  */
 public class JwtTokenUtils {
+
+    static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtils.class);
+
+    /**
+     * 工具类, 私有构造
+     */
+    private JwtTokenUtils() {
+
+    }
+
     /**
      * 放入请求头的token的key
      */
@@ -37,6 +50,9 @@ public class JwtTokenUtils {
      */
     private static final Long EXPIRATION = 60 * 60 * 3L;
 
+    /**
+     * 角色
+     */
     private static final String ROLE = "role";
 
     /**
@@ -61,47 +77,40 @@ public class JwtTokenUtils {
     }
 
     /**
-     * 从token中获取用户名(此处的token是指去掉前缀之后的)
-     */
-    public static String getUserName(String token) {
-        String username;
-        try {
-            username = getTokenBody(token).getSubject();
-        } catch (Exception e) {
-            username = null;
-        }
-        return username;
-    }
-
-    public static String getUserRole(String token) {
-        return (String) getTokenBody(token).get(ROLE);
-    }
-
-    /**
      * 通过 Token String 反序列化生成 Claims 对象
      *
      * @param token 字符串
      * @return 反序列化结果
      */
-    private static Claims getTokenBody(String token) {
-        Claims claims = null;
+    private static Optional<Claims> getTokenBody(String token) {
+
         try {
-            claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
+            Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
+            return Optional.of(claims);
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException | IllegalArgumentException e) {
             e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
-        return claims;
+        return Optional.empty();
+    }
+
+    /**
+     * 从token中获取用户名(此处的token是指去掉前缀之后的)
+     */
+    public static String getUserName(String token) {
+        return getTokenBody(token).map(Claims::getSubject).orElse(null);
+    }
+
+    public static String getUserRole(String token) {
+        Optional<Claims> optionalClaims = getTokenBody(token);
+        return optionalClaims.map(claims -> (String) claims.get(ROLE)).orElse(null);
     }
 
     /**
      * 是否已过期
      */
     public static boolean isExpiration(String token) {
-        try {
-            return getTokenBody(token).getExpiration().before(new Date());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return true;
+        Optional<Claims> tokenBody = getTokenBody(token);
+        return tokenBody.map(claims -> claims.getExpiration().before(new Date())).orElse(true);
     }
 }
