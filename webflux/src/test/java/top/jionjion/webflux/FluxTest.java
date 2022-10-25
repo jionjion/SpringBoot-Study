@@ -33,9 +33,5 @@ class FluxTest {
         // 订阅, 处理, 异常回调, 完成处理
         listFlux.subscribe(System.out::println, System.err::println,
                 () -> System.out.println("完成处理..."));
-        // 订阅, 处理, 异常回调, 完成处理, 背压
-        listFlux.subscribe(System.out::println, System.err::println,
-                () -> System.out.println("完成处理..."),
-                subscription -> subscription.request(3));
     }
 }

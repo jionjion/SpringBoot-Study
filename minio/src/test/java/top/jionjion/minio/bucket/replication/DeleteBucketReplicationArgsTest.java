@@ -21,7 +21,7 @@ class DeleteBucketReplicationArgsTest {
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()

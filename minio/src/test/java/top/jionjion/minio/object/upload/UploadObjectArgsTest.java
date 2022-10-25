@@ -15,12 +15,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class UploadObjectArgsTest {
+class UploadObjectArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -29,7 +29,7 @@ public class UploadObjectArgsTest {
     }
 
     @Test
-    public void uploadObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void uploadObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 上传文件
         minioClient.uploadObject(
                 UploadObjectArgs.builder()
@@ -40,7 +40,7 @@ public class UploadObjectArgsTest {
     }
 
     @Test
-    public void uploadObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void uploadObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 上传文件,指定文件类型
         minioClient.uploadObject(
                 UploadObjectArgs.builder()

@@ -20,7 +20,7 @@ class DeleteBucketNotificationArgsTest {
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")

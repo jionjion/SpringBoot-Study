@@ -18,12 +18,12 @@ import java.util.List;
  *
  * @author Jion
  */
-public class ListBucketsArgsTest {
+class ListBucketsArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -32,7 +32,7 @@ public class ListBucketsArgsTest {
     }
 
     @Test
-    public void listBuckets1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void listBuckets1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         List<Bucket> bucketList = minioClient.listBuckets();
         for (Bucket bucket : bucketList) {
             System.out.println(bucket.creationDate() + ", " + bucket.name());
@@ -40,7 +40,7 @@ public class ListBucketsArgsTest {
     }
 
     @Test
-    public void listBuckets2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void listBuckets2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         List<Bucket> bucketList =
                 minioClient.listBuckets(ListBucketsArgs.builder().extraHeaders(Collections.emptyMap()).build());
         for (Bucket bucket : bucketList) {

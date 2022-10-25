@@ -20,12 +20,12 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class SelectObjectContentArgsTest {
+class SelectObjectContentArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -34,7 +34,7 @@ public class SelectObjectContentArgsTest {
     }
 
     @Test
-    public void selectObjectContent() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void selectObjectContent() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         String sqlExpression = "select * from S3Object";
         InputSerialization is = new InputSerialization(null, false, null, null, FileHeaderInfo.USE, null, null, null);
         OutputSerialization os = new OutputSerialization(null, null, null, QuoteFields.ASNEEDED, null);

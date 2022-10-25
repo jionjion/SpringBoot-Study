@@ -16,12 +16,12 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class BucketExistsArgsTest {
+class BucketExistsArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -31,7 +31,7 @@ public class BucketExistsArgsTest {
     }
 
     @Test
-    public void bucketExists() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void bucketExists() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         boolean found =
                 minioClient.bucketExists(io.minio.BucketExistsArgs.builder().bucket("cache").build());
         if (found) {

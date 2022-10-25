@@ -17,12 +17,12 @@ import java.util.Map;
  *
  * @author Jion
  */
-public class SetObjectTagsArgsTest {
+class SetObjectTagsArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -31,7 +31,7 @@ public class SetObjectTagsArgsTest {
     }
 
     @Test
-    public void setObjectRetention() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setObjectRetention() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         Map<String, String> map = new HashMap<>();
         map.put("Project", "Project One");
         map.put("User", "Jion");

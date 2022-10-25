@@ -17,12 +17,12 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class IsObjectLegalHoldEnabledArgsTest {
+class IsObjectLegalHoldEnabledArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -31,7 +31,7 @@ public class IsObjectLegalHoldEnabledArgsTest {
     }
 
     @Test
-    public void getPresignedObjectUrl1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void getPresignedObjectUrl1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         boolean enabled =
                 minioClient.isObjectLegalHoldEnabled(
                         IsObjectLegalHoldEnabledArgs.builder()

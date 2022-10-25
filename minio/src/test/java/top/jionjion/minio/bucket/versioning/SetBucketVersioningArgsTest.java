@@ -14,12 +14,12 @@ import java.security.NoSuchAlgorithmException;
  * SetBucketVersioningArgs 设置存储桶的版本控制策略
  * @author Jion
  */
-public class SetBucketVersioningArgsTest {
+class SetBucketVersioningArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -29,7 +29,7 @@ public class SetBucketVersioningArgsTest {
     }
 
     @Test
-    public void setBucketVersioning() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setBucketVersioning() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient.setBucketVersioning(
                 SetBucketVersioningArgs.builder().bucket("cache").config(null).build());
     }

@@ -20,12 +20,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class ListenBucketNotificationArgsTest {
+class ListenBucketNotificationArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -35,7 +35,7 @@ public class ListenBucketNotificationArgsTest {
 
     // 持续监听事件
     @Test
-    public void listenBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void listenBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         String[] events = {"s3:ObjectCreated:*", "s3:ObjectAccessed:*"};
         try (CloseableIterator<Result<NotificationRecords>> ci =
                      minioClient.listenBucketNotification(

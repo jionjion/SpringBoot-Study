@@ -20,12 +20,12 @@ import java.util.Map;
  *
  * @author Jion
  */
-public class SetBucketReplicationArgsTest {
+class SetBucketReplicationArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -35,7 +35,7 @@ public class SetBucketReplicationArgsTest {
     }
 
     @Test
-    public void setBucketReplication() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setBucketReplication() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         Map<String, String> tags = new HashMap<>();
         tags.put("key1", "value1");
         tags.put("key2", "value2");

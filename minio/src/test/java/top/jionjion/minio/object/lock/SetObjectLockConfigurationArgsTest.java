@@ -18,12 +18,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class SetObjectLockConfigurationArgsTest {
+class SetObjectLockConfigurationArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -33,7 +33,7 @@ public class SetObjectLockConfigurationArgsTest {
     }
 
     @Test
-    public void setObjectLockConfiguration() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setObjectLockConfiguration() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         ObjectLockConfiguration config =
                 new ObjectLockConfiguration(RetentionMode.COMPLIANCE, new RetentionDurationDays(100));
         minioClient.setObjectLockConfiguration(

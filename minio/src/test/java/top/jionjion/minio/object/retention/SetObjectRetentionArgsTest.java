@@ -18,12 +18,12 @@ import java.time.ZonedDateTime;
  *
  * @author Jion
  */
-public class SetObjectRetentionArgsTest {
+class SetObjectRetentionArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -32,7 +32,7 @@ public class SetObjectRetentionArgsTest {
     }
 
     @Test
-    public void setObjectRetention() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setObjectRetention() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         Retention retention = new Retention(RetentionMode.COMPLIANCE, ZonedDateTime.now().plusYears(1));
         minioClient.setObjectRetention(
                 SetObjectRetentionArgs.builder()

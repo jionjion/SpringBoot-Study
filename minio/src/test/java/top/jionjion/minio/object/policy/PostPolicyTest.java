@@ -21,7 +21,7 @@ import java.util.Map;
  * @author Jion
  */
 @Slf4j
-public class PostPolicyTest {
+class PostPolicyTest {
 
     private MinioClient minioClient;
 
@@ -64,7 +64,7 @@ public class PostPolicyTest {
         //  上传文件, 最后添加
         multipartBuilder.addFormDataPart(
                 "file", "my-object",
-                RequestBody.create(MediaType.parse("image/png"), new File("C:\\Users\\JionJion\\Desktop\\jion.png")));
+                RequestBody.create(new File("C:\\Users\\JionJion\\Desktop\\jion.png"), MediaType.parse("image/png")));
 
         // 请求体
         Request request =

@@ -23,12 +23,12 @@ import java.util.List;
  * @author Jion
  */
 @Slf4j
-public class RemoveObjectsArgsTest {
+class RemoveObjectsArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -37,7 +37,7 @@ public class RemoveObjectsArgsTest {
     }
 
     @Test
-    public void removeObjects() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void removeObjects() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         List<DeleteObject> objects = new LinkedList<>();
         objects.add(new DeleteObject("my-object1"));
         objects.add(new DeleteObject("my-object2"));

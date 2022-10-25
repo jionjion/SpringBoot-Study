@@ -14,12 +14,12 @@ import org.junit.jupiter.api.Test;
  * @author Jion
  */
 @Slf4j
-public class ListObjectsArgsTest {
+class ListObjectsArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -28,7 +28,7 @@ public class ListObjectsArgsTest {
     }
 
     @Test
-    public void listObjects1() {
+    void listObjects1() {
         // 列出
         Iterable<Result<Item>> results = minioClient.listObjects(
                 ListObjectsArgs.builder().bucket("cache").build());
@@ -36,7 +36,7 @@ public class ListObjectsArgsTest {
     }
 
     @Test
-    public void listObjects2() {
+    void listObjects2() {
         // 递归列出
         Iterable<Result<Item>> results = minioClient.listObjects(
                 ListObjectsArgs.builder().bucket("cache").recursive(true).build());
@@ -44,7 +44,7 @@ public class ListObjectsArgsTest {
     }
 
     @Test
-    public void listObjects3() {
+    void listObjects3() {
         // 最大 100个, 前缀为j 后缀 .gif
         Iterable<Result<Item>> results = minioClient.listObjects(
                 ListObjectsArgs.builder()
@@ -57,7 +57,7 @@ public class ListObjectsArgsTest {
     }
 
     @Test
-    public void listObjects4() {
+    void listObjects4() {
         // 最大 100个, 前缀为j 后缀 .gif .携带版本信息
         Iterable<Result<Item>> results = minioClient.listObjects(
                 ListObjectsArgs.builder()

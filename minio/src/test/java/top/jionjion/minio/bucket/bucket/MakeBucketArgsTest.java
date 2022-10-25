@@ -15,12 +15,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class MakeBucketArgsTest {
+class MakeBucketArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -29,7 +29,7 @@ public class MakeBucketArgsTest {
     }
 
     @Test
-    public void makeBucket1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void makeBucket1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 使用默认地区创建
         minioClient.makeBucket(
                 MakeBucketArgs.builder()
@@ -38,7 +38,7 @@ public class MakeBucketArgsTest {
     }
 
     @Test
-    public void makeBucket2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void makeBucket2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 指定区域
         minioClient.makeBucket(
                 MakeBucketArgs.builder()
@@ -48,7 +48,7 @@ public class MakeBucketArgsTest {
     }
 
     @Test
-    public void makeBucket3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void makeBucket3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 指定区域与启用对象锁
         minioClient.makeBucket(
                 MakeBucketArgs.builder()

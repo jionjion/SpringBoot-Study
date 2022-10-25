@@ -15,12 +15,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class SetBucketPolicyArgsTest {
+class SetBucketPolicyArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -30,7 +30,7 @@ public class SetBucketPolicyArgsTest {
     }
 
     @Test
-    public void setBucketPolicy() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setBucketPolicy() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 储存配置,必须为JSON串
         String policyJson = "" +
                 "{\n" +

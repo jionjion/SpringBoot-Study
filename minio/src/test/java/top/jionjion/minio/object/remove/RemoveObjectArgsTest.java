@@ -15,12 +15,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class RemoveObjectArgsTest {
+class RemoveObjectArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -29,14 +29,14 @@ public class RemoveObjectArgsTest {
     }
 
     @Test
-    public void removeObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void removeObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 删除对象
         minioClient.removeObject(
                 RemoveObjectArgs.builder().bucket("my-bucket").object("my-object").build());
     }
 
     @Test
-    public void removeObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void removeObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 删除对象, 指定版本
         minioClient.removeObject(
                 RemoveObjectArgs.builder()
@@ -47,7 +47,7 @@ public class RemoveObjectArgsTest {
     }
 
     @Test
-    public void removeObject3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void removeObject3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 删除对象, 指定版本, 绕过授权控制
         minioClient.removeObject(
                 RemoveObjectArgs.builder()

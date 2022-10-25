@@ -17,12 +17,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class DownloadObjectArgsTest {
+class DownloadObjectArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -32,7 +32,7 @@ public class DownloadObjectArgsTest {
 
 
     @Test
-    public void downloadObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void downloadObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 下载指定桶内的指定文件, 并下载到指定路径
         minioClient.downloadObject(
                 DownloadObjectArgs.builder()
@@ -45,7 +45,7 @@ public class DownloadObjectArgsTest {
 
 
     @Test
-    public void downloadObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void downloadObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 下载指定桶内的指定文件, 并下载到指定路径. 使用指定密码
         minioClient.downloadObject(
                 DownloadObjectArgs.builder()

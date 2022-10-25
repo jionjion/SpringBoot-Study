@@ -20,12 +20,12 @@ import java.util.Map;
  *
  * @author Jion
  */
-public class PutObjectArgsTest {
+class PutObjectArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -34,7 +34,7 @@ public class PutObjectArgsTest {
     }
 
     @Test
-    public void putObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void putObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 上传一个确切大小的输入流
         minioClient.putObject(
                 PutObjectArgs.builder().bucket("my-bucket").object("my-object").stream(
@@ -44,7 +44,7 @@ public class PutObjectArgsTest {
     }
 
     @Test
-    public void putObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void putObject2() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 上传一个未知大小的输入流
         minioClient.putObject(
                 PutObjectArgs.builder().bucket("my-bucket").object("my-object").stream(
@@ -55,7 +55,7 @@ public class PutObjectArgsTest {
     }
 
     @Test
-    public void putObject3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void putObject3() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 使用 ByteArrayInputStream 上传二进制文件, 并指定文件名
         minioClient.putObject(
                 PutObjectArgs.builder().bucket("my-bucket").object("path/to/fileName").stream(
@@ -64,7 +64,7 @@ public class PutObjectArgsTest {
     }
 
     @Test
-    public void putObject4() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void putObject4() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 上传带有元数据的数据, 并进行服务器端加密
         Map<String, String> headers = new HashMap<>();
         headers.put("X-Amz-Storage-Class", "REDUCED_REDUNDANCY");

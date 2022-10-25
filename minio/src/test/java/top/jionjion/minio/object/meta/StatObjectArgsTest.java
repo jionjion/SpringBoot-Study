@@ -20,12 +20,12 @@ import java.security.NoSuchAlgorithmException;
  * @author Jion
  */
 @Slf4j
-public class StatObjectArgsTest {
+class StatObjectArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         this.minioClient =
                 MinioClient.builder()
                         .endpoint("http://127.0.0.1:9000")
@@ -34,7 +34,7 @@ public class StatObjectArgsTest {
     }
 
     @Test
-    public void statObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void statObject1() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 获得对象信息
         StatObjectResponse objectResponse =
                 minioClient.statObject(
@@ -44,7 +44,7 @@ public class StatObjectArgsTest {
 
 
     @Test
-    public void statObject() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void statObject() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         // 获得对象信息, 指定版本和服务器加密
         StatObjectResponse objectResponse =
                 minioClient.statObject(

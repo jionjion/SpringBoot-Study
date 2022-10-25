@@ -20,12 +20,12 @@ import java.util.List;
  *
  * @author Jion
  */
-public class SetBucketNotificationArgsTest {
+class SetBucketNotificationArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -36,7 +36,7 @@ public class SetBucketNotificationArgsTest {
 
 
     @Test
-    public void setBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setBucketNotification() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         List<EventType> eventList = new LinkedList<>();
         eventList.add(EventType.OBJECT_CREATED_PUT);
         eventList.add(EventType.OBJECT_CREATED_COPY);

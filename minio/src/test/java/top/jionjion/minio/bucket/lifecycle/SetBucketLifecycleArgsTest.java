@@ -18,12 +18,12 @@ import java.util.List;
  * SetBucketLifecycleArgs 配置设置存储桶的生命周期
  * @author Jion
  */
-public class SetBucketLifecycleArgsTest {
+class SetBucketLifecycleArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -33,7 +33,7 @@ public class SetBucketLifecycleArgsTest {
     }
 
     @Test
-    public void setBucketLifecycle() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setBucketLifecycle() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
 
         List<LifecycleRule> rules = new LinkedList<>();
         rules.add(

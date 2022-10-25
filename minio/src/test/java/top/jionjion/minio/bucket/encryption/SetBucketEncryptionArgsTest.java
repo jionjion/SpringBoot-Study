@@ -15,12 +15,12 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Jion
  */
-public class SetBucketEncryptionArgsTest {
+class SetBucketEncryptionArgsTest {
 
     private MinioClient minioClient;
 
     @BeforeEach
-    public void init() {
+    void init() {
         // 创建连接
         this.minioClient =
                 MinioClient.builder()
@@ -30,7 +30,7 @@ public class SetBucketEncryptionArgsTest {
     }
 
     @Test
-    public void setBucketEncryption() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    void setBucketEncryption() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient.setBucketEncryption(
                 SetBucketEncryptionArgs.builder().bucket("cache").config(null).build());
 
