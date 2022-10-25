@@ -4,7 +4,7 @@
 
 
 # util-starter 场景启动器
-mvn -B package -DskipTests -s ./.github/settings/settings.xml --file util-starter/pom.xml
+mvn -B install -DskipTests -s ./.github/settings/settings.xml --file util-starter/pom.xml
 
 mvn -B package -DskipTests -s ./.github/settings/settings.xml --file caching/pom.xml
 
