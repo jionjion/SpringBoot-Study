@@ -12,7 +12,7 @@ class PastOrPresentOrPresentValidationTest extends ValidationBaseTest {
 
     @Test
     @SuppressWarnings("MagicConstant")
-    public void test() {
+    void test() {
         PastOrPresentValidation obj = new PastOrPresentValidation();
         // java.util.Date 日期 + 时间 + 时区
         obj.dateMustPastOrPresent = new Date(System.currentTimeMillis() + 10000);

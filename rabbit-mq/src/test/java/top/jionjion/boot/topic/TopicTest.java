@@ -10,14 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class TopicTest {
+class TopicTest {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
     /** 发送消息 */
     @Test
-    public void sendMessage() {
+    void sendMessage() {
         rabbitTemplate.convertAndSend("topic", "user.login", "这是路由规则 .. user.login");
         rabbitTemplate.convertAndSend("topic", "user.logout", "这是路由规则 .. user.logout");
         rabbitTemplate.convertAndSend("topic", "user.info.all", "这是路由规则 .. user.info.all");

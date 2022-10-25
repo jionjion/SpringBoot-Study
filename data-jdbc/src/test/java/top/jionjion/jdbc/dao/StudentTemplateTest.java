@@ -3,7 +3,7 @@ package top.jionjion.jdbc.dao;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import top.jionjion.jdbc.DataJdbcApplicationTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import top.jionjion.jdbc.bean.Student;
 
 import java.time.LocalDate;
@@ -13,7 +13,8 @@ import java.util.List;
  * @author Jion
  */
 @Slf4j
-class StudentTemplateTest extends DataJdbcApplicationTest {
+@SpringBootTest
+class StudentTemplateTest{
 
     @Autowired
     StudentTemplate studentTemplate;

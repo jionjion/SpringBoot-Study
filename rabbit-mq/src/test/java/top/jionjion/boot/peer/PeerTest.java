@@ -10,14 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author Jion
  */
 @SpringBootTest
-public class PeerTest {
+class PeerTest {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
     /** 发送消息 */
     @Test
-    public void sendMessage(){
+    void sendMessage(){
         // 将对象转为底层的字节. 队列名, 内容对象
         rabbitTemplate.convertAndSend("hello", "hello rabbit-mq");
     }

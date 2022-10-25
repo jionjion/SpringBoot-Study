@@ -12,7 +12,7 @@ import top.jionjion.validation.ValidationBaseTest;
 class NotContainSpaceValidationTest extends ValidationBaseTest {
 
     @Test
-    public void test() {
+    void test() {
         NotContainSpaceValidation obj = new NotContainSpaceValidation();
         obj.name = "A B C";
 
